@@ -6,8 +6,8 @@ import pandas as pd
 #set Stack Overflow parameters
 SITE = StackAPI('stackoverflow')
 SITE.page_size= 100
-SITE.max_pages = 500
-post = SITE.fetch('posts',fromdate=datetime(2019,1,1), todate=datetime(2019,10,1))
+SITE.max_pages = 300
+post = SITE.fetch('questions',fromdate=datetime(2019,1,1), todate=datetime(2019,10,1))
 
 #getting data from Stack Overflow
 data = post['items']
@@ -64,7 +64,7 @@ print(len(post_dict['last_edit_date']))
     
 final_data = pd.DataFrame(post_dict)
 
-final_data.to_csv("Post_data.csv")
+final_data.to_csv("Post_data_new_biggerdataset.csv")
     
 
 
