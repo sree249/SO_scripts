@@ -1,0 +1,479 @@
+,Id,Url,Title,Selftext,num_comments,score
+0,b1uo8f,https://www.reddit.com/r/academia/comments/b1uo8f/young_researcher_need_some_advice/,Young Researcher : Need Some Advice.,"Research has been something that I was instantly drawn towards. I did however hate the courses in my college and I didn’t score so well. I was a naive kid back in the beginning of my undergraduate and didn’t think grades was of much relevance (I do realise how that’s quite the opposite). In my college system you can’t choose the courses you want to take, you can’t drop or retake the courses either (it’s mainly because of the lack of faculty)
+
+I am in my third year of a four year undergraduate and want to really have a career in research but I find it extremely difficult as even while searching for research internship they are highly grade oriented. I do have two published paper and around three internships but I am not sure if that would help.
+
+I would really appreciate any advice regarding what I can do currently to improve my profile.  Also how much weight will my undergraduate scores have in the future?
+
+&amp;#x200B;
+
+Edit: I am from India and my grades are 7.6/10 currently with two semesters to go. ",9,5
+1,b1vs4t,https://www.reddit.com/r/academia/comments/b1vs4t/is_research_really_worth_it/,Is Research Really Worth it?,"I am currently doing an undergraduate. I love research and wouldn't want to do anything else even if given a chance. I have come across several post, blogs and rants about how there are no incentives in research. I do understand that there are problems with funding and it's not really an easy job.
+
+&amp;#x200B;
+
+Given that most of the people take loans for their undergrad and grad education, does it provide enough incentive to pay the loans back (please forgive me for my ignorance, I just came across this recently and wanted to ask these things)
+
+&amp;#x200B;
+
+Also, considering that I wouldn't really be happy doing other jobs, what do you think would be an ideal path for a researcher?
+
+&amp;#x200B;
+
+Edit: I guess specifically about research in sciences. ",24,7
+2,axbdq8,https://gizmodo.com/the-fake-sex-doctor-who-conned-the-media-into-publicizi-1832711205,The Fake Sex Doctor Who Conned the Media Into Publicizing His Bizarre Research,,4,25
+3,awdwus,https://www.reddit.com/r/academia/comments/awdwus/nscad_university_faculty_strike_for_higher_wages/,"NSCAD University faculty strike for higher wages, decreased workload","Here's the link. Same title from The Star Halifax
+
+[https://www.thestar.com/halifax/2019/03/01/nscad-university-faculty-strike-for-higher-wages-decreased-workload.html](https://www.thestar.com/halifax/2019/03/01/nscad-university-faculty-strike-for-higher-wages-decreased-workload.html)
+
+Here is the Faculty Union website for even more information
+
+[http://www.funscad.ca/?page\_id=275](http://www.funscad.ca/?page_id=275)",0,20
+4,awbxd2,https://www.nytimes.com/2019/03/01/us/university-missouri-cequa-lawsuit.html,"Former Missouri Pharmacy Professor Ashim Mitra Stole Student’s Research to Sell New Drug, Lawsuit Alleges. India-Based Sun Pharmaceutical Industries is also Named in the Lawsuit.",,2,20
+5,azqw14,https://www.reddit.com/r/academia/comments/azqw14/how_much_teaching_experience_is_ideal_when/,How much teaching experience is ideal when applying to a tenure-track faculty position?,"I am a senior graduate student, applying to tenure-track positions this upcoming fall. The dream is to work in a public health, social science, and/or interdisciplinary department at a small liberal arts college or balanced university.
+
+I’ve TA’d throughout my time in grad school and have been instructor of record for one class. I also facilitated (basically taught) a course as an undergrad. I hope to get one to two more experiences as instructor of record under my belt, including one in which I can develop the course topic.
+
+My advisor (the chair of the dept and an expert in our field) has expressed that getting more teaching experience is overkill. In her view, one course is enough to establish I can teach - and I do have strong evals from the handful of students I’ve taught. I could be using that time to publish instead - and I do want to get more pubs in the pipeline.
+
+I’m curious to know what the community thinks. I realize that answers will likely depend on the schools to which I apply - but any insight helps.",13,7
+6,azw2y6,https://www.reddit.com/r/academia/comments/azw2y6/research_internship_at_oxford_worth_it_or_not/,"Research internship at Oxford, worth it or not?","I have recently had a video call with a professor from Oxford about a research project for my masters. Her project sounds very interesting to me, I honestly can't think of a topic I'd rather work on. However, the faculty demands a contribution of 5000 pounds from external students. I believe there are several reasons for this:   
+\- She told me her department is very full and I can imagine that there needs to be a barrier from research groups taking on internship students, which are basically a free pair of hands from their perspective. 
+
+\- Tuition at Oxford is 9200 pounds a year, so this fee (for approximately half a year of research) more or less equates to tuition costs. 
+
+\- Oxford is a highly prestigious university and they can practically charge whatever they want.
+
+&amp;#x200B;
+
+I would be delighted to participate in this topic and the avant garde experiments they are working on. However, 5000 pounds is a very significant amount of money for me. Also, it feels a little wrong to pay so much for the free labour I shall be providing them. 
+
+Now, my question is whether it would be worth it. Besides the great experience of doing research there, Oxford is a big name to have on my CV, and great for developing my network. What do you think? ",22,9
+7,azwcsy,https://www.reddit.com/r/academia/comments/azwcsy/proofreading_sucks_try_prooflistening_instead/,"Proofreading sucks, try proof-listening instead.","I've just finished writing up my Physics PhD thesis and as part of the process, I had to proofread my work time and time again. I'm pretty bad at proofreading and kept missing stuff like ""brunch charge"" or ""high energy bream"" buried in the piles of text. I'd been using [Grammarly](https://app.grammarly.com/) and the like but things would still slip through the cracks.
+
+To help, I wrote a little Python function that uses Google's [cloud text-to-speech engine](https://cloud.google.com/text-to-speech/) to turn the [.tex](https://www.latex-project.org/) files into audio clips. You can find more details [here](https://michaeledjones.tumblr.com/post/183380727169/proof-listening) or you can go straight to [GitHub](https://github.com/mikeedjones/prooflisten) and check it out for yourself.
+
+When said out loud, the typos and errors stuck out like sore thumbs and oddly worded or overly long sentences were much easier to spot. I also found the audio produced by Google's text-to-speech engine much clearer and easier to listen to than the options available locally on OSX. I can't recommend it highly enough.
+
+If you're going to use this, remember that the cloud voices are free for 1 million characters a month, and $16 for every million characters beyond that. That's pretty pricey, so use it sparingly! You can use cheaper voices if you want, but they're not as listenable.",7,39
+8,azynpu,https://www.reddit.com/r/academia/comments/azynpu/sex_grindr_and_prep_survey_men_who_have_sex_with/,"Sex, Grindr, and PrEP Survey (men who have sex with men 18+) ONLY 5 MIN!","Please participate in my dissertation study designed to better understand sex practices and use of pre-exposure prophylaxis (PrEP) of men who have sex with men. To be eligible to participate in the study, you must be 18 years or older and a male who has sex with men. The survey is completely anonymous and will take approximately 5 to 10 minutes to complete. If you would like to participate in the study, please click the link below. 
+
+http://uofmississippi.qualtrics.com/jfe/form/SV_3xg7koegbvCT7BH
+
+Thank you for your interest and participation! 
+",2,0
+9,awuiru,https://www.reddit.com/r/academia/comments/awuiru/undergraduate_question_using_marx_weber_and/,"Undergraduate question: Using Marx, Weber and Durkheim’s Ideas, analyze​ the London riots of 2011.",[deleted],3,1
+10,b1due7,https://www.reddit.com/r/academia/comments/b1due7/hiring_early_stage_researcher_mf_for_onorbit/,"[Hiring] Early Stage Researcher (m/f) for ""On-Orbit Servicing with Robotic Manipulators” project of the Stardust Reloaded European Training Network at DFKI Robotics Innovation Center in Bremen, Germany","**Application deadline:** ~~31 March 2019~~ 15 April 2019 - **Extended Deadline!**
+
+**Starting date:** 1 October 2019
+
+**Duration:** 3 years
+
+**Gross yearly salary:** € 44,000 - 50,400
+
+[DFKI Robotics Innovation Center](https://robotik.dfki-bremen.de/en/research/projects/stardust-reloaded.html) in Bremen, Germany is hiring one [Early Stage Researcher (ESR10)](https://robotik.dfki-bremen.de/en/about-us/career/detailview/entry/early-stage-research.html) for its “[On-Orbit Servicing with Robotic Manipulators](https://robotik.dfki-bremen.de/en/research/projects/stardust-reloaded.html)” project part of the the [Stardust Reloaded (Stardust-R)](http://www.stardust-network.eu/) European research project funded by the [Marie Sklodowska-Curie Actions (MSCA)](https://ec.europa.eu/programmes/horizon2020/en/h2020-section/marie-sklodowska-curie-actions) [Innovative Training Networks (ITN)](https://ec.europa.eu/research/mariecurieactions/actions/research-networks_en) action of the European Union Horizon 2020 (H2020) program.
+
+The candidate will work full-time in the field of space robotics towards the goal of developing and experimentally testing control algorithms for an autonomous free-floating manipulator system to capture and manipulate both non-cooperative and cooperative targets. The duration of employment is 3 years and during that time the candidate will be offered the possibility to be enrolled in the Ph.D. programme at the [University of Bremen](https://www.uni-bremen.de/en.html) under the supervision of [Prof. Dr. Dr. h.c. Frank Kirchner](https://robotik.dfki-bremen.de/en/about-us/staff/frki01.html). Moreover, the ESR is expected to perform a 6 months secondment at the [Automation &amp; Robotics group of ESA-ESTEC](https://www.esa.int/Our_Activities/Space_Engineering_Technology/Automation_and_Robotics/Automation_Robotics), under the supervision of the head of the group, Mr. Gianfranco Visentin.
+
+**Your tasks:**
+
+* Development of on-orbit servicing and active debris removal disposal solutions
+* Development of a real-time control system for a free-floating space manipulator to ensure the execution of a reference trajectory despite disturbances and parameters uncertainty
+* Development of control strategies to deal with contact interactions in microgravity and their evaluation using an underwater vehicle
+* Test final concepts on the flat-floor of the orbital robotics lab of [ESA-ESTEC](https://www.esa.int/About_Us/ESTEC)
+* Participate in training events and meetings within the network and at international conferences/workshops outside the network
+* Participate in outreach activities of the network such public seminars, workshops, journal clubs, etc.
+* Disseminate scientific results through a book chapter, a wiki page, papers, articles, etc.
+
+**MSCA eligibility criterion:**
+
+The candidate should, at the date of recruitment, be **in the first 4 years** of his/her **research career** and **not have a doctoral degree**. Moreover, the candidate should **not have resided in Germany for more than 12 months in the 3 years** immediately before the recruitment date (and not have carried out their main activity (work, studies, etc.) in it) - unless as part of a procedure for obtaining refugee status under the Geneva Convention.
+
+**Your qualifications:**
+
+* Master’s degree (or comparable academic degree) in Engineering, Physics, Mathematics or a related field (*earned at the latest at the date of recruitment*)
+* Thorough background in multi-body kinematics and dynamics
+* Very strong C/C++/Python programming skills
+* Strong background in robot modelling, planning and control
+* Experience with a robotics middleware such as ROCK, ROS, etc.
+* Experience in real time operating systems and Hardware-in-the-Loop systems
+* Familiarity with orbital robotics and/or underwater robots
+* Experience in international collaboration across industrial and scientific communities
+
+Excellent spoken and written command of English is required, basic German language skills are a plus. We are looking forward for a talented and highly motivated candidate. He/she should have an independent and well-structured working style, but has to be able to work in teams as well.
+
+DFKI is an equal opportunity employer. Women are especially encouraged to apply. Handicapped applicants with equal qualification will be given preferential treatment.
+
+If you are interested in this position please consult the following web page: [https://robotik.dfki-bremen.de/en/about-us/career/detailview/entry/early-stage-research.html](https://robotik.dfki-bremen.de/en/about-us/career/detailview/entry/early-stage-research.html)",6,4
+11,b1iao2,https://www.reddit.com/r/academia/comments/b1iao2/ma_oral_defenserant/,MA Oral Defense-Rant,"WARNING: This is a bit of a rant...
+
+&amp;#x200B;
+
+I've just gotten my notes from my examiners for my MA thesis in the humanities and am overall happy with their feedback. They were complimentary but were sure to point out some issues in terms of argument, primarily in one chapter. I wasn't put off by their notes but considered their engagement with my thesis  a good sign. I mean, their criticisms (to me) did not seem overly harsh. In fact, they mentioned that the thesis was thought-provoking and engaging before bringing up some shortcomings.
+
+&amp;#x200B;
+
+But today I met with my supervisor who ultimately said that ""I may not pass"" unless I write an ""amazing and nuanced"" opening remark. This person asked me to send them what I'm writing for my opening remarks (10 pages) and basically just made me feel like my thesis isn't good enough to pass. 
+
+&amp;#x200B;
+
+This person also knows that I have a job lined up as a writer following the defense and even made a comment that I need to ""be a good writer,"" if not only for the defense but for my future job... even asking ""how *did* you get this job?"" 
+
+&amp;#x200B;
+
+I suppose I am just hoping for some clarity. Is the MA defense really this grueling? I had always understood the defense as a sort of conversation about the project. Of course, I will prepare for the defense... but it seems to me that for some reason my supervisor just doesn't believe in my project or my academic abilities... even going so far to question what's next in my career...
+
+&amp;#x200B;
+
+Thoughts reddit folks?
+
+&amp;#x200B;",9,12
+12,b7qbsq,https://amherststudent.com/article/a-flawed-system-the-burden-of-service-among-faculty-of-color?fbclid=IwAR1IXD2VQw0dmSyR1P2t0WoDZHlypAhgstGHEvSfQHVfj2pS85FeoRhTDSY,A Flawed System: The Burden of Service Among Faculty of Color,,11,24
+13,ayxvjl,https://www.reddit.com/r/academia/comments/ayxvjl/first_time_presenting/,First Time Presenting,"So this coming weekend I am presenting at a regional conference for Phi Alpha Theta (history honor society) and it’s just a stand up presentation, no power point or anything like that. I have presented before but I at least had a poster presentation to use and I am really stressed about this because this is a bigger conference, not just my peers. Any advice? ",1,3
+14,ayzkip,https://www.reddit.com/r/academia/comments/ayzkip/foreign_education_chances_of_being_hired_in_the_us/,Foreign education &amp; chances of being hired in the U.S.?,"As a former University of Houston student currently still living in Houston, my newlywed wife and I are interested in her obtaining employment at the university. I'm somewhat familiar with American academia, but she's in a unique situation in that she is a Mexican national, and has obtained her entire education in Mexico:
+
+* Autonomous University of Queretaro - Bachelor of Administration with a concentration in Business Management (I believe this is equivalent to a BBA)
+* Autonomous University of Queretaro - Master in Administration with a major in Marketing, cum laude (I believe this is equivalent to an MBA)
+* Puebla State Popular Autonomous University - (currently a doctoral candidate working on dissertation)
+
+Before she left Mexico, she was able to obtain a position as an adjunct professor at Monterrey Tech, which is actually accredited by the Southern Association of Colleges and Schools (SACS). For those who didn't know, that is one of the major accrediting agencies in the U.S., and the same one that accredits UH.
+
+My question is if there is anyone around here who knows how ""qualified"" this makes her for getting hired for a position at UH, or if there is any other advice that you have for us. For example, is she better off looking for a teaching position with HCC or another community college first?
+
+**TL;DR My wife is from Mexico. Do her foreign degrees qualify her for consideration as a prof at a university like University of Houston?**",6,3
+15,az1z44,https://www.reddit.com/r/academia/comments/az1z44/i_can_only_see_myself_in_academic_philosophy/,I can only see myself in academic philosophy. Should I go for it?,"I know going into academic philosophy is really unlucrative and risky, but I REALLY want to do philosophy. I somehow can only imagine myself in a professorship and like to work on my own intellectual works for a living. Also anyone here studying/studied philosophy in germany and can tell me something about how hard the whole thing is and what advice do you have? ",5,13
+16,az6mdg,https://www.reddit.com/r/academia/comments/az6mdg/correspondance_to_publication_commentary/,Correspondance to Publication Commentary,"8 Months after publishing a study, a response was written and published in another journal without correspondence with primary author (myself) or any co-authors. Response to study was in support of everything we found, however, I wondered-- is this customary? Don't responding authors usually coordinate with original authors when they are publishing a response? 
+
+Would it be abnormal to email responding author? 
+
+&amp;#x200B;
+
+\--new to academia and this is the first time this has happened to me or my mentors",1,5
+17,az25yc,https://www.classifiedads.com/office_services/fw150q7x419zb,Buy One &amp; Get One Free Academic Writing Help Service - Classified Ad,,0,1
+18,az894i,https://mchankins.wordpress.com/2013/04/21/still-not-significant-2/,"Still Not Significant: A list of phrases in which researchers failed to achieve threshold value for p and described it in such a way as to make it seem more interesting, such as, ""arguably significant"", ""hint of significance"", and ""narrowly eluded statistical significance""",,6,24
+19,b0vje0,https://www.reddit.com/r/academia/comments/b0vje0/how_can_i_republish_in_an_openacces_journal/,How can I republish in an open-acces journal?," 
+
+I  published my research in a journal by Elsevier. Is their a way for me  to publish it again in an open-access journal without much work? (And  would it be unethical to do so?)",12,1
+20,b111ee,https://www.reddit.com/r/academia/comments/b111ee/new_form_of_academic_publishing/,New Form of Academic Publishing,"Hi All, as part of a university project myself and two teammates have developed a business idea that returns the ownership rights of publications back to their producers. The aim of this project is to attempt to disrupt the academic publishing industry while simultaneously harnessing the power of the blockchain. Let me know what you think! All feedback is appreciated!
+
+[Lit Ledger](https://youtu.be/TTD9I-JTm6s)
+
+&amp;#x200B;",4,0
+21,b14tyv,https://www.reddit.com/r/academia/comments/b14tyv/have_you_ever_tried_to_make_money_off_your/,Have you ever tried to make money off your research?,"I work for an agency in Indianapolis. I am currently doing research for a client focused on learning more about incubators on university campuses. We have started interviewing faculty members, graduate students and research advisors and have developed a few early theories on some themes we are hearing.   
+There seems to be a lack of interest and incentives to commercialize academic research. A few themes we have heard include: 
+
+* “Stay in your lane” attitude: social shame, lack confidence or approval 
+* Bound legally with the university
+* Fear your idea will not be protected, lack of education of how IP actually works 
+* Lack the “skills and personality” to get into business 
+   * Conventional business interactions are not catered to academics 
+* High failure rate (90%) why even try?
+
+Would appreciate learning more from your perspective. Thank you for your help in advance!",11,9
+22,b3l179,https://www.reddit.com/r/academia/comments/b3l179/ideas_for_a_gift_for_mentoradvisor/,Ideas for a gift for mentor/advisor?,I’m wondering if there is any type of tradition surrounding gifting something to a mentor/advisor when one graduates with a PhD. I know that there are Stoles of Gratitude. Do you think that a Stole of Gratitude would be appreciated and a sufficient way to thank a mentor? Thanks. ,12,9
+23,b3w17e,https://www.reddit.com/r/academia/comments/b3w17e/visiting_researcher_cornell/,Visiting Researcher - Cornell,"Evening all,
+
+&amp;#x200B;
+
+I'm planning a research visit in May to the wonderful Cornell (from the UK) for three weeks of fun with the Wyndham Lewis collections there. I'm on quite a tight deadline with funding and whatnot, and might only find out a week or two before I intend to travel that everything is going ahead...
+
+&amp;#x200B;
+
+So I'm stumped with planning the damn thing. On previous research trips I've had my pick of hotels and AirBnB hosts (the latter being preferable) which will fit under the £70 (\~$90)/night budget - but in Ithaca I'm drawing a blank. Has anyone visited, or know anyone who has, who might know what researchers 'usually do' in this sense? At UK universities we have parts of university accommodation available to visiting scholars for conferences and whatnot, but I'm struggling to find similar?
+
+&amp;#x200B;
+
+I just want to go and look at all the old letters. Please help!?
+
+&amp;#x200B;
+
+J",4,2
+24,b3o0jg,https://papersplanetuk.blogspot.com/2019/03/write-your-way-out_18.html,Write your Way Out!,,0,1
+25,axm0ra,https://www.reddit.com/r/academia/comments/axm0ra/i_created_a_sub_for_the_more_curmudgeonly_profs/,I Created a Sub for the More Curmudgeonly Profs,"For anyone who wants to blow off steam, complain about the damn kids today, or just in general be an old-school curmudgeon:
+
+/r/profs
+
+(Yes, I recognize the irony in having a ""safe space"" for complaining about snowflakes.)",21,0
+26,ay96np,https://www.reddit.com/r/academia/comments/ay96np/you_as_an_on_political_scientist_what_is_the/,You as an on political scientist - what is the general consensus among you and your colleagues regarding political scientists? Our style ? Our personality? Our politics? Our annoying voices? What do you think of us folks,,12,3
+27,aydf0g,https://www.reddit.com/r/academia/comments/aydf0g/how_long_would_you_wait_after_a_faculty_interview/,How long would you wait after a faculty interview to ask about the outcome?,,16,9
+28,b2khzd,https://www.reddit.com/r/academia/comments/b2khzd/i_won_one_of_the_most_prestigious_academic_awards/,I won one of the most prestigious academic awards in the country. My academic advisor will not acknowledge it.,"The title says it all. 
+
+This advisor was someone I was stuck with early on in my PhD career, and has been nothing but discouraging. He has said probably 3-5 times that “the PhD isn’t for everyone” and “You should really just consider leaving and finding another profession” despite the fact that my grades are good, I passed all my comps with high passes, and have excellent teaching evaluations and am respected by my peers. I’ve won multiple grants for my research as well. 
+
+From speaking to my peers this is something he has done to them as well. (Though, without getting into conspiracy theories, he seems to disproportionately do this to female PhD candidates.) The point is, he seems like a miserable and unsupportive person. 
+
+I recently received a VERY large grant that is one of the most recognizable (name-wise) and competitive grants in the country. I’m really excited and I sent a short, professional email to my advisor to inform him. I also informed the associate head of the program, who didn’t realize I’d already emailed him, and cc’d him on my congratulations. 
+
+He is not acknowledging it in any way. Like, I’ve seen him in person, he’s sent emails unrelated to this, etc. The program I’m in is small and I don’t know of anyone besides me in YEARS who has won a grant like this. People in our college system (junior colleges) have won, but no one from our program. I don’t usually like to brag but this is definitely a big deal. 
+
+Should I continue to ignore it, or say something like “Not sure if you’d heard of...” or send a follow up email? The thing is, he is the administrative and academic head of my program, so his support and willingness to promote this would be really helpful. I can go down other venues if needed but I also admit there’s a part of me that’s hurt that after years of working together (despite it not being the most pleasant experience on my end) he can’t acknowledge this huge honor. ",16,33
+29,b2n5fx,https://www.reddit.com/r/academia/comments/b2n5fx/im_writing_an_undergrad_thesis_and_i_just_found_a/,"I'm writing an undergrad thesis and I just found a paper that deals with my exact topic.. is it okay to base a lot of my work around it? (Non-STEM, Law)"," 
+
+So   after doing readings I found a paper online (by a solid academic) that   deals extensively with my topic and even proposes an alternative   solution. I'm amazed I found something so fitting but how far can I go   in using this paper?
+
+Right  now i'm  studying it heavily and am going through it's bibliography and  adding  points here and there, but is it okay to model my thesis around this  paper? How could I cite it appropriately without being unoriginal? I think my biggest concern is that i'm not doing anything 'original' in   my undergrad thesis and am instead doing an academic retelling of current literature...",1,3
+30,b2oac5,https://www.reddit.com/r/academia/comments/b2oac5/what_citation_style_includes_the_title_of_the/,"What citation style includes ""the title of the article"" spelled out as part of in-text citation?","As an instructor teaching/grading student papers that are supposed to be using APA style, every so often I run into a submission where the student writes the entire name of the article as part of in-text citation. It will look something like
+
+""In an article entitled '*Why Salt May Be Bad For Your Health',* George Smith of Harvard University wrote about salt in our food.""
+
+APA style, of course, does not have you include the title (nor the author's institution). Neither does MLA, which is the style most of my students are already familiar with. So where does this writing out of the whole title come from? Or are the students just making it up out of the blue?
+
+Thanks for any help in solving this mystery!
+
+&amp;#x200B;",10,4
+31,b5l2xj,https://www.reddit.com/r/academia/comments/b5l2xj/adding_authors_to_articles/,Adding authors to articles,"Hi all, I could use some guidance on what qualifies someone as an author of an article. I am submitting my first article to a journal soon that summarizes my masters thesis work. I sent it to my adviser earlier this week for his first review, and he sent it back with comments and added 4 other guys names to the article, 2 of whom I never spoke to once during my whole thesis work and the other 2 who provided tiny bits of guidance here and there. He never told me he was planning to do this until just this week. Frankly, I am surprised that he would suggest they all be added as authors when I did essentially all of the work. There is one guy on there that I can kind of understand, as he was helpful in teaching me how to code my data analyses. I have no problems with these four guys in any way, but I feel like this is fraudulent and am not comfortable with it. After getting to know my adviser, I don’t trust him to begin with so I don’t know if I am being too skeptical, but I know people who have contributed so much more to research projects and never had their name on those articles. I know it is common to see a lot of authors names on one paper, but is it right when one person does 99% of the work and some literally did nothing? Is this yet another case of men taking credit for a woman’s work, or is it acceptable to give people credit for work they had no part in?
+
+Also, instead of fighting him on it (with his hot temper it will lead me no where) I suggested we add our female colleagues name because she provided more assistance than the other guys whose name he added. Normally I would not suggest adding her name for the level of work she did, but if he set the standard of how much work is required to have a name on this article, I’m going to fight for her right to be included. I think he overlooked her because she is another woman.
+
+Is this fraudulent? I feel awful for lying to a prestigious journal about my work!",11,9
+32,b6blii,https://www.reddit.com/r/academia/comments/b6blii/changing_your_name/,Changing your name?,"Hi all, 
+
+I'm really curious about others thoughts on name changes. I know that there were some threads in the past about this, but they've been archived and didn't have a ton of posts. 
+
+I'm interested in how you perceive or your experiences changing your surname post-PhD? If you did change your name, did you keep the original surname as part of the full name, i.e. Mary Smith Jones?
+
+In my field (Political Science) there are several well-respected female scholars that have at least 1 publication under their maiden name. Still, most seem to have married in grad school, because their name has been the same for most (if not all) of their career). I know others say it's best to always publish under the same name. I have even read stories about male faculty members who perceive female colleagues who change their names as less committed, but I've never heard these kinds of comments from people I know personally. 
+
+Perhaps I'm overthinking the whole thing, but I thought it could be interesting to hear outside opinions. 
+
+&amp;#x200B;",9,14
+33,b65y5a,https://www.universityofcalifornia.edu/press-room/university-california-responds-executive-order-free-speech,"University of California responds to executive order on campus free speech: ""We do not need the federal government to mandate what already exists: our longstanding, unequivocal support for freedom of expression... This executive order will only muddle policies surrounding free speech.""",,5,29
+34,azc45e,https://www.reddit.com/r/academia/comments/azc45e/women_what_do_you_carry_your_laptopitems_in_is_it/,"Women, what do you carry your laptop/items in? Is it different when going to work vs to a conference?","Title really says it all. Currently I'm a graduate student (in chemistry). I still bring my backpack to and from work every day, but all I really use is my laptop and maybe a notebook. I'm starting to think some sort of laptop messenger bag might be better, but I can't find any I like.
+
+I'm also going to a conference at the end of the month and don't know what to do. I don't really want to carry a backpack everywhere, but I don't know how else to bring my laptop on the days when I'm presenting.
+
+I'm just curious overall what options women go for. It seems there are lots of oversized handbags/totes that one can by, but that would be uncomfortable... And then there are also just standard laptop messenger bags that are not particularly pretty. ",33,27
+35,azf9j1,https://www.reddit.com/r/academia/comments/azf9j1/empty_review_for_a_masters_thesis/,'Empty Review' for a Masters Thesis?,"Hi, I'm currently going through a MRes in Exercise Science in the UK. My question is, is is acceptable to submit an 'Empty Review' (i.e. a systematic review with 0 articles) at Masters level?
+
+1. I initially wanted to do an RCT, but the university did not have enough equipment.
+2. I then tried to do a single-case intervention, of which the athlete needed started ghosting me when it came to data collection/intervention.
+3. So I've had to settle on a systematic review.
+4. After doing in/exclusion write-up ect. I found 0 RCT's, so opened my inclusion criteria to simply any article that involves my research topic (Velocity-based training). Using 3 databases I found 68 articles, of which 0 are relevant. I'm currently in discussion with my thesis supervisor on this, but all opinions are welcome.
+
+Thanks.",6,1
+36,aysdun,https://www.reddit.com/r/academia/comments/aysdun/registered_dental_hygienist/,Registered Dental Hygienist,"Hey guys, I have been doing an associate in science at a local community college and have been thinking switching to dental hygienist a.a.s. is this a wise decision job-wise? Any advise.",2,0
+37,aykq2y,https://www.reddit.com/r/academia/comments/aykq2y/personal_statement/,Personal Statement,[deleted],1,1
+38,ayky2n,https://www.reddit.com/r/academia/comments/ayky2n/is_it_reasonable_to_send_some_results_to_other/,Is it reasonable to send some results to other academics in my field?,[deleted],7,2
+39,ayt1uv,https://www.reddit.com/r/academia/comments/ayt1uv/got_an_interview/,Got an interview!,[deleted],4,34
+40,aw1jwf,https://www.universityofcalifornia.edu/press-room/uc-terminates-subscriptions-worlds-largest-scientific-publisher-push-open-access-publicly,University of California terminates subscriptions with world’s largest scientific publisher in push for open access to publicly funded research,,5,45
+41,b3a94b,https://www.reddit.com/r/Professors/comments/b3a8yt/how_to_join_journal_editorial_boards/,How to join journal editorial boards?,,2,2
+42,b3czqu,https://www.chronicle.com/article/A-Prominent-Economist-s/245932,"A Prominent Economist’s Death Prompts Talk of Mental Health in the Professoriate; Alan B. Krueger, a titan in economics, died by suicide last weekend. Conversation ensued about mental illness in the professoriate and how professional success does not suppress personal struggles.",,1,27
+43,b3fvlg,https://www.latimes.com/local/lanow/la-me-college-admissions-scandal-parents-cooperation-20190319-story.html,College admissions scandal: Wealthy parents told to make deal or face more charges,,0,2
+44,b4x6w0,https://www.reddit.com/r/academia/comments/b4x6w0/do_graduate_schools_care_if_you_attended_three/,Do graduate schools care if you attended three different universities in your undergraduate?,"Not sure if this is the right sub-reddit for the question, but I plan to get a masters in English Lit or Philosophy after I finish my undergraduate. When applying to grad schools, does it look bad if I went to three different undergrad universities? My grades are almost all straight A’s and I joined some honor societies but not sure if they’ll count three different schools against me when applying.",2,6
+45,b4zrm6,https://www.reddit.com/r/academia/comments/b4zrm6/academic_life_in_europe_versus_the_us/,Academic life in Europe versus the US...,"Hello all,
+
+After having spent 3 years as an TT academic in the US (2 years in an R3, 1 year in an R1), I am contemplating going back to Europe. Having never worked in academia in Europe (specifically UK or Ireland), I am very curious about the differences that exist. If you have worked in both settings, I would love to hear what you see as the key differences? E.g work-life balance, research/teaching expectations, students, etc? 
+
+Thanks a lot for your perspective! 
+",11,21
+46,b4qsbj,https://i.redd.it/ocwwqlxsyyn21.jpg,My 2 greatest assets (For Now).,,2,3
+47,b4z0ld,https://m.facebook.com/events/514958225575437/,IWW UK Post-16 Education Emergency Summit,,0,2
+48,b0ijnu,https://www.reddit.com/r/academia/comments/b0ijnu/advice_for_someone_finishing_undergrad/,Advice for someone finishing undergrad?,"I'm graduating with a BASc in Philosophy and Psychology in the fall. The fall graduation is an artifact of some unfortunate circumstances, but I only have five courses left to complete. My CGPA is 3.23, and my GPA for the last few semesters (I was told many schools only look at your last twenty courses) is 3.55. It might go up to 3.6 with this last semester. It might not. 
+
+I know at least four professors who seem very willing to write me fairly strong letters of recommendation(in Philosophy, Psychology, and Media Studies), and who were very impressed by my performance in their classes. I have presented two papers at the local undergraduate conference. I am hoping to get a third one published with one of the aforementioned profs over the summer, if I can. I have also done 4 independent studies and an applied study, which should count as research experience (at least one of them was on a fairly underresearched topic, hence the possible paper), and have been a paid research assistant to two different profs, in two different fields (Spanish Film and Digital Humanities). I don't have a very strong math background in terms of advanced courses, but I am taking metalogic right now and I have tutored statistics, through the school's tutoring program, for three consecutive years. I have also learnt to use MATLAB and R over the course of my undergrad. I haven't taken the GREs yet. 
+
+I have already given up on a PhD, at least right now (I love academia, but I'm already a bit burnt out *now* in senior undergrad, so I would probably end up having a mental breakdown and moving to Tibet for a while. Plus there is the whole 3% success rate). Still, I would like to do a research-focused MA, hopefully doing something with game theory.
+
+I don't really care whether my MA is in Philosophy, Psychology, or Economics. I have even looked into Legal Studies and Library and Information Science as options. I think all of those have about the same likelihood of working out for me, it being entirely dependent on finding the right advisor with the right research interests, since whichever program I find would have to be fairly interdisciplinary regardless. 
+
+For now, my plan is to spend much of the summer contacting possible advisors, apply to places after graduating, and spend some of the interim working to pay off debt. I am internationally-focused, and so basically don't care about where in the planet a program is, so long as it is in a temperate zone and costs are minimal. So, mostly Europe, I guess, but hey if Argentina has an awesome program, I would love to go. I am academically competent in English and Spanish, passable in French, and I would be willing to learn another language for the purposes of doing the MA. 
+
+Do you have any advice regarding how to prioritize which programs to look at (I already have a slightly-too-large spreadsheet of possible programs), contacting supervisors, and figuring out what is ""within my reach"" so to speak? Are there any red flags in what I have said that I should know about? Any professors, fields, or schools that I might not have included in my search? 
+
+Thank you for your help. ",1,3
+49,b0gdkc,https://soundcloud.com/hmodpod/you-deserve-nothing,Osgoode Hall Professor Heidi Matthews Interviews Clif Mark On His Aeon Piece A belief in meritocracy is not only false: it’s bad for you - Talks about meritocracy and academic hiring #MeritocracyMyAss,,2,3
+50,b6f74h,https://projectsdeal.co.uk/essay-writing-service.aspx,No.1 Essay Writing Service For Guaranteed Grades - Projectsdeal.co.uk,,0,1
+51,b6iibu,https://www.wfsb.com/news/report-shows-third-ccsu-professor-violated-student-sexual-misconduct-policy/article_b1b04984-49dc-11e9-a762-a3dcbe86d392.html,Report shows third CCSU professor (Mihai Bailesteanu) violated student sexual misconduct policy,,0,5
+52,b6mbn8,https://www.reddit.com/r/academia/comments/b6mbn8/my_associates_at_academiaedu_send_a_message/,My associates at Academia.edu send a message,[removed],0,1
+53,b76cf9,https://www.reddit.com/r/academia/comments/b76cf9/no_reply_on_application_yet_should_i_reach_out/,"No reply on application yet, should I reach out?","Hi everyone, I applied to a PhD program for this upcoming fall in January. On January 4th I received a notification via email that my application was being reviewed and that occasionally the review process can happen quickly, but I should allow 6-8 weeks for the review. It's now been about 12 weeks and I have not heard anything. I logged on to the application portal and see that my application is still marked as ""under committee review."" Should I reach out to the college or just allow the process to take the time it takes? Is it normal for a review to take this long? I am finishing my second masters and cannot remember waiting this long for notification to either one. Any advice? Thanks",3,5
+54,b77pb0,https://www.reddit.com/r/academia/comments/b77pb0/social_life_thoughts_on_hanging_out_with_friends/,Social life: thoughts on hanging out with friends who don’t know/care about your niche research interest?,"This might seem like a dumb question, but am I the only one who finds it somewhat difficult to switch over to “normal” conversation after spending so much of my time and energy researching and studying things in my particular academic field? I definitely have other unrelated interests and extracurricular activities, but obviously my academic field is my priority/“full time job” as a graduate student. When I’m so immersed in my thesis topic I sometimes have a difficult time shifting out of that mindset in order to just relax and unwind with friends. Talking about my research is fine sometimes, but I definitely realize that not everyone will be interested, and that’s totally fine! Besides, I don’t want it to seem like my field/profession is the only thing I can talk about.
+
+All that to say... has anyone else ever felt this way? Do you have any advice on how to set your studies aside and just chill out with friends who may not be interested?  I’d love to hear what people have to say on this. ",9,15
+55,b7aprg,https://www.reddit.com/r/academia/comments/b7aprg/life_status_respected_and_revered_good_job_about/,"""Life status : respected and revered. Good job."" (about ""The Lab"")","Sooo, as every other faculty member of my university, I had to take an online training course on research misconducts, and...  
+It  turned out to be an awesome interactive movie, full of jokes,  interesting characters, some big decisions to make and everything, and  in the end... it seems that I won ;-)
+
+You get to play as ""the Grad student"", ""the Post Doc"", ""the PI"" or ""The Research Integrity Officer"". It's super well done.
+
+I  cannot think about any better way to have people involved in a  training seminar than through interactive movies. So playful, so nice.
+
+If you have time, check it out : ""The Lab"" ([https://lab.jst.go.jp/](https://lab.jst.go.jp/))  
+Available in English and Japanese, with subtitles.  
+If you're doing research or work in a university, give it a try.  
+Almost as good as Netflix, and it will help you in your everyday life.
+
+Best,
+
+Romain  
+
+
+P.S : Sorry for cross-posting, if you already saw that on r/phd ;-) ",2,25
+56,b7dcvt,https://www.reddit.com/r/academia/comments/b7dcvt/does_cambridge_and_oxford_hire_nonoxbridge/,Does Cambridge and Oxford hire non-Oxbridge graduates?,[deleted],4,1
+57,axy4a5,https://www.reddit.com/r/academia/comments/axy4a5/is_it_possible_to_be_a_teaching_prof_on_salary/,Is it possible to be a teaching prof on salary without going TT?,"4th year Grad student in biomedical science here. 
+
+I want to teach medical school. This isnt about getting to that position so I wont bore you with what I'm doing to get there. 
+
+When I graduate I want to be done. I want to get a job and do that job and get better at that job over time, but I'm tired of the ladder and the stress of getting to the next tier. 
+
+This is a huge part of why I dont want to stay in research, the other being I love teaching and I love anatomy and neuroanatomy. 
+
+Is it possible to take on a full time teaching faculty kind of position without tenure and without getting paid nothing? 
+
+Or do I just need to get comfy with being on the ladder forever? ",8,4
+58,axyb1j,https://www.reddit.com/r/academia/comments/axyb1j/should_i_apply_for_a_phd_position_without_being/,Should I apply for a PhD position without being 100% sure about the commitment?,"Hi,
+
+I recently came across a PhD position that addresses a topic that I'm very interested in. However, I have some doubts about it because:
+
+1.) The program approaches it from a more cultural/social way (it is interdisciplinary but tied to the cultural theory dept) when I would like to so something more technical. I'm not sure to what extent I can steer the research to be the way I want given that the home university doesn't have such a high expertise in that area. 
+
+2.) I'm not sure that this is the best path to take career wise. The PhD stipend is okayyyy but I could definitely make more money doing other jobs. I've worked in academic research for about 3 years before and I like it, but I'm not sure if it's something I want to do forever.
+
+3.) One reason why I'm attracted to this position is that it will allow me to stay with my boyfriend in his country. It's a really silly reason but if I really value this relationship and want to keep it going. But if we break up then I'm not sure if I would want to continue with the PhD. 
+
+&amp;#x200B;
+
+So I guess my question is whether I should apply to this PhD anywa?y  And will be repercussions if I were to start it but then drop out before completing it? I imagine it would look really bad on my CV. The second question applies to all funded PhD positions in general. ",4,3
+59,axx3n8,https://i.redd.it/hglseovjegk21.png,Female Researchers in Europe in 2015,,6,49
+60,b6qi31,https://www.chronicle.com/article/The-Twitterization-of-the/245965,"The Twitterization of the Academic Mind: Social media has made scholars impatient, vicious, and dull. “While Twitter debates between scholars and provocateurs reduce academics to mere peddlers of opinion, Twitter controversies between scholars themselves do just as much harm to the profession.""",,3,18
+61,b6s4dj,https://www.reddit.com/r/academia/comments/b6s4dj/unfair_grade_on_essay/,Unfair Grade on Essay,[deleted],49,0
+62,b72ca8,https://www.reddit.com/r/academia/comments/b72ca8/terrible_feedback_high_grade/,"Terrible feedback, high grade","I recently had a huge project returned to me. The comments/feedback were highly negative and I was getting really worried reading through it. However, he assigned me a 93 as a grade? I cannot find a single positive comment on my assignment. If you read the feedback, you'd think I received a failing grade. Not sure if I should listen to the comments and change for my next assignment? or? I guess I'll just talk to the professor ",8,12
+63,b2sq3a,https://www.reddit.com/r/academia/comments/b2sq3a/what_is_the_secret_to_writing_acknowledgements/,What is the secret to writing Acknowledgements &amp; Dedications in an undergrad thesis?,"My attempts at writing a good Acknowledgement section and a Dedication section have been futile. I've felt like I can't express my gratitude genuinely. Like the words aren't coming out right. They sound repetitive or hollow, in contrast to my true intentions. How can I thank them properly? I think my worry about being formal versus casual (and if humor is appropriate), is also getting in the way.
+
+Also, what are the big differences between both sections? Despite my searches for the definitions, they seem to blur into a common mass in my mind. An indecisiveness over who belongs where.
+
+Should I also thank the people who I referenced the most, even if I don't know them (but might later contact them to let them know of the citation)?
+
+Please haaaaalp. ;-;",4,2
+64,b2up16,https://www.reddit.com/r/academia/comments/b2up16/space_generation_advisory_council_move_an/,Space Generation Advisory Council Move an Asteroid Competition 2019,"Never has there been a better time to  study Near-Earth Objects (NEOs). Astronomers worldwide are on constant  lookout for undiscovered asteroids and comets. New tools have allowed  the discovery of a great number of such objects in the past two decades.  While large-asteroid events capable of causing species extinction on  Earth are rare, experts are increasingly concerned about their  likelihood. Far more common objects between 10 and 100 meters large,  such as those responsible for the recent Tunguska and Chelyabinsk  events, can cause significant damage and loss of life, making detection  and preparedness efforts all the more pressing. In addition, worldwide  interest in missions to NEOs for human and/or robotic exploration and  for resource utilization is growing.
+
+The Space Generation Advisory Council's (SGAC) **Move an Asteroid Competition 2019** is a challenge open to students and young professionals worldwide to develop  original ideas relating to Near-Earth Objects. To this aim the SGAC invites technical paper  submissions addressing one or more of the topics below:
+
+* Safe deflection of an Earth-bound NEO
+* NEO study, characterisation and detection
+* Global NEO impact warning system
+* NEO resource utilisation
+* Proposals and concepts for NEO missions aiming at planetary defence, exploration, and/or resource utilisation
+* NEO impact consequences
+* NEO education programs and strategies
+
+Entrants should describe in technical detail an idea that could lead to an improvement or innovation in any of the topic areas.
+
+Application first Round Deadline for Abstract: **22nd March 2019, 23:59 GMT**
+
+Application first Round Deadline for Paper: **15th May,  2019, 23:59 GMT**
+
+For more information visit: [https://spacegeneration.org/maa-scholarship](https://spacegeneration.org/maa-scholarship)",0,4
+65,b2xb2c,https://www.reddit.com/r/academia/comments/b2xb2c/unpaid_adjunting/,Unpaid adjunting?,"https://jobs.illinois.edu/academic-job-board/job-details?jobID=111471&amp;job=school-of-social-work-adjunct-instructor-lecturer-unpaid-111471
+
+Has anyone seem something like this before? Seems more exploitative than ever.",10,11
+66,b2yrcy,https://www.reddit.com/r/academia/comments/b2yrcy/paper_rejection_on_a_cv/,Paper rejection on a CV?,"I was recently co-authored on a paper from undergrad (I'm now in grad school at a different uni), but the paper was rejected. Do I keep this on my CV? How do you indicate something like that?
+
+&amp;#x200B;
+
+I remember hearing long ago you should still put grants and stuff you apply for to show you ""go for"" things. Same for papers?",8,8
+67,b2r9o2,https://www.reddit.com/r/academia/comments/b2r9o2/how_do_final_year_january_re_sits_work/,How do final year January re sits work?,[deleted],1,0
+68,b2rygp,https://www.reddit.com/r/academia/comments/b2rygp/survey_on_singleuse_plastics_for_college_class/,Survey on Single-Use Plastics for College Class,[deleted],0,0
+69,b2x79a,https://www.reddit.com/r/academia/comments/b2x79a/unpaid_adjunting/,Unpaid adjunting?,[deleted],0,1
+70,b2y2fj,https://www.reddit.com/r/academia/comments/b2y2fj/editorial_positions_at_scientific_journals/,Editorial positions at scientific journals?,[deleted],5,12
+71,b237w9,https://www.reddit.com/r/academia/comments/b237w9/looking_for_a_new_and_positive_perspective_after/,Looking for a new and positive perspective after continual mistreatment by peers,"I’m 2 years into a 4-year PhD and I’m at the point of counting down the days until I can leave. Thankfully, I absolutely love my research and my advisor (for the most part lol) and that’s honestly the only thing keeping me going.
+
+My problem stems from the following:
+
+- I had to file 4 Title IX complaints against people in my department. The guys will *not* take no for answer. Some pursued me for over a year and became sexually aggressive or harassed me via text, even when I clearly did not respond to any communication or clearly said no to attempts to hang out. I would be approached in class, my office (showing up unannounced), or “dropping by” my apartment. I stopped showing up to class and required seminars to avoid it. I was not aware their actions were in violation of Title IX until someone pointed it out to me. 1 one of these people was a friend, another was a close friend, and another was borderline best friend. It seems to be a case of unrequited love, but that doesn’t excuse them to treat me like shit or ignore lack of consent. This happened over the course of the last 15 months and was just one person after the other.
+
+- note, I’ve been asked out/pursued my entire life, even when I clearly had a SO and I’ve never had 6 people mistreat me because I said no. I grew up in CA, went to undergrad in NY, and am now in KS. Is this just coincidence or some weird midwestern behavior? Everyone I’m discussing is from the area or a nearby state.
+
+- there were 2 additional Title IX-ish behaviors of people, one of them graduated, so I didn’t bother. The other has been chastising me for not texting him back after he gave me his phone number unprompted. I’ve been out of the country for 2 weeks and I’m dreading him stopping by my office and asking why I didn’t text him.
+
+- I had to cut out these people, or they eventually cut me out. This excluded me from pretty much every friend group in the department. I never hang out with anyone or get invited to things anymore, which sucks realizing that they only cared because they wanted something physical out of me. All of my other friends live on either coast and I’m an only child with parents old enough to be advisor’s parents lol. I’m effectively friendless day-to-day.
+
+- my only friend in the department is one of those people where you say “can’t live with them, can’t live without them.” If we didn’t work together, I probably wouldn’t put so much effort in. She is toxic and downright mean. She does things like tell me that I’m an overachiever and make everyone in the department look bad because I’m ambitious and driven, even by doing things like joining swim club. I never brag or gloat about grants and fellowships I receive, but she even told me that she automatically hated me when I was accepted because the department announced that I was on a prestigious fellowship. She views the successes of others as her own failures and constantly projects this.
+
+- for solutions, I have done the following: joined marching band for a year to try a new friend group. I’m nearly a decade older and I couldn’t deal with the teen drama as most of them went to HS together.
+
+- joined swim club for the last 2 seasons. It’s ok, not drama but the group is dwindling to 5-10 people and it’s more of an activity rather than friendship thing.
+
+- work out outside of swimming, it helps with mental health and such.
+
+- spoke with CAPS and the ombudsman. CAPS doesn’t really do much for me, they said given the circumstances, I seemed to be positive and doing all I can. I didn’t like the ombuds approach - they told me everyone else had unmet needs and I need to cater to them. I discussed this with my advisor and he agreed we couldn’t do anything about the negativity of my only friend.
+
+- I despise the weather in KS. It has been a harsher winter the past 2 years than it normally is. I’m also very into outdoors stuff and hiking - KS doesn’t cut it for me and I leave every academic break to go somewhere else. It helps, but I dread getting back on the plane and landing here.
+
+- I’ve picked up hobbies like reading (again). 
+
+- I had a rapid onset of allergies to cats and dogs, so I can’t volunteer in the animal shelter anymore. I have a pet lizard and he’s great, but I can’t really get anymore with my travel.
+
+I don’t want to live my life borderline hating everyday, but that’s the point I’m at. I’m even considering driving home and *living with my parents* for part of the summer (I left for college 10 years ago and haven’t been home for more than 3 weeks at a time). I figure if I’m at least near hiking and a better outdoor situation, that could help. Any ideas or suggestions? I don’t want to look back negatively on this part of my life/career that will be a huge defining moment and I want to make the best of it. ",13,8
+72,b24py3,https://www.reddit.com/r/academia/comments/b24py3/what_is_your_opinion_on_students_asking_for/,What is your opinion on students asking for extensions on assignments?,"I am a student and my professor gave us instructions for our assignments at the beginning of the semester. Looking at my calendar for the semester, I had planned to complete this particular assignment in the 2-3 weeks before it was due. However, this semester I have been struggling with mental illness and the past 2 weeks have been especially hard for me to get my school work done. The assignment is fairly large and due in 6 days, and I've hardly started. I was thinking of emailing the professor to ask for an extension, but I am hesitant since I have never asked for one before over my entire undergrad. She also gave us the assignment at the beginning of the semester, so I feel like I have no real excuse for needing an extension.
+
+What is your opinion on students asking for extensions because they have been having a hard time completing school work due to mental health issues?",14,9
+73,b244il,https://www.youtube.com/watch?v=epZeq_SJ6cI,Corruption of College Admissions,,0,0
+74,b28gnp,https://www.universityaffairs.ca/features/feature-article/do-universities-put-too-much-weight-on-student-evaluations-of-teaching/,Do universities put too much weight on student evaluations of teaching?: Research suggests that student evaluations of teaching are often badly designed and used inappropriately. But change is underway.,,9,39
+75,b28x42,https://i.redd.it/t80ytp0hdqm21.jpg,"Even the most famous scientists have rough weeks. Charles Darwin, for example: “But I am very poorly today and very stupid and hate everybody and everything.",[deleted],0,2
+76,b291c2,https://i.redd.it/axyi5muafqm21.jpg,"Even the most famous scientists have rough weeks. Charles Darwin, for example: “But I am very poorly today and very stupid and hate everybody and everything.”",[deleted],0,1
+77,b026wr,https://www.reddit.com/r/academia/comments/b026wr/is_a_career_in_academia_truly_as_miserable_as/,Is a career in academia truly as miserable as many PhD's portray it?,"I am an undergrad studying Plant Biology, and it is my absolute passion. My goal is to pursue graduate school, earn a PhD, and become a researcher. Unfortunately, I have encountered a significant amount of doctorates who claim academia is vicious, and that many are not cut out for a career in academia. Some have described their experience in grad school as miserable, have generically slandered other PhD individuals in departments such as chemistry and biology, and it really makes me upset.
+
+&amp;#x200B;
+
+I have also been told that academia is incredibly competitive and that it is unlikely I will find a job that does not make me miserable as well.
+
+&amp;#x200B;
+
+I hope that these remarks are far from the truth, as academia seems to be a rich and wonderful community of individuals that truly make a difference in our world. I have learned so much from my community college professors, and I am preparing to go to university next semester.
+
+&amp;#x200B;
+
+Can anyone here shed some perspective on their career choice, their journey, and possibly some advice? Speak to me like I am you as an undergraduate.
+
+&amp;#x200B;
+
+Thanks!",43,25
+78,b098g1,https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3687192/,Art of reading a journal article: Methodically and effectively,,0,13
+79,b0bxlq,https://www.sciencemag.org/news/2019/03/vanderbilt-panel-votes-against-tenure-metoo-scientist,Vanderbilt panel weighs in against tenure for #MeToo scientist | Science,,6,18
+80,b03sb7,https://www.reddit.com/r/academia/comments/b03sb7/you_have_other_options/,You have other options.,[deleted],0,2
+81,b4mapt,https://www.reddit.com/r/academia/comments/b4mapt/my_fear_of_public_speaking_and_how_benzos_saved/,my fear of public speaking and how benzos saved my academic career,"My first experience doing an oral presentation was horrible. The moment I stood up my mind when completely blank and I babbled like an idiot for 15 minutes. My mouth went dry, it felt like I was going to die, and I felt like running off the stage. Afterward people I didn't even know came up to console me because it was so obvious I had a panic attack.
+
+Months later I was asked to present another project, and this time the director of the NIH would be present. I should have been honored and excited to present something I'd put months of hard work into, but instead I just felt terrified. ""Just be well prepared and practice more,"" people told me. ""You need to just go back on your SSRI,"" my parents said. I did both and went into the presentation with a positive attitude. The same thing happened and I worried that if I didn't explore other avenues to deal with this problem, it would effect my career for the rest of my life.
+
+&amp;#x200B;
+
+I went to my psychiatrist and we discussed some options. We decided a beta blocker was a bad idea- my resting bp is very low and I'm the type who passes out in a hot shower, so a vasodilator is probably a bad plan. We decided on a low dose benzo. A few days before my presentation I took one to see how I felt, and I didn't feel loopy or sedated at all.
+
+Well yesterday I took one before I presented my research and felt like a totally different person! I still felt some anxiety (these aren't magic pills), but I was able to control it and not let it affect my performance. One of the judges even commented that I seemed very calm and collected.
+
+&amp;#x200B;
+
+Benzodiazepines have a terrible reputation in the world of medicine. I know some psychiatrists (my father included) who won't even prescribe them to their patients with panic disorders for fear they'll become addicted. Should you be taking them every day? Absolutely not- for most people these should be reserved for special situations.
+
+But the bottom line is: if you've exhausted all of the other options and it is severely affecting your life, you should consider talking to your doctor about it. As someone intimately familiar with the healthcare system, I can't emphasize enough how important it is to advocate for yourself and what's best for you career and self confidence.
+
+&amp;#x200B;
+
+edit: as a disclaimer, I'm not an academic, just a medical student with a strong interest in a career in that is more research than clinical. I thought my post would be more relevant here than in the medical subreddits.",4,43
+82,b4hy73,http://tutorsuk.co.uk/blog/how-to-write-a-conclusion-for-a-dissertation/?utm_source=blog&amp;utm_medium=March%2023,How to write a conclusion for a dissertation? | Tutorsuk – Uk Writing company,,0,1
+83,b4mdsb,https://www.reddit.com/r/academia/comments/b4mdsb/writing_my_thesis_and_trying_to_parse_out_my/,Writing my thesis and trying to parse out my survey of scholarship section,[deleted],0,1
+84,b588uo,https://www.reddit.com/r/academia/comments/b588uo/what_modern_bipartisan_economics_schools_of/,"What modern, bipartisan Economics schools of thought are out there?","Hi r/Academia,
+
+I am hoping to borrow your wisdom on the following two issues my own google research could not find out a satisfactory answer. 
+
+Q1. Is there any online webpage where you can click your specific beliefs (e.g., pro or anti governement spending) to find out where you fall in terms of macroeconomics schools of thought?
+
+Q2. Where would those who self-proclaims as bipartisan or moderate right or left fall in terms of schools of thought?
+
+Background: I am one of those who majored in economics but never learned to the point of how modern/frontier economics are dvided (post-2010). My guess is that probably classical divisions of schools of thought are no longer holding true in academia, but I wonder what schools of thought are there that does a better job of subcategorizing or reflecting different beliefs. Even Mankiw, who seems to be relatively unpopular among the younger generation students, seem to hold diverse views depending on agendas. 
+
+For instance, many people whom I have met held mixed views (e.g., prefer small government but support government regulation on certain issues; sometimes even supporting universal basic income).
+
+How do you know where you fall in terms of the ideological spectrum? Such detailed breakdown and better understanding of schools of thought will be especially helpful in the next upcoming elections, which probably will be full of simplified slogans. Maybe categorization cannot be done, but a terminology similar to ""right-wing Keynesian"" would be still very helpful.",0,1
+85,b5ag7y,https://www.reddit.com/r/academia/comments/b5ag7y/is_online_school_taken_seriously_in_further/,Is online school taken seriously in further pursuits of academic degrees?,"Hello,
+
+  
+
+
+So I'm in a situation where getting my undergraduate degree online is starting to make a lot of sense. I have a career that saps a lot of my time, and keeps me on the go quite often, making showing up to class a real headache. I'm trying to pursue a degree in mathematics, and take that further to get a Master's and Ph.D down the road. But for now I'm attempting to finish up my undergrad. And that has taken a lot longer than I would've liked, due to my career. So, I'm thinking of transferring to Southern New Hampshire University so I can finish out my degree there, online. I just wanted to get everyones thoughts on how serious an online degree is taken in an academic sense.
+
+  
+
+
+TL;DR - How seriously would an online undergraduate degree in mathematics be taken in an academic context?",9,1
+86,b5eio1,https://www.cam.ac.uk/news/rescindment-of-visiting-fellowship-statement-from-vice-chancellor-professor-stephen-j-toope,Statement from Cambridge Vice-Chancellor regarding Jordan Peterson's fellowship rescindment,,1,28
+87,b583ll,https://www.reddit.com/r/academia/comments/b583ll/what_are_modern_macroeconomic_schools_of_thought/,What are modern macroeconomic schools of thought,[deleted],1,1
