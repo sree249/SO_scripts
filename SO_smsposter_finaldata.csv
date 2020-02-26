@@ -1,0 +1,1225 @@
+,thread_id,indv_id,type,text
+0,58747823,58747823,question,"The bounty expires in 3 hours. Answers to this question are eligible for a +50 reputation bounty.                            ProfK wants to draw more attention to this question.                        I have one file, app.ts under my scripts folder, that gets copied to wwwroot/scripts by a gulp task. After the gulp task runs, I now also have a wwwroot/scripts/app.ts file, in which the sole function is red-underlined as duplicate. Is this normal, or is my gulp task, below, declared incorrectly?var paths = {    scripts: [""scripts/**/*.js"", ""scripts/**/*.ts"", ""scripts/**/*.map""]};gulp.task(""default"", function() {    gulp.src(paths.scripts).pipe(gulp.dest(""wwwroot/scripts""));});I see the raw app.ts file, from the root scripts folder also gets built into *.js and *.js.map files. Could this have something to do with the 'false positive' duplicate function?"
+1,58747823,60322295,answer,"
+just do this!!..
+var paths = {
+    scripts: [""scripts/**/*.js"", ""scripts/**/*.map""]
+};
+
+gulp.task(""default"", function() {
+    gulp.src(paths.scripts).pipe(gulp.dest(""wwwroot/scripts""));
+});
+
+"
+2,58747823,60295738,answer,"
+//VSCODE
+This is an issue from VSCode. To fix it execute the following command 
+tsc --init
+//to initialize the tsconfig.json in the folder.
+
+//VISUAL STUDIO
+In order to prevent functions to be in global scope, you can add export {}; on top (or just export this function):
+// 1.ts
+export {};
+
+function test(){
+    console log(""File 1 Error"");
+}
+// 2.ts
+export {};
+
+function test(){
+    console.log(""File 2 Error"");
+}
+
+"
+3,58747823,60274869,answer,"
+Don't copy the .ts files. You only need the compiled .js files in the scripts directory (unless you are doing something unusual with TypeScript source from there).
+Then in your tsconfig.json file, add an exclude directive to exclude wwwroot/scripts/**/* in your IDE.
+"
+4,58747823,106690990,comment,@ProfK why are you copying .ts files to your destination? how does your tsconfig look like?
+5,58747823,106676117,comment,"Why do you need to copy the app.ts into the wwwroot/scripts? What if you just set paths to var paths = { scripts: [""scripts/**/*.js"", ""scripts/**/*.map""] }; ?"
+6,58747823,106573506,comment,Does this answer stackoverflow.com/a/41975448/8786986 help you?
+7,58747823,106566623,comment,In which folder is your tsconfig.json? Please post it as well here.
+8,58747823,106708583,comment,"I just updated the answer, try that out , if that works for you please upvote"
+9,58747823,106667964,comment,"I'm using Visual Studio, not VSCode. I have added tags to show this."
+10,57277759,57277759,question,"This question already has answers here:                                                    activeNetworkInfo.type is deprecated in API level 28                                    (9 answers)                                Closed 7 months ago.I am using a code that check if user has internet active or not but after targeting sdk29 the functions bellow became deprecatedNetworkInfo NetworkInfo.isConnected()getActiveNetworkInfo()Here is the code :public static boolean isNetworkAvailable(Context context) {    if(context == null) { return false; }    ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);    // if no network is available networkInfo will be null, otherwise check if we are connected    try {        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();        if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {            Log.i(""update_statut"",""Network is available : true"");            return true;        }    } catch (Exception e) {        Log.i(""update_statut"",""""+ e.getMessage());    }    Log.i(""update_statut"",""Network is available : FALSE "");    return false;}"
+11,57277759,57285217,answer,"
+It's deprecated base on Google Document 
+
+getActiveNetworkInfo is deprecated on API 29.
+getAllNetworkInfo is deprecated on API 23.
+
+So, If you want to find the Network Connection status, you can use this code.
+private fun isNetworkAvailable(context: Context): Boolean {
+    val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        val nw      = connectivityManager.activeNetwork ?: return false
+        val actNw = connectivityManager.getNetworkCapabilities(nw) ?: return false
+        return when {
+            actNw.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+            actNw.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+            //for other device how are able to connect with Ethernet
+            actNw.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
+            //for check internet over Bluetooth
+            actNw.hasTransport(NetworkCapabilities.TRANSPORT_BLUETOOTH) -> true
+            else -> false
+        }
+    } else {
+        val nwInfo = connectivityManager.activeNetworkInfo ?: return false
+        return nwInfo.isConnected
+    }
+}
+
+you can see all NetworkCapability here.
+"
+12,57277759,57278620,answer,"
+I have finally found a code that works on all APIs in case anybody want it
+NetworkCapabilities is not deprecated in API 29 but it requires API 21 so I have called it on API 29 only.
+However getActiveNetworkInfo() is deprecated only in API 29 and works on all APIs , so we can use it in all apis bellow 29
+here's the code
+    public static boolean isNetworkAvailable(Context context) {
+    if(context == null)  return false;
+
+
+    ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+    if (connectivityManager != null) {
+
+
+    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            NetworkCapabilities capabilities = connectivityManager.getNetworkCapabilities(connectivityManager.getActiveNetwork());
+            if (capabilities != null) {
+                if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
+                    return true;
+                } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
+                    return true;
+                }  else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)){
+                    return true;
+                }
+            }
+        }
+
+    else {
+
+        try {
+            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+                Log.i(""update_statut"", ""Network is available : true"");
+                return true;
+            }
+        } catch (Exception e) {
+            Log.i(""update_statut"", """" + e.getMessage());
+        }
+    }
+}
+    Log.i(""update_statut"",""Network is available : FALSE "");
+    return false;
+}
+
+"
+13,57277759,57277882,answer,"
+You can find all the info in the official doc
+
+This class was deprecated in API level 29.
+  Callers should instead use the ConnectivityManager.NetworkCallback API to learn about connectivity changes, or switch to use ConnectivityManager#getNetworkCapabilities or ConnectivityManager#getLinkProperties to get information synchronously. Keep in m`ind that while callbacks are guaranteed to be called for every event in order, synchronous calls have no such constraints, and as such it is unadvisable to use the synchronous methods inside the callbacks as they will often not offer a view of networking that is consistent (that is: they may return a past or a future state with respect to the event being processed by the callback). Instead, callers are advised to only use the arguments of the callbacks, possibly memorizing the specific bits of information they need to keep from one callback to another.
+
+You can use something like:
+if (connectivityManager != null) {
+    if (if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+       NetworkCapabilities capabilities = connectivityManager.getNetworkCapabilities(connectivityManager.getActiveNetwork());
+       if (capabilities != null) {
+           if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
+               //...
+           }
+       }
+   } else {
+     // current code
+   }
+}
+
+"
+14,57277759,101052682,comment,stackoverflow.com/questions/53532406/…
+15,57277759,106662140,comment,@Francis for bluetooth we can just add NetworkCapabilities.TRANSPORT_BLUETOOTH. but for usb tethering I'm not sure. but try this NET_CAPABILITY_DUN.
+16,57277759,106660065,comment,Will it work with Bluetooth or USB tethering?
+17,57277759,101146238,comment,"@ChaoukiAnass I think we need to add internet connection tools and for a mobile user, They are able to connect with wifi or cellular to the internet but if you think that would be necessary that's ok by me."
+18,57277759,101101242,comment,@Zun you are right . I have edited the code I guess its all ok now
+19,57277759,101099934,comment,"android.os.Build.VERSION.SDK_INT == Build.VERSION_CODES.Q this means the new function will only be called in Android Q. Not Android Q or higher. Android R will call the old, outdated function cause the if-statement will fall into the else!"
+20,57277759,101086659,comment,I think we have to add capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET
+21,57277759,101086651,comment,@Zun Why it will break on Android R ?  PS : Please check my edit for ethernet cable
+22,57277759,101065691,comment,There are some things wrong with this code. This code will break once Android R is released... Which is horrible. It also assumes the user can only connect to the internet with Cellular data or WiFi. What about an ethernet cable? I use that too. This code would break the app for me.
+23,57277759,101053829,comment,Please check my new comment
+24,57277759,101053520,comment,@ChaoukiAnass You are right. Added condition on api.
+25,57277759,101052889,comment,Since your code requires API 21 and current min is 16  I will just put your code for if (API == 29)  Would you mind giving me the condition format that run code if API equals 29
+26,57277759,101052406,comment,to be honest I have checked it and I  need help to set the code
+27,54365906,54365906,question,"I am using a library called KingFisher to download image from internet.For the reference:https://github.com/onevcat/Kingfisher https://cocoapods.org/pods/KingfisherimageView.kf.setImage(with: url)This instruction works flawless but i wanted to track success so i added completion handler so the documentation suggestion this snippet.imageView.kf.setImage(with: userInfo.getImageUrl()){ result in            switch result {            case .success(let value):                print(""success"")            case .failure(let error):                print(error) // The error happens            }        }For the reference this is the cheat sheet i am using:https://github.com/onevcat/Kingfisher/wiki/Cheat-SheetOn adding this snippet i am getting this compilation error:Cannot convert value of type '(_) -> ()' to expected argument type 'CompletionHandler?' (aka 'Optional<(Optional, Optional, CacheType, Optional) -> ()>')"
+28,54365906,60299012,answer,"
+I had similar issue. I have been using Kingfisher 4.0.0 with Swift 4.
+Changing to the following did the trick,
+imageView.kf.setImage(with: url, placeholder: nil, options: nil, progressBlock: nil) { image, error, cacheType, imageURL in
+
+}
+
+"
+29,54365906,54366354,answer,"
+Swift 4.2 Kingfisher 5.1 
+let url = URL(string: ""https://example.com/high_resolution_image.png"")
+let imageView = UIImageView()
+imageView.kf.setImage(with: url, placeholder: nil, options: nil, progressBlock: nil) { result in
+    print(result)
+    switch result {
+    case .success(let value):
+        print(""success"")
+        print(value.source.url!)
+    case .failure(let error):
+        print(error) // The error happens
+    }
+}
+
+"
+30,54365906,54366375,answer,"
+i am using KingFisher 5.1.0, i did not facing this kind of error. Please double check your podfile,
+pod 'Kingfisher', '~> 5.1.0'
+let url  = URL(string: ""your image url"")!
+
+ self.kf.setImage(with: url) { result in
+       switch result {
+            case .success(let value):
+                print(""Image: \(value.image). Got from: \(value.cacheType)"")
+            case .failure(let error):
+                print(""Error: \(error)"")
+            }
+        }
+
+https://github.com/onevcat/Kingfisher/wiki/Cheat-Sheet
+if you are using the pod version lesser than 5.0, obvisouly you will be end up in getting 
+Cannot convert value of type '(_) -> ()' to expected argument type 'CompletionHandler?' (aka 'Optional<(Optional, Optional, CacheType, Optional) -> ()>')
+
+"
+31,54365906,95570930,comment,My version was actually 4.10.1 so went to its documentation and use that snippet and it worked.
+32,54365906,95545980,comment,i am using 5.1 the link for 5.1 documentation has same code too
+33,54365906,95545929,comment,what version do you have installed? the completion handler error has a different definition than the one in the documentation
+34,54365906,95545885,comment,"Even this is giving the same error:                                   imageView.kf.setImage(with: userInfo.getImageUrl()){ result in                 switch result {                 case .success(let value):                     print(""success"")                 case .failure(let error):                     print(error) // The error happens                 }             }"
+35,54365906,95545705,comment,"should be all optional, you need to remove the specified type"
+36,54365906,100298455,comment,"I had a deployment target that was too old, updated, worked"
+37,54365906,95572221,comment,"fine. if pod update failed, change the version to 5.1.0. then do pod deintegrate and pod install again. that will clear the local repo and pull the updated pod again."
+38,54365906,95570929,comment,"I did this in podfile pod 'Kingfisher', '~> 5.1.0' and pod update failed for some reason. My version was actually 4.10.1 so went to its documentation and use that snippet and it worked."
+39,58386069,58386069,question,Is it possible to set Same-Site Cookie flag in Spring Boot?My problem in Chrome:A cookie associated with a cross-site resource at http://google.com/  was set without the SameSite attribute. A future release of Chrome  will only deliver cookies with cross-site requests if they are set  with SameSite=None and Secure. You can review cookies in developer  tools under Application>Storage>Cookies and see more details at  https://www.chromestatus.com/feature/5088147346030592 and  https://www.chromestatus.com/feature/5633521622188032.How to solve this problem?
+40,58386069,58723552,answer,"
+Follow the documentation to solve this issue:
+https://github.com/GoogleChromeLabs/samesite-examples
+It has examples with different languages
+"
+41,58386069,58487733,answer,"
+This is an open issue with Spring Session (https://github.com/spring-projects/spring-security/issues/7537)
+As I inspected in Spring-Boot (2.1.7.RELEASE), By Default it uses DefaultCookieSerializer which carry a property sameSite defaulting to Lax.
+You can modify this upon application boot, through the following code.
+Note: This is a hack until a real fix (configuration) is exposed upon next spring release.
+@Component
+@AllArgsConstructor
+public class SameSiteInjector {
+
+  private final ApplicationContext applicationContext;
+
+  @EventListener
+  public void onApplicationEvent(ContextRefreshedEvent event) {
+    DefaultCookieSerializer cookieSerializer = applicationContext.getBean(DefaultCookieSerializer.class);
+    log.info(""Received DefaultCookieSerializer, Overriding SameSite Strict"");
+    cookieSerializer.setSameSite(""strict"");
+  }
+}
+
+"
+42,58386069,58394797,answer,"
+Ever since the last update, chrome started showing that message to me too. Not really an answer regarding spring, but you can add the cookie flag to the header of the session. In my case, since I'm using spring security, I intend to add it when the user logs in, since I'm already manipulating the session in order to add authentication data.
+For more info, check this answer to a similar topic: https://stackoverflow.com/a/43250133
+To add the session header right after the user logs in, you can base your code on this topic (by creating a spring component that implements AuthenticationSuccessHandler): Spring Security. Redirect to protected page after authentication
+"
+43,56920061,56920061,question,"I have installed latest node version and expo-cli but when I run the command expo start, it gives me this error:Starting project at C:\Users\Ogacho\Desktop\sharelocationExpo DevTools is running at http://localhost:19002Your project is in SDK version >= 33.0.0, but the expo package version seems to be older.Opening DevTools in the browser... (press shift-d to disable)Error: React Native is not installed. Please run `npm install` in your project directory.Couldn't start project. Please fix the errors and restart the project.Set EXPO_DEBUG=true in your env to view the stack trace.I have tried clearing my npm cache, deleting my node_modules folder and reinstalling..."
+44,56920061,59176682,answer,"
+Close your Expo CLI server
+Run expo upgrade in your project directory (requires the latest version of expo-cli, you can update with npm i -g expo-cli).
+Make sure to check the breaking changes section of this post!
+Run expo start -c
+"
+45,56920061,58432567,answer,"
+This fixed it for me:
+Run expo update 35.0.0. (Replace version with your desired version. 35.0.0 is the latest as of this post.) This updates expo, by updating app.json & package.json and installing the latest dependencies.
+Referenced from:
+https://docs.expo.io/versions/latest/workflow/upgrading-expo-sdk-walkthrough/
+Also, check that:
+
+your expo app is the latest version through the app/play store.
+your expo cli is the latest version npm install -g expo-cli
+
+"
+46,56920061,56920606,answer,"
+Your project is in SDK version >= 33.0.0, but the expo package version seems to be older. If your expo-cli version is older than 2.21.2, run npm install -g expo-cli to get the latest version. 
+Or, you can change sdkVersion and dependencies to an older version to match the expo-cli doc.Run expo --version to get the expo-cli version. For example, if using expo-cli 2.19.5, you should 
+
+app.json, change sdkVersion to ""32.0.0"",
+In package.json, change these dependencies:
+
+{
+  ""react-native"": ""https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz"",
+  ""expo"": ""^32.0.0"",
+  ""react"": ""16.5.0""
+}
+
+
+Delete your project’s node_modules directory and install again
+
+"
+47,56920061,103205998,comment,the Same Question are Solution here stackoverflow.com/q/52751874/11741753
+48,56920061,100544257,comment,"Would you mind showing your app.json content here? There must be something wrong. Here is my platform value:  ""platforms"": [             ""ios"",             ""android""         ],"
+49,56920061,100415692,comment,thanks that solved my first piece of the puzzle but now i get this error Error: Problem validating fields in app.json. See docs.expo.io/versions/v32.0.0/workflow/configuration  • Field: platforms - should NOT have more than 2 items. and adb verision(40) is not compatible with client(41)
+50,58811819,58811819,question,"How to fix the ng build project in angular without editing in angular.jsonhere's the errorYour global Angular CLI version (8.3.16) is greater than your localversion (8.1.3). The local Angular CLI version is used.To disable this warning use ""ng config -g cli.warnings.versionMismatch false"".chunk {0} runtime-es2015.52e4031f7f0d4c5547f5.js (runtime) 2.25 kB [entry] [rendered]chunk {1} main-es2015.4e8665ff7ceef4e442ee.js (main) 4.62 MB [initial] [rendered]chunk {2} polyfills-es2015.556027bb8b3cb9b5932e.js (polyfills) 173 kB [initial] [rendered]chunk {3} styles.26e824d23ac01d2a1ba0.css (styles) 695 kB [initial] [rendered]chunk {4} 4-es2015.823687dfc617d3f0d9c2.js () 3.43 kB  [rendered]chunk {5} 5-es2015.f2106b47214935964e1d.js () 2.76 kB  [rendered]Date: 2019-11-12T03:49:07.167Z - Hash: a28b3171138b993d899e - Time: 134373msWARNING in budgets, maximum exceeded for initial. Budget 2 MB was exceeded by 3.47 MB.ERROR in budgets, maximum exceeded for initial. Budget 5 MB was exceeded by 483 kB.thanks in advance.I got an error when it comes to 92% and the error is in the above."
+51,58811819,60302130,answer,"
+I wouldn't suggest changing the budget sizes as they are meant just for this - warn you your bundles are growing too big. 
+You may consider 2 thing:
+
+Lazy loaded modules for parts of the application that are not visible in the initial screen. You may also combine this with some pre-loading strategy to avoid consequent delays in bundle fetching.
+If you've already done the above then most probably the problem is in some (maybe new) import that's adding a lot of code. Some new library you may be importing in multiple places. I've seen this when we started using an external component and imported it in 3 different places. The solution was to put the component in a lazy-loaded module and import in the modules that needed it. 
+
+Hope this helps.
+"
+52,58811819,58812069,answer,"
+angular.json
+""budgets"": [
+   {
+      ""type"": ""initial"",
+      ""maximumWarning"": ""3mb"", <=== increase this value 
+      ""maximumError"": ""5mb"" <==== may also increase this
+   }
+]
+
+
+Budgets here indicates limits for bundle sizes that should not be
+  exceeded as its affects performance.
+
+"
+53,58811819,58814466,answer,"
+You need to edit your angular.json file. because this angular project generated with default. so in you console appearing warning. find above line in your angular.json file to modify it.
+ ""budgets"": [
+        {
+           ""type"": ""initial"",
+           ""maximumWarning"": ""2mb"",
+           ""maximumError"": ""5mb""
+        }
+   ]
+
+"
+54,58811819,58811894,answer,"
+Update: I see your edit question. For short answer you can only fix by using webpack-bundle-analyzer to analyze the bundle size and see which package affect your bundle size and remove it
+You can see in angular.json there is the config for budget look like this
+""budgets"": [
+    {
+        ""type"": ""initial"",
+        ""maximumWarning"": ""2mb"",
+        ""maximumError"": ""5mb""
+    },
+    {
+        ""type"": ""anyComponentStyle"",
+        ""maximumWarning"": ""6kb"",
+        ""maximumError"": ""10kb""
+    }
+],
+
+Remove this and you can build without error. But I would not recommend you to remove it because this config will let you know the size of your application and you can improve the performance of the app by remove unnecessary code to reduce the size.
+You can have more information from here:
+https://angular.io/guide/build#configuring-size-budgets
+"
+55,58811819,103905143,comment,This is a similar question with the following page. stackoverflow.com/questions/53995948/…
+56,58811819,103904739,comment,I see your edit question. For short answer you can only fix by using webpack-bundle-analyzer and remove package that affect bundle size
+57,58387606,58387606,question,I was using the latest version of Android Studio IDE for creating flutter apps. But when I upgraded from Mojave to Catalina and tried to open my flutter code on IDE it gave me an error saying: Dart can not be opened because the Developer can not be verifiedWhat is the reason behind the error and how can I solve the issue?Do I have to install flutter and relative development tools from scratch again or is there any other way to resolve the issue?
+58,58387606,60273577,answer,"
+Disabling entire Gate Keeper is definitely not a good idea as it will result running any type of program on your system.
+You can add Dart to the white list by running this in terminal:
+sudo spctl --add ""Path_to_flutter/bin/cache/dart-sdk/bin/dart""
+
+You might require to reboot the system in order to apply the changes.
+There are several other binaries other than Dart that may get blocked as well.
+You can run GateKeeper script to fix the issue:
+https://github.com/AmirKamali/Flutter_GateKeeper_Fix
+I have published an article with more information how to fix this:
+https://medium.com/@amir.n3t/how-to-fix-flutter-idevice-id-running-errors-in-mac-osx-catalina-7aa1f89f61aa
+"
+59,58387606,60275193,answer,"
+This issue can be resolved by deleting the artefacts directory and running flutter doctor once again - More Info Here
+"
+60,58387606,59303185,answer,"
+You can run this command to allow your mac/apps downloaded from anywhere
+sudo spctl --master-disable 
+
+"
+61,58387606,58455252,answer,"
+Do this steps and repeat until allow all you need and stop notifications.
+Solve for me.
+1-On your Mac, choose Apple menu  > System Preferences, click Security & Privacy, then click General.
+2-Click the lock icon  to unlock it, then enter an administrator name and password.
+3-Select the sources from which you’ll allow software to be installed:
+"
+62,58387606,103563377,comment,"""3-Select the sources from which you’ll allow software to be installed"" -- there should be a button that says ""Allow anyway"". If not make sure you've cancelled the error dialog."
+63,54757386,54757386,question,"I would really appreciate help with this. I have cygwin installed and set up to use the PATH from windows. This has been working great for a ton of node development, but I've recently run into an issue where when I runyarn jest --watchI get the following error:--watch is not supported without git/hg, please use --watchAllerror Command failed with exit code 1.info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.I have installed git and node in windows.I have found a workaround of using the Command Prompt for running the tests, but would really like to be in one environment."
+64,54757386,60300784,answer,"
+npm run test -- watchAll
+Please use  watchAll to serve it in a continue way. It will track your changes and re-run the test automatically.
+"
+65,54757386,57364360,answer,"
+--watch works only for git repositories. 
+if you still have issue it is yarn issue npm gives the same error too. delete your node_modules folder, update yarn or npm to the latest version, then reinstall all the packages again.
+"
+66,54757386,57049379,answer,"
+I also encountered this problem, the reason is that I use the mv command to move the project folder, however the command was not removed .git has points such as the beginning of the file
+"
+67,54757386,54757407,answer,"
+After some consideration, I thought my workaround could be a valid answer to this question. Although, I would still like to get this working properly in Cygwin.
+If you have node and git installed in windows then you can go into the Command Prompt and run yarn test --watch or npm run test -- --watch to accomplish the same thing.
+"
+68,54757386,106672636,comment,"I don't recall now, but I was met with the same issue or watchAll was undesirable."
+69,54757386,101253201,comment,"Yeah, what you suggested was the very first thing I tried as it has fixed the problems when working on dual booted mac+win systems or NFS systems."
+70,54757386,101250128,comment,did u try to reinstall the node_modules
+71,54757386,101249872,comment,"Yeah, it was/is definitely a Git repository. And the version of Git was actually higher at the time than the version of Git in my Windows environment. I think it just something more to do with NPM from Windows into the cygwin environment. Permissions or something similar are probably blocking it from running properly."
+72,55843097,55843097,question,"I am considering the below two approaches for building an array of objects:Approach 1 (list all properties, even if duplicated among objects):const employees = [  {    company: 'ABC',    country: 'IN',    zip: 123,    employeeId: 123,    employeeName: 'p'  },  {    company: 'ABC',    country: 'IN',    zip: 123,    employeeId: 456,    employeeName: 'q'  },  {    company: 'ABC',    country: 'IN',    zip: 123,    employeeId: 789,    employeeName: 'r'  }];Approach 2 (avoid duplication with the spread operator):const commonParams = {  company: 'ABC',  country: 'IN',  zip: 123};const employees = [  {    ...commonParams,    employeeId: 123,    employeeName: 'p'  },  {    ...commonParams,    employeeId: 456,    employeeName: 'q'  },  {    ...commonParams,    employeeId: 789,    employeeName: 'r'  }]Approach 2 is more succint, and adding a new property that is common to all array elements would be much easier (and less prone to errors).However, in case of a large commonParams object, does approach 2 (using the spread operator) affect performance as compared to approach 1?Would the spread operator loop through each of the properties of the commonParams object for each of the objects in the employees array?"
+73,55843097,60300617,answer,"
+In case someone is stumbling uppon this question while wondering about array spread operations instead of objects:
+I benched different methods to accomplish:
+const clone = [...original]
+
+and on 999999 array entries the spread operation outperforms every other method i could figure out by 67ms.
+so if you are using spread operations on arrays keep using them!
+and if you don't start doing so!
+"
+74,55843097,58569057,answer,"
+The cost of spreading is significant. We're talking 2 orders of magnitude here.
+const { x, y } = z
+
+z = { x, y: y + 1 } // faster
+z = { ...z, y: y + 1 } // slower
+
+While they both accomplish similar things they are very different in their performance characteristics. But it will depend, if and how your JavaScript is transpiled.
+For example, Babel will actually emit something which is similar to the faster variant if you target ES2015 but if you target ES2017 you'll get the slower variant, as-is. If you target ECMASCRIPT_2018 with the Google Closure Compiler you get the slower variant. With the TypeScript compiler you end up with twice as many objects because it does nested Object.assign calls.
+While spreading is slower you're still getting a lot of ops per second. It's just that if you do it the boring way you'll get a lot more ops per second. 
+I put together a jsperf example to illustrate this.
+https://jsperf.com/the-cost-of-spreading/1
+If you have a hot code path that does spreading, consider direct construction. Otherwise, don't bother.
+"
+75,55843097,55843348,answer,"
+Time to run second approach will be longer (even if very little on modern computers) as interpreter has to iterate over keys of commonParams and copy them to each object.
+Wrote a benchmark to find difference which is almost zero for small objects.
+
+
+function runFirstApproach(){
+  const employees1 = [
+    {
+      company: 'ABC',
+      country: 'IN',
+      zip: 123,
+      employeeId: 123,
+      employeeName: 'p'
+    },
+    {
+      company: 'ABC',
+      country: 'IN',
+      zip: 123,
+      employeeId: 456,
+      employeeName: 'q'
+    },
+    {
+      company: 'ABC',
+      country: 'IN',
+      zip: 123,
+      employeeId: 789,
+      employeeName: 'r'
+    }
+  ];
+}
+
+function runSecondApproach() {
+  const commonParams = {
+    company: 'ABC',
+    country: 'IN',
+    zip: 123
+  };
+
+  const employees2 = [
+    {
+      ...commonParams,
+      employeeId: 123,
+      employeeName: 'p'
+    },
+    {
+      ...commonParams,
+      employeeId: 456,
+      employeeName: 'q'
+    },
+    {
+      ...commonParams,
+      employeeId: 789,
+      employeeName: 'r'
+    }
+  ]
+}
+
+function runBenchmarkWithFirstApproach(){
+  console.log(""Avg time to run first approach -> "", getAvgRunTime(runFirstApproach, 100000))
+}
+
+function runBenchmarkWithSecondApproach(){
+  console.log(""Avg time to run second approach ->"", getAvgRunTime(runSecondApproach, 100000))
+}
+
+function getAvgRunTime(func, rep){
+  let totalTime = 0;
+  let tempRep = rep;
+  while(tempRep--) {
+    const startTime = Date.now();
+    func();
+    const endTime = Date.now();
+    const timeTaken = endTime-startTime;
+    totalTime += timeTaken;
+  }
+  return totalTime/rep;
+}
+
+runBenchmarkWithFirstApproach();
+runBenchmarkWithSecondApproach();
+
+
+
+"
+76,55843097,55843172,answer,"
+Yes, spreading a variable which refers to an object into another object requires the interpreter to look up what the variable refers to, and then look up all the enumerable own properties (and the associated values) of the object that gets spreaded so as to insert into the new object. This does indeed take a bit of processing power.
+But, on modern computers, and on modern JS engines, the processing power required is next to nothing; what does it matter, when millions of instructions can be processed each second? A handful of key-value pairs is nothing to worry about.
+Unless you've identified that you're spreading an object with tons of key-value pairs, and it's actually causing a performance bottleneck, it would be a better idea to avoid premature optimization and aim to write clean, readable code instead (which may well invoke using spread syntax often). For a large employees array, the second approach is more readable than the first.
+(though, you also might consider using .map, to keep the code even DRY-er:)
+const employeesInitial = [
+  {
+    employeeId: 123,
+    employeeName: 'p'
+  },
+  {
+    employeeId: 456,
+    employeeName: 'q'
+  },
+  {
+    employeeId: 789,
+    employeeName: 'r'
+  }
+];
+const employees = employeesInitial.map((obj) => ({ ...obj, ...commonParams }));
+
+"
+77,55843097,98348811,comment,large is there a million? otherwise any difference would be imperceptible
+78,55843097,98348719,comment,"See stackoverflow.com/a/20642480/10221765 ""Can and will result in better performance""."
+79,55843097,105248549,comment,"Yep, your first code is O(n^2) - a loop inside a loop can cause problems."
+80,55843097,105248492,comment,"whereas using the following takes 0.07s (100-fold difference):  let phoneBook=inputs.reduce((acc,entry) => {         let [name,phone] = entry.trim().split(' ');         acc[name] = phone;         return acc;     },{});"
+81,55843097,105248461,comment,"beware of using spread with an array.reduce().  I suspect it leads to O(n^2) behavior or worse.  with an array of size 2000, the following code takes over 7 secs on my machine:      let phoneBook=inputs.reduce((acc,entry) => {         let [name,phone] = entry.trim().split(' '); 				return {...acc, [name]:phone};      },{});"
+82,55843097,104546570,comment,"I like the mention about ""hot code path"" in this answer as opposed to the accepted answers' twist on extremely large objects. It is quite uncommon to have one extremely large object as opposed to many smaller ones in an array that all require defaults of some kind. +1 for that!"
+83,56578783,56578783,question,"I would like to create an action sheet that can be used several time in my code. To do so, I need to be able to use functions according to the action sheet title. Is there a way to pass functions as a parameter array like the ""title"" parameter?//MARK: - UIAlert action sheet titleenum ActionSheetLabel: String {  case camera = ""Camera""  case photoLibrary = ""Album""  case cancel = ""Cancel""}class CameraHandler {static let cameraHandler = CameraHandler()func openCamera() { }func openPhotoLibrary() { }}//MARK: - Alert that shows an action sheet with cancelextension UIViewController {  func showActionSheetWithCancel(vc: UIViewController, title: [ActionSheetLabel] /*Make a function parameter here to match title*/) {    let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)for value in title {  actionSheet.addAction(UIAlertAction(title: value.rawValue, style: .default, handler: {    (alert: UIAlertAction!) -> Void in    //Use the parameter function here to match title  }))}actionSheet.addAction(UIAlertAction(title: ActionSheetLabel.cancel.rawValue, style: .cancel, handler: nil))vc.present(actionSheet, animated: true, completion: nil)  }}"
+84,56578783,56579842,answer,"
+For UIAlert you just need to change preferredStyle .alert it and it's working for UIAlert And and below code just copy and paste it working for UIActionSheet. 
+ extension UIViewController {
+       func popupAlert(title: String?, message: String?, actionTitles:[String?], actionStyle:[UIAlertAction.Style], actions:[((UIAlertAction) -> Void)?], vc: UIViewController) {
+              let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+              for (index, title) in actionTitles.enumerated() {
+                   let action = UIAlertAction(title: title, style: actionStyle[index], handler: actions[index])
+                   alert.addAction(action)
+              }
+              vc.present(alert, animated: true, completion: nil)
+         }
+    }
+
+Check below code For Usage
+self.popupAlert(title: ""Alert""), message: “Error in Loading”, actionTitles: [""Okey"", ""Email""], actionStyle: [.default, .default], actions: [nil,{ action in
+         // I have set nil for first button click
+         // do your code for second button click
+ }], vc: self)
+
+if you have any query then please comment me. Thank You
+"
+85,56578783,56628787,answer,"
+I have find out the best way to add an action sheet with cancel and as much action as needed.
+Create an UIViewController extension with type alias:
+//MARK: - Alert that shows an action sheet with cancel 
+extension UIViewController {
+  typealias AlertAction = () -> ()
+  typealias AlertButtonAction = (ActionSheetLabel, AlertAction)
+
+  func showActionSheetWithCancel(titleAndAction: [AlertButtonAction]) {
+    let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+
+for value in title {
+  actionSheet.addAction(UIAlertAction(title: value.0.rawValue, style: .default, handler: {
+  (alert: UIAlertAction!) -> Void in
+
+    value.1()
+
+}))
+}
+actionSheet.addAction(UIAlertAction(title: ActionSheetLabel.cancel.rawValue, style: .cancel, handler: nil))
+self.present(actionSheet, animated: true, completion: nil)
+  }
+}
+
+Then, in the class or other place where you want to use it, add the method this way:
+//MARK: - UIAlert action sheet title
+enum ActionSheetLabel: String {
+  case camera = ""Camera""
+  case photoLibrary = ""Album""
+  case cancel = ""Cancel""
+}
+
+//MARK: - Class example where to use the action sheet action
+class CameraHandler {
+
+fileprivate let currentVC: UIViewController!
+
+func openCamera() { 
+// Open user camera
+}
+func openPhotoLibrary() { 
+// Open user photo library
+}
+
+  // Method example of this action sheet
+  func showActionSheetWithCameraAndLibrary(vc: UIViewController) {
+
+    //This is the way to use the extension
+    vc.showActionSheetWithCancel(titleAndAction: [
+      (ActionSheetLabel.camera, { [weak self] in self?.openCamera() }),
+      (ActionSheetLabel.photoLibrary, { [weak self] in self?.openPhotoLibrary() })
+      ])
+
+
+  }
+}
+
+"
+86,56578783,56580023,answer,"
+from what I understood you need to call a specific functions when the title of the alert changes & also you want to be able to do so from different viewControllers,
+I hope this will help
+extension UIViewController {
+
+ func showActionSheetWithCancel(vc: UIViewController, title: [ActionSheetLabel] ) {
+            let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let cameraHandler = CameraHandler()
+            for value in title {
+
+                switch value.rawValue {
+                case ActionSheetLabel.camera.rawValue:
+                    actionSheet.addAction(UIAlertAction(title: ActionSheetLabel.camera.rawValue, style: .default, handler: { (alert) in
+                        cameraHandler.openCamera()
+
+                    }))
+                case ActionSheetLabel.photoLibrary.rawValue:
+                    actionSheet.addAction(UIAlertAction(title: ActionSheetLabel.photoLibrary.rawValue, style: .default, handler: { (alert) in
+
+                        cameraHandler.openPhotoLibrary()
+
+                    }))
+                default:
+                    actionSheet.addAction(UIAlertAction(title: ActionSheetLabel.cancel.rawValue, style: .cancel, handler: nil))
+
+                }
+                vc.present(actionSheet, animated: true, completion: nil)
+            }
+
+        }
+}
+
+and the call of the function will be like this: 
+ showActionSheetWithCancel(vc: self, title: [UIViewController.ActionSheetLabel.camera])
+
+"
+87,56578783,56579288,answer,"
+You can pass a closure  and call it in the handler something like this should work. 
+Also not  sure why you were passing the UIViewController , as you're already defining the function in a extension UIViewController therefore i allowed my self to remove it and used self.present instead .  
+extension UIViewController {
+func showActionSheetWithCancel(title: [ActionSheetLabel], action: @escaping () -> ()?) {
+    let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+    for value in title {
+        actionSheet.addAction(UIAlertAction(title: value.rawValue, style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+           // action
+            action()
+
+        }))
+    }
+    let alertAction = UIAlertAction(title: ActionSheetLabel.cancel.rawValue, style: .cancel) { (_) in
+        action() // or for cancel call it here
+    }
+    actionSheet.addAction(alertAction)
+    self.present(actionSheet, animated: true, completion: nil)
+
+
+  }
+}
+
+As you can see @escaping () -> ()? is optional so you can pass nil too . 
+"
+88,56578783,99760369,comment,Hey you check my answer if this helpful for you then please accept it. thank you
+89,54409874,54409874,question,"I'm trying to set an image center of the screen, and the dimension of the image is not as big as the entire screen. How can I make the background color seem like part of the image? Thus creating the illusion that the image is full screen?I tried using the color of the image and setting it as part of background color, but it still doesn't match.html  <section class=""container"">    <img class=""bg-img"" src=""../assets/beauty-bg-img.jpg"" alt=""background image"">  </section>css.container {    background-color: #F3D5DB;}As can be seen, the image is centered, but image and background color doesnt go hand in hand.How can this be done?"
+90,54409874,60299160,answer,"
+You could try using 'mix-blend-mode', the background color of your image will match with the background color of it's parent.
+Please note that this might not work with your image since you are using a gradient or it could happen that your gradient will be replaced by only one color.
+It's also not compatible with some browsers.
+.container {
+    background-color: #F3D5DB;
+}
+
+bg-img {
+    mix-blend-mode: darken;
+}
+
+
+Check this for more options.
+"
+91,54409874,59506642,answer,"
+There are sooooo many ways at going with this. You could match the gradient perfectly, set the image as the background and make it cover the page. Gradients would be really hard to perfectly match up though, and you didn't ask for the second one. My solution is to use some simple css and a free photo editor. (You dont have to do any photo editing, I have the image). I took the colors from the top and bottom of the original image and then set a css gradient. background-image: linear-gradient(#F4DAE2, #EED5DC, #EED1D8); Super easy! Then you just set your body's min-height property to 100vh so nothing repeats. We use paint.net or photoshop to erase the edges of the image in a gradient pattern. Anyone can do this. 
+
+You can get the gradient image file from https://i.ibb.co/0BbJ6bb/face.png. We put that image in the center of the page and everything blends nicely! It's been almost a year so please mark this answer or another as the solution to close the question. Thank you!
+Demo page here: https://stackoverflowanswer.glitch.me/
+
+
+img {
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  opacity: 1;
+}
+
+body {
+  overflow: hidden;
+  background-image: linear-gradient(#F4DAE2, #EED5DC, #EED1D8);
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+<!DOCTYPE html>
+<html lang=""en"">
+  <head>
+    <title>html - How to make background line up with image</title>
+    <meta charset=""utf-8"">
+    <meta http-equiv=""X-UA-Compatible"" content=""IE=edge"">
+    <meta name=""viewport"" content=""width=device-width, initial-scale=1"">
+  </head>  
+  <body>
+    <img src=""https://i.ibb.co/0BbJ6bb/face.png"">
+  </body>
+</html>
+
+
+
+"
+92,54409874,54410060,answer,"
+There are a few ways to do this.
+You can set the image as background on the body, or on a wrapper div, and use background-size property to cover.
+Or, you can create a stand-alone div at the top of your code, make it position:fixed;top:0;left:0;width:100vw;height:100vh; (sets the image to full size of the viewport) and z-index:-1 (places it beneath the other divs). This is a nice effect because you can also add opacity:0.5 or some such to ""dim"" the image a little bit, and the rest of your webpage overlays the image.
+Here are some good articles on what you can do:
+https://www.smashingmagazine.com/2013/07/simple-responsive-images-with-css-background-images/
+https://www.smashingmagazine.com/2009/03/backgrounds-in-web-design-examples-and-best-practices-2/
+https://css-tricks.com/perfect-full-page-background-image/
+https://www.webfx.com/blog/web-design/responsive-background-image/
+https://www.taniarascia.com/background-position-fixed-and-cover-with-css/
+"
+93,54409874,54409993,answer,"
+The color of your background is solid, but the Image you have selected has a very slight gradient. To see this, Look at the top and bottom of the image to see this. The image is lighter than your background on top, and darker on the bottom of the screen.
+
+You could fix this using gradients, but that would require a fair bit of trial and error. 
+"
+94,54409874,96922782,comment,"Hey Dood - just following up. Was your question answered satisfactorily? If there is more we can help with, please add a comment below my answer, or edit your question to ask for more help. Otherwise, it would be great if you could choose a ""best answer"" (click the checkmark beside the answer) to close out the question. Also take a moment upvote (instead-of or in-addition-to) the checkmark, to reward answers that were also helpful - it costs nothing but helps us If no answer was helpful, please post your own and select it with the checkmark to close out the question. Thanks!"
+95,54409874,95630824,comment,"Hmm interesting, let me edit my original image @Chris I may be able to make the edges fade"
+96,54409874,95630779,comment,Another option if you can edit the original image is to change it to fade to transparent at the edges so that it will blend with your background colour better. Or if this isn't an option you may be able to do something similar by overlaying an image that is mostly transparent but fading to your background colour at the edges.
+97,54409874,95630765,comment,"That's the issue @Cubemaster The image itself doesn't have a solid color, and your right, it's some gradient. So it isn't possible then after all."
+98,54409874,95630669,comment,"The color of that image is gradient, not solid all the way through. I don't think you can fix that without a gradient background. Look at the top and bottom of the image to see this. The image is lighter than your background on top, and darker on the bottom of the screen."
+99,58127896,58127896,question,"I am attempting to write an onCall function for Firebase Cloud Functions that performs advanced querying tasks on a firestore database (i.e. checking a text query up against AutoML natural lang to get a category, etc) but I keep running into a problem trying to query the database from the function:Error getting documents ::  Error: Could not load the default credentials. Browse to https://cloud.google.com/docs/authentication/getting-started for more information.    at GoogleAuth.getApplicationDefaultAsync (/srv/node_modules/google-auth-library/build/src/auth/googleauth.js:161:19)    at <anonymous>    at process._tickDomainCallback (internal/process/next_tick.js:229:7)Function:const functions = require('firebase-functions');const admin = require('firebase-admin');admin.initializeApp();const db = admin.firestore();exports.query = functions.https.onCall((data, context) => {    const text = data.text;    var results = [];    const promise = db.collection('providers').get()    promise.then((snapshot) => {        console.log('marker');        snapshot.forEach((doc) => {            results.push({id: doc.id, data: doc.data()});        });        console.log('yessir');        return {results: results};    }).catch((err) => {        console.log('Error getting documents :: ', err)        console.log('nosir');        return {results: ""no results""};    });});Longer output:Function execution startedFunction execution took 8ms, finished with status code: 200Error getting documents :: (etc, same error)nosirExample 2 (no change in running):Function execution startedFunction execution took 1200 ms, finished with status code: 200markeryessirI can't figure out where this problem is coming from or how to resolve it.Any help?Regards."
+100,58127896,60300583,answer,"
+Download your firebase service account into your project and reference it like this:
+<code>
+  var admin = require(""firebase-admin"");
+  var serviceAccount = require(""path/to/serviceAccountKey.json"");
+
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: ""<database-url>""
+  });
+</code>
+
+"
+101,58127896,59890057,answer,"
+I had same problem in firebase Error: ""Could not get default credentials.""
+Then go to firebase console and go to project setting, where you can find Service Accounts option. Click there and you will see the Generate new private key under your project setting. 
+Copy code for your project language and add it to your project file.
+
+
+var admin = require(""firebase-admin"");
+
+var serviceAccount = require(""path/to/serviceAccountKey.json"");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: ""https://your-database-url-that-is-given-under-admin-sdk-snippets""
+});
+
+
+
+After Generating the key you will have option to download. and put it in the project folder. Also set path var serviceAccount = require(""path/to/serviceAccountKey.json"");
+
+That's it your are ready. 
+"
+102,58127896,58409339,answer,"
+I had the same error ""Could not load the default credentials"".
+The error occured after updating my project dependencies with npm update.
+More precisely firebase-admin and firebase-functions.
+Before update:
+""dependencies"": {
+    ""@google-cloud/firestore"": ""^1.3.0"",
+    ""firebase-admin"": ""~7.0.0"",
+    ""firebase-functions"": ""^2.2.0""
+}
+
+After update:
+""dependencies"": {
+    ""@google-cloud/firestore"": ""^1.3.0"",
+    ""firebase-admin"": ""^8.6.0"",
+    ""firebase-functions"": ""^3.3.0""
+}
+
+I added the serviceAccountKey.json to my project and changed the imports with the code provided at the service account setting of my firebase project.
+From :
+var admin = require('firebase-admin')
+
+admin.initializeApp()
+
+To:
+var admin = require('firebase-admin');    
+var serviceAccount = require('path/to/serviceAccountKey.json');
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: 'https://my-project.firebaseio.com'
+});
+
+See @Fernando Rocha's answer below to access the account setting of your firebase project.
+"
+103,58127896,59023973,answer,"
+I do not want to use @Fernando solution even though there is nothing wrong. 
+I have prd and non-prd environment. I use firebase use command to push the changes to the correct environment. When I deploy, firebase uses the default service account. Also I do not want to have the keys in the project folder or in my git repo. 
+The way I solved might not work for others, but want to share here.
+The issue came to me when I updated the permission of the firebase project to give a viewer with editor permission. I made that person the owner and rolled back to editor. It went away. It is not justifying as a fix, but worked for me and I do not have to download the key.
+"
+104,58127896,58828202,answer,"
+@aldobaie's answer helped me figure out what was going on for my use case. For those who are not looking to add async/await to all their calls, remember that the firestore calls return promises, so prepending them with return has the same effect. 
+In my case:
+function doSomething(...) {
+    return admin.firestore().collection(...).doc(...).get()
+        .then((doc) => {...})
+        .catch(err => {...})
+}
+
+module.exports = functions.firestore.document('collection/{docId}').onWrite((change, context) => {
+    return doSomething()
+})
+
+I think the accepted answer goes against Firebase's recommend configuration. The function environment has access to admin credentials already, and passing your key in the code is not recommended. 
+I do it like this:
+const functions = require('firebase-functions')
+const admin = require('firebase-admin')
+admin.initializeApp(functions.config().firebase)
+
+"
+105,58127896,58779000,answer,"
+I ran into the same problem myself. Sometimes the function works and many times it would through the Error: Could not load the default credentials error.
+The problem I believe have been solved by watching for the Callbacks. You have to keep the function running until the callbacks have been called using the await and async prefixes. 
+Firebase Cloud Functions don't allow the access to the processor through callbacks once it's been terminated! That's why we get the Error: Could not load the default credentials error.
+So, whenever you have a .then() function prefix it with await and prefix the function it's inside it with async and prefix any call to the function with await.
+async function registerUser(..) {
+    ...
+    await admin.firestore().collection(..)...
+    ...
+}
+
+I hope this helps you out!
+"
+106,58127896,58496034,answer,"
+Another option is to set the service account key in an environmental variable instead of setting it with a call to firebaseAdmin.initializeApp({ credential }).
+Linux
+export GOOGLE_APPLICATION_CREDENTIALS=""[PATH]""
+export GOOGLE_APPLICATION_CREDENTIALS=""/home/user/Downloads/[FILE_NAME].json""
+
+Windows PowerShell
+$env:GOOGLE_APPLICATION_CREDENTIALS=""[PATH]""
+$env:GOOGLE_APPLICATION_CREDENTIALS=""C:\Users\username\Downloads\[FILE_NAME].json""
+
+Postscript: An even better option might be to use the local emulator suite.
+"
+107,58127896,58140389,answer,"
+What I did to solve it was add my firebase admin sdk key to my project.
+I downloaded it at 
+
+https://console.firebase.google.com/u/0/project/YOUR_PROJECT_ID/settings/serviceaccounts/adminsdk
+
+
+then at admin.initializeApp(); I changed to:
+admin.initializeApp({
+    credential: admin.credential.cert(require('../keys/admin.json'))
+});
+
+My folder structure is
+├── key
+│   ├── admin.json
+├── src
+│   ├── index.ts
+
+"
+108,58127896,102680621,comment,"I just tried that. To no avail, unfortunately."
+109,58127896,102665500,comment,"@PabloAlmécijaRodríguez having the same issue...I tried that, no success"
+110,58127896,102646560,comment,"When you initialize the app, did you try getting the default credentials there? Try specifying this in your code admin.initializeApp({   credential: admin.credential.applicationDefault() });"
+111,58127896,106401254,comment,"This answer is extremely bad practice because it involves putting service account keys into the cloud function source. While it will make the keys available to the project, it is inappropriate to put into practice."
+112,58127896,106230096,comment,@Sergio you can see this great tutorial for more details:  youtube.com/watch?v=7IkUgCLr5oA
+113,58127896,105895889,comment,"This was my exact same issue as well.  One cloud function started failing when I converted it to async/await, and I had forgot to return the resulting promise.  You can see in the firebase logs that the function returned successfully, and then several seconds later would log the authentication issue.  The async code was trying to execute after the cloud function had terminated, and the auth info was now gone.  Makes total sense."
+114,58127896,105638359,comment,This is the correct answer!
+115,58127896,105069055,comment,"had the same issue, and initially I assumed that my problem is related to this ticket: github.com/googleapis/google-auth-library-nodejs/issues/798 but the issue was actually with the promises not awaited properly, as mentioned in this answer."
+116,58127896,104961175,comment,"Returning a promise solved it for me too, thanks!"
+117,58127896,104950677,comment,@Sergio I just placed it in the lib folder manually and it worked.
+118,58127896,104739084,comment,This sorted it for me – returning a promise solved my authentication problem!
+119,58127896,104670818,comment,"This answer pointed me in the right direction. I got the error because I used a different user account to deploy. Redeployed with the default account, and it worked. No need for explicit credential config."
+120,58127896,104280802,comment,"In my case the default credentials worked on some machines, and others not, but adding the service account was of course a more stable solution. Great answer and very thorough explanation."
+121,58127896,104184759,comment,"@Sergio Hi, I used this quick hack to get it working with typescript  1. import * as serviceAccount from 'path/to/.json'  2. admin.initializeApp({   credential: admin.credential.cert(serviceAccount as any) })  3. ``` ""resolveJsonModule"": true```  in tsconfig.json"
+122,58127896,103912315,comment,"This worked nicely. For others stumbling onto this issue, there might more than one promise in the function code. Each one needs to be awaited, not only the main one."
+123,58127896,103577903,comment,"As far as I recall, we do not need those credentials when we have deployed to Firebase @Sergio."
+124,58127896,103576742,comment,How do you do it in a Typescript project? How do I instruct tsc to put the cert in the transpiled folder tree?
+125,58127896,103576729,comment,How do you do it in a Typescript project? How do I instruct tsc to put the cert in the transpiled folder tree?
+126,58127896,103576693,comment,how do you set the Environment variable when deploying to Google Cloud Functions for Firebase?
+127,58127896,102681516,comment,@BurnDownTheIgloo did you try this?
+128,56166319,56166319,question,"Closed. This question needs details or clarity. It is not currently accepting answers.                                                    Want to improve this question? Add details and clarify the problem by editing this post.                        Closed yesterday.I am new to Django so I have less information about this error. "
+129,56166319,60182305,answer,"
+The same issue is also occurred when someone misspell filename, directory name or app name... for example when someone create an app by the name of users and then he/she want to enlist the app in the INSTALLED_APPS List available in the setting.py file in misspell way like ............ users.app.UsersConfig instead of users.apps.UsersConfig
+"
+130,56166319,60141698,answer,"
+if you have virtualenv managing your packages make sure that is activated it before you run your app. 
+"
+131,56166319,59299937,answer,"
+first but not always, it seems you have deleted a file/folder from your project. if so, remember to delete the path that was serving that folder ""path in the project urls.py"" 
+"
+132,56166319,59261764,answer,"
+I made the same mistake and to solve the issue try this
+from django.http import HttpResponse
+
+"
+133,56166319,57179135,answer,"
+I had the same issue here. After having suffering for a few hours stuck, I figured out the reason. It's very basic. 
+We forgot to run the migrate commands.
+To fix, run the below commands in order:
+python manage.py migrate
+
+python manage.py makemigrations
+
+python manage.py migrate
+
+While the error notification is not relavance but this fix the error anyway :v.
+You can read further information about migration Here.
+"
+134,56166319,58172248,answer,"
+I had the same error and I also do not have any bootstrap included in my application. In my case the  virtualenv server stopped running. Just reboot the Django server and you are good to go again.
+"
+135,56166319,57674968,answer,"
+In my case, I was missing the \ when using multiple lines to import:
+from .models import Country, State, Locality, Address,\
+PercentageAmount, Condominium, Condominium_expenses_report,\
+    FunctionalUnit, Percentage, FunctionalUnit_expenses_report,\
+        Expense, Bill, Judgment, Insurance, Concept
+
+"
+136,56166319,56618606,answer,"
+I am sensing that you are trying to import bootstrap files for your website.This can be conveniently done by adding the hyperlink from the bootstrap cdn on your base template.
+Also you can download the boostrap package and copy the css and js files under the static folder in your project.
+"
+137,56166319,98960144,comment,Please provide your traceback as a text instead of a screenshot. Please also provide related source code.
+138,56166319,98959985,comment,You'd better provide text descriptions for errors. Console deals fine with <ctrl+c>.
+139,56166319,100753039,comment,"I don't think that's it actually. I just hit the same problem (which is how I found this question) and I haven't done anything with templates yet - still setting up models, so no bootstrap on my part."
+140,55496289,55496289,question,"I am trying to run some code to create an LSTM model but i get an error:AttributeError: module 'tensorflow' has no attribute 'get_default_graph'My code is as follows:from keras.models import Sequentialmodel = Sequential()model.add(Dense(32, input_dim=784))model.add(Activation('relu'))model.add(LSTM(17))model.add(Dense(1, activation='sigmoid'))model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])I have found someone else with a similar problem and they updated tensorflow and it works; but mine is up to date and still does not work. I am new to using keras and machine learning so I apologise if this is something silly!"
+141,55496289,60318566,answer,"
+Assuming people referring to this thread will be using more and more tensorflow 2:
+Tensorflow 2 integrates further keras api, since keras is designed/developed very wisely. The answer is very easy if you are using tensorflow 2, as described also here:
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Activation, LSTM
+
+model = Sequential()
+model.add(Dense(32, input_dim=784))
+model.add(Activation('relu'))
+model.add(LSTM(17))
+model.add(Dense(1, activation='sigmoid'))
+model.compile(loss=tensorflow.keras.losses.binary_crossentropy, optimizer=tensorflow.keras.optimizers.Adam(), metrics=['accuracy'])
+
+and that's how you change one would use something like MNIST from keras official page with just replacing tensorflow.keras instead of  keras and runnig it also on gpu;
+from __future__ import print_function
+import tensorflow
+from tensorflow.keras.datasets import mnist
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Dropout, Flatten
+from tensorflow.keras.layers import Conv2D, MaxPooling2D
+from tensorflow.keras import backend as K
+
+batch_size = 1024
+num_classes = 10
+epochs = 12
+
+# input image dimensions
+img_rows, img_cols = 28, 28
+
+# the data, split between train and test sets
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+
+if K.image_data_format() == 'channels_first':
+    x_train = x_train.reshape(x_train.shape[0], 1, img_rows, img_cols)
+    x_test = x_test.reshape(x_test.shape[0], 1, img_rows, img_cols)
+    input_shape = (1, img_rows, img_cols)
+else:
+    x_train = x_train.reshape(x_train.shape[0], img_rows, img_cols, 1)
+    x_test = x_test.reshape(x_test.shape[0], img_rows, img_cols, 1)
+    input_shape = (img_rows, img_cols, 1)
+
+x_train = x_train.astype('float32')
+x_test = x_test.astype('float32')
+x_train /= 255
+x_test /= 255
+print('x_train shape:', x_train.shape)
+print(x_train.shape[0], 'train samples')
+print(x_test.shape[0], 'test samples')
+
+# convert class vectors to binary class matrices
+y_train = tensorflow.keras.utils.to_categorical(y_train, num_classes)
+y_test = tensorflow.keras.utils.to_categorical(y_test, num_classes)
+
+model = Sequential()
+model.add(Conv2D(32, kernel_size=(3, 3),
+             activation='relu',
+             input_shape=input_shape))
+model.add(Conv2D(64, (3, 3), activation='relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.25))
+model.add(Flatten())
+model.add(Dense(128, activation='relu'))
+model.add(Dropout(0.5))
+model.add(Dense(num_classes, activation='softmax'))
+
+model.compile(loss=tensorflow.keras.losses.categorical_crossentropy,
+          optimizer=tensorflow.keras.optimizers.Adadelta(),
+          metrics=['accuracy'])
+
+model.fit(x_train, y_train,
+      batch_size=batch_size,
+      epochs=epochs,
+      verbose=1,
+      validation_data=(x_test, y_test))
+score = model.evaluate(x_test, y_test, verbose=0)
+print('Test loss:', score[0])
+print('Test accuracy:', score[1])
+
+"
+142,55496289,60300824,answer,"
+to solve the problem i used the code below
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+import numpy
+"
+143,55496289,59964209,answer,"
+For tf 2.1.0 I change to tf.compat.v1.get_default_graph()
+import tensorflow as tf
+# sess = tf.compat.v1.Session(graph=tf.import_graph_def(), config=session_conf)
+sess = tf.compat.v1.Session(graph=tf.compat.v1.get_default_graph(), config=session_conf)
+tf.compat.v1.keras.backend.set_session(sess)
+
+
+"
+144,55496289,59959115,answer,"
+I had the same problem. I tried
+   from tensorflow.keras.models import Sequential
+
+and 
+   from keras.models import Sequential
+
+none of them works. So I update tensorflow, keras and python:
+    $conda update python
+    $conda update keras
+    $conda update tensorflow
+
+or 
+    pip install --upgrade tensorflow
+    pip install --upgrade keras
+    pip install --upgrade python
+
+My tensorflow version is 2.1.0; my keras version is 2.3.1; my python version is 3.6.10. 
+Nothing works until I unintall keras and reinstall keras:
+    pip uninstall keras
+    pip install keras --upgrade
+
+"
+145,55496289,59916899,answer,"
+Use the following:
+tf.compat.v1.disable_eager_execution()
+print(tf.compat.v1.get_default_graph())
+
+It works for tensorflow 2.0
+"
+146,55496289,55496390,answer,"
+Please try:
+from tensorflow.keras.models import Sequential 
+instead of
+from keras.models import Sequential
+"
+147,55496289,58986880,answer,"
+for latest tensorflow 2  replace the above code with below code with some changes
+for details check keras documentation:
+https://www.tensorflow.org/guide/keras/overview
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras import layers
+from tensorflow.keras.models import Sequential, load_model
+
+    model = tf.keras.Sequential()
+    model.add(layers.Dense(32, input_dim=784))
+    model.add(layers.Activation('relu'))
+    model.add(layers.LSTM(17))
+    model.add(layers.Dense(1, activation='sigmoid'))
+    model.compile(loss='binary_crossentropy', optimizer=tf.keras.optimizers.Adam(0.01), metrics=['accuracy'])
+
+"
+148,55496289,58948540,answer,"
+Yes, the code is not working with this version of tensorflow tensorflow == 2.0.0 . moving to version older than 2.0.0 will help.
+"
+149,55496289,58888227,answer,"
+This has also happend to me. The reason is your tensorflow version. Try to get older version of tensorflow. Another problem can be you have a python script named tensorflow.py in your project.
+"
+150,55496289,56427511,answer,"
+Downgrading will fix the problem but if you want to use latest version, you must try this code:
+from tensorflow import keras and 'from tensorflow.python.keras import backend as k
+That's work for me
+"
+151,55496289,55497342,answer,"
+Turns out I was using the wrong version (2.0.0a0), so i reset to the latest stable version (1.13.1) and it works.
+"
+152,55496289,106665484,comment,"Hi, welcome to Stackoverflow and thanks for your reply! Please add what you think may have caused the error and what's the idea behind your solution so others may understand the underlying concepts and find solutions in similar cases! Also please use the formatting options, e.g. to make cod examples stand out! You can use the icons on top of the edit area, as well as markup—documentation is available by click on the help icon in the top right corner of the edit area."
+153,55496289,105157962,comment,how do you downgrade?
+154,55496289,103830709,comment,Just to add a little more explanation: TensorFlow 2.0 has Keras built-in; no need to load Keras separately into your environment; just change the import statements as @irezwi shows.
+155,55496289,103420905,comment,"This isn't a solution, you went back to an earlier version of keras and used that version's implementation. @irezwi 's answer is the one that worked with tf 2.0"
+156,58321114,58321114,question,"Since I installed the iOS 13.2 beta, I have been getting a debug console error message. It happens every time I load a ViewController with a WKWebView object in the storyboard.Then the following message is shown continuously while the web view is visible...2019-10-10 12:10:47.867830+0200 (...) [Process] kill() returned unexpected error 1  2019-10-10 12:10:47.908698+0200 (...) [Process] kill() returned unexpected error 1  2019-10-10 12:10:47.908814+0200 (...) [Process] kill() returned unexpected error 1  2019-10-10 12:10:47.934169+0200 (...) [Process] kill() returned unexpected error 1  2019-10-10 12:10:47.947668+0200 (...) [Process] kill() returned unexpected error 1  2019-10-10 12:10:47.964375+0200 (...) [Process] kill() returned unexpected error 1  2019-10-10 12:10:48.193556+0200 (...) [Process] kill() returned unexpected error 1  2019-10-10 12:10:48.193723+0200 (...) [Process] kill() returned unexpected error 1  2019-10-10 12:10:48.193941+0200 (...) [Process] kill() returned unexpected error 1  2019-10-10 12:10:48.194012+0200 (...) [Process] kill() returned unexpected error 1  2019-10-10 12:10:48.195679+0200 (...) [Process] kill() returned unexpected error 1  2019-10-10 12:10:48.200432+0200 (...) [Process] kill() returned unexpected error 1  2019-10-10 12:10:48.207225+0200 (...) [Process] kill() returned unexpected error 1  2019-10-10 12:10:48.207298+0200 (...) [Process] kill() returned unexpected error 1 At the moment I close the view I get the following message: 2019-10-10 12:32:41.577505+0200 (...)[ProcessSuspension] 0x1051e50b0 - ProcessAssertion::processAssertionWasInvalidated() Sometimes I get the following message in the middle while the web view is loaded: (I can't say when it happens)2019-10-10 12:33:11.453528+0200 (...) Could not signal service com.apple.WebKit.WebContent: 113: Could not find specified service2019-10-10 12:33:11.459713+0200 (...) Could not signal service com.apple.WebKit.Networking: 113: Could not find specified serviceAnd the if I touch the screen it starts again    2019-10-10 12:10:48.200432+0200 (...) [Process] kill() returned unexpected error 1      2019-10-10 12:10:48.207225+0200 (...) [Process] kill() returned unexpected error 1      2019-10-10 12:10:48.207298+0200 (...) [Process] kill() returned unexpected error 1 ...I have checked that this is happening in all of the view controller with WKWebViews of my app, so it doesn't seems to be a code error. This doesn't crash the app, but I would like to know why this is happening, and if someone else is having the same issue. "
+157,58321114,60169430,answer,"
+It isn't fixed in the latest iOS 13.3.1(17D50) release. 
+Hope it will save someone's time.
+"
+158,58321114,60263244,answer,"
+Its a bug in apple code more detail can be found on this link 
+https://forums.developer.apple.com/thread/126930
+"
+159,58321114,60222968,answer,"
+So not sure if this helps but obviously I have the same errors and even the newest ios update does not solve it.
+Today I was designing the interface on mac before pushing it to the ios environment and I noticed the web previewer also gives a lot of error messages being 
+Failed to load resource: unsupported URL  -> coming from gap://ready
+I have the feeling this is because of url blocking on local pages, stuff like that. Can this all be caused by some security update on webview which just mangles up the cordova init?
+"
+160,58321114,60162845,answer,"
+I´m using Xcode 11.4 Beta for a Mac Catalyst project.
+I got the same problem when running on iPadOS.
+2020-02-11 06:18:19.194170+0100 Project[4623:1068007] [Process] kill() returned unexpected error 1
+No error on macOS doing exactly the same thing.
+Tried different URLs, with no difference.
+  import UIKit
+  import WebKit
+
+  class ViewController: UIViewController {
+
+  @IBOutlet weak var webView: WKWebView!
+
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+        let url = URL (string: ""https://discussions.apple.com/welcome"")
+        let requestObj = URLRequest(url: url!)
+        webView.load(requestObj)
+
+
+   }
+
+
+ }
+
+"
+161,58321114,59345120,answer,"
+For the other two five eleven macOS developer out there: It’s also not fixed in macOS 10.15.3.
+"
+162,58321114,59913261,answer,"
+The iOS bug with WKWebView is not solved yet, even with iOS 13.3 (at the time of writing this answer). Nonetheless, no issue is not seen on UIWebView. 
+For Ionic developers, Ionic supports two webviews for a few years now (UIWebView and WKWebView). Since Ionic V3, WKWebview is used by default when building for iOS. Ionic documentation favours WKWebview as the the best option for any app, as it features many improvements over the legacy UIWebView. 
+Till fixing this iOS bug, you can force using UIWebView in Ionic apps by adding the following preference line to the config.xml under the tag widget and not platform. 
+<preference name=""CordovaWebViewEngine"" value=""CDVUIWebViewEngine"" />
+
+This basically forces Ionic to use CDVUIWebViewEngine which is not impacted by the bug.
+"
+163,58321114,59814352,answer,"
+I will pre-admit this is a terrible ""answer"" but it is a valid observation.  This has something to do with sandboxing.  If you rebuild your app without a sandbox, there are no messages.  If you turn on the sandbox and enable Outgoing Connections which is all I need for my app, every mouse event in the webkit gives me the unhappy message. 
+If I also include Incoming Connections, just as a test, same messages.
+Remove the sandbox (for an internal use only app), no stupid messages.  Perhaps this observation will help someone at Apple track this problem down some more.
+"
+164,58321114,59617351,answer,"
+I don't really know why this affects it, but hey ¯\_(ツ)_/¯ 
+I am using Firebase - and here was a line in my Podfile:
+pod 'Firebase/DynamicLinks'
+
+After removing that, I no longer got these logs. Strange, but it works I guess if you don't yet need this pod for now.
+This may also be an issue for other pods, who knows.
+I have that line in my Podfile for a feature I am yet to implement, but can't until I get a full Apple Developer Membership account.
+"
+165,58321114,58539626,answer,"
+It's a bug in WebKit (or the underlying OS itself).
+And no, it was not fixed in 13.[2,3] release.
+see: 
+
+https://bugs.webkit.org/show_bug.cgi?id=202173
+https://www.mail-archive.com/webkit-changes@lists.webkit.org/msg146193.html
+
+"
+166,58321114,59278113,answer,"
+It is not fixed in the latest iOS 13.3 release
+"
+167,58321114,58774271,answer,"
+As in the accepted answer, this is a WebKit bug and it seems that it has been fixed but not released up until the latest iOS release 13.2.2 (at the time of writing this answer).
+As a workaround, however, you can disable/hide the logs temporarily as mentioned in an answer by @iDevzilla:
+1- From Xcode menu open: Product > Scheme > Edit Scheme
+2- On your Environment Variables set OS_ACTIVITY_MODE = disable
+
+This will ONLY hide the logs so you can continue developing and testing on iOS. As some indicated, this problem crashes their apps no matter what (for me it is not until now). Also, be careful using this method as it might hide important error messages!
+"
+168,58321114,106254936,comment,Have you got any new information on this? - My info: Apple knew about the issue and said they were looking at a possible fix but that was on 18th December 2019 and not been able to get anything more from them about it
+169,58321114,106038316,comment,I am still having this issue in iOS 13.3.1.
+170,58321114,103748704,comment,same issue hier. I tested different apps. Some applications with ionic 3 crash directly and some show the error but will be opened. But all applications with ionic 4 will crash directly. I created a fresh new ionic 4 app but it is not possible to start the app.
+171,58321114,103742765,comment,I have same issue on AppKit with WebKit on Catalina 10.15.1 and Xcode 11.2
+172,58321114,103722054,comment,same issue for me with iOS 13.2 release.  Its always a little alarming to me that there aren't more reports of this.  Always makes me feel like its something i am doing wrong.  This seems like a pretty big issue.  forums.developer.apple.com/thread/123782
+173,58321114,106286695,comment,I've only the possibility to access config.xml and build it from an Xcode because this is a HTML5 hybrid game =(( Any solution for that in that scenario?
+174,58321114,106266405,comment,@DanielDanielecki I have this fully working on ionic 4! make sure you rebuild your project via the ionic cli before testing with Xcode.
+175,58321114,106228891,comment,"Did try, no success."
+176,58321114,106043201,comment,Error still exist in the final 13.3.1 version.
+177,58321114,105620192,comment,"This is VERY frustrating. The simplest workaround is to use legacy WebView, if it suits your purposes, even though it's not encouraged."
+178,58321114,105609169,comment,"@mikey Yeah, I know. At least this shows the cause of the issue. For now you can safely ignore it as long as your Dynamic Links work properly."
+179,58321114,105603208,comment,interesting solution.. but I need to use the DynamiclLinks... so can't really remove it
+180,58321114,105492310,comment,I have a device on the beta program running 13.3.1 and it is still not fixed. There is a changeset for it and the fix is in a technical preview but I can't find a reference anywhere to a release date.  trac.webkit.org/changeset/250329/webkit webkit.org/blog/9600/…
+181,58321114,105231814,comment,I'm one of those 2 :)-
+182,58321114,105197941,comment,"I love that the wankers at Apple deprecated WebView and insist we use this ""the best"" development tools on planet Earth brain damaged technology. I wish Craig F put his email out there like Steve did... he would be getting a flamer from me. I have run into soooooo many problems with this piece of garbage I am just really really po'd. Can't print full pages. Can't get images of full content. All kinds of capabilities that existed before no present. Just Garbage Apple!!! I just tried to use it one of my Mac Apps and totally fubar. Web Inspector flickering and totally unusable cause of this ..."
+183,58321114,104775357,comment,"Bummer. Seeing how the fix is apparently being held back on purpose (it's already fixed in Webkit for months), if I were a conspiracy theorist I would think that this is a covert attempt to sabotage the development of hybrid apps..."
+184,58321114,104769362,comment,I still see this in 13.3.
+185,58321114,104174425,comment,Just installed 13.2.3 - still getting the kill() error :(
+186,58321114,104129447,comment,"@plocks This post actually isn't intended to be a solution, like an author said: it just makes developers' life easier until Apple releases a fix. It helped me btw, thanks!"
+187,58321114,104039072,comment,"The problem is first reported on Sep. 24, 2019. But I am wondering why this issue is not getting much attention and a rapid (released) fix! Many has reported that this problem is present in both XCode and downloaded apps. Also, some reported that this problem is crashing their apps no matter what. Honestly, I started now questioning the reliability of developing native apps on top of cordova/capacitor/ionic."
+188,58321114,103967181,comment,I guess hiding the problem is not really solving it...
+189,58321114,103954019,comment,"For our app it crashes in both variants, no matter if using the packaged app or the one started via Xcode. With iOS 12 it runs fine ..."
+190,58321114,103928507,comment,13.3 beta did not fix it as well
+191,58321114,103842181,comment,So does this suggest that the error only fires during runtime via xcode? Or will this error persist in a packaged application bundle installed on users devices?
+192,58321114,103798201,comment,"13.2.2 still showing continuous output for me, thousands of times over. I suspect it may have something to do with a WKWebView touch or scroll event but i am still troubleshooting. Horrible though, to say the least."
+193,58321114,103742753,comment,I have same issue on AppKit with WebKit on Catalina 10.15.1 and Xcode 11.2
+194,58321114,103625752,comment,iOS 13.2 release did not fix it. And it’s throwing exceptions. it looks like it’s logging every 10ms (100 per second)  this will chew up log files quickly.. smh

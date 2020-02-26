@@ -1,0 +1,2798 @@
+,Id,Url,Title,Selftext,num_comments,score,creation_date
+0,bfitxs,https://www.reddit.com/r/AskProgramming/comments/bfitxs/thirdparty_tokenizers/,Third-party tokenizers.,"I'm not 100% sure this is the right place to ask this, but I don't know of any subreddit more relevant than this one.
+
+My team is integrating with a payment gateway called OpenEdge (this is *not* the programming language from Progress).  The problem we're having right now is that we cannot securely tokenize a CCN from the client side, so we'd have to send the CCN plaintext to our server to tokenize, and this increases our PCI scope.  (Another payment gateway we're using allows us to tokenize using JS securely.)
+
+I've searched the internet for a third-party tokenizer, and I did manage to find TokenEx which seems to be the right idea, but it's not integrated with OpenEdge.  I dug through a *lot* of stuff, but didn't find anything.
+
+Would anybody happen to know of a third-party tokenizer that's compatible with OpenEdge?
+
+Thanks.
+
+Update: If I could change the name of the post, I'd change it to ""Third-party tokenizer for payment gateway"", because I forgot that tokenization is not limited to payment gateways.  :\",0,2,2019-04-20 20:03:18
+1,bfj6e7,https://www.reddit.com/r/AskProgramming/comments/bfj6e7/stack_template_class_has_issues_pop_is_not/,Stack Template Class has Issues. Pop() is not working. C++,"Here is the template class.Everything seems to work except the pop() function. I figured this out because when I try to use it, it doesn't seem to advance past the first item in the stack.
+
+Any ideas on how to fix this?
+
+    #ifndef STACK_H_
+    #define STACK_H_
+    #include &lt;conio.h&gt;
+    
+    #define SIZ 20
+    template&lt;class ItemType&gt;
+    class Stack
+    {
+    private:
+    	ItemType *array;
+    	int top, cap;	
+    public:
+    	Stack(int size = SIZ);
+    	void push(ItemType x);
+    	ItemType pop();
+    	ItemType peek();
+    	int size();
+    	bool isEmpty();
+    	bool isFull();
+    	ItemType in;
+    };
+    template&lt;class ItemType&gt;
+    Stack&lt;ItemType&gt;::Stack(int size)
+    {
+    	array = new ItemType[size];
+    	cap = size;
+    	top = -1;
+    }
+    template &lt;class ItemType&gt;
+    void Stack&lt;ItemType&gt;::push(ItemType x)
+    {
+    	if (!isFull())
+    	{
+    		array[++top] = x;
+    	}
+    	
+    }
+    template &lt;class ItemType&gt;
+    ItemType Stack&lt;ItemType&gt;::pop()
+    {
+    	if (!isEmpty())
+    	{
+    		return array[top--];
+    	}
+    	
+    }
+    template &lt;class ItemType&gt;
+    ItemType Stack&lt;ItemType&gt;::peek()
+    {
+    	if (!isEmpty())
+    	{
+    		return array[top];
+    	}
+    }
+    template &lt;class ItemType&gt;
+    bool Stack&lt;ItemType&gt;::isEmpty()
+    {
+    	return top == -1;
+    }
+    template &lt;class ItemType&gt;
+    bool Stack&lt;ItemType&gt;::isFull()
+    {
+    	return top == cap - 1;
+    }
+    template &lt;class ItemType&gt;
+    int Stack&lt;ItemType&gt;::size()
+    {
+    	return cap;
+    }
+    #endif",7,2,2019-04-20 20:40:47
+2,bfl85f,https://www.reddit.com/r/AskProgramming/comments/bfl85f/making_pdf_files_on_server_side_from_xml_and/,Making PDF files on server side from xml and sometimes from json?,"I need to make PDF files on linux server from XML and sometimes from json files.
+
+XML is the main need.
+
+What is the smartest way to do that?
+
+There can be license fees if commercial products are better than open source.
+
+Best would be if there is some easy to use templates involved, because the output design varies depending the source.",7,5,2019-04-21 00:36:14
+3,bflqfp,https://www.reddit.com/r/AskProgramming/comments/bflqfp/how_to_avoid_a_polymorphic_structure_in_the/,How to avoid a polymorphic structure in the database entity model?,"I'm creating an deck database for a card game, and I have the following rules  
+
+- A **deck** has many **cards**
+- A **card** is one of many types
+- A **monster_card** has power
+- An **item_card** has price
+
+I'm thinking to make the database structure something like this  
+
+https://i.imgur.com/OA3r8y2.png
+```
+┌──────┐     ┌───────────┐     ┌─────────────────┐             ┌──────────────┐
+│ deck │─────│ deck_card │─────│ card            │──┐          │ monster_card │
+└──────┘     └───────────┘     ├─────────────────┤  ├─can be─&gt; ├──────────────┤
+                               │ type_table_name │  │          │ power        │
+                               │ type_table_id   │  │          └──────────────┘
+                               └─────────────────┘  │
+                                                    │          ┌──────────────┐
+                                                    │          │ item_card    │
+                                                    └─can be─&gt; ├──────────────┤
+                                                               │ price        │
+                                                               └──────────────┘
+```
+
+But whenever I look this **can be** , it seems so wrong...  
+Does someone can suggest me a more intelligent way to create this database model?
+
+
+Edit:  
+- Add model image link",3,1,2019-04-21 01:44:50
+4,bfm31k,https://www.reddit.com/r/AskProgramming/comments/bfm31k/active_directory_and_group_policy_apis/,Active Directory and Group Policy APIs,I'm looking to create some monitoring tools for my active directory install.   Are there any APIs I can use to crawl the forest and the GPOs so I can watch for changes?,2,11,2019-04-21 02:36:39
+5,bfnar0,https://www.reddit.com/r/AskProgramming/comments/bfnar0/c_questions_about_architectural_patterns_and_best/,[C#] Questions about architectural patterns and best practices.,"I'm familiarizing with the MVVM pattern  and, in general, the best practices when it comes to separation of code. There's one doubt I have though and it's how to split my code and where to put each method.
+
+Let's say I have a SQL database with a single table modelled around a class `Customer`. Where should I put the code that manages the connection to the database? In it's own class I'd say but I'm  not really sure. Same with the code to interact with the database: adding and removing rows should be part of the `Customer` class file? What about the code that takes the data from the database and displays it in the GUI?",2,8,2019-04-21 05:57:42
+6,bfo95f,https://www.reddit.com/r/AskProgramming/comments/bfo95f/advice_on_datastore_for_processing_millions_of/,Advice on datastore for processing millions of text pages,"I'm building a system to process 100k+ PDFs where the data could be be text, tables, or both.
+
+**Background**
+
+There will be a relational database (Postgres) to handle the web app portion of the app-
+
+* Users
+* Docs uploaded by the account
+
+**Data Processing**
+
+The goal of the app is to extract valuable information from the PDFs. The steps of this process -
+
+* Parse the raw data out of the PDF
+* Clean the data
+* Classify it
+* Extract key data values
+
+**Problem**
+
+Every time I process a PDF, I want to save the results at each step to ensure my algorithms are improving.
+
+**Question**
+
+Should I store the results at each step in the same Postgres db or in some other datastore?
+
+My gut feeling is there is a better solution than having tables for each step.",2,2,2019-04-21 08:21:28
+7,bfowbe,https://www.reddit.com/r/AskProgramming/comments/bfowbe/lisp_linecolumn_of_a_token/,[Lisp] line:column of a token,I am using/writing lisp to create a bit more sophisticated diagrams which are automatically converted to SVG. As a next step I like to write an editor and like to find the respective tokens line:column in the source file. The editor then automatically can update the positions/colors/... directly in the source. I can use an additional lisp parser (from a library) for this but I'm pretty sure there is more appropriate way to do this?,0,1,2019-04-21 09:39:58
+8,bfpknp,https://www.reddit.com/r/AskProgramming/comments/bfpknp/i_love_electronic_music_technohouse_and/,I love electronic music (techno/house) and programming. How do I intersect them?,"Currently a CS student.
+
+&amp;#x200B;
+
+All I could think of is being a software engineer that works on DAW (Digital Audio Workstation)  programs or other music apps.
+
+&amp;#x200B;
+
+What else is there? I do code and study to a lot of techno music lol.
+
+&amp;#x200B;
+
+I also have a DJ hobby (making soundcloud mixes) that I do at home occasionally.",19,16,2019-04-21 10:50:31
+9,bfpqfn,https://www.reddit.com/r/AskProgramming/comments/bfpqfn/how_to_input_name_gender_etc_in_a_form_and_output/,"How to Input Name, Gender, etc. in a form and Output a Text Paragraph?","This is extremely basic, but I have to start somewhere and I can't find the answer online after a lot of tinkering. I make a lot of feedback paragraphs that have the same basic format and frequently repeated phrases. I'd like to make a form of some sort with input fields, checkboxes, etc. to quickly spit out these text paragraphs.
+
+The question is, despite all of my googling so far, I lack the vocabulary to know what I'm looking for or what language I should even use. My programming is limited to very basic C++, HTML and TI-Basic. Can someone guide me in the right direction?
+
+Input example:
+
+* Name: John
+* Gender: (X) M ( ) F
+* Performance: ( ) okay (X) well ( ) excellent
+* Common phrases: blah blah blah
+* Ending: (X) It was great to see (name) again today and I hope to see (pronoun) again soon! ( ) Keep up the good work! (X) Thank you and have a great day!
+
+Output example:
+
+""(John) did (well) in class today. ......It was great to see (John) again today and I hope to see (him) again soon! Thank you and have a great day!""
+
+Thank you!",2,1,2019-04-21 11:05:57
+10,bfqjko,https://www.reddit.com/r/AskProgramming/comments/bfqjko/website_html_bootstrap_and_react/,"Website , HTML, Bootstrap and React","I’ve been tasked with making the frontend of  a website using html, bootstrap and React for a university group project
+I understand html and bootstrap well enough but I don’t know where to start with React
+
+How should I start this project and start learning React? What will React allow me to do oppose to not having it? 
+
+Any help would be great, Thanks",6,1,2019-04-21 12:23:39
+11,bfqu85,https://www.reddit.com/r/AskProgramming/comments/bfqu85/how_to_import_django_oscar_catalogue_with_child/,how to import django oscar catalogue with child categories?," 
+
+hello people and happy easter,
+
+I use the oscar\_import\_catalogue command to import products into my shop. At this moment, I already modified the partner/importer.py and now I can add some attributes into the csv, here is my snipped:
+
+    def _create_item(self, product_class, category_str, upc, title,
+                         description, co2, is_public, stats):
+            # ....
+            item.upc = upc
+            item.title = title
+            item.description = description
+            item.product_class = product_class
+            item.co2 = co2
+            item.is_public = is_public
+            item.save()
+
+have a lot of products and it would be much easier to add the subcategories to the csv as well. Simple example: product\_class: electronics. categories: mobile phones (1) &gt; android phones (2) &gt; samsung phones (3).
+
+Does somebody has any idea?
+
+Greetings",0,0,2019-04-21 12:50:45
+12,bfret1,https://www.reddit.com/r/AskProgramming/comments/bfret1/trying_to_read_a_file_and_organize_the_numbers/,Trying to read a file and organize the numbers into ascending order with the output being placed in rows of 10 by 10,"    #include &lt;iostream&gt;
+    #include &lt;fstream&gt;
+    #include &lt;iomanip&gt;
+    using namespace std; 
+    int main () {
+    	ifstream inFile(""project.txt"", ios::in);
+    	
+    	int the_input;
+    	int the_array [100];
+    	int i{0};
+    	int n = 100, temp, t, j;
+    	
+    	
+    	if (!inFile) {cerr &lt;&lt; ""File could not be opened"" &lt;&lt; endl;
+    	exit(EXIT_FAILURE);}
+    	
+    	{while (inFile &gt;&gt; the_input  )
+    		{
+    		for( i = 0;i&lt;100 ;i++)
+    		{
+          for (j = 0 ; j &lt; n - i - 1; j++)
+          {
+               if (the_array[j] &gt; the_array[j+1])
+               {
+                 temp      = the_array[j];
+                 the_array[j]  = the_array[j+1];
+                 the_array[j+1] = temp;
+               }
+          }
+    }
+    		 for (int i = 0; i&lt;9; i++) {
+    			  if (i &lt; 5) {
+                the_array[i] = i * i;
+            }
+            
+        if ((i + 1) % 5 == 0) {
+            {the_array [i] = the_input;}
+            cout &lt;&lt;the_input&lt;&lt;"" "";
+    	}
+    	}
+    }
+    
+    }
+    	  
+    return 0;
+
+}
+
+edit:
+
+I cant seem to figure out how to organize my array by tens and I cant figure out how to work in the sorting algorithm into the\_input",4,1,2019-04-21 13:42:17
+13,bftdga,https://www.reddit.com/r/AskProgramming/comments/bftdga/how_can_i_create_my_own_cms/,How can I create my own CMS?,"Hi. I'll make some website and want to have one CMS for manage all of them (add content, make SEO, see analytics etc). How many peope I need for this and which developers. Thakns",7,3,2019-04-21 16:42:04
+14,bftfr2,https://www.reddit.com/r/AskProgramming/comments/bftfr2/c_does_array_dereference_pointers/,C++: Does array dereference pointers?,"If I have a 2d array, by using subscript it automatically dereference the pointers right?",14,12,2019-04-21 16:48:01
+15,bftido,https://www.reddit.com/r/AskProgramming/comments/bftido/simple_javascript_scrape_to_build_site_for_friends/,Simple JavaScript Scrape to Build Site for Friends?,"For the past twenty or so years, I and three of my friends have bet against each other on the Masters Golf Tournament. No money changes hands. It's all about bragging rights. Each of us picks four golfers, and the sum of the scores of all four is your score. Lowest score at the end wins. 
+
+During the four days of the tournament, we check who is ahead or behind often. It's time consuming to look up 16 scores and total up our relative positions, so a few years ago I whipped up a quick and dirty Google Site that did the work for us. The Google Site would scrape the Leaderboard, which I could always find somewhere online as an HTML table, then write to a page showing our relative positions at any point during the tournament. 
+
+I can no longer find the Leaderboard published as an HTML table. All the Leaderboard sources now seem to be rendered in JavaScript. This breaks my Google Site. 
+
+I'd like to build a quick and dirty site that can scrape a JavaScript Leaderboard and display the totals for each of our four golfers. 
+
+Here are my design constraints: 
+
+1. I'd like to build this site somewhere where I could host it for free. It will get tiny traffic only four days of the year. It will require a tiny amount of storage.
+2. I think I can teach myself what I need to know to scrape the JavaScript, but I'd like to make that process as efficient as possible. Decades ago I was a strong programmer, but that was pre-Internet and pre-C++. Stone Age. Twenty years ago I did teach myself enough Python to write network admin scripts. A few years ago I did teach myself some C++ (my son and I both took an online MIT Intro course). Naturally, though, the less I have to put into this to get it done, the better. When I Google this issue, it looks like there are lots of Python libraries that will make it work, but is Python the best bet? I can find services that will let me host a small Python site for free, but if I make a different choice, would I have better hosting options? 
+3. Wherever I do it and whatever I do it in, I'd like for the environment to be stable and last for as long as possible. Ideally, I maintain this site for one hour per year and then it just works. 
+
+To sum it up, what's the simplest way to build this site, and where is the easiest place to host it?  
+
+Thank you!",0,1,2019-04-21 16:54:59
+16,bftr8s,https://www.reddit.com/r/AskProgramming/comments/bftr8s/what_is_wrong_with_this_method_of_mine/,What is wrong with this method of mine?,"It is supposed to create a string with a randomname that is a number between MAX and MIN but all it does is return 01 everytime, dont know whats wrong with it
+
+public static String random()
+
+{
+
+return (int)Math.random() \* MAX + MIN + "".jpg"";
+
+}",5,1,2019-04-21 17:17:32
+17,bfuh55,https://www.reddit.com/r/AskProgramming/comments/bfuh55/need_a_websiteprogram_to_auto_send_emails/,Need a website/program to auto send emails,"I need a program or a website that when clicked on by link it will automatically message someone via email or Facebook.
+
+Any advice?",1,0,2019-04-21 18:25:45
+18,bfuif9,https://www.reddit.com/r/AskProgramming/comments/bfuif9/accessing_option_arguments/,Accessing Option Arguments,"If I use parser.add\_option and then store it using this:
+
+options, args = parser.parse\_args(sys.argv\[1:\])
+
+How do I loop through and access each option?",2,1,2019-04-21 18:29:11
+19,bfulbw,https://www.reddit.com/r/AskProgramming/comments/bfulbw/filepaths_in_python_shell_windows/,Filepaths in python shell Windows,"I am completely new to running Python from the command prompt in Windows
+
+&amp;#x200B;
+
+I am trying to load a python script and import information from it, like classes and functions (as opposed to just running the script, I'm not sure the technical term for what I'm trying to do).
+
+&amp;#x200B;
+
+The file is called [group.py](https://group.py) at 'C:\\Users\\Admin\\Desktop\\Code\\'.
+
+&amp;#x200B;
+
+Any help is appreciated. I did this before with help from a friend but I'm not sure how we went about it.
+
+&amp;#x200B;
+
+Thanks a ton.",1,5,2019-04-21 18:36:38
+20,bfutyu,https://www.reddit.com/r/AskProgramming/comments/bfutyu/javascript_enable_the_user_to_light_up_the/,Javascript - enable the user to light up the boxes/items on the page using a specified key on the keyboard,"I want to create a web page that would enable a user to light up the boxes/items on the page using a specified key on the keyboard. For example, below, using ‘M’ to light up the middle item on the interface - Or ‘F’ to light up the top item. I would like the functionality to be able light up multiple boxes at the same time whilst pressing multiple buttons.
+
+I've been advised to use event decorators, but I'm not entirely sure where to start.
+
+document.addEventListener('keydown', function(event) {
+    if(event.keyCode == 37) {
+        alert('Left was pressed');
+    }
+    else if(event.keyCode == 39) {
+        alert('Right was pressed');
+    }
+});",0,0,2019-04-21 19:00:31
+21,bfuu2e,https://www.reddit.com/r/AskProgramming/comments/bfuu2e/c_autoclicker_toggleable_how_would_i_go_about/,"C++ Autoclicker, toggleable. How would I go about doing this?","How would I be able to do this? I am brand new to codding and as my second project I want to try and make a autoclicker that can be toggled on and off with the click of a button. When enabled, holding the left click button would emulate human clicks.",1,0,2019-04-21 19:00:45
+22,bfv2wm,https://www.reddit.com/r/AskProgramming/comments/bfv2wm/im_trying_to_read_an_expression_into_a_vector/,I'm trying to read an expression into a vector. Need some help c++,"I have a vector which I'm reading a user created expression into. My code works great for any expression that has numbers 1-9. Once I get into double digit numbers it doesn't read the number as a single number but two separate numbers. Take 10+10 for example it reads in 1,0+,1,0. I was wondering if anyone knows a good way I can fix this.
+
+&amp;#x200B;
+
+my code: 
+
+    vector&lt;char&gt; IN;
+    void Input()
+    {
+    	string temp;
+    
+    	cout &lt;&lt; ""Enter An Expression: "";
+    	
+    	cin &gt;&gt; temp;
+    
+    	for (int i = 0; i &lt; temp.size(); i++)
+    	{
+    		IN.push_back(temp[i]);
+    	}
+    }",2,1,2019-04-21 19:25:31
+23,bfv4xq,https://www.reddit.com/r/AskProgramming/comments/bfv4xq/how_would_you_solve_this_problem/,How would you solve this problem?,"You are given a total dollar amount and a number of bills, and asked to calculate all the possible combinations of exactly that number of bills that add up to that total dollar amount.
+
+Assortment values are 100, 50, 20, 10, 5, 2, 1.
+
+Any suggestion?",3,1,2019-04-21 19:31:16
+24,bfve2t,https://www.reddit.com/r/AskProgramming/comments/bfve2t/how_do_i_make_a_loop_out_of_this_code/,how do I make a loop out of this code?," if (mouseX &gt; 50 &amp;&amp; mouseX &lt; 100 &amp;&amp; mouseY &lt; 700 &amp;&amp; mouseY &gt; 300) {
+
+if (totaalStappen &lt; doelen) {
+
+fill(0);
+
+textSize(20);
+
+text(""niet gehaald"", width / 2, 220);
+
+} 
+
+&amp;#x200B;
+
+}
+
+&amp;#x200B;
+
+if (mouseX &gt; 150 &amp;&amp; mouseX &lt; 200 &amp;&amp; mouseY &lt; 700 &amp;&amp; mouseY &gt; 300) {
+
+if (totaalStappen &lt; doelen) {
+
+fill(0);
+
+textSize(20);
+
+text(""niet gehaald"", width / 2, 220);
+
+} 
+
+&amp;#x200B;
+
+}
+
+&amp;#x200B;
+
+if (mouseX &gt; 250 &amp;&amp; mouseX &lt; 300 &amp;&amp; mouseY &lt; 700 &amp;&amp; mouseY &gt; 300) {
+
+if (totaalStappen &lt; doelen) {
+
+fill(0);
+
+textSize(20);
+
+text(""niet gehaald"", width / 2, 220);
+
+}
+
+&amp;#x200B;
+
+}
+
+&amp;#x200B;
+
+if (mouseX &gt; 350 &amp;&amp; mouseX &lt; 400 &amp;&amp; mouseY &lt; 700 &amp;&amp; mouseY &gt; 300) {
+
+if (totaalStappen &lt; doelen) {
+
+fill(0);
+
+textSize(20);
+
+text(""doel gehaald!"", width / 2, 220);
+
+} 
+
+&amp;#x200B;
+
+}
+
+&amp;#x200B;
+
+if (mouseX &gt; 450 &amp;&amp; mouseX &lt; 500 &amp;&amp; mouseY &lt; 700 &amp;&amp; mouseY &gt; 300) {
+
+if (totaalStappen &lt; doelen) {
+
+fill(0);
+
+textSize(20);
+
+text(""niet gehaald"", width / 2, 220);
+
+} 
+
+&amp;#x200B;
+
+}
+
+&amp;#x200B;
+
+if (mouseX &gt; 550 &amp;&amp; mouseX &lt; 600 &amp;&amp; mouseY &lt; 700 &amp;&amp; mouseY &gt; 300) {
+
+if (totaalStappen &lt; doelen) {
+
+fill(0);
+
+textSize(20);
+
+text(""niet gehaald"", width / 2, 220);
+
+} 
+
+&amp;#x200B;
+
+}
+
+&amp;#x200B;
+
+if (mouseX &gt; 650 &amp;&amp; mouseX &lt; 700 &amp;&amp; mouseY &lt; 700 &amp;&amp; mouseY &gt; 300) {
+
+if (totaalStappen &lt; doelen) {
+
+fill(0);
+
+textSize(20);
+
+text(""niet gehaald"", width / 2, 220);
+
+} 
+
+}",5,1,2019-04-21 19:57:47
+25,bfq6ex,https://www.reddit.com/r/AskProgramming/comments/bfq6ex/mobile_developers_what_technical_aspect_of_the/,Mobile Developers - what technical aspect of the mobile development cycle is the hardest?,,6,1,2019-04-21 11:49:55
+26,bfu7jw,https://www.reddit.com/r/programminghelp/comments/9m211c/java_class_type_clarifications/,"Asked this around half a year ago, any ideas?",,0,3,2019-04-21 18:00:25
+27,bihtcq,https://www.reddit.com/r/AskProgramming/comments/bihtcq/c_how_do_you_pass_a_2d_char_array_through_a/,[C++] How do you pass a 2D char array through a function?,"I can't access my code right now, but I can give a general idea of what I am trying to do until I can get it.
+
+Here's a general idea of what I am trying to do. I think I need to use pointers, but I haven't learned them yet. Any help would be appreciated.
+
+&amp;#x200B;
+
+    void moveAlong(char grid[][], int &amp;row, int &amp;col);
+    
+    moveAlong(grid, &amp;row, &amp;col) {
+        
+        if(grid[row-1][col] == 'x') {
+            //row = 2;
+        }
+        else if (grid[row-1][col] != 'x')
+            //row--
+        }
+        else if(grid[row][col+1] == 'x') {
+            //col = 2;
+        }
+        else{
+            //col++
+        }
+    
+    }",3,3,2019-04-28 20:01:05
+28,biiksc,https://www.reddit.com/r/AskProgramming/comments/biiksc/api_that_gives_you_posts_from_a_specific_subreddit/,API that gives you posts from a specific subreddit?,I need a JavaScript/Node API that you can get the posts from that day/week from a given subreddit?,2,1,2019-04-28 21:20:15
+29,biim37,https://www.reddit.com/r/AskProgramming/comments/biim37/python_help_trying_to_detect_mouse_cursor/,(Python) Help! Trying to detect mouse cursor collision with circle using CodeSkulptor simplegui.,"I'm working on a simple game for a class and I'm having a hard time trying to figure out how to detect the mouse cursor colliding with the ball moving on screen. The objective of the game is to try hover the mouse over the circle to gain points. The ball is supposed to change color when the mouse is on top of it. I don't really know if there's a boolean value that I can obtain so I can write a simple if statement, and I've tried reading the CodeSkulptor documentation but it only leaves me even more puzzled. I'm not asking for someone to do my work, I'm just asking for help here.
+
+&amp;#x200B;
+
+Here's [what I have so far](http://www.codeskulptor.org/#user46_dECwS2PC6xxAtpH.py).",1,7,2019-04-28 21:24:13
+30,bio67v,https://www.reddit.com/r/AskProgramming/comments/bio67v/frontend_development_advice_for_a_nodejsexpressjs/,Front-end development advice for a NodeJS/ExpressJS API,"Hi, so I've developed an API that lets a user manage their financial portfolio. Since I'm relatively inexperienced when it comes to front-end development I wrote the front-end using basic html, css and javascript (for handling Ajax operations and element behaviors), to keep things simple. As the number and complexity of components started to increase, I started using a template-engine [Pug](https://pugjs.org), which seems to be fairly popular. At this point, when I need to add things like modals as well as aesthetic elements, I've started to include dependencies like [material-design-lite](https://getmdl.io) and [bootstrap](https://getbootstrap.com/). The current interface is basically a login page which leads to a dashboard that has a bunch of data as well as controls for functionality. 
+
+&amp;#x200B;
+
+The issue I'm facing is that writing the front-end code for something as straightforward as a form for a new transaction is very time consuming, and the development time for the UI is blowing up to the order of what it took me to write the back-end API. Is this expected? Are there any specific tools that I can use to cut down on this time; anything would be helpful but I had something along the lines of the UI-editor in Android Studio, in mind.",4,11,2019-04-29 07:03:44
+31,birki9,https://www.reddit.com/r/AskProgramming/comments/birki9/whats_the_best_tool_i_should_use_if_outsourcing/,What’s the best tool I should use if outsourcing dev work (gitlab?)?,"I’m looking to outsource some dev work to 2 developers. Eventually I want this done in-house, so I want everything to be well documented and able to iterate quickly. I found a tool called GitLab which seems to do this well, anyone have any thoughts on this or alternate solutions?",6,3,2019-04-29 12:35:02
+32,birxhp,https://www.reddit.com/r/AskProgramming/comments/birxhp/different_type_of_data_layer_implementations/,Different Type of Data Layer Implementations,"Hello all,
+
+I'm reading more into data layer implementations because everything I've implemented has been DOM scraping (for good reasons, i.e., not enough dev support, etc.).
+
+Finally had enough time to go through the w3c recommendations on data layer and it looks like it's just adding JavaScript Objects to the front-end HTML of the page.
+
+I've seen data layers exist without a JavaScript object being visible on the front-end of the HTML.Ex. I can't find digitalData.event.... anywhere on the front-end of the site. How is this data layer implemented?  
+
+
+Also, interested in learning any other ways data layers are implemented other than just adding custom JavaScript to the front-end of the site. I have assumptions, but would like to learn more.",0,1,2019-04-29 13:05:37
+33,bisrsk,https://www.reddit.com/r/AskProgramming/comments/bisrsk/working_as_programmer_as_part_time_job_feel_too/,"Working as programmer as part time job, feel too slow learner","Hey,
+
+I have been working part-time job for 6 months now as a embedded software engineer. I got the job by completing the course that the company organised. 
+
+The thing is I feel like I do not learn enough. For the past 6 months I had various success with the tasks I'm given. I have spent months on tasks that I feel like should have taken a few weeks. Now I am pretty fluent with the language (C) and toolkit that company uses, but the internal architecture of software I'm am working on is really challenging for me. I roughly understand how everything works, but some of the concepts are hard to understand for me.
+
+I feel like my efficiency is at the bottom. Right now I'm sitting for third week on remaking one function. It is hard one, recursive one that calls few other ones. It took me around a week to understand what it fully does. Then I tinkered with it for pretty much a week. The are not much of docs to work with, but I am utilizing everthing I have. I asked my mentors about it, but one of them is really busy recently and he does not help much when it comes to details, and my second one is on holidays.
+
+To give you background, I am 3rd year student (out of 5) and I still have to do a lot for it, it's pretty busy sometimes. I also learn a lot from work, but I feel like I am really slow. I work with my groupmate, and by the looks of it I can't say that he feels the same way I feel. He does more than I do, from what I can see.
+
+So my question is dedicated mostly to seniors or middles, who work in the field. Is it ok for a junior to be slow just like I am? If you are junior, do you feel or felt the same at some point of you career?
+
+Or maybe I'm overthinking. I do not get any pressure neither from my mentors nor from big bosses nor anyone. Noone ever told me that I am too slow. Maybe because I am not, or maybe because of work ethics. I want to understand that I am working with my speed. I am really trying to do things faster, I am trying to spend as less time on doing nothing at work, and this is just my speed of doing work. 
+
+What is your opinion on that? I really need external input.",5,2,2019-04-29 14:17:31
+34,bitd0c,https://www.reddit.com/r/AskProgramming/comments/bitd0c/programmingmath_question_regarding_integers_that/,Programming/math question regarding integers that are greater than the max integer size,"Hi everyone.  Sorry if this is the wrong place to ask this question.
+
+I'm writing a program in C++ that involves the calculation:
+
+x = 2^(N-1) mod N.
+
+I need to run this calculation as N increases, but I'm running into a bottleneck due to the max integer size allowed in C++ (or the IDE I'm using, not sure which one is limiting me).
+
+The calculation works until N is greater than 32.  It seems to me that integers are stored in 32 bits (with the first bit signaling pos/neg), and thus when N is larger than 32, 2^(N-1) becomes too large.
+
+Normally, I would use logarithms to make this calculation more manageable for large N.  However, I'm having issues with trying this because the calculation also includes modular division.  I've been playing around with the math, and I'm having a hard time working out how a logarithm might run through modular division (or if it's even possible).
+
+Has anyone encountered a problem like this, or have any tips so that I can make the calculation work for larger N?
+
+Thanks!",2,1,2019-04-29 15:07:51
+35,bitndt,https://www.reddit.com/r/AskProgramming/comments/bitndt/creating_a_dsllanguage_or_attempting_to_sandbox/,Creating a DSL/Language or attempting to sandbox another language?,"For a while, I've been pondering this question and I can't come to any sort of ""good"" conclusion so I thought I'd ask all the actual experienced people out there for ideas.
+
+&amp;#x200B;
+
+On the project that I am working on at the moment, we are looking to allow users to create custom functionality using specific functions that we define. On top of this, we also would like users to be able to use usual programming constructs like loops, variables etc.. The project is written in Java so we will need a way to run the language directly as if by ""evaling"" code. 
+
+&amp;#x200B;
+
+One way I have thought about doing this is by using an already created language and just ""evaling"" that. For the admin part of the project, we use Java's ScriptEngine combined with groovy to allow us to execute functions as we need but we cannot do this for the users in the same way due to the massive security implications. If there was a good way to lock down the eval, that could work quite nicely and could be a potential way to go forward with this.
+
+&amp;#x200B;
+
+The other way I have been looking into is creating some sort of custom language or DSL in order to provide all the functionality we need but having fine-grained control over what users can and cannot do. This adds quite a bit of complication because with implementing a new language you are not only creating a new part of the project to be intensively designed and tested but also a potential security issue if everything is not done 100% correct. 
+
+&amp;#x200B;
+
+For this reason, I would much rather use a language that already exists and to be able to lock it down but I'm open to all different ways to do this. All of this is very theoretical so feel free to throw a complete spanner in the works and suggest something completely radical!
+
+&amp;#x200B;
+
+Thanks in advance to anyone who can lend a brain :)",4,5,2019-04-29 15:32:47
+36,bitsss,https://www.reddit.com/r/AskProgramming/comments/bitsss/switched_from_qa_to_dev_a_few_months_ago_with_no/,"Switched from QA to Dev a few months ago with no formal education, what topics should I absolutely learn?","Hi there! My company offered me the change to switch from QA to Dev a few months ago. While I made very clear that other than the basics (variables, scopes, flow control, basic OOP, git usage, etc) I have no programming knowledge at all, they said it was ok since they were happy with me as an employee and they will let me learn as I go.
+
+I am fortunate enough to have great coworkers that help me on a daily basis. However, I would like to go the extra mile and learn as much as I can, not only to make up for the great opportunity they gave me but also to prepare myself for the future (I would really want to get a  job outside my country).
+
+That said, what topics should I really learn? How do I go about creating a study plan that can help me to fill the gaps? The language we use is C# with ASP.NET Core, and I am currently writing simple API endpoints, if that helps.
+
+Thanks a lot for any advice you may have!",18,23,2019-04-29 15:45:32
+37,bivzte,https://www.reddit.com/r/AskProgramming/comments/bivzte/sql_and_opencl_kernels_are_similar_they_select_a/,SQL and opencl kernels are similar. They select a dense block of rows whose primary key is an array index (which may be composite if it has more dimensions) and whose other column is the scalar in that array cell. Is there some similar syntax or framework for a dependnet of opencl kernels?,"For example matrix multiply of matAB by matBC returns matAC, given sizeA, sizeB, and sizeC. matAB would be a table with composite key of {A,B}. All 3 matrix have a float32 column for value. Using a join and a sum op you could select matAC which doesnt exist, name it, and further query other combos of matrix all in 1 query. This seems more aligned with how GPUs work than writing it as counting vars in loops, and more importantly it makes it easier to prove a query/kernel stays within allowed memory ranges. Is there some similar syntax or framework for a dependnet of opencl kernels?",0,3,2019-04-29 18:58:41
+38,biubyo,https://www.reddit.com/r/AskProgramming/comments/biubyo/why_am_i_getting_a_different_request_than_expected/,Why am I getting a different request than expected?,[deleted],10,1,2019-04-29 16:30:09
+39,bg9xfn,https://www.reddit.com/r/AskProgramming/comments/bg9xfn/can_a_programmer_create_new_and_innovative_tech/,Can a programmer create new and innovative tech in a year or two?,"I am a CSE student and the reason I chose CSE was because Computers is the only field where you don't need money and mentors to create something new or innovative. You only require a PC, skills and hard work.
+
+So, Is it possible for a CSE student to create some new and innovative software/technology in a year or two that can be used to start a startup or sell the technology to some other tech giant?
+
+I am a beginner, still learning C. I am willing to put in the hours and hard work.",16,3,2019-04-22 20:55:52
+40,bgao7l,https://www.reddit.com/r/AskProgramming/comments/bgao7l/c_trying_to_render_a_ray_tracer_in_realtime_so_i/,[C++] Trying to render a ray tracer in realtime so I can interact and move the camera around,"Hello,
+
+So I created a basic C++ ray tracer which creates a vector of pixels(float) and the image gets exported to a bmp file using Cimg. I wanted to take it to the next step and be able to move the camera around in real-time(in super low resolution of course). Any ideas how I'd do that? 
+
+I have some familiarity with OpenGL and am interested in ray tracing with DirectX although I think for DirectX I need a RTX series graphics card which I don't have. That'd allow me to move the processing towards GPU and better experience all-in-all.
+
+Basically I want to take my ray tracer to the next step. No idea what are my options. Thank you for reading! Any help would be appreciated.",2,2,2019-04-22 22:09:06
+41,bgaxhf,https://www.reddit.com/r/AskProgramming/comments/bgaxhf/why_is_it_so_challenging_to_design_a_decent/,Why is it so challenging to design a decent shuffle function?,"Whether it's apple music, spotify, or another similar service.  Why does the shuffle function always seem to be awful at truly random selections?  On Apple Music I notice I only get the last 20 songs or so I added fairly often.  Or on spotify sometimes I'll get 20 songs in a row from only 2 artists who happen to have very little songs in my library.
+
+So what gives?  It's a pretty common complaint/issue for these companies, is it something specific that's hard to develop?  
+
+Also should note it's not a settings issue.",9,7,2019-04-22 22:34:33
+42,bgb0gp,https://www.reddit.com/r/AskProgramming/comments/bgb0gp/how_do_i_import_data_from_something_like_excel/,How do I import data from something like Excel into an HTML variable.,"Say my excel sheet says:
+
+-
+State  | First    |     Second
+
+AL     |  Hello    |    Hi
+
+MO   |  Goodbye |  Bye
+
+-
+Let's say I have a variable called alabamasfirst. How would I place ""hello"" into that variable. 
+
+Thank u sorry that i know nothing about coding",2,0,2019-04-22 22:42:49
+43,bgb1vk,https://www.reddit.com/r/AskProgramming/comments/bgb1vk/arrays_with_the_exact_same_name_assignment_in_java/,Arrays with the exact same name assignment in java?,"Hi! Im going through some old practice exams and Im a bit confused by this question: 
+
+    public static void main(String args[]) {
+    int x = 5;
+    int y = 10;
+    int[] a = new int[x];
+    myMethod(x,y,a);
+    System.out.println(x + y + "", "" + Arrays.toString(a));
+    }
+    
+    public static int myMethod(int x, int y, int[] a) {
+        x = 2;
+        for(int i=0; i&lt;a.length; i++) {
+            a[i] = x*i;
+        }
+        y = y/3;
+        a = new int[y];
+        a[x] = y*3;
+        return y;
+    }
+
+It asks what prints. Im not sure why the first value of a (0,2,4,6,8) prints rather than its new assigned value, (0,0,3)?",2,1,2019-04-22 22:46:35
+44,bgb1yr,https://www.reddit.com/r/AskProgramming/comments/bgb1yr/machine_learning_and_neural_networks/,Machine learning and neural networks,"Hey everyone, 
+
+This is more of a broad question, I'm just not sure how to approach something like this yet.
+
+How, or what would be a good approach to creating an app where all the users contribute data to a machine learning model (neural network?) and those results are used to improve efficiency for other users on the app. For example, say there is an app where people take pictures of food and those pictures are used to train a model to help identify different foods. How could you take all of those models from all the users, combine them and use that big model to make identifying the foods more accurate for all users? 
+
+I've made models before with apples coreML, both text / photo based. But I'm unsure of how too (join?) them, like in the above example. If you could possibly lay it out generically, the steps one could take to go about it and I'll research further, I'm just lost on starting.",7,11,2019-04-22 22:46:48
+45,bgbb44,https://www.reddit.com/r/AskProgramming/comments/bgbb44/when_would_you_take_an_old_project_off_of_github/,When would you take an old project off of github?,"I have some old projects on github that I hosted and maintained for other people, but the relationship has with all of them have all ended over 2 years ago and I want to turn into a portfolio page now.
+
+Is now the time to go ahead and take them of or should I leave them in place just to be archived?",2,2,2019-04-22 23:12:05
+46,bgbly2,https://www.reddit.com/r/AskProgramming/comments/bgbly2/effective_power_text_over_iphone_behind_the_scenes/,'Effective power' text over iphone. Behind the scenes?,"Howdy, doing a paper on mobile security. Was wondering if [this](https://www.forbes.com/sites/amitchowdhry/2015/05/29/apple-effective-power-bug/#35b5fe32313a) article was using any similar processes/exploits found by recent android renderer executing kernel code like [this](https://blog.trendmicro.com/trendlabs-security-intelligence/cve-2017-0780-denial-service-vulnerability-android-messages-app/). If not, does anyone have any info about what went wrong with the first? or what topics to look into to find similar exploits?
+
+Thanks",2,2,2019-04-22 23:42:34
+47,bgbwhi,https://www.reddit.com/r/AskProgramming/comments/bgbwhi/developing_intuition_for_gpu_shader_development/,Developing intuition for GPU Shader development,"I've been coding for almost 40 years and have a decent gut for logic and performance down to the hardware level based on assembly language, C, etc. But I never touched GPU code, CUDA, Shaders, etc, nor have I ever looked at the hardware engineering. I vaguely know it does a lot of math in parallel, and that's it. 
+
+Is there a good way to understand the architecture, how it works, what shader code does, and ultimately get a good sense of performance guidelines (like ""make sure you don't call sin 20 times per pixel"").",1,1,2019-04-23 00:12:14
+48,bgfn0y,https://www.reddit.com/r/AskProgramming/comments/bgfn0y/hi_im_starting_programming/,"Hi, I’m starting programming!","Hello everyone I'm relatively new to this sub reddit (joined today!) and I'm thinking about starting to learn coding.
+
+Also, It would be helpful if someone could point me in the right direction or give me any tips and tricks.
+
+I'm asking this because I am starting Computer Science for GCSE next year and would like a head start on the subject.
+
+By the way I will be using python as the course I’m doing it includes that. I thought I would mention that to stop confusion.
+
+
+
+Thanks :)",9,2,2019-04-23 08:12:34
+49,bgg529,https://www.reddit.com/r/AskProgramming/comments/bgg529/question_about_hosting_a_conversational_ai_in_a/,Question about hosting a conversational AI in a cloud and allowing it to communicate between two systems using 'sockets',"Hi all,
+
+So I have been working with an AI developer to create an artificial intelligence that learns from transcribed conversations to then output its own conversations based on what it learned from the inputs. 
+
+&amp;#x200B;
+
+This is for an art piece which will be shown as part of an installation. The conversation outputs of person A will be shown on one iPad and person B's side of the conversation will be shown on another iPad. I have been talking to my developer about this and he says that I need to host the AI on a cloud and then use sockets to allow the two parts of the conversations play separately on each screen with a delay. So essentially person A says something and then person B will say something... etc. I apparently need to host this on a website online so that we can access it on the iPads. 
+
+&amp;#x200B;
+
+I have been quoted $300-$400 dollars for this job, but I just wanted to know what you thought about this price? Does it seem like a lot for a small job? I don't feel like there's much to do? Let me know if I've not explained myself well.
+
+&amp;#x200B;
+
+Thanks",3,1,2019-04-23 09:04:44
+50,bggpud,https://www.reddit.com/r/AskProgramming/comments/bggpud/removing_the_copyright_statement_from_an/,Removing the copyright statement from an HTML/CSS/JS template that has been modified.,"I recently downloaded a login/signup page template in HTML/CSS/JS, that I intend to modify for use on my JSP website. As it was a template for public use, each page contains a copyright statement. Because I intend to heavily modify the page (both color scheme and fields/values etc.), I want to know at what point it is acceptable for me to remove the original copyright statement? Or is it a requirement that I leave it on each page as is, even though the code has been changed. Thanks in advance!",3,2,2019-04-23 10:00:24
+51,bgh1qx,https://www.reddit.com/r/AskProgramming/comments/bgh1qx/xml_placing_maxinclusive_in_an_existing_xml/,[XML] Placing MaxInclusive in an existing XML statement(Form) such that date cannot be selected &gt;120 days out.,"I'm trying to update an xml script to limit the date range that can be entered to extend someones contract in a system of record. The form is basic enough, but I'm having a hard time getting the restriction. What I'm essentially trying to get to work is the following:
+
+    &lt;restriction base='date'&gt;
+        &lt;maxInclusive value=''/&gt;
+    &lt;/restriction&gt;
+
+I'm just striking our on how to limit the date 120 days from today. For reference, the entire script is below, I'm trying to limit termination date. 
+
+    &lt;WF_DynamicForm&gt;
+      &lt;DataClass&gt;Employee&lt;/DataClass&gt;
+      &lt;FormHeader&gt;
+        &lt;Style&gt;header&lt;/Style&gt;
+        &lt;Title&gt;Estimated End Date&lt;/Title&gt;
+      &lt;/FormHeader&gt;
+      &lt;UsedClass&gt;
+        &lt;Name&gt;List_EmployeeEmploymentStatus&lt;/Name&gt;
+        &lt;Mode&gt;Current&lt;/Mode&gt; 
+    
+    &lt;AddNewInstanceIfEmpty&gt;true&lt;/AddNewInstanceIfEmpty&gt;
+        &lt;DefaultStatus&gt;Insert&lt;/DefaultStatus&gt;
+      &lt;/UsedClass&gt;
+      &lt;EmployeeHeaderPanel&gt;
+        &lt;Style /&gt;
+      &lt;/EmployeeHeaderPanel&gt;
+      &lt;FormBody&gt;
+        &lt;Style&gt;IVFormBody&lt;/Style&gt;
+        &lt;Block&gt;
+     &lt;Style /&gt;
+      &lt;NumberOfColumns&gt;3&lt;/NumberOfColumns&gt;
+    &lt;/Block&gt;
+    &lt;Panel&gt;
+      &lt;Style&gt;IVPanel&lt;/Style&gt;
+      &lt;Caption&gt;Estimated End Date&lt;/Caption&gt;
+      &lt;Row&gt;0&lt;/Row&gt;
+    &lt;/Panel&gt;
+    &lt;Label&gt;
+      &lt;Style&gt;InLineHelpLabel&lt;/Style&gt;
+      &lt;Block&gt;1&lt;/Block&gt;
+      &lt;Row&gt;1&lt;/Row&gt;
+      &lt;RowSpan&gt;1&lt;/RowSpan&gt;
+      &lt;Column&gt;0&lt;/Column&gt;
+      &lt;ColumnSpan&gt;3&lt;/ColumnSpan&gt;
+      &lt;Caption&gt;To change the estimated end date for Agency/Contractors, complete and submit the  form.&lt;/Caption&gt;
+      &lt;MarkAsRequired&gt;false&lt;/MarkAsRequired&gt;
+    &lt;/Label&gt;
+    &lt;!-- Termination Date --&gt;
+    &lt;Label&gt;
+      &lt;Style&gt;IVLabel&lt;/Style&gt;
+      &lt;Block&gt;1&lt;/Block&gt;
+      &lt;Row&gt;2&lt;/Row&gt;
+      &lt;Column&gt;0&lt;/Column&gt;
+      &lt;Caption&gt;Estimated End Date&lt;/Caption&gt;
+      &lt;MarkAsRequired&gt;true&lt;/MarkAsRequired&gt;
+    &lt;/Label&gt;
+    &lt;EmployeeProperty&gt;
+      &lt;Style&gt;IVComboBox&lt;/Style&gt;
+      &lt;Block&gt;1&lt;/Block&gt;
+      &lt;Row&gt;3&lt;/Row&gt;
+      &lt;Column&gt;0&lt;/Column&gt;
+      &lt;PropertyXRefCode&gt;EmployeePropertyXrefCode33&lt;/PropertyXRefCode&gt;
+    &lt;/EmployeeProperty&gt;
+    &lt;Comment&gt;
+      &lt;Row&gt;7&lt;/Row&gt;
+      &lt;CommentField&gt;List_EmployeeFile.Comment&lt;/CommentField&gt;
+      &lt;FlagField&gt;List_EmployeeFile.SaveComment&lt;/FlagField&gt;
+      &lt;IsReadOnly&gt;False&lt;/IsReadOnly&gt;
+      &lt;IsRequired&gt;False&lt;/IsRequired&gt;
+    &lt;/Comment&gt;
+      &lt;/FormBody&gt;
+    &lt;/WF_DynamicForm&gt;
+
+Thanks in advance",0,0,2019-04-23 10:31:01
+52,bgh8sr,https://www.reddit.com/r/AskProgramming/comments/bgh8sr/does_public_code_on_github_have_a_default_open/,Does public code on GitHub have a default open source license?,"I was reading about this story of a company that stole code, some of the comments implied that GitHub TOS defaults to allowing this? https://news.ycombinator.com/item?id=19719380",4,15,2019-04-23 10:48:30
+53,bgi0pf,https://www.reddit.com/r/AskProgramming/comments/bgi0pf/help_with_python_word_cloud_script/,Help With Python Word Cloud Script,"I'm running a word cloud tool similar to this one here:  [https://www.geeksforgeeks.org/generating-word-cloud-python/](https://www.geeksforgeeks.org/generating-word-cloud-python/) 
+
+&amp;#x200B;
+
+Is it possible to also have it export the ranked list of words that were used to generate the cloud image?",0,0,2019-04-23 11:54:48
+54,bgi55z,https://www.reddit.com/r/AskProgramming/comments/bgi55z/please_help/,Please.. help?,"I've downloaded a weird thing that lead to me having this annoying ransomware "".moresa"" on most of my files.. I've read about it and they say I need to pay about 980$ and there is no way in hell I'm paying that amount of money to get some of my uni presentations and screenshots back.. and some video recordings from games.
+
+I'd appreciate any help on how to remove this thing or where to search.. how to deal with it.
+
+Thanks so much in advance. :)",6,0,2019-04-23 12:04:43
+55,bgipim,https://www.reddit.com/r/AskProgramming/comments/bgipim/do_routers_have_only_an_apu_or_do_they_have_a/,"Do routers have only an APU, or do they have a full CPU?",My friend insists that routers only have an APU. I don’t think that’s true. What is the truth?,2,2,2019-04-23 12:51:22
+56,bgjxaz,https://www.reddit.com/r/AskProgramming/comments/bgjxaz/hi_all_is_there_a_way_to_see_on_macos_what_all/,"Hi all. Is there a way to see, on macOS, what all 3rd Party CLI programs/extensions I've added over the years? I want to see what I have so that I can remove/update them. Thanks!","I'm thinking of things like NodeJS, PHP, Homebrew, etc. Over time I've added things for different projects and at this point I have no idea where or what I have on this thing.",1,1,2019-04-23 14:34:10
+57,bgkoo7,https://www.reddit.com/r/AskProgramming/comments/bgkoo7/learning_in_java/,Learning in Java,"What can i do besides problem solving (Data Structures) and what are the different frameworks for Java App Development?
+P.S. New to Development!!",1,1,2019-04-23 15:39:18
+58,bgl8ew,https://www.reddit.com/r/AskProgramming/comments/bgl8ew/naming_conventions_and_standards/,Naming conventions and standards?,"Good day people of AskProgramming.
+
+&amp;#x200B;
+
+I come with some doubts regarding naming conventions and the general standard that is used out there in the working world, I have worked for two different companies and they used very different standards and names for their classes, properties and so on, so I was wondering whats a good convention that I could look up to learn from and stick to it? something that a lot of people consider the proper ones to use?
+
+&amp;#x200B;
+
+On my first job, lots of variables and controllers (because some of the programs were in windows forms) would use stuff like property\_Variable or txt\_variable.  
+On another project I saw that most of the classes used something like propertyVariable or txtVariable
+
+&amp;#x200B;
+
+Then on my second job, lots of classes properties were declared as \_classProperty
+
+&amp;#x200B;
+
+Sorry if Im not being specific enough, Im still learning the ropes of programming, thanks for reading!",2,0,2019-04-23 16:25:24
+59,bglim6,https://www.reddit.com/r/AskProgramming/comments/bglim6/where_to_start/,Where to start?,"Hi,
+
+&amp;#x200B;
+
+in the world there are a lot of programming language, i think that today is very important know one, because a people need to improve they skill.
+
+&amp;#x200B;
+
+Actually i don't know anything about programming language, but i think that with study and using the brain... i can learn it.
+
+&amp;#x200B;
+
+But the question is:
+
+&amp;#x200B;
+
+\- what is the best language where start?
+
+&amp;#x200B;
+
+Thanks a lot!",3,0,2019-04-23 16:49:13
+60,bgluf6,https://www.reddit.com/r/AskProgramming/comments/bgluf6/help_with_choosing_language_javarubypython/,Help with choosing language - java/ruby/python," Hi guys, lately I've been thinking which programming language should I take on. Took a long break from programming but I'm back after solving all of the personal problems. I was programming in Java, but after coming back I am considering a change.
+
+What do you guys think. I'm actually trying to find something that will let me find a job, at least pretty fast and will be up to date in the next years.
+
+I really want to code in Ruby, it seems the most interesting and unique. But people are saying that it won't be that important in a few years. Some other people are telling me, that I should code in it if I want, because no time is wasted when I at least do something - and that I can always swap from RoR to Django in Python, because they are pretty similar.
+
+What do you guys think? It's actually really hard to tell and take a decision by myself. I am trying to find a best solution, and I think that's the worst mistake because I should already be trying to do something.",6,0,2019-04-23 17:16:37
+61,bgmagh,https://www.reddit.com/r/AskProgramming/comments/bgmagh/defined_user_function_in_c/,Defined user function in C,"Can you guys help me with this problem please!!!
+
+Use user-functions to calculate mean, variance, standard derivation, standard error",2,0,2019-04-23 17:55:49
+62,bgmylb,https://www.reddit.com/r/AskProgramming/comments/bgmylb/developers_of_reddit_how_rewarding_is_your_job/,Developers of Reddit. How rewarding is your job? How much of your work is bug fixing vs developing new things?,"Two main questions in the title. I have been a web developer for about 1.5 years. 95% of this is bug fixes. These honestly burn me out after a while, i think it's made worse because we're understaffed and our frontend developer is being forced to work on backend stuff (good for him if he wants to learn but I know for a fact he hates it.) hence lots of bugs all with an less than ideal company culture. 5% are projects I'll get put on to add some new feature which is always fun and I always do well in. I just wanna know what all your experiences are like really. Am I just bitching and this is the norm?",36,32,2019-04-23 18:56:42
+63,bgnft8,https://www.reddit.com/r/AskProgramming/comments/bgnft8/how_to_make_a_searchable_database_for_many/,How to make a searchable database for many projects?,"I have little experience coding. I work for an old company that tracks all of their projects in paper binders.
+
+
+I would like to build a database for all of these projects that is searchable. I want to build a data entry sheet that holds pertinent info about each project ie. name, area, size, numbering, processing steps, notes for problems encountered, and then have them all load up into a database that my coworkers can search.
+
+
+So if someone remembers we scaled values in some project, but doesn't remember which project or script was used to achieve this, they could search the name of the project and find relevant details.
+
+
+Is it possible to do this using free and simple software like google sheets?
+
+
+Thank you for your time.",6,1,2019-04-23 19:41:26
+64,bggeka,https://www.reddit.com/r/AskProgramming/comments/bggeka/help_with_creating_a_coevolutionary_simulation_of/,Help with creating a coevolutionary simulation of the IPD game,[deleted],0,1,2019-04-23 09:31:01
+65,bghdlz,https://www.reddit.com/r/AskProgramming/comments/bghdlz/creating_an_octree_from_scratch_in_c/,Creating an Octree from scratch in C++,[deleted],4,1,2019-04-23 11:00:30
+66,bgk4ar,https://www.reddit.com/r/AskProgramming/comments/bgk4ar/offered_500_for_github_account_scam/,Offered $500 for github account - scam?,[deleted],5,0,2019-04-23 14:50:53
+67,bgl843,https://www.reddit.com/r/computerscience/comments/bgl364/how_do_i_use_this_triangle_box_intersection/,How do I use this Triangle Box Intersection header to convert my 3D mesh into voxels?,[deleted],0,0,2019-04-23 16:24:39
+68,bglp2z,https://www.reddit.com/r/AskProgramming/comments/bglp2z/old_school_mud_script_question/,Old school MUD script question,[deleted],3,0,2019-04-23 17:04:02
+69,bd9fzf,https://www.reddit.com/r/AskProgramming/comments/bd9fzf/c_help_multiple_condition_ifthen_statement/,"C# help, multiple condition if-then statement","I'm incredibly new to this, so this probably has a very simple answer. I'm making a simple little game in Unity, where 2 players traverse a little puzzle grid. I want a win condition that basically states when both players reach a certain grid space, they win the game. I can get it to work if only one player has to win, but it stops working when I add the second player (the game still runs, just nothing happens when the players reach the target grid space).
+
+&amp;#x200B;
+
+This is what I have, attached to the winning grid space:
+
+&amp;#x200B;
+
+public class WinCondition : MonoBehaviour
+
+{
+
+// Start is called before the first frame update
+
+void Start()
+
+{
+
+&amp;#x200B;
+
+}
+
+&amp;#x200B;
+
+// Update is called once per frame
+
+void Update()
+
+{
+
+&amp;#x200B;
+
+}
+
+&amp;#x200B;
+
+void OnCollisionEnter(Collision other)
+
+{
+
+if (other.gameObject.tag == ""Player 1"" &amp;&amp; other.gameObject.tag == ""Player 2"")
+
+{
+
+print(""You Win!"");
+
+}
+
+}
+
+}
+
+&amp;#x200B;
+
+&amp;#x200B;
+
+\--------------------
+
+It works when I change this part:
+
+ if (other.gameObject.tag == ""Player 1"" &amp;&amp; other.gameObject.tag == ""Player 2"")
+
+&amp;#x200B;
+
+To this:
+
+ if (other.gameObject.tag == ""Player 1"")
+
+&amp;#x200B;
+
+&amp;#x200B;
+
+Not sure what I'm doing wrong. Help me, please!",6,1,2019-04-14 20:02:12
+70,bd9vt3,https://www.reddit.com/r/AskProgramming/comments/bd9vt3/c_why_does_this_for_loop_use_n1_as_its_condition/,"[C++] Why does this ""for loop"" use n-1 as its condition when ranking numbers from max to min?","This is a program meant to rank n numbers from max to min.    
+
+    #include &lt;iostream&gt;
+    using namespace std;
+    
+    int  main() { 
+       int n;
+    
+       //Reading value for n
+       cout&lt;&lt;""How many integers would you like to enter?\n"";
+       cin&gt;&gt;n;
+    
+       //reading n numbers
+       cout&lt;&lt;""Please enter ""&lt;&lt;n&lt;&lt;"" integers:\n"";
+       int max, min, val;
+    
+       //reading first number
+       cin&gt;&gt;val;
+       max = val;
+       min = val;
+    
+       //reading n-1 integers
+       for(int i = 0;i&lt;n-1;i++){
+          cin&gt;&gt;val;
+          //if max is less than new value then updating max
+          if(max &lt; val){
+             max = val;
+          }
+    
+          //if min is greater than new value then updating min
+          if(min &gt; val){
+             min = val;
+          }
+       }
+    
+       //printing min 
+       cout&lt;&lt;""min: ""&lt;&lt;min&lt;&lt;endl;
+    
+       //printing max 
+       cout&lt;&lt;""max: ""&lt;&lt;max&lt;&lt;endl;
+    
+       return 0;
+    }
+
+Asking specifically about: 
+
+     //reading n-1 integers
+       for(int i = 0;i&lt;n-1;i++){
+          cin&gt;&gt;val;
+          //if max is less than new value then updating max
+          if(max &lt; val){
+             max = val;
+          }
+    
+          //if min is greater than new value then updating min
+          if(min &gt; val){
+             min = val;
+          }
+       }
+
+In this for loop, why are they using ""n-1"" as the i &lt; condition? What's going on?",1,1,2019-04-14 20:47:30
+71,bdaepm,https://www.reddit.com/r/AskProgramming/comments/bdaepm/what_is_the_calling_convention_described_in/,"What is the calling convention described in ""Programming from the Ground Up?""","For those that have read that book, does the book describe a legit calling convention? I've never seen any documented, used calling convention like the one the author describes (where all arguments to any function are placed onto the stack)",7,5,2019-04-14 21:42:19
+72,bdaz35,https://www.reddit.com/r/AskProgramming/comments/bdaz35/it_might_be_a_good_idea_for_an_app_or_im_just_not/,"It might be a good idea for an app, or I'm just not using the right keywords on google. I need an app that temporarily shuts down non-productive websites so I can crank on my work.",Preferably like an extension so I don't have to worry about viruses. Thanks in advance,9,7,2019-04-14 22:37:37
+73,bddppq,https://www.reddit.com/r/AskProgramming/comments/bddppq/did_any_of_you_hate_functional_programming_and_if/,Did any of you hate functional programming? and if so why did you decide to stay with OOP?,"I am looking into learning Haskell and have heard a lot of good things about functional languages, I wanted to get an opinion from the other side. Has anyone dove into functional programming and then found there were things that bugged them about functional programming? Or that they could not do in functional languages?",32,2,2019-04-15 04:50:02
+74,bddry5,https://www.reddit.com/r/AskProgramming/comments/bddry5/which_programmingscripting_language_would_work/,Which programming/scripting language would work best for writing something really quick?,"Once I learned C++ and discovered the wonders of C, I've basically gone from knowing quite a few languages to just using C for everything. I'm one of the few sad people who actually call C a high-level language. Since I know the consensus is that C is low level and only really used for low level things, I figured I'd try learning a higher level language that has certain advantages over C, specifically in being able to write and test out a function very quickly, so I can see that more complicated ideas actually work pretty well before dedicating the time to really write them out optimally. I think it'd be cool to be able to change the variable values of a program and evaluate them as the program is actually running as it'd make debugging and testing pretty fast and easy, but that's completely optional. I honestly know nothing about higher level languages. 
+
+I tend to prefer procedural languages over object oriented the vast majority of the time.",26,2,2019-04-15 04:59:58
+75,bdeafj,https://www.reddit.com/r/AskProgramming/comments/bdeafj/help_needed_with_sfml_library_graphics/,Help needed with SFML library graphics.,"so i am very new to SFML (less then 24 hrs) and  i have encountered with a weird problem. I am trying to load a texture and when i run my code, the cmd shows ""failed to load ... "" in the very beginning and then prints all sort of weird random gibberish stuff. I am using visual studio 2017 and SFML 2.5 . here is my code :
+
+&amp;#x200B;
+
+    #include &lt;SFML/Graphics.hpp&gt;
+    #include ""iostream"";
+    
+    using namespace std;
+    using namespace sf;
+    int main()
+    {
+    	RenderWindow window(VideoMode(1000, 1000), ""Chiggy's Tic Tac Toe!"");
+    	CircleShape shape(100.f);
+    	shape.setFillColor(Color::Blue);
+    	Texture texture;
+    	if (!texture.loadFromFile(""D:\Developement\Visual Studio\sfml\try\Project0\Project0\mad.png"")) {
+    
+    		cout&lt;&lt;""Mario failed to load horribly""&lt;&lt;endl;
+    		system(""pause"");
+    		//return EXIT_FAILURE;
+    	}
+    	while (window.isOpen())
+    	{
+    		Event event;
+    		while (window.pollEvent(event))
+    		{
+    			if (event.type == Event::Closed)
+    				window.close();
+    		}
+    
+    		window.clear(Color::Black);
+    		window.draw(shape);
+    		window.display();
+    		
+    	}
+    
+    	return 0;
+    }",4,2,2019-04-15 06:13:21
+76,bdelh4,https://www.reddit.com/r/AskProgramming/comments/bdelh4/cs50_string_initialization/,CS50 String Initialization,"I am working on Caesar cipher on CS50 Week 2. I have generally wrote most part of the code but the final error message which i have not debugged was the initializing of the string at the end. How do you initialize the string such that the error message goes away and we achieve our objective?
+
+My function is shown below:
+
+    
+    //Ciphering Function
+    string plainToCipher(string plainText,int key)
+    {
+    
+    int i = strlen(plainText);
+    string cipher;
+    int j = 0;
+    do
+    {
+    
+            if(plainText[j] &gt;= 'a' &amp;&amp; plainText[j] &lt;= 'z')
+            {
+                cipher[j] = ((plainText[j] - 'a') + key) % 26 + 'a'; 
+            }
+    
+            else if(plainText[j] &gt;= 'A' &amp;&amp; plainText[j] &lt;= 'Z')
+            {
+                cipher[j] = ((plainText[j] - 'A') + key) % 26 + 'A';
+            }
+    
+    }while(j&lt;i);
+    
+    return cipher;
+    
+    }
+
+&amp;#x200B;
+
+I got this error message:
+
+&amp;#x200B;
+
+    caesar.c:71:17: error: variable 'cipher' is uninitialized when used here
+      [-Werror,-Wuninitialized]
+                cipher[j] = ((plainText[j] - 'a') + key) % 26 + 'a'; 
+                ^~~~~~
+    caesar.c:64:18: note: initialize the variable 'cipher' to silence this 
+    warning
+    string cipher;
+                 ^
+                  = NULL",2,1,2019-04-15 06:54:41
+77,bdevk4,https://www.reddit.com/r/AskProgramming/comments/bdevk4/looking_for_help_creating_a_qr_based_inventory/,Looking for help creating a QR based inventory management system,"I'm partnering with a friend to help create a stock inventory system using QR codes. My friend does the business side whilst I'm ostensibly supposed to do the technical side. However I feel a bit out  of depth as I know very little about  QR codes and app development in general (I'm a desktop developer).
+
+My initial idea is to  use the QR code to display each item's  production information and intended destination by embedding  this data into the code itself. Then publish an app to read the QR  code, however other regular QR code readers should not be able to read anything.
+
+I'm somewhat confused as to what a QR  code actually is, because from my understanding a QR is simply a link for the device to connect to, but other research suggests that the QR can also embed  data and possibly execute code.
+
+My questions are:
+
+1) Is it possible for QR to execute code, or be more  than just a web link? Is there an API I can read?
+
+2) How would I print the QR code?
+
+3) Is it possible to lock QR code data behind certain user profiles on the app? e.g. a client who logs into the app as a 'consumer' will see some data on the QR code but will be obfuscated from what a, say, 'customer' profile sees.
+
+4) How complicated will the QR   look?
+
+5) Is  there a way to track the amount of times a QR code has been scanned and where it is scanned from?
+
+Alternatively, if you are interested in knowing more about  the project, I am looking for a UI/UX  designer and an app developer to  help  me out. We're based in the UK and it will  be about a 6 month project. PM me if you want more details!",18,1,2019-04-15 07:30:21
+78,bdf6wy,https://www.reddit.com/r/AskProgramming/comments/bdf6wy/android_app_usage_of_firebasestore_and_graphs/,"Android App, usage of Firebase/Store and graphs, advice needed","I am currently working on an android project, fair to say I am new to this but I want to know the best way I can implement the following problem:
+
+&amp;#x200B;
+
+I am making an app which is based on eye exercises and allows users to exercises their eyes by following a pointer around the screen etc. However, I need to implement a sort of timer (countdown) or any other type and then log the amount of time (seconds or minutes) a user actually exercises with the date that they exercise on and then store this in firebase-Firestore. I will then be displaying this data to the user in the tracker activity class in a form of a graph.
+
+&amp;#x200B;
+
+Any ideas/help is welcome preferably with some links/tutorials on how to implement this. Currently I am saving the date as a string with an auto incremented id in sqlite, but this method is not effective as the data will have to be graphically displayed in a graph, depending on the date and how much time or many times a user exercises for on a particular day. 
+
+&amp;#x200B;
+
+Thanks",0,0,2019-04-15 08:08:03
+79,bdfyur,https://www.reddit.com/r/AskProgramming/comments/bdfyur/what_is_the_simplest_way_for_javascript_to_check/,What is the simplest way for Javascript to check if a string contains something an array,"i have a small and weak javascript encryption project but the code needs to find out if the key contains a letter that another string/an array has (i know it is not good but i gotta start somewhere with encryption, so i can work on bigger stuff)
+
+&amp;#x200B;
+
+my current code if this:
+
+`for (i = 0, i &lt; key.length, i++) {`
+
+    `if (key.charAt(i).includes(""!"") || key.charAt(i).includes(""?"") || key.charAt(i).includes(""§"") || key.charAt(i).includes(""$"") || key.charAt(i).includes(""%"") || key.charAt(i).includes(""&amp;"") || key.charAt(i).includes(""+"") ) {`
+    
+    	`return null;`
+    
+    `}`
+
+`}`
+
+but it takes up too much space and i need a simpler version of this checking part, is there a way to make it check if a string contains a part of another string/an array?
+
+edit: i had an idea of `key.charAt(i).includes(""item"" || ""thing"" || ""stuff"")` but i don't think it works.
+
+edit v2.0: resolved, using JShint and w3schools i fixed the ""for"" loop, used a , but had to insert a ;",4,0,2019-04-15 09:27:41
+80,bdg1yk,https://www.reddit.com/r/AskProgramming/comments/bdg1yk/an_app_that_people_can_wage_money_and_play/,"An app that people can wage money and play against each other, winner takes all.",Profitable? I am from Africa. What do you think?,4,0,2019-04-15 09:36:03
+81,bdgnvh,https://www.reddit.com/r/AskProgramming/comments/bdgnvh/python_programming_help/,Python Programming help,"So here's my problem: I am not a programmer. I only just started learning Python a few weeks ago, and bam, my professor hits me with an assignment I am nowhere near equipped to handle. I honestly don't know where to start or what to do. I haven't even written any code because we haven't learned how to do anything this complex. There isn't even a useful example in the book. If anyone has any example tutorials, guides, ANYTHING that would help me figure this out, I would be so so very grateful. Below is the assignment. I will upload the data file on request for anyone who wants to poke at that too.
+
+In this assignment, you will analyze weather data. You can find the data by clicking here. You Need to write a program in Python that will apply the following tasks:
+
+Filter the attached/linked file and keep the following columns only: STATION, NAME/LOCATION, DATE, AWND, SNOW. Then save the filtered file and name it filteredData.csv. For each NAME/LOCATION, calculate the average snow amount per month. Save the results in two separate .csv files (one for 2016 and the other for 2017) name the files average2016.csv and average2017.csv For each NAME/LOCATION, calculate the total/ sum snow amount per month. Save the results in two separate .csv files (one for 2016 and the other for 2017) name the files total2016.csv and total2017.csv Sort the data in the files average2016.csv and average2017.csv. Store only the top 3 locations from each file. The top 3 locations data will be stored in one file, name it top3.csv. Each column in the top3.csv file will store the results of each year. Thus, the top3.csv file will have the columns 2016 and 2017. From the 2 year data, find the top 10 readings/rows of AWND. Store the result in a file .csv file and name it top10AWND.csv. The new file will have all columns from filteredData.csv, but only the top 10 AWND.",5,0,2019-04-15 10:33:05
+82,bdgpmh,https://www.reddit.com/r/AskProgramming/comments/bdgpmh/pressing_up_arrow_in_python3_returns_a_instead_of/,"Pressing ""up"" arrow in Python3 returns "" ^[[A"" instead of the last command","How do I fix this? This is in the terminal.
+
+Here is what it looks like: [https://imgur.com/cKHZyTE](https://imgur.com/cKHZyTE)
+
+* Version 2.9.4 (421.1.1)
+* Mac OSX Mojave
+* Python 3.6.5 (default, Apr 25 2018, 14:23:58)
+* \[GCC 4.2.1 Compatible Apple LLVM 9.1.0 (clang-902.0.39.1)\] on darwin",7,0,2019-04-15 10:37:34
+83,bdgrt3,https://www.reddit.com/r/AskProgramming/comments/bdgrt3/a_simple_synopsis_reader_in_python/,A simple synopsis reader in python,"I just created a synopsis reader in python which given the name of the movie returns its synopsis. Please tell me how it is and what i can do to improve my code..
+    The link is https://github.com/this-is-batman/Synopsis_Reader",2,2,2019-04-15 10:43:07
+84,bdhily,https://www.reddit.com/r/AskProgramming/comments/bdhily/python_help_simple_divisibility_checker_with_a/,"Python help , simple divisibility checker with a catch","in my program , i need to check whether sum of element in list can be divided by 10 or not , it is easy but here is a catch ,3 and 6 are interchangeable , means \[ 3 , 3 , 3 \] could be \[ 6 , 6 , 6 \] . What is the best way to do it",5,1,2019-04-15 11:47:12
+85,bdhlaz,https://www.reddit.com/r/AskProgramming/comments/bdhlaz/seven_segment_clock_in_pascal/,Seven segment clock in pascal,"I need it for my school project and i dont know how to make it
+Please help :(",1,1,2019-04-15 11:53:05
+86,bdkc8y,https://www.reddit.com/r/AskProgramming/comments/bdkc8y/javascriptwebsite_help/,Javascript/website help,"Hi,
+
+&amp;#x200B;
+
+So for my university project I am creating a clock and i have got the code working in javascript. I have created a canvas using windowWidth and windowHeight. I have made everything in javascript as that was the main thing I was focusing on. Now i am trying to center the javascript object i have made but I dont know how to do this. Could anyone please help.
+
+&amp;#x200B;
+
+Thanks!",4,1,2019-04-15 15:31:45
+87,bdm3z4,https://www.reddit.com/r/AskProgramming/comments/bdm3z4/do_syntax_detectors_for_languages_exist/,"Do ""syntax detectors"" for languages exist?","Hello all,
+
+I have been learning web development over the past few years and have progressed significantly. Right now I am learning React. However, in my studies I run across a recurring problem: I see something in some code, and it is unexplained. The problem I'm running into right now is very specific, but can be generalized pretty easily. For example, this syntax from the styled components documentation:
+
+    const Button = styled.button`
+      /* Adapt the colors based on primary prop */
+      background: ${props =&gt; props.primary ? ""palevioletred"" : ""white""};
+      color: ${props =&gt; props.primary ? ""white"" : ""palevioletred""};
+
+      font-size: 1em;
+      margin: 1em;
+      padding: 0.25em 1em;
+      border: 2px solid palevioletred;
+      border-radius: 3px;
+    `;
+
+My Javascript is not great, I am learning it but it will be a while before I know it all. Here I don't understand what the ` is doing. Presumably that's some kind of base Javascript functionality, but I don't understand what it does?
+
+Is there somewhere where I can input code and have it highlight what the syntax is? For example, in Python if I input something that contained ""Foo.attribute"" it would link me to using the attributes of an object.
+
+It seems like it would be pretty straight forward to build seeing as how interpreters already know what all the syntax means.
+
+Does this exist? If not, maybe I'll build it!",14,15,2019-04-15 18:20:38
+88,bdmznc,https://www.reddit.com/r/AskProgramming/comments/bdmznc/how_would_i_push_code_that_has_sensitive_data/,How would I push code that has sensitive data without letting others see it?,"Trying to do a side project using Reddit API and I was wondering how I should go about pushing my code onto Github without letting other's see sensitive info such as API keys, passwords, etc.? Thanks in advance!",4,1,2019-04-15 19:41:39
+89,bdeuiw,https://www.reddit.com/r/AskProgramming/comments/bdeuiw/is_there_a_tool_that_can_find_technologies_that/,Is there a tool that can find technologies that have been used in the site?,,11,23,2019-04-15 07:26:55
+90,bdbrr8,https://www.reddit.com/r/AskProgramming/comments/bdbrr8/in_c_why_is_my_code_printing_the_array_all/,"In C, why is my code printing the array all bunched up without being formatted with spaces?",[deleted],1,1,2019-04-15 00:05:36
+91,bdelwu,https://www.reddit.com/r/AskProgramming/comments/bdelwu/first_day_of_new_job_and_first_day_leading_a/,First day of new job and first day leading a large engineering team! Any advice,[deleted],6,0,2019-04-15 06:56:22
+92,bdk4ur,https://www.reddit.com/r/AskProgramming/comments/bdk4ur/personal_website_templates/,Personal Website Templates?,[deleted],1,1,2019-04-15 15:15:23
+93,babk45,https://www.reddit.com/r/AskProgramming/comments/babk45/aliyun_nocaptcha_solve/,Aliyun nocaptcha solve,"Hi,
+
+Guys, has anyone tried to partially automate the solution to this captcha?
+
+I am trying to locally generate captcha by site token, solve it and then send the result to the end server.
+
+From 20+ requests, one time response success, the rest is incorrect captcha.
+
+Does anyone have any idea?",4,9,2019-04-06 21:53:09
+94,babvr2,https://www.reddit.com/r/AskProgramming/comments/babvr2/should_a_single_database_be_used_for_same_product/,Should a single database be used for same product being sold to multiple customers ?,My question is rather conceptual. If I have a software E.R.P or similar. How will I handle the large amount of data. Keeping them in a single database looks like just too much data to manage later. Also I think (not a professional) the read and writes will be slow If I have \~25 customers. because there will be multiple people sharing the same table. Also the data volume grows really really large. What are you solutions to these kind of problems ? ,6,2,2019-04-06 22:30:30
+95,bacp7x,https://www.reddit.com/r/AskProgramming/comments/bacp7x/distributed_local_desktop_application_with_a/,Distributed local desktop application with a single database server?,"I'm planning to create a PyQt desktop application and using MySql for a local use in a Windows OS.
+
+I've done it before, using XAMPP and PyQt, but only for a single computer.  
+
+
+What I wanna do is like how web apps works, just 1 server, then if other computers go to the hosted server or enter the url on their browsers, they could also use the web app.
+
+So if I create a single desktop app, then distribute it also to other computers, I want the other computers to connect on the main database server, and this is all Local only, no internet.
+
+&amp;#x200B;
+
+I know it is possible, but I just don't know how to approach it.
+
+How do I connect to the database server dynamically (in PyQt) so that other computers may be able to connect in a local environment?
+
+&amp;#x200B;
+
+  
+",4,1,2019-04-07 00:15:02
+96,bacpgg,https://www.reddit.com/r/AskProgramming/comments/bacpgg/generate_qr_code/,generate QR code,"Hey guys,
+
+A quick question. I was wondering if it would be possible to create a part of a website where it generates a custom QR code based on a custom page from the website. Then it would embed the code and embed it into the website page.
+
+I know it was very poorly explained. But it's hard to structure.
+
+Thanks again.",1,1,2019-04-07 00:15:50
+97,baejzs,https://www.reddit.com/r/AskProgramming/comments/baejzs/c_project/,C++ project,"What's wrong with the code?
+
+l am trying to make the program read from the file and then assign the values to different arrays.
+
+\#include &lt;iostream&gt;
+
+\#include &lt;string&gt;
+
+\#include &lt;fstream&gt;
+
+using namespace std;
+
+int main()
+
+{
+
+	const int isize=2;
+
+	
+
+&amp;#x200B;
+
+	string name\[isize\];
+
+	int id\[isize\],maths\[isize\],english\[isize\],science\[isize\];
+
+	long double averagescore;
+
+	char gender\[isize\];
+
+&amp;#x200B;
+
+&amp;#x200B;
+
+	ifstream students;
+
+	[students.open](https://students.open)(""stut.txt"");
+
+	int i=0;
+
+while(!students.eof())
+
+{
+
+	students&gt;&gt;id\[i\];
+
+	students&gt;&gt;name\[i\];
+
+	students&gt;&gt;gender\[i\];
+
+	students&gt;&gt;maths\[i\];
+
+	students&gt;&gt;english\[i\];
+
+	students&gt;&gt;science\[i\];
+
+	i++;
+
+&amp;#x200B;
+
+&amp;#x200B;
+
+}
+
+cout&lt;&lt;id\[0\];
+
+}
+
+&amp;#x200B;",5,0,2019-04-07 05:20:22
+98,bafq4g,https://www.reddit.com/r/AskProgramming/comments/bafq4g/reading_specific_string_inputs_from_user_help_in_c/,Reading specific string inputs from user help (in C),"Hello - Basically, what I want the user to type:
+
+h X,Y (e.g h 5,20) [exactly this format, h then space then integer then comma then integer)
+
+So far I've created this piece of code:
+
+    char input[5];
+    scanf(""%[^\n]%*c"", input);
+    while ((input[0] != 'h' &amp;&amp; input[0] != 'H') || (input[1] != ' ') || (isdigit(input[2] == 0) || (input[3] != ',') || (isdigit(input[4]) == 0)
+        scanf(""%[^\n]%*c"", input);
+
+If I want to get the numbers now, I just do: input[2] - '0' and get it.
+
+Now the problem is, I don't know what to do if the number is a two digit one. Like, if the user types h 10,10 
+
+How do I get the value? Also, what do I need to do besides change the array from input[5] to input[7]?",1,1,2019-04-07 08:24:06
+99,bafsx0,https://www.reddit.com/r/AskProgramming/comments/bafsx0/how_do_you_give_the_rvalue_generated_by_a/,How do you give the rvalue generated by a constructor the lifetime of an lvalue?,"    while(model.condition) {
+        auto data = yield_data();
+        auto _= manipulate(model, data);
+        model.get_info(args);
+    }
+
+&amp;#x200B;
+
+I have an RAII object of type `manipulate`, whose destructor undoes the mutation it causes when it falls out of scope, much like `std::lock_guard`. The problem is that the user has to type `auto _=` or the destructor will get called before `model.get_info();` I don't like that the user has to type `auto _=`. Why would a user think to create an object that is never used?
+
+&amp;#x200B;
+
+My first idea was to make the constructor `[[nodiscard]];` but constructors have no return values. Is there a way to tell the compiler that `manipulate` rvalues should have lvalue lifetimes?
+
+&amp;#x200B;
+
+&amp;#x200B;
+
+&amp;#x200B;",3,12,2019-04-07 08:34:56
+100,bagj77,https://www.reddit.com/r/AskProgramming/comments/bagj77/have_you_read_through_all_the_git_commands/,Have you read through ALL the git commands?,"I started watching [this](https://youtu.be/3mOVK0oSH2M) video on how the handmade heroes guy uses git. He made it sound like it was completely normal to read through all 300,00+ commands git has. So is this something most devs do or is this guy just going a bit overboard?
+
+Edit: egg on my face I think the video was meant as an April's fools joke",3,0,2019-04-07 10:03:41
+101,bahneg,https://www.reddit.com/r/AskProgramming/comments/bahneg/platform_dependent_and_platform_independent/,Platform Dependent and Platform Independent,"Why is C platform dependent and java platform independent ? Is it beacuse java creates its own operating system??
+
+Also what is write once, run anywhere?? Isn't it true in C also....like you write code once but can run same code on linux,windows or mac???
+
+",3,0,2019-04-07 11:53:54
+102,bahwq0,https://www.reddit.com/r/AskProgramming/comments/bahwq0/why_does_my_qt_app_ignore_the_setting_of/,Why does my Qt app ignore the setting of applicationDisplayName?,"Hi everyone,
+
+I am running a small app on KDE Plasma 5 created with Qt and the KDE framework. Almost everything works like a charm, just one part doesn't work. I just cannot set the application display name. I have the following code:
+
+    int main(int argc, char **argv) {
+        QApplication application(argc, argv);
+    
+        KLocalizedString::setApplicationDomain(""blender-render-control"");
+        KCrash::initialize();
+    
+        KAboutData aboutData(QStringLiteral(""blender-render-control-center""),
+                             i18n(""Blender Render Control Center""),
+                             QStringLiteral(""1.0""),
+                             i18n(""A simple application to control the blender render control server""),
+                             KAboutLicense::Custom,
+                             i18n(""Copyright 2019, Knerd &lt;knerd@knerd.knerd&gt;""));
+    
+        aboutData.addAuthor(i18n(""Knerd""), i18n(""Author""), QStringLiteral(""knerd@knerd.knerd""));
+        aboutData.setOrganizationDomain(""knerd.knerd"");
+        aboutData.setDesktopFileName(QStringLiteral(""knerd.knerd.blender-render-control""));
+    
+        KAboutData::setApplicationData(aboutData);
+        QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral(""knerd.knerd.blender-render-control"")));
+        application.setApplicationDisplayName(i18n(""Blender Render Control Center""));
+        application.setApplicationName(i18n(""Blender Render Control Center""));
+    
+        QCommandLineParser parser;
+        aboutData.setupCommandLine(&amp;parser);
+    
+        parser.process(application);
+        aboutData.processCommandLine(&amp;parser);
+    
+        auto *window = new MainWindow();
+        window-&gt;show();
+    
+        return QApplication::exec();
+    }
+
+From reading the docs and checking some examples, this should set the application title in my KDE environment. But it doesn't, the application name is the name of the executable.
+
+Is this a bug in KDE or am I doing something wrong?
+
+&amp;#x200B;
+
+Related Stackoverflow question: [https://stackoverflow.com/questions/55554757/qapplicationsetapplicationdisplayname-not-always-falls-back-to-qapplicationa](https://stackoverflow.com/questions/55554757/qapplicationsetapplicationdisplayname-not-always-falls-back-to-qapplicationa)",0,2,2019-04-07 12:17:08
+103,bai0tb,https://www.reddit.com/r/AskProgramming/comments/bai0tb/karel_please_help_me_with_my_computer_science/,[Karel] Please help me with my computer science module!!!,"Hello! So I was tasked to complete this challenge by my prof and I am going crazy because I have absolute 0 programming background and skills. I tried my very best but Karel moved in every way I wanted but did not pick up any beepers at all. 
+
+Anyone that is fluent in Karel please do pm me your email address and I'll email you the photo of the challenge. Any help would be very much appreciated from a poor communications student who has to take computer science as a pre-requisite module ;~; ",9,0,2019-04-07 12:27:34
+104,bai40z,https://www.reddit.com/r/AskProgramming/comments/bai40z/my_application_wont_use_the_dll_in_the_folder_and/,"My application won't use the DLL in the folder, and keeps trying to use the one in /SysWOW64.","My application won't use the DLL in its folder, and keeps trying to use the one in /SysWOW64.
+
+Even after write protecting it to ensure it's not getting removed (it's not).  I need it to use my modified DLL for this application only, but no matter what I do it won't.  Running the program after build and running in the VS debugger gives the same result:
+
+     'hl.exe' (Win32): Loaded 'C:\Windows\SysWOW64\opengl32.dll'. Cannot find or open the PDB file. \
+
+**EDIT:** u/maxvollmer Is actually our project leader, he's posting below.  in case you can't scroll down:
+
+"" The executable is third party and closed source. The custom opengl32.dll is an interceptor that allows running the original game in VR. I wrote it. It is 32 bit and works perfectly fine on every system except OPs. I tried helping OP, but am at a complete loss, everything checks out and the custom opengl32.dll should be loaded - but it isn't. I'll stay around to provide information on the technical level, while OP will be available to answer questions related to OPs system. ""
+
+**EDIT2:** Turns out the reading of the wrong DLL wasn't causing my crash as the application runs now.  We still have the bug though...
+
+&amp;#x200B;",9,2,2019-04-07 12:36:07
+105,bajcno,https://www.reddit.com/r/AskProgramming/comments/bajcno/pair_programming/,Pair Programming?,"Early CS Student here, I’m just curious. How often is pair programming (on one computer, not referring to GitHub) used in the real world?",20,19,2019-04-07 14:25:32
+106,bajzeg,https://www.reddit.com/r/AskProgramming/comments/bajzeg/unable_to_remove_event_listener_on_document/,Unable to remove event listener on document,"I'm unable to remove a *named*, *unmodifiable* (const) function from an event listener.
+
+&amp;#x200B;
+
+`someFunction() {`
+
+  `const listener = () =&gt; {`
+
+`console.log('should not run');`
+
+  `}`
+
+&amp;#x200B;
+
+  `document.addEventListener('touchmove', listener);`
+
+  `document.removeEventListener('touchmove', listener);`
+
+`}`
+
+&amp;#x200B;
+
+When the code runs, the listener is added but not removed.
+
+&amp;#x200B;
+
+We use gatsby for our project, and deploy to netlify for testing. This bug does not occur when I develop on localhost, but does occur on netlify and on Prod.
+
+&amp;#x200B;
+
+My guess is that somehow gatsby changing something to make it impossible to remove listeners on the document, but I've never heard of something like this being possible!
+
+&amp;#x200B;
+
+&amp;#x200B;
+
+This function is unmodifiable, and there are no options being passed in the third parameter, so I would expect this listener to be removed. It does not. This is the only time I'm referencing the function *listener*, I created it specifically to isolate the problem.
+
+&amp;#x200B;
+
+What I would really appreciate is some insight on why this could be happening, when I look online at why eventListeners can't be removed, it's always because the function passed is anonymous or was not the same, this is a named const, only referenced once, so it should be the exact same on removeEventListener.
+
+&amp;#x200B;
+
+&amp;#x200B;
+
+To clarify:
+
+The code I have linked is representative of the code I am running, there aren't any extra things going on within someFunction, I removed them all for debugging purposes (to isolate the problem)",2,0,2019-04-07 15:21:15
+107,baktgz,https://www.reddit.com/r/AskProgramming/comments/baktgz/need_some_advices_and_tips/,Need some advices and tips,"&amp;#x200B;
+
+Hey guys!
+
+I started to learn coding for about 5 days now with the youtube channel called CodingTrain.
+
+My question is:
+
+Where can I get some beginner projects for exercies or something to improve my low level skills in programming?
+
+Here's a link. This is my first game. It is not finished yet. Im thinking about what should i add in it. Maybe pause option?
+
+[https://editor.p5js.org/danikasz/full/H7RYUkA5S](https://editor.p5js.org/danikasz/full/H7RYUkA5S)
+
+You control the white circle with arrow keys. Your goal is to get the yellow circle (score). The game count how many scores you collected. The gray circle is some kind of an enemy. If you touch it it set your streak to ""0"" and teleports you and itself away in random location. The blue rectangle is a teleport. If anything touches it it teleports the object somewhere randomly. You also have a highscore which contains the highest streak you ever had. I added a reset button if you want to reset the whole game.
+
+It would make me happy if i get any review and advice or just some kind of comment.",2,2,2019-04-07 16:37:07
+108,bakupz,https://www.reddit.com/r/AskProgramming/comments/bakupz/how_to_handle_software_licensing_opinion_on/,How to handle software licensing? / Opinion on License Spring?,"A few years ago, I made a little program to automate much of my bookkeeping and it has made my accountant's life so much easier during tax season that he told me a few days ago that he wants me to sell it to his clients.
+
+It caught me by surprise, I'm usually all for open-source and never thought I'd sell any app, but if he's going to profit from it, then I should profit as well (he hasn't lowered my rate, and if he gets done faster he can take on more clients, no?).
+
+My first thought was that I'd need licensing, otherwise it's unlikely that I'll sell more than 1 copy ;). I have no experience with this at all so I'd like some input. So far this is what I've got:
+
+* 2FA-style in-house licensing. Customer calls me when he's ready to activate, he gets a code on his screen generated from the current time and I give him the code that unlocks the program. The problem with this is that it requires me to be available and have access to my computer when they call.
+* Using a free licensing service such as [License Spring](https://licensespring.com/). I'd rather go that route because it's more of a set it and forget it approach. I give the customer a license key when he buys it and License Spring makes sure it's only activated on 1 PC at a time. Too good to be true?
+
+What would you do? Do you have suggestions for other methods or alternatives to License Spring?",0,1,2019-04-07 16:40:14
+109,bakw2d,https://www.reddit.com/r/AskProgramming/comments/bakw2d/is_there_a_list_of_free_programming_related_cloud/,Is there a list of free programming related cloud services?,"Im not thinking educational sites or free / open source APIs &amp; libraries , im thinking more in lines of:
+
+&amp;#x200B;
+
+* onlinegdb which is a free online compiler
+* github pages for free hosting
+* google collab offering free gpu &amp; tpu for training your python machine learning model
+* mongodb's free tier (200mb mongodb database)
+* AWS lambda free tier
+* google drive, dropbox, and other free storage
+
+&amp;#x200B;
+
+and other similar cloud services which you usually need to pay for  (hostings, storage, processing intensive tasks.. ).
+
+&amp;#x200B;
+
+Ive found this:  [https://dev.to/sahilrajput/useful-websites-for-programmers-36k](https://dev.to/sahilrajput/useful-websites-for-programmers-36k) but its mostly APIs and libraries, but I'm looking more for cloud services.
+
+&amp;#x200B;
+
+Bonus points if there are APIs to use this services programatically, and the service is reliable (eg no shifty 'FREE HOSTING' which then terminates your site because you get like above 5 visitors a day).
+
+&amp;#x200B;
+
+Main desire for this is that I'm fascinated by making it possible for anyone with just an internet connection (meaning possible with mobile too) to do great things for free (eg make a website and host it for free or program in python and use the colab's free GPU and Drive as storage).",0,1,2019-04-07 16:43:43
+110,bal9kv,https://www.reddit.com/r/AskProgramming/comments/bal9kv/how_to_start_a_project/,How to Start A Project ?,"So i'm a second year CS student trying to create a Project for experience purposes .
+
+My project requires every feature (Data base , sockets , threads and GUI ) therefore i will make my project via Visual Studio C# . 
+
+I need to know how should i start it . should i first sketch my idea in paper and then execute it or just go in ? 
+
+Should i start with the data base or the sockets .
+
+any INFO would be appreciated  and if there is a Video or something that also would be great . 
+
+thank you in advance .",1,0,2019-04-07 17:19:06
+111,baljc1,https://www.reddit.com/r/AskProgramming/comments/baljc1/how_many_monitors_do_you_use_what_sizes_types_are/,How many monitors do you use? What sizes / types are your favorites?,I’m currently using a 15” mb pro and I constantly have to minimize and resize windows for a decent workflow so I decided to get monitors to make my life easier. I just wanted to post here to get hear some opinions before I buy. Also hoping to hear some thoughts on regular vs curved monitors if anyone can give some insight into that.,2,1,2019-04-07 17:45:01
+112,bammim,https://www.reddit.com/r/AskProgramming/comments/bammim/how_to_calculate_average_throughput_of_a/,How to calculate average throughput of a “Circuit-Switching” based network?,"I need to learn how to calculate the average throughput of data without knowing the user count. I'm posting my homework question below.
+
+There are two routers named **S1** and **S2**. The bandwidth of the link connecting the two routers is **100Mbps**. The bandwidth of the links that connect users to the routers is **10Mbps**. The users connected to the S1 router are always sending data to the users connected to the S2 router. All S1 users generate **1Mbps** traffic on average. From time to time, the traffic generated by S1 users reach up to **10Mbps** instantaneously. If **circuit switching** is implemented, what is the average rate of data transfer on the network? Why?",0,1,2019-04-07 19:30:08
+113,bamt1y,https://www.reddit.com/r/AskProgramming/comments/bamt1y/converting_c_to_f_help/,Converting c++ to f# HElp," 
+
+Can some one please help me covert this code to f#?
+
+\#&lt;include stdio.h&gt;
+
+\#&lt;includestring.h&gt;
+
+int digit(char);
+
+int main(){
+
+char roman\_number\[1000\];
+
+int i=0;
+
+long int number =0;
+
+printf(""enter any roman number(valid digits are
+
+I, V, X, L, C, D, M): \\n"");
+
+scanf(""%s"",roman\_number);
+
+while(roman\_number\[i\]0{
+
+if(digit(roman\_number\[i\])&lt;0){
+
+printf(""invalid roman number:%c"",roman\_number\[i\]);
+
+return 0;
+
+}
+
+if((strlen(roman\_number) -i)&gt;2{
+
+if(digit(roman\_number\[i\]&lt;digit(roman\_number\[i+2\])){
+
+printf(""invalid roman number"");
+
+return 0;
+
+}
+
+if(digit(roman\_Number\[i\]) &gt;= digit(roman\_Number\[i+1\]))
+
+number = number + digit(roman\_Number\[i\]);
+
+else{
+
+number = number + (digit(roman\_Number\[i+1\]) - digit(roman\_Number\[i\]));
+
+i++
+
+}
+
+I++;
+
+}
+
+printf{""its decimal value is: %d"",number);
+
+return0;
+
+}
+
+int digit(char c ) {
+
+int value =0;
+
+switch(c){
+
+case 'I': value = 1; break;
+
+case 'V': value = 5; break;
+
+case 'X': value = 10; break;
+
+case 'L': value = 50; break;
+
+case 'C': value = 100; break;
+
+case 'D': value = 500; break;
+
+case 'M': value = 1000; break;
+
+case '\\0': value = 0; break;
+
+default: value = -1;
+
+}
+
+return value;
+
+}
+
+&amp;#x200B;",1,0,2019-04-07 19:48:23
+114,bad1iz,https://www.reddit.com/r/AskProgramming/comments/bad1iz/what_are_your_thoughts_on_the_career_and_salary/,What are your thoughts on the career and salary outlook for developers? (Details inside),[deleted],3,1,2019-04-07 01:01:53
+115,bafvvz,https://www.reddit.com/r/AskProgramming/comments/bafvvz/how_to_check_if_integer_array_is_spiral_sorted/,How to check if integer array is spiral sorted?,[deleted],1,1,2019-04-07 08:46:20
+116,baj3wc,https://www.reddit.com/r/AskProgramming/comments/baj3wc/unable_to_remove_event_listener_on_document/,Unable to remove event listener on document,[deleted],0,1,2019-04-07 14:04:30
+117,bam5lb,https://www.reddit.com/r/AskProgramming/comments/bam5lb/ive_been_trying_to_debug_this_issue_for_hours_im/,"I've been trying to debug this issue for hours, I'm so baffled by why this is happening and no one's responded on Stack Overflow so I'm gonna post here too, if anyone can even point me in the right direction it would be massively appreciated",[deleted],2,0,2019-04-07 18:43:43
+118,be2n1x,https://www.reddit.com/r/AskProgramming/comments/be2n1x/tools_for_sandboxing_a_project/,Tools for sandboxing a project?,"Before specifying the kind of software I want exactly, I'll just say what I've tried so far: Docker, Python Virtual Environments, AutoEnv, DirEnv.
+
+My ideal tool would allow me to create a new directory that thinks it is root.  It is not able to see any of the packages I've installed through my package manager, it can't see any files outside itself besides whatever OS files it needs, etc.  From the perspective of this new directory, it is the root folder of a freshly installed Linux (or whatever else) machine.  It has all of the default environment variables, default installed software, etc etc etc.  I want to be able to install whatever I want using a package manager and be able to have all of it gone when I delete the directory.  I want the environment variables that I change to only effect that directory, not all the directories around it.
+
+&amp;#x200B;
+
+With that said, here are the reasons why none of the 4 options I listed fit what I need:
+
+Docker does a lot more than what I need.  It's proprietary, it has a high learning curve, etc.  It's just too much.
+
+Python virtual environments are really close to what I want, but I need something language agnostic.
+
+AutoEnv and DirEnv I honestly haven't put too much thought into.  Autoenv hasn't been updated in a year, and DirEnv, although it looks to be actively updated,  still has a very small community.
+
+&amp;#x200B;
+
+Does the tool I'm looking for actually exist, or am I the only one who gets massive headaches trying to manage their various environments?",3,3,2019-04-16 22:35:46
+119,be34dh,https://www.reddit.com/r/AskProgramming/comments/be34dh/sr_devs_dont_want_to_use_foreign_keys_i_disagree/,"Sr. devs don't want to use foreign keys, I disagree. Am I wrong here?","At my company we are currently discussing a new database design for our applications. We are a small B2B consulting company, our applications rarely see more than 100 concurrent users as they are typically only accessed by a client admin or analyst. We use MS SQL Server 2017 for our RDBMS.
+
+The new design that our sr. devs have come up with involves splitting up data into separate databases, with common client information in one database, and then separate databases for each product in our suite (we have 3 distinct products). I have several issues with this design, one of them being that splitting up information this way takes away the ability to set foreign keys, and that it will be harder to maintain integrity in the long run. We process mainly transactional data, our largest product involves financial information.
+
+The sr. devs have been pretty hand-wavy toward my concerns, saying that they will just enforce integrity in the application. They also say that FKs will impact performance too much and that they aren't necessary. I understand that FKs do come with a slight performance impact, but I'm unsure how the application is supposed to handle integrity without having an impact on that side. The other thing is that our applications are serving a very low number of concurrent users, and is not real-time. Given the type of information we are dealing with, my opinion is that maintaining rock-sold integrity outweighs the slight performance impact of FKs in our case.
+
+Am I being crazy or unreasonable in this case? Is it common to use this type of database design in other enterprise applications?
+
+Thank you.",9,5,2019-04-16 23:27:58
+120,be3pdv,https://www.reddit.com/r/AskProgramming/comments/be3pdv/did_this_man_just_implement_church_numerals_in/,Did this man just implement church numerals in scheme?,"Recently I have been learning some scheme for fun. I was browsing a series of scheme videos on youtube and found a video about lambdas.
+
+I know what lambda calculus and church numerals are but have never used it or put in the time to learn their implementations. So my question is, does this man implement church numerals without ever saying the phrase ""church numerals"".
+
+[https://www.youtube.com/watch?v=9LfwxCIGbYo&amp;list=PLgyU3jNA6VjRMB-LXXR9ZWcU3-GCzJPm0&amp;index=6](https://www.youtube.com/watch?v=9LfwxCIGbYo&amp;list=PLgyU3jNA6VjRMB-LXXR9ZWcU3-GCzJPm0&amp;index=6)",0,0,2019-04-17 00:37:17
+121,be4lwq,https://www.reddit.com/r/AskProgramming/comments/be4lwq/looking_for_suggestions_on_how_to_build_a_live/,"Looking for suggestions on how to build a live calculator, example in post","Looking for suggestions on how to build something like this: [https://theroicalculator.org/](https://theroicalculator.org/).  
+
+A bunch of variables each adjustable for the user and live updated in a result, ROI in the example. 
+
+I have experience in HTML and CSS but not that much in any scripting languages or databases so some sort of framework would be preferred. 
+
+Thanks!",1,2,2019-04-17 02:34:52
+122,be5i9t,https://www.reddit.com/r/AskProgramming/comments/be5i9t/side_projects_for_a_junior_programmersoftware/,Side projects for a junior programmer/software tester,"I'm almost 1.5 years into my first job as a programmer. Started work on a web app with C# in backend and jQuery/KnockoutJS in frontend. I still do occasional bugfixing but the company is focused on other bigger projects and I was assigned to some of those projects as a software tester. My current specialties are Selenium UI tests and JMeter load tests so I kinda want to make something of my own in my spare time (2-3 hours in the evening) to sharp up my programming skills even further.
+
+So far I've made a desktop WPF app that allows you to run JMeter tests in non-GUI mode but without the hassle of entering a butt load of command lines into the console.
+
+The app is more or less done so I'm wondering which simple project could I start that would occupy me for a while when I'm bored at home? Angular and React are hot topic around my area but what I really liked in high school and later in college was PHP and even though my code was a hot mess, it worked and was very fun.
+
+I though about getting into Laravel and create some simple webshop or a forum-like website but I on the other side I would also like to work on something that would be of use beyond myself but I'm out of ideas.
+
+I'm open to any suggestions: simple junior dev projects, maybe even a different framework?",2,13,2019-04-17 04:53:08
+123,be5k54,https://www.reddit.com/r/AskProgramming/comments/be5k54/looking_for_a_good_medium_blogs_about_engineering/,Looking for a good medium blogs about engineering,"Such as
+
+https://blog.discordapp.com/tagged/engineering 
+
+https://medium.com/netflix-techblog",0,0,2019-04-17 05:01:18
+124,be5rf6,https://www.reddit.com/r/AskProgramming/comments/be5rf6/logging_test_results_of_hardware_productions_any/,Logging Test Results of hardware productions. Any recommendations for exsisting software?,"&amp;#x200B;
+
+Hello, 
+
+In the company I work for, we want to have a database where we store information about every device we produce. We make different hardware devices (about 10k per year maybe). Each device is tested after production. The test checks voltage Levels etc. and checks some other data. Every device has a unique ID that is also collected. Right now, a worker just checks that everything is okay, and marks that device as checked. Now we want to keep the Information from every test, so we need a database or logging system that saves all this collected data. I imagine that like a mongoDB or similar, saving a JSON for every device checked. 
+
+The logs might be appended later, if a device comes back for repair or similar, and also binary files should be stored. Ideally the data can be send to this system via REST-Commands. Also, later workers need a visual tool to get information about one or more devices (Note that these works usually can not formulate a SQL-like queries, so they need some input masks with option menus to find what they need), and to append logs after repair etc. 
+
+Now, I could build that probably with a mongoDB, some Webserver with a REST interface plus some custom build Web-UI, but I think that this is kind of a typical application, so I would guess there are already some ready-to-use systems on the market. However, I couldn’t find any by searching the web. Maybe I am missing the right phrases for an effective search. 
+
+Maybe someone knows what kind of software I am looking for?",0,1,2019-04-17 05:31:25
+125,be85s5,https://www.reddit.com/r/AskProgramming/comments/be85s5/help_with_installing_a_script_for_selfcontrol_on/,Help with installing a script for SelfControl on MacOS,"Hello everyone,
+
+some of you might know the app ""SelfControl"" which lets you block access to certain websites for a certain amount of time. i want to install this script to schedule the start and stop times: 
+
+https://github.com/andreasgrill/auto-selfcontrol
+
+
+This is a bit embarrassing because it probably can't get much simpler, but I'm a total hopeless noob when it comes to Terminal or code and programming and general... Could someone provide a more detailed description of the steps under ""Install"", like an ""install this script for dummies"" version? I'd rather know exactly what I'm doing before i mess with Terminal... 
+
+Thank you!!",0,1,2019-04-17 10:02:02
+126,be8fun,https://www.reddit.com/r/AskProgramming/comments/be8fun/why_do_large_professional_c_projects_seem_to_make/,Why do large professional C projects seem to make use of #define so much?,"I feel like maybe I’m missing the point, I don’t usually ever use #define or other preprocessor directives besides #include that much, but I’m obviously not a professional",23,24,2019-04-17 10:27:12
+127,be8jl1,https://www.reddit.com/r/AskProgramming/comments/be8jl1/new_to_c_help_with_dynamic_memory/,"New to C, help with dynamic memory","Hello everyone,
+
+To make things short :  
+
+I'm pretty new to C and having a hard time with the ""harder"" parts of the language (pointers, callbacks, structs,...). I would like to modify this code in order to overwrite the memory allocated every time I make a request. The way its working right now, the data is being appended and the allocated memory keeps getting larger.
+
+&amp;#x200B;
+
+My code is fine, I was using files as outputs before and it worked like a charm. But I don't this the example was designed with more than 1 request in mind, the way I'm doing it right now is pretty much exactly like the example except I make the curl\_easy\_perform run 3 times with 1,5 seconds in between.
+
+&amp;#x200B;
+
+Here is the C libcurl example :
+
+ [https://curl.haxx.se/libcurl/c/getinmemory.html](https://curl.haxx.se/libcurl/c/getinmemory.html)
+
+Here is the libcurl WRITE\_FUNCTION / WRITE\_DATA pages, if they help :
+
+[https://curl.haxx.se/libcurl/c/CURLOPT\_WRITEFUNCTION.html](https://curl.haxx.se/libcurl/c/CURLOPT_WRITEFUNCTION.html)
+
+[https://curl.haxx.se/libcurl/c/CURLOPT\_WRITEDATA.html](https://curl.haxx.se/libcurl/c/CURLOPT_WRITEDATA.html)
+
+&amp;#x200B;
+
+I understand the code globally, but I have no idea where to begin or what to do.",2,1,2019-04-17 10:36:40
+128,be94zu,https://www.reddit.com/r/AskProgramming/comments/be94zu/using_css3_grid_im_trying_to_figure_out_how_to/,"Using CSS3 grid, I'm trying to figure out how to have the ""primary data"" and ""secondary data"" start at 50/50% but allow the resize to bring either down to their respective minimum size.","[Resize grid embedded in a grid](https://codepen.io/dacracot/pen/JVpMEm)
+
+I can't seem to find the combination that allows the ""primary data"" and ""secondary data"" start at 50/50% but also allows the resize to bring either down to their respective minimum sizes.",1,1,2019-04-17 11:28:41
+129,be9puk,https://www.reddit.com/r/AskProgramming/comments/be9puk/is_there_any_tool_that_as_input_takes_two_images/,"Is there any tool that as input takes two images and outputs a ""half-way"" image that is more similar to both than each to the other?","I have two grayscale pictures of very similar looking old bearded men and I want to create a few (ideally 3-5) images that have different degrees of similarity to either of the initial ones so that when you arrange them next to each other in a specific way you get a ""gradient"" between the two original images, and if you put them in a gif one ""morphs"" into the other. I've tried searching on google to no avail, it might exist but I just have no idea what search terms to use.
+
+Is there anything that does this and makes the gradients look believable enough that someone could glance at it for 2 seconds without realizing that it's not a picture of a real person? If not, how hard would it be to create such a thing with python and some machine learning libraries?",0,1,2019-04-17 12:17:35
+130,beahla,https://www.reddit.com/r/AskProgramming/comments/beahla/is_there_a_technical_difference_between_goto_and/,Is there a technical difference between goto and while?,Especially asking for C#. Whats the difference between these two seen as c-code that is generated in the background? Is the trashcollector doing some different work here?,14,2,2019-04-17 13:23:19
+131,beapy5,https://www.reddit.com/r/AskProgramming/comments/beapy5/image_processing_softwarevendors/,Image processing software/vendors,"I am looking for software that I can use in a mobile application that takes pictures the way you do when you're using your mobile bank application to take a picture of a check for mobile deposit.  Where the camera software automatically identifies the rectangle that contains the check.
+
+What is that type of image processing software called?  Who are some vendors that produce that type of software and offer it as a library I can incorporate into my own projects?  Are there any free libraries that do this?",2,1,2019-04-17 13:43:09
+132,beb092,https://www.reddit.com/r/AskProgramming/comments/beb092/issues_with_learning_cmysqletc/,Issues with learning C#/MySQL/Etc.,"So I've been a part of the Full Sail University Online, Web Design &amp; Development Program for the better part of a year (10 months or so, 6 of which were classes unrelated to the degree as a whole, so 4 months spent actually learning coding/programming) and the degree is two years long. I've learned the basics of C# up to Classes (touching on Classes) and MySQL basics for backend database management obviously (up to connecting through C# to the DB and manipulating the DB for results back in the console in Visual Studio). The degree also includes CMS systems, MongoDB, User Interface design, and a lot more.
+
+However I am very much struggling to learn apparently very simple things without a *LOT* of help from the teacher of my current MySQL class as well as mentors that are in the class when the teacher is unavailable. I am generally struggling with applying the lessons to the questions and I have been since the first C# class a few months ago. I am actually very much liking working with DBs over C# and was considering furthering my career path in that, but my latest assignment has shown me that I still only understand the very basics of DB management/C# and I am unable to apply the lessons to the assignments mentally.
+
+I've had one person helping my throughout my schooling, an online friend, but he's currently indisposed for an unknown amount of time, and how much I have come to rely on him is really showing now. (Never gave me the answers straight, but he was always there to clarify things in layman's terms, etc). I typically pay him after each class for his help as well.
+
+I always attempt to google my questions but a lot of this is ""unique"" to the assignment, so I'm always at a loss... and don't get me started on reading documentation with syntax and stuff that I don't understand in general. I can read some of it, but a lot of it is lost on me.
+
+My question here is: Should I cut my losses and drop out and just focus on trying to make as much money as I can to pay off my student loans that I've taken out for school, or continue to just bother people for help? Am I just not wired correctly for this sort of thing, as much as I wish I was? 
+
+I am *REALLY* enjoying learning these new things, but it's like I need someone there all the time because I'm apparently not ""learning"" per se, is how it feels, because I can't apply the lessons to the homework no matter how much I rewatch the lesson videos over and over again.
+
+Thanks for any advice, and apologies if this is the wrong subreddit for this.",4,1,2019-04-17 14:07:45
+133,beb0re,https://www.reddit.com/r/AskProgramming/comments/beb0re/which_programming_languages_movepress_the_mouse/,Which programming languages move/press the mouse button?,Text (optional),11,0,2019-04-17 14:08:57
+134,bebodg,https://www.reddit.com/r/AskProgramming/comments/bebodg/i_have_a_function_which_sould_give_out_a_key_but/,I have a function which sould give out a key but only returns NULL.,"i have a HTML page which uses console to execute an ""encrypt"" command( it is not done, yet), which is self crafted, but i run it and use an example, but it does not give off a number or string, it always gives off NULL and i don't find the error.
+
+code:
+
+    &lt;html&gt;
+    	&lt;head&gt;
+    		&lt;title&gt;weak encryption&lt;/title&gt;
+    		&lt;script language=javascript&gt;
+    			function encode(message, c) {
+    				var chars = [];
+    				var a;
+    				for (var i = 0; i &lt; c.length; i++) {
+    					if (c.charAt(i).includes(""!"") || c.charAt(i).includes(""?"") || c.charAt(i).includes(""§"") || c.charAt(i).includes(""$"") || c.charAt(i).includes(""%"") || c.charAt(i).includes(""&amp;"") || c.charAt(i).includes(""+"") || c.charAt(i).includes(""~"") || c.charAt(i).includes(""*"") || c.charAt(i).includes(""#"") || c.charAt(i).includes(""."") || c.charAt(i).includes("":"") || c.charAt(i).includes("","") || c.charAt(i).includes("";"") || c.charAt(i).includes(""("") || c.charAt(i).includes("")"") || c.charAt(i).includes(""{"") || c.charAt(i).includes(""["") || c.charAt(i).includes(""]"") || c.charAt(i).includes(""´"") || c.charAt(i).includes(""^"") || c.charAt(i).includes(""°"") || c.charAt(i).includes(""/"") || c.charAt(i).includes("" "")) {
+    						console.log('Key is illegal, returning ""null""');
+    						return null;
+    					}
+    				}
+    				chars = [""0"", ""1"", ""2"", ""3"", ""4"", ""5"", ""6"", ""7"", ""8"", ""9"", ""a"", ""b"", ""c"", ""d"", ""e"", ""f"", ""g"", ""h"", ""i"", ""j"", ""k"", ""l"", ""m"", ""n"", ""o"", ""p"", ""q"", ""r"", ""s"", ""t"", ""u"", ""v"", ""w"", ""x"", ""y"", ""z"", ""A"", ""B"", ""C"", ""D"", ""E"", ""F"", ""G"", ""H"", ""I"", ""J"", ""K"", ""L"", ""M"", ""N"", ""O"", ""P"", ""Q"", ""R"", ""S"", ""T"", ""U"", ""V"", ""W"", ""X"", ""Y"", ""Z"", ""_"", ""@""];
+    				a = chars[(halfstring(c, 1, chars * 8) + halfstring(c, 0, chars))];
+    				console.log(c);
+    				return c;
+    			}
+    			function halfstring(x, y, z) {
+    				var temp = 0;
+    				for (var j = 0; j &lt; Math.floor(x.length / 2); j++) {
+    					temp = temp + z.indexOf(x.charAt((j * 2) + y));
+    				}
+    				return temp;
+    			}
+    			encode(""message"", ""0123abcd"");
+    		&lt;/script&gt;
+    	&lt;/head&gt;
+    	&lt;body&gt;
+    		&lt;p&gt;&lt;strike&gt;Weak&lt;/strike&gt; &lt;b&gt;encryption&lt;/b&gt;&lt;/p&gt;
+    		&lt;p&gt;This is an &lt;i&gt;unfinished&lt;/i&gt; Test&lt;/p&gt;
+    	&lt;/body&gt;
+    &lt;/html&gt;",11,3,2019-04-17 15:04:42
+135,bec4zy,https://www.reddit.com/r/AskProgramming/comments/bec4zy/react_native_or_flutter_help_me_in_final_degree/,React native or Flutter? Help me in Final Degree Project,"Hello! I should develop a mobile system (Android and iOS) to my final degree project for my university that consist basically in a mini Booking, mini calendar, and gestion of documents for exchange students (with MySQL as database). 
+So I was considering React Native because I have all in one (and later can use the base for a web), but I'm afraid about some comments... Can be Flutter but the problem I think it's really young yet talking about projects and documentation.
+What do you think about it? really thank you for your help and sorry for my bad english.
+
+PD: I don't develop in RN or Flutter so I should learn them.",5,1,2019-04-17 15:45:20
+136,becfnn,https://www.reddit.com/r/AskProgramming/comments/becfnn/win32_window_is_blank_until_clicked/,"win32, Window is blank until clicked","as the title say, when i compile and run my application it always shows blank window and when i click that windows,  i can see my child windows.
+
+I use WM\_CREATE to create child windows
+
+&amp;#x200B;
+
+I want when i run my app and my parent window is displayed, the child windows to be shown instantly without highlighting that window, any idea what could be the reason
+
+&amp;#x200B;
+
+Update:
+
+but to be more accurate it doesnt even update when i click on the window, so clicking on a blank area which is suppose to be blank changes nothing, However  it updates in two scenario 
+
+1- when I click where the child windows are suppose to be(like combo box) 
+
+  when i highlight a blank area where a single combo box is suppose to be,  only all comboboxes gets drawn 
+
+2-when i move  the main window 
+
+The code is taken and modified a little(to be able to run it in dll) from [microsoft documentation An Object oriented approach](https://docs.microsoft.com/en-us/windows/desktop/learnwin32/managing-application-state-#an-object-oriented-approach)not sure whether this is relevant or not but the GUI is made in a DLL.its called from executable like this.
+
+    //DLL 
+    //BaseWindow.h 
+    //this code in base window template
+    BOOL Create(
+    		PCWSTR lpWindowName,
+    		DWORD dwStyle,
+    		DWORD dwExStyle = 0,
+    		int x = CW_USEDEFAULT,
+    		int y = CW_USEDEFAULT,
+    		int nWidth = CW_USEDEFAULT,
+    		int nHeight = CW_USEDEFAULT,
+    		HWND hWndParent = 0,
+    		HMENU hMenu = 0
+    	)
+    	{
+    		WNDCLASS wc = { 0 };
+    
+    		wc.lpfnWndProc = XWINDOW_TYPE::WindowProc;
+    		wc.hInstance = GetModuleHandle(NULL);
+    		wc.lpszClassName = ClassName();
+    		wc.hbrBackground = (HBRUSH)(BLACK_BRUSH);
+    		RegisterClass(&amp;wc);
+    
+    		m_hWnd = CreateWindowEx(
+    			dwExStyle, ClassName(), lpWindowName, dwStyle, x, y,
+    			nWidth, nHeight, hWndParent, hMenu, GetModuleHandle(NULL), this
+    		);
+    
+    		return (m_hWnd ? TRUE : FALSE);
+    	}
+    static LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) 
+    	{
+    
+    		XWINDOW_TYPE *pThis = NULL;
+    		if (uMsg == WM_NCCREATE)
+    		{
+    			CREATESTRUCT* pCreate = (CREATESTRUCT*)lParam;
+    			pThis = (XWINDOW_TYPE*)pCreate-&gt;lpCreateParams;
+    			SetWindowLongPtr(hWnd, GWLP_USERDATA, (LONG_PTR)pThis);
+    
+    			pThis-&gt;m_hWnd = hWnd;
+    		}
+    		else
+    		{
+    			pThis = (XWINDOW_TYPE*)GetWindowLongPtr(hWnd, GWLP_USERDATA);
+    		}
+    		if (pThis)
+    		{
+    			return pThis-&gt;HandleMessage(uMsg, wParam, lParam);
+    		}
+    		else
+    		{
+    			return DefWindowProc(hWnd, uMsg, wParam, lParam);
+    		}
+    	}
+    
+    
+    MAINWINDOW.CPP
+    
+    LRESULT MainWindow::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
+    {
+    
+    	switch(uMsg)
+    	{
+    		case WM_CREATE:
+    		{	HINSTANCE hInst = (HINSTANCE)GetWindowLongPtr(m_hWnd, GWLP_HINSTANCE);
+    			
+    			if (FAILED(D2D1CreateFactory(
+    				D2D1_FACTORY_TYPE_SINGLE_THREADED, &amp;pFactory)))
+    			{
+    				return -1;  // Fail CreateWindowEx.
+    			}
+        // MULTIPLE forms and combo boxes etc like
+                CreateWindowEx(WS_EX_WINDOWEDGE,
+    				TEXT(""COMBOBOX""),
+    				TEXT(""COMBOBOXES""),
+    				WS_CHILD | WS_VISIBLE | BS_RADIOBUTTON,
+    
+    				100, 350, 80, 20,
+    
+    
+    				m_hWnd, (HMENU)IDC_LISTS, hInst, NULL);
+    			;
+            CreateWindowEx(WS_EX_WINDOWEDGE,
+    				L""BUTTON"",
+    				L"" radio button"",
+    				WS_VISIBLE | WS_CHILD | BS_AUTORADIOBUTTON ,  
+    				10, 520,
+    				300, 20,
+    				m_hWnd, /
+    				(HMENU)IDC_CHK1,
+    				hInst, NULL);
+    			
+    		return 0;
+    
+    		case WM_COMMAND:
+    
+    		{
+    
+    			switch (LOWORD(wParam))
+    
+    			{
+    
+    			//HANDLE THE MESSAGES FROM CONTROLS WHICH irrelevant
+                        // like SendMessage or SendDlgItemMessage
+    
+    			}
+    
+    			break;
+    
+    
+    
+    			//other cases
+    		
+    
+    		}
+    
+    		break;
+    
+    
+    		case WM_DESTROY:
+    		{
+    			PostQuitMessage(0);
+    		}
+    		return 0;
+    		case WM_PAINT:
+    		{
+    			//OnPaint();
+    		}
+    		return 0;
+    		case WM_SIZE:
+    		{
+    			//Resize();
+    		}
+    		return 0;
+    		default:
+    		{
+    			return DefWindowProc(m_hWnd, uMsg, wParam, lParam);
+    		}
+    		return TRUE;
+    	}
+    }
+    
+    
+    
+    //test executable solution
+    //main.cpp
+    
+    MainWindow mywin;
+    	if (!mywin.Create(L""test"", WS_OVERLAPPEDWINDOW))
+    	{
+    		return 0;
+    	}
+    
+    	ShowWindow(mywin.Window(), nCmdShow);
+    ;
+    	MSG myMsg = {};
+    	while (myMsg.message != WM_QUIT)
+    	{
+    		if (PeekMessage(&amp;myMsg, NULL, 0, 0, PM_REMOVE))
+    		{
+    			TranslateMessage(&amp;myMsg);
+    			DispatchMessage(&amp;myMsg);
+    			continue;
+    		}
+    		
+    	}",3,2,2019-04-17 16:11:04
+137,becs6n,https://www.reddit.com/r/AskProgramming/comments/becs6n/landed_a_junior_position_have_questions/,"Landed a junior position, have questions","Hey guys, I just landed my first official junior software developer position and I'm over the moon.
+Problem is my new boss is being somewhat vague about what exactly my duties are going to be. When I asked what I should study up on for my first day on the job, he told me to, and I quote 'don't worry about it, go party for a week before your first day, we'll teach you everything you need to know!'
+
+He's super friendly and despite me pressing specific details he would not tell me. He did let me know I would start off doing some QA with the multitude of Web Systems they develop.
+
+I know they're systems were done with Javascript/C#.NET which I have a good base knowledge of.
+I really just want to spend the next week I have studying up on what I should know to be a good employee on the first day.
+I have afterall read horror stories of junior developers coming in on their first day and nuking databases (not saying this would happen but I would like to be prepared!).
+
+Any insights on what I should spend my time on studying? I have the next week and a half before my first day and I want to use this time effectively!
+
+Thanks guys",20,19,2019-04-17 16:42:26
+138,bedey8,https://www.reddit.com/r/AskProgramming/comments/bedey8/setup_outlook_365_to_automatically_print_email/,Setup Outlook 365 to automatically print email attachments.,"I followed the method here using a VB script to the letter.  [https://appuals.com/how-to-prints-emails-and-attachments-automatically/](https://appuals.com/how-to-prints-emails-and-attachments-automatically/) 
+
+I used this too:  [https://social.technet.microsoft.com/Forums/office/en-US/0962e42a-4735-4030-9194-f8a3f267cf30/automated-attachment-printing-outlook-2010?forum=outlook](https://social.technet.microsoft.com/Forums/office/en-US/0962e42a-4735-4030-9194-f8a3f267cf30/automated-attachment-printing-outlook-2010?forum=outlook)  which had roughly the same VBA code. Tried both, went to Tools in the VB window, checked off 'Microsoft Scripting Runtime'. When to File --&gt; Info --&gt; Manage Rules &amp; Alerts --&gt; Selected 'From people or public group' and entered an email I use --&gt; then on the next page the option to Run A script is not even an option? Does anyone know how to do this correctly?",1,1,2019-04-17 17:39:37
+139,be2hl2,https://www.reddit.com/r/AskProgramming/comments/be2hl2/help_with_printing_multiple_lines_from_text_file/,Help with printing multiple lines from text file with Regex in Ruby,[deleted],2,1,2019-04-16 22:20:05
+140,be53e3,https://www.reddit.com/r/AskProgramming/comments/be53e3/how_do_you_define_a_constructor_for_a_nested/,How do you define a constructor for a nested template?,[deleted],0,1,2019-04-17 03:47:02
+141,be5k93,https://www.reddit.com/r/AskProgramming/comments/be5k93/its_a_good_idea_to_learn_julia/,It's a good idea to learn Julia?,[deleted],3,3,2019-04-17 05:01:38
+142,be8utj,https://www.reddit.com/r/AskProgramming/comments/be8utj/two_and_more_overlayshtmlcssjs/,Two and more overlays[HTML/CSS/JS],[deleted],0,0,2019-04-17 11:04:27
+143,be9to5,https://www.reddit.com/r/AskProgramming/comments/be9to5/file_upload_client_not_multipart/,File Upload Client Not Multipart,[deleted],0,2,2019-04-17 12:26:39
+144,beb6os,https://www.reddit.com/r/AskProgramming/comments/beb6os/really_dumb_question_but_can_github_take_over/,Really dumb question but can GitHub take over your project if you have a revenue generating repo hosted that isn't registered to a company?,[deleted],2,0,2019-04-17 14:22:59
+145,bebh1f,https://www.reddit.com/r/AskProgramming/comments/bebh1f/is_programming_on_nonwindows_just_a_meme/,Is Programming on non-Windows just a meme?,[deleted],31,0,2019-04-17 14:48:01
+146,bfwqua,https://www.reddit.com/r/AskProgramming/comments/bfwqua/what_sorting_algorithm_did_i_make_how_would_you/,What sorting algorithm did I make? How would you optimize it? (hopefully easy question :),"I tried to make a mergesort algorithm just based off of the gif animation on wikipedia. My sorting algorithm works, but I get the feeling it's not exactly a mergesort algorithm.
+
+&amp;#x200B;
+
+[Here's a link to it on github.](https://github.com/hanjol/mergesort) (Don't worry, there's comments :)
+
+&amp;#x200B;
+
+It recursively calls itself by splitting the array in half and calling itself on both halves, but then it still has to compare the two sorted arrays. I found a way to do this without comparing every single element, since they're both already sorted, but I get the feeling it's still not very optimized.
+
+&amp;#x200B;
+
+Is this really a mergesort algorithm? Or did I make something else?
+
+&amp;#x200B;
+
+And, how do I optimize it for speed? I feel like it's kinda wasteful.
+
+&amp;#x200B;
+
+Thank you!
+
+&amp;#x200B;
+
+Edit: Thank you both so much for the help! It makes a lot more sense now :D :D",2,1,2019-04-21 22:19:01
+147,bfxq5d,https://www.reddit.com/r/AskProgramming/comments/bfxq5d/using_python_to_replicate_putty_receivetransfer/,Using python to replicate putty receive/transfer tasks,"Hey everyone!
+
+I'm currently working on a project and need a little direction. The project is essentially controlling a bot from a ""command center"". The bot is really low level and I'm sending all sorts of information through UART communication &amp; its wifi card. 
+
+Originally, I was using putty for sending and receiving information. It was simple, put 192.168.1.1 for the host, drop the port number, baud rate, and another thing or two and it could communicate efficiently and accurately. The sensor data would come in and display line by line, and I could send characters back to the bot like I needed just by inputting. 
+
+The thing is, I need to build a proper command center now though, and that involves live data visualization, ect... Charts for object detection, color underneath me, ect... Thus, instead of just seeing those numbers transmitted back to putty, I need to be able to manipulate/graph them live.
+
+I'm trying to do the visualization in python (already wrote stuff that can do it live), and figured I could easily send and receive the data with some python libraries too. The thing is, I've never worked with networking stuff before, and I'm learning python as I go. 
+
+I have no ideas what tools or libraries would potentially abstract the most of this for me. Originally, I was really, really hoping to just be able to use pyserial. It links up with the baud rate super well, the data comes in live, I don't have to worry about losing stuff. Then I realized yea I need to do this over a TCP connection, which I know nothing about haha. Now, I'm giving it a go with sockets, but I have no idea whats going on, cause I didn't know what a socket was until today. I was able to receive a packet, but I need everything to be transferred effectively and fluidly, which doesn't seem very easy if I'm involving tons more packets. 
+
+Thoughts? I was told to give socket.makefile().readline() or something of the like, which I'll be trying soon after this.
+
+Thanks!",1,1,2019-04-22 00:03:20
+148,bfxw9z,https://www.reddit.com/r/AskProgramming/comments/bfxw9z/what_concepts_do_i_need_to_understand_to_create_a/,what concepts do I need to understand to create a bare-bones social media platform?,my current knowledge comes almost exclusively from LPTHW. what concepts should I study if I want to make a very simple yet functional social media website?,4,1,2019-04-22 00:22:57
+149,bfyd43,https://www.reddit.com/r/AskProgramming/comments/bfyd43/are_any_of_the_modern_web_technologies/,Are any of the modern web technologies particularly suited for building a one-page dashboard? (Backend dev with no web experience.),"Hi,
+
+Are any of the modern web languages / frameworks particularly well-suited for creating one-page dashboards? *e.g.* Imagine, waking up and entering how many hours of sleep you got, updating a calories counter throughout the day, or tapping a button to say, ""I worked out today!"" or ""I had a beer today."" And then later, building out some views or graphs.
+
+I'm a backend dev interested in learning a new web technology, but don't have too much free time. So, I'm trying my best to limit features and make choices that ultimately save time. For example,
+
+* I want it to be accessible from any device, but it does **not** have to be responsive / mobile. (It's not a focus I want to spend time perfecting or debugging.)
+* I want to integrate a mature undo / redo library. (I don't want to have to write SQL to fix a database row every time I fat-finger something.)
+* I *prefer* it to be Javascript-based (if there even is a thing that isn't?) so that I can draw from a multitude of libraries when it comes to building views and graphs.
+* I *prefer* it to be hosted (and am willing to pay) so I don't have to spend time on administration. But, not a dealbreaker. I'm able to rent a VPS, install Nginx, etc.
+
+I began a React tutorial, but I felt like it might be overkill for what I want to accomplish. Or, should I continue? I really like what I'm hearing about Rust, but it doesn't seem mature enough to be painless.
+
+Appreciate any direction, thanks.",2,2,2019-04-22 01:24:33
+150,bfypis,https://www.reddit.com/r/AskProgramming/comments/bfypis/beginner_question_how_to_make_something_that/,[beginner question] how to make something that gives random result from sets of tables?,"Hi, I recently had the idea of trying to make something that could help me with certain elements of Tabletop Roleplaying games, Spesificly when there are tables with random results, and often when you roll on several at once, and thought it would be nice to just have a button i could press and I was displayed a random result.
+
+But im curious about what the simplest way to go about it, would be, as Ive not touched programming in quite awhile.
+
+Have studied Python and C as part of a class for a year, and had a minor project in Perl, but other than that, my programming knowledge is quite limited. And maybe it could be doable in Excel?
+
+to make it very simple, i would imagine that i have 3 tables (could be in separate documents), with a list of entries. Then I have some sort of process that picks one random entry from each of the tables, and then displays it in a spesific order.
+
+example:
+
+In a game called Mutant Year zero, you have a grid map, and when the players in the game move from one square to another, several rolls have to be made in order to figure out if the area is urban or rural, what sort of building or environment is there, how much radiation is in the area, if artifacts can be found there, what sort of threats can be found and what sort of mood that affects the area.
+
+So, I would appriciate a few tips on what the easiest way to make a program that does all of these table-rolls for me, instead of having to spend a few minutes each time it needs to be checked.",6,1,2019-04-22 02:11:48
+151,bfyzr3,https://www.reddit.com/r/AskProgramming/comments/bfyzr3/can_somebody_explain_what_happens_when_a_pointer/,Can somebody explain what happens when a pointer is passed as a pointer to a pointer inside another function.,"Here is the code :
+
+        #include &lt;stdio.h&gt;
+
+        int main()
+
+        {
+
+            int i = 10;
+
+            int *const p = &amp;i;
+
+            foo(&amp;p);
+
+            printf(""%d\n"", *p);
+
+        }
+
+        void foo(int **p)
+
+        {
+
+            int j = 11;
+
+            *p = &amp;j;
+
+            printf(""%d\n"", **p);
+
+        }",2,8,2019-04-22 02:52:33
+152,bfz3g6,https://www.reddit.com/r/AskProgramming/comments/bfz3g6/hackerrank_help_java/,HackerRank help (Java)," 
+
+This is the New Year Chaos question from HackerRank.
+
+Question: Any person in the queue can bribe the person *directly in front* of them to swap positions. If two people swap positions, they still wear the same sticker denoting their original places in line. One person can bribe *at most two others*. You must know the minimum number of bribes that took place to get the queue into its current state. If any person has bribed more than twice the print out ""Too chaotic"".
+
+Input: 1 2 5 3 7 8 6 4
+
+Expected output: 7
+
+My output: 6
+
+Can you point out what I did wrong in this code?
+
+     static void minimumBribes(int[] q) {
+    
+            boolean flag = false;
+            int bribes = 0;
+            int math = 0;
+    
+            for (int i = 0; i &lt; q.length; i++){
+                //check if person has bribed more than twice
+                //if so, flag and exit the loop
+                if (q[i] - (i + 1) &gt; 2 ){
+                    flag = true;
+                    break;
+                }
+                //check if person is bribed by determining if they are less than the index value
+                //if so, add by absolute value of the difference
+                else if (q[i] &lt; (i+1)) {
+                	bribes +=  Math.abs((i+1) - q[i]);
+                }
+            }
+    
+            
+            if (flag == true) 
+                System.out.println(""Too chaotic"");
+            else
+                System.out.println(bribes);
+        }",6,10,2019-04-22 03:07:06
+153,bg262o,https://www.reddit.com/r/AskProgramming/comments/bg262o/what_do_your_managers_use_to_coordinate_assign/,"what do your managers use to coordinate, assign, &amp; track development?","other than Excel..
+
+I'm looking to get ideas on how dev managers organize, assign, &amp; track development items.
+
+as an example:
+
+* we get a list of 500 development items (reports, interfaces, etc..)
+* we have 30 developers
+
+I want to be able to manage/prioritize the dev list, assign each dev 2 concurrent items, track progress, and have 1-2 new items in their queue. As a bonus, I'd like to track testing approvals and other relevant dates (planned start, actual start, planned finish, actual finish, unit test passed date, user acceptance passed date, etc..).
+
+thanks a lot,
+TC",20,6,2019-04-22 09:34:36
+154,bg2b9x,https://www.reddit.com/r/AskProgramming/comments/bg2b9x/any_tool_to_compare_responses_of_api_calls/,Any tool to compare responses of API calls?,"I am trying to develop a new version of an API and need to compare and see how the responses of these (new vs old version) differ.
+
+The responses in my case are JSON. I tried to google for any such tool on github but couldn't find one.",4,1,2019-04-22 09:48:55
+155,bg3em4,https://www.reddit.com/r/AskProgramming/comments/bg3em4/trying_to_get_a_txt_file_array_into_a_bubble_sort/,trying to get a txt file array into a bubble sort and sort from greatest to lowest but I can't work the array into the algorithm.,"Its to a point where I build successfully but I get no output
+
+     #include &lt;iostream&gt;
+    #include &lt;fstream&gt;
+    using namespace std; 
+    
+    int main() {
+    int the_input;
+    ifstream inFile(""project.txt"", ios::in);
+    int i;
+    int a[100];
+    int n=100, j;
+    
+    if (!inFile) {
+    cerr &lt;&lt; ""File could not be opened"" &lt;&lt; endl;
+    exit(EXIT_FAILURE);
+    }
+    while (inFile &gt;&gt; the_input) {
+    
+    
+    		
+     for (i =0;i&lt;=n;i++)
+     {
+    	 for(j=0;i&lt;n-1;i++)
+    	 {
+    		 int temp;
+    		 for(j=i+1;j&lt;=n-1;j++)
+    		 {
+    			 if (a[i] &gt; a[j])
+    			 {
+    				 temp = a[i];
+    				 a[i] = a[j];
+    				 a[j] = temp;
+    				 }
+    			 }
+    		 }
+    
+    
+    	 }
+    
+    
+    		 {cout &lt;&lt; the_input&lt;&lt;endl;}
+    }
+    return 0;
+     
+    }",3,1,2019-04-22 11:28:19
+156,bg3gm3,https://www.reddit.com/r/AskProgramming/comments/bg3gm3/quickest_way_to_solve_nested_loop_questions_on/,Quickest way to solve nested loop questions on paper exam?,"Hi all!
+
+Im going through some old finals for my intro to java class, and there are alot of questions that involve solving nested for loops by hand (its a paper exam); things like solving for the value of count with the following example code:
+
+    public static void main(String args[]) {
+        int n=6;
+        int count = 0;
+    
+        for (int i = 0; i &lt; n; i++){
+        count--;
+            for (int j = i+1; j &lt; n; j++){
+            count--;
+                for (int k = j+1; k &lt; n; k++){
+                count++;
+                }
+              }    
+            }
+        System.out.println(count);
+    }
+
+&amp;#x200B;
+
+&gt;I can solve this by just going over the loops over and over with a pen and paper; but this takes a long ass time and often gets me confused. Are there any tricks to easily solve these types of problems? 
+
+&amp;#x200B;
+
+edited for clarity, thanks /u/dorbinator",11,2,2019-04-22 11:33:16
+157,bg5mfv,https://www.reddit.com/r/AskProgramming/comments/bg5mfv/calling_debug_with_incomplete_return_type_qdebug/,Calling 'debug' with incomplete return type 'QDebug',"I'm trying to learn how to create GUIs with QT in c++ using [this playlist.](https://www.youtube.com/playlist?list=PLMgDVIa0Pg8WrI9WmZR09xAbfXyfkqKWy)
+
+I can't get through the second tutorial, however, as qDebug is not working.  I get the error in the title in my code, and the error
+
+
+    error: invalid use of incomplete type 'class QDebug'
+             qDebug() &lt;&lt; ""MyRect knows that you pressed a key"";
+                    ^     
+
+When trying to run the code.  What is this, and how can I fix this?",3,4,2019-04-22 14:35:44
+158,bg7fc5,https://www.reddit.com/r/AskProgramming/comments/bg7fc5/cneed_help_figuring_out_why_my_qsort_function/,[C]Need help figuring out why my qsort function won't sort,"Hey all, I've been tasked today with modifying an old program to no longer use a selection sort function, and instead to use qsort. My original program worked well, but this new iteration doesn't behave properly. Instead of sorting a list, it adds some spaces between the entries and otherwise does nothing.
+
+The goal of the program is to input a file name, and sort the list of data in the file. In particular, it's a 3 column list of school supplies. I've attached screenshots of [The list](https://i.imgur.com/jqtath6.png), , [incorrectly sorted list](https://i.imgur.com/C4ztGM8.png), , [Original Program](https://i.imgur.com/9JO9hKV.png), , [Current project](https://i.imgur.com/R2qhlvH.png).
+
+Apologies for the formatting on the program screenshots, I couldn't get a full page screenshot unless I copy/pasted into a document. 
+
+Again, not sure why it's just adding spaces and not sorting anything. Any help or direction would be a huge help.
+
+quick edit: here's an example of a sorted list from the original program that worked: https://i.imgur.com/zklbQ05.png
+
+edit number 2: I changed the dot operators in the compareString function to be arrow operators: -&gt; 
+
+it flipped the list [upside down](https://i.imgur.com/YRxPFmi.png) instead of sorting anything. Equally confused but at least it's a new problem to lead me somewhere
+
+Big boy EDIT 3: I changed all the comparison signs with strcmp, result is still the same. Here's a paste of my code as requested: https://textuploader.com/1dar2
+
+Final edit: I got the program working at 99% capacity. The first entry on the original list has a few random characters in front of it, but otherwise it is sorted. [Final output](https://i.imgur.com/5s6a3Js.png)",4,0,2019-04-22 17:08:15
+159,bg7trs,https://www.reddit.com/r/AskProgramming/comments/bg7trs/how_to_debugstepinto_interface_implementation/,how to debug/step-into interface Implementation,"the problem I have is I cannot step into my implementation functions
+
+&amp;#x200B;
+
+I have a static and dynamic library and exe I am using MVS 2017,  C++
+
+&amp;#x200B;
+
+in the static lib i have interface,
+
+`class myinterface {virtual start();}`
+
+in the dynamic lib i have class which implements the interface
+
+`class myclass : public myinterface {`
+
+`start()`
+
+`}`
+
+`myclass::start()`
+
+`{blahblahblah}`
+
+&amp;#x200B;
+
+in the exe  I  use instance of myinterface so i have  line like  myinterface-&gt;start()
+
+it works fine but  I cannot step into  the implementation of start()   which is what i want to do",10,1,2019-04-22 17:42:28
+160,bfzfg6,https://www.reddit.com/r/SoftwareEngineering/comments/bfzfct/unit_testing_a_function_that_calls_other_unit/,Unit Testing a function that calls other unit tested functions.,,4,2,2019-04-22 03:55:53
+161,bg0sgr,https://www.reddit.com/r/AskProgramming/comments/bg0sgr/c_outofmemoryexception_with_a_70000x70000_float/,C# - OutOfMemoryException with a 70.000x70.000 float matrix...,[deleted],6,2,2019-04-22 07:08:02
+162,bg5o97,https://www.reddit.com/r/AskProgramming/comments/bg5o97/messed_up_my_gmail_inbox_dont_know_how_to_fix_it/,Messed up my gmail inbox. Don't know how to fix it.,[deleted],1,0,2019-04-22 14:40:03
+163,bh4bdm,https://www.reddit.com/r/AskProgramming/comments/bh4bdm/building_machine_learning_movie_recommender/,Building Machine Learning Movie Recommender," 
+
+Hello  everyone! I posted recently asking help request of some sort of a guide  or direction in building an App that Recommends Movies. I'm extremely  new at using angular7. Upon further researching and professor giving  more details on what he wants, It has to be made with Machine Learning.  Does anyone have a guide or reference I could go by that's helps me  develop machine learning with movie recommendations?
+
+Like these but at a smaller scale.
+
+[movix.ai](https://movix.ai/)
+
+[https://www.tastemonster.com/](https://www.tastemonster.com/)
+
+My work, planning on removing questionnaire page and implementing the recommender starting there.
+
+[https://github.com/LamarRJ1/TheMovieMaster](https://github.com/LamarRJ1/TheMovieMaster)",1,12,2019-04-25 00:11:23
+164,bh4uvo,https://www.reddit.com/r/AskProgramming/comments/bh4uvo/html_only_the_last_textbox_is_workingtextboxes/,[HTML] only the last textbox is working(textboxes non functioning),"this is my first html project and i met a bug.
+
+&amp;#x200B;
+
+i have 10 textboxes:
+
+    	&lt;main&gt;
+    		&lt;div id=""wrapper-1""&gt;
+    			&lt;input id=""r1"" type=""text"" placeholder=""bullet1""/&gt;
+    			&lt;input id=""r2"" type=""text"" placeholder=""bullet2""/&gt;
+    			&lt;input id=""r3"" type=""text"" placeholder=""bullet3""/&gt;
+    			&lt;input id=""r4"" type=""text"" placeholder=""bullet4""/&gt;
+    			&lt;input id=""r5"" type=""text"" placeholder=""bullet5""/&gt;
+    			&lt;input id=""r6"" type=""text"" placeholder=""bullet6""/&gt;
+    			&lt;input id=""r7"" type=""text"" placeholder=""bullet7""/&gt;
+    			&lt;input id=""r8"" type=""text"" placeholder=""bullet8""/&gt;
+    			&lt;input id=""r9"" type=""text"" placeholder=""bullet9""/&gt;
+    			&lt;input id=""r10"" type=""text"" placeholder=""bullet10""/&gt;
+    		&lt;/div&gt;
+    		
+    	&lt;/main&gt;
+
+&amp;#x200B;
+
+with css:
+
+    main{
+    	grid-area: main;
+    	position: relative;
+    	width: 100%;
+    	height: 200%;
+    	margin: 0;
+    	top:-12%;
+    	z-index: -1;
+    	background-color: #262A2E;
+    	
+    }
+    
+    #wrapper-1{
+    	position: relative;
+    	width: 10%;
+    	height: 200%;
+    	margin: 20px 35px;
+    	top: 12%;
+    	padding: 40px;
+    	border-right: #BBAAAA 2px groove;
+    	
+    }
+    
+    #wrapper-1 input{
+      	
+    	display: inline-block;
+    	height: 30px;
+    	width: 80%;
+    	margin: 15px auto;
+    	
+    	
+    }
+    
+    #wrapper-1 input::placeholder{
+    	color: #577dff
+    	
+    }
+    
+
+&amp;#x200B;
+
+&amp;#x200B;
+
+everything is position as expected:
+
+[https://i.imgur.com/sHGNM2D.png](https://i.imgur.com/sHGNM2D.png)
+
+&amp;#x200B;
+
+however, the textboxes are not editable. It doesnt allow me to point to the textboxes thus i cant enter text into the textboxes. what have i done wrong in the code? thanks !",7,1,2019-04-25 01:17:33
+165,bh4vg0,https://www.reddit.com/r/AskProgramming/comments/bh4vg0/dynamic_c_mystery_recovering_legacy_code/,Dynamic C Mystery - Recovering Legacy Code,"I have a bit of a mystery on my hands:
+
+I was handed an integrated control device whose original developers left our working group long before my time. I have been asked to port the exact functionality of this control device to a modern platform (like Arduino) so that my system can be a drop in replacement for the existing controller.
+
+Only one problem: the source code is gone! All that I have to work with is the compiled firmware on the device. Thankfully, I have been able to force the microcontroller (an old Rabbit 2000 series) to regurgitate the contents of its flash modules and convert the resulting dump into a .bin file. I also know that the development language is Dynamic C (a C-like language for Rabbit microcontrollers).
+
+I am struggling with the decompilation process. I theoretically know all of the information required to decompile, but I have not been able to find a decompiler from the binary to Dynamic C. I know the exact processor and microcontroller that the code was run on, and I even have the IDE.
+
+At the end of the day, I need to learn the handshaking and data transmission routine between the controller and the many external devices that the current system uses so that I can mirror the controller on a different platform. I tried sniffing network packets, but there is far too much traffic between these devices to determine a meaningful procedure (as far as I know).   
+
+Does anyone have advice on decompiling Dynamic C from a .bin file? Thanks!",11,1,2019-04-25 01:19:37
+166,bh6ma9,https://www.reddit.com/r/AskProgramming/comments/bh6ma9/how_to_edit_already_stored_user_data_php_mysql/,How to edit already stored user data php mysql,"  
+
+Editing/updating data in server is unexceptional. In daily basis, we make use of Facebook post edit feature, changing password, name, picture, age and much more. 
+
+[continue reading...](https://www.superguideblog.com/2019/04/how-to-edit-already-stored-user-data-using-php-mysql.html)",0,0,2019-04-25 05:36:00
+167,bh6mps,https://www.reddit.com/r/AskProgramming/comments/bh6mps/trying_to_automatically_generate_passwords_for/,Trying to automatically generate passwords for every combination possible in an array.,"I have a video game, each possible save state should have a password that lets you load it.  
+Since there's potentially thousands or tens of thousands of possibilities, instead of me manually creating passwords for each possible order of this array. 
+
+Instead I'd want an algorithm that does it for me.  
+
+For example. 
+
+[0, 1, 2, 3, 4]  
+Is ADWF  
+[0, 2, 3, 4, 1] 
+Is EETU  
+
+I don't care about the letters being a specific order, just that they match up with every possible save state.  
+
+That way when a player chooses to ""save"" the game.  They also get a passcode, this allows them to load that state on any other game, without needing the memory file of that save.
+
+I'm not really asking people to do my work for me. I am just wondering what algorithm or logic is required for me to do this.
+
+Edit: Nvm I figured it out I'm dumb. I just iterate through every possibility, and simply have for each iteration, to randomly generate text that hasn't been used before.  And save that text inside its own key value)  {[0, 2, 3, 4, 1] = EETU}  Upon entering a value on the password screen, I will query to find a matching value and then return the key it belongs to.",7,1,2019-04-25 05:37:35
+168,bh6wgh,https://www.reddit.com/r/AskProgramming/comments/bh6wgh/socket/,Socket,Is http polling under the hood of socket protocol or socket is made by pure tcp/ip?,7,1,2019-04-25 06:15:46
+169,bh7gz5,https://www.reddit.com/r/AskProgramming/comments/bh7gz5/i_cant_figure_out_whats_wrong_with_my_code_and_my/,i cant figure out whats wrong with my code and my debugger is not working.,"[https://drive.google.com/file/d/1B7UiF1v9vSDL26rgFmFfxmuM94U-1bE8/view?usp=sharing](https://drive.google.com/file/d/1B7UiF1v9vSDL26rgFmFfxmuM94U-1bE8/view?usp=sharing)
+
+i did this question that i was able to find somewhere and it does compile without any errors but i dont get any output and my debugger is not working so i cant even figure out whats wrong.
+
+the link above contains both the question and my answer to it using c++, if anyone can help me figure out what i did wrong that would be great.",1,0,2019-04-25 07:26:30
+170,bh7ses,https://www.reddit.com/r/AskProgramming/comments/bh7ses/how_do_i_relieve_brain_fog/,"How do I relieve ""Brain Fog""...","I could also call it, a hazy brain. Is there any remedies youd recommend? I just lay in bed for 15 minutes then get up and try to do something",34,13,2019-04-25 08:02:29
+171,bh8liw,https://www.reddit.com/r/AskProgramming/comments/bh8liw/looking_for_filemaker_pro_alternatives_with/,Looking for Filemaker pro alternatives with multiuser support,"Hello
+
+I am looking for a program like filemaker pro that has a database and graphic interface like form view where i can see and print any entry like a customer history. I also need to access the file from different computers at once like google sheets. Filemaker pro cloud server is way too expensive.",0,0,2019-04-25 09:25:03
+172,bhba47,https://www.reddit.com/r/AskProgramming/comments/bhba47/python_can_we_pipe_output_of_wget_to_google_drive/,[Python] Can we Pipe output of wget to Google drive?,"As title says.
+
+I was using the google-api-client package for uploading and downloading local files which i was able to do successfully.
+
+&amp;#x200B;
+
+The [documentation](https://developers.google.com/drive/api/v3/manage-uploads) only shows how to upload local files but i wanted to pipe my output directly.
+
+Can't find anything on StackOverflow :(
+
+&amp;#x200B;
+
+Is there any way to do so?",2,2,2019-04-25 13:20:07
+173,bhbo0p,https://www.reddit.com/r/AskProgramming/comments/bhbo0p/comparing_character_array_in_c_and_byte_string_in/,Comparing Character Array in C and Byte String in Python,"I'm attempting to reproduce some C code in Python, and ran into an issue with character formatting. Specifically, I'm working on rewriting some old C code that uses the RS-232 standard for communication with some devices.  
+
+&amp;#x200B;
+
+I want to reproduce a character array in C that is formed in the following way:
+
+`char msg[128]; msg[0] = 'J'; msg[1] = 182; msg[2] = 0;`
+
+&amp;#x200B;
+
+My naive attempt to do this was to simply use a byte  string, where:
+
+`msg = b'J1820'`  
+
+
+However, the output I receive after sending this command to the device does not match what I expect at all (it's always b'\\x15', seemingly regardless of what I send).
+
+&amp;#x200B;
+
+Is there a difference between using the byte string as I am in Python with the above C code? To be clear I'm using Python3.4.",6,11,2019-04-25 13:53:31
+174,bhby63,https://www.reddit.com/r/AskProgramming/comments/bhby63/whats_your_favorite_documentation_softwareplatform/,What's your favorite documentation software/platform?,"Hey AskProgramming subreddit!
+
+&amp;#x200B;
+
+I'm trying to implement a self-hosted documentation site to allow our user community (website users, support, developers) to see information like Release notes, documentation for modules, etc without spending a buttload of money  for a seat based doc software. I'm looking to self host on a VM.
+
+&amp;#x200B;
+
+Preferably I'd like a recommendation that is fairly regularly maintained (or proven to be stable with scale). Does anyone have good recommendations for a software/platform like this? I'd love to know why you also recommend the software so I can bring the pros/cons back to the rest of my team! Thanks a bunch in advance!",2,1,2019-04-25 14:17:46
+175,bhccwu,https://www.reddit.com/r/AskProgramming/comments/bhccwu/how_exactly_does_google_ads_identify_the_context/,How exactly does Google Ads identify the context of a page for an display ad?,"I realize that there are many factors utilized including browsing history, but in the case of the contextual google ads, how are these selected?
+
+I assume they are using the text, but how do they determine what keywords are best suited for a display ad?",3,1,2019-04-25 14:53:20
+176,bhcgas,https://www.reddit.com/r/AskProgramming/comments/bhcgas/is_there_a_site_or_a_reddit_sub_where_a_challenge/,"Is there a site or a reddit sub where a challenge is issued to code an algorithm, then people submit their code, but *crucially* they get together to talk about it","I'm getting competent enough at programming now where I am submitting solutions to interesting challenges on various websites. But i'm also often seeing more efficient, or interesting takes on the same problem by other users. And I want to discuss them. These sites typically don't really facilitate anything more beyond simply checking and submitting your solution.
+
+Perhaps there is a reddit sub with weekly challenges or something similar, such as r/52weeksofcooking ?
+
+I know I could probably go to codereview.stackexchange.com and post my code and ask for advice, but it would make more sense to ask other people who are already invested in the particular task at hand.",4,1,2019-04-25 15:01:16
+177,bhciwy,https://www.reddit.com/r/AskProgramming/comments/bhciwy/edit_cascade_windows_dimensions/,"Edit ""Cascade windows"" dimensions.","I very much dislike the dimensions of the Cascade windows tool in Windows 10 because it takes up a lot of desktop space. I do however love that I can resize all my windows and then stack them quickly and orderly. Could someone possibly solve this for me and figure out the correct procedure for locating the code so I can edit the default ""Cascade"" sizing? Would really appreciate it. 
+
+&amp;#x200B;
+
+Also, if there is somewhere better to ask this question don't hesitate to let me know. Thanks!",0,1,2019-04-25 15:07:27
+178,bhd808,https://www.reddit.com/r/AskProgramming/comments/bhd808/is_c_a_good_programming_language_to_render/,"Is C# a good programming language to render graphics? And if so, any resources?",.,7,10,2019-04-25 16:08:32
+179,bhey24,https://www.reddit.com/r/AskProgramming/comments/bhey24/how_can_i_quickly_find_any_search_terms_in/,How can I quickly find any search terms in multiple columns in a table?,"Let's say I have an invoice table that has a customer (first, last, address, phone, email, etc), a PO#, a reference # and other random fields.  
+
+The client wants a single search box where they can enter in, for example, a last name and a city or a phone # and a city and it will return all the records containing any of that information.  Some fields will be startswith (like first and last name) and some will be contains (like address).
+
+For example, I could have a PO with a customer of Mark Smith at 123 Washington Road.  I could enter ""smith washington"" and it would find that record.
+
+Then, on top of that, I need to sort by any of those fields and return a total records found as well as a paged result set of the actual records.
+
+Currently, I have a Sql Server view that gets the 10 or so fields for every record and returns all of them to C#.  In C#, I'm comparing each field in each record to see if a match is found, then I order that result set, then I take the final result set and return it.
+
+Please tell me there is a better way to do this?",3,1,2019-04-25 18:41:52
+180,bhfkt2,https://www.reddit.com/r/AskProgramming/comments/bhfkt2/20_questions_game_in_java/,20 Questions Game in Java,"So I am trying to finish up my final project for my programming class. The goal is to make a game of 20 questions (or something similar) using binary search trees. One of the harder parts of this project is that we have to use 4 separate classes (one for the methods of the binary search tree, one for the questions, one for the answers, and another main module). I have all of the methods for the tree; however, I am having a lot of trouble with trying to figure out how all the classes should work together. Mainly how to insert nodes as questions and iterate down the tree based on the response yes or no. 
+
+Here is what I have for the BST: 
+
+***public*** ***class*** **LinkedBinaryTreeNode&lt;**E**&gt;** ***implements*** BinaryTreeNode**&lt;**E**&gt;** **{**  
+ E data;  
+ BinaryTreeNode**&lt;**E**&gt;** parent;  
+ BinaryTreeNode**&lt;**E**&gt;** leftChild;  
+ BinaryTreeNode**&lt;**E**&gt;** rightChild;  
+ ***int*** depth **=** 0;  
+ /\*\*  
+\* Returns the data stored in this node.  
+\*/  
+ @Override  
+ ***public*** E getData**()** **{**  
+ ***return*** data;  
+ **}**  
+ /\*\*  
+\* Modifies the data stored in this node.  
+\*/  
+ @Override  
+ ***public*** ***void*** setData**(**E data**)** **{**  
+ ***this***.data **=** data;  
+ **}**
+
+  
+ /\*\*  
+\* Returns the ancestor of this node that has no parent,  
+\* or returns this node if it is the root.  
+\*/  
+ @Override  
+ ***public*** BinaryTreeNode**&lt;**E**&gt;** getRoot**()** **{**  
+ BinaryTreeNode**&lt;**E**&gt;** currentNode **=** ***this***;  
+ ***if*** **(**currentNode.*getParent***()** **!=** ***null*****)** **{**  
+ currentNode.*getParent***()**.*getRoot***()**;  
+ **}**  
+ ***return*** currentNode;  
+ **}**  
+ /\*\*  
+\* Returns the parent of this node, or null if this node is a root.  
+\*/  
+ @Override  
+ ***public*** BinaryTreeNode**&lt;**E**&gt;** getParent**()** **{**  
+ ***return*** parent;  
+ **}**  
+ /\*\*  
+\* Modifies the parent when binary tree changes  
+\*  
+\*/  
+ ***private*** ***void*** setParent**(**BinaryTreeNode**&lt;**E**&gt;** parent**)** **{**  
+ ***this***.parent **=** parent;  
+ **}**  
+ /\*\*  
+\* Returns the left child of this node, or null if it does  
+\* not have one.  
+\*/  
+ @Override  
+ ***public*** BinaryTreeNode**&lt;**E**&gt;** getLeft**()** **{**  
+ ***return*** leftChild;  
+ **}**  
+ /\*\*  
+\* Removes child from its current parent and inserts it as the  
+\* left child of this node.  If this node already has a left  
+\* child it is removed.  
+\*/  
+ @Override  
+ ***public*** ***void*** setLeft**(**BinaryTreeNode**&lt;**E**&gt;** child**)** **{**  
+ leftChild **=** child;  
+ ***if*** **(**child **!=** ***null*****)** **{**  
+ **((LinkedBinaryTreeNode&lt;**E**&gt;)** child**)**.*setParent***(*****this*****)**;  
+ **((LinkedBinaryTreeNode&lt;**E**&gt;)** child**)**.depth **=** depth **+** 1;  
+ **}**  
+ **}**  
+ /\*\*  
+\* Returns the right child of this node, or null if it does  
+\* not have one.  
+\*/  
+ @Override  
+ ***public*** BinaryTreeNode**&lt;**E**&gt;** getRight**()** **{**  
+ ***return*** ***null***;  
+ **}**  
+ /\*\*  
+\* Removes child from its current parent and inserts it as the  
+\* right child of this node.  If this node already has a right  
+\* child it is removed.  
+\*/  
+ @Override  
+ ***public*** ***void*** setRight**(**BinaryTreeNode**&lt;**E**&gt;** child**)** **{**  
+ rightChild **=** child;  
+ ***if*** **(**child **!=** ***null*****)** **{**  
+ **((LinkedBinaryTreeNode&lt;**E**&gt;)** child**)**.*setParent***(*****this*****)**;  
+ **((LinkedBinaryTreeNode&lt;**E**&gt;)** child**)**.depth **=** depth **+** 1;  
+ **}**  
+ **}**  
+ /\*\*  
+\* Returns true if the node has any children.  
+\* Otherwise, returns false.  
+\*/  
+ @Override  
+ ***public*** ***boolean*** isParent**()** **{**  
+ ***return*** *hasLeftChild***()** **||** *hasRightChild***()**;  
+ **}**  
+ /\*\*  
+\* Returns true if the node is childless.  
+\* Otherwise, returns false.  
+\*/  
+ @Override  
+ ***public*** ***boolean*** isLeaf**()** **{**  
+ ***return*** **!***isParent***()**;  
+ **}**  
+ /\*\*  
+\* Returns true if the node has a left child  
+\*/  
+ @Override  
+ ***public*** ***boolean*** hasLeftChild**()** **{**  
+ ***return*** leftChild **!=** ***null***;  
+ **}**  
+ /\*\*  
+\* Returns true if the node has a right child  
+\*/  
+ @Override  
+ ***public*** ***boolean*** hasRightChild**()** **{**  
+ ***return*** rightChild **!=** ***null***;  
+ **}**  
+ /\*\*  
+\* Returns the number of edges in the path from the root to this node.  
+\*/  
+ @Override  
+ ***public*** ***int*** getDepth**()** **{**  
+ ***return*** depth;  
+ **}**  
+ /\*\*  
+\* Returns the number of edges in the path from the root  
+\* to the node with the maximum depth.  
+\*/  
+ @Override  
+ ***public*** ***int*** getHeight**()** **{**  
+ ***final*** ***int\[\]*** height **=** **{**0**}**;  
+ BinaryTreeNode**&lt;**E**&gt;** root **=** *getRoot***()**;  
+ root.*traversePreorder***(**node -&gt; **{**  
+ ***int*** depth **=** node.*getDepth***()**;  
+ ***if*** **(**height***\[***0***\]*** **&lt;** depth**)** **{**  
+ height***\[***0***\]*** **=** depth;  
+ **}**  
+ **})**;  
+ ***return*** height***\[***0***\]***;  
+ **}**  
+ /\*\*  
+\* Returns the number of nodes in the subtree rooted at this node.  
+\*/  
+ @Override  
+ ***public*** ***int*** size**()** **{**  
+ ***final*** ***int\[\]*** size **=** **{**0**}**;  
+ BinaryTreeNode**&lt;**E**&gt;** root **=** ***this***;  
+ *traversePreorder***(** node -&gt; **{**  
+ size***\[***0***\]*****++**;  
+ **})**;  
+ ***return*** size***\[***0***\]***;  
+ **}**  
+ /\*\*  
+\* Removes this node, and all its descendants, from whatever  
+\* tree it is in.  Does nothing if this node is a root.  
+\*/  
+ @Override  
+ ***public*** ***void*** removeFromParent**()** **{**  
+ ***if*** **(***getParent***()** **!=** ***null*****)** **{**  
+ ***if*** **(***getParent***()**.*getLeft***()** **==** ***this*****)** **{**  
+ *getParent***()**.*setLeft***(*****null*****)**;  
+ **}** ***else*** **{**  
+ *getParent***()**.*setRight***(*****null*****)**;  
+ **}**  
+ *setParent***(*****null*****)**;  
+ **}**  
+ **}**  
+ /\*\*  
+\* Returns the path from this node to the specified descendant.  
+\* If no path exists, returns an empty list.  
+\*/  
+ @Override  
+ ***public*** **ArrayList&lt;**BinaryTreeNode**&lt;**E**&gt;&gt;** pathTo**(**BinaryTreeNode**&lt;**E**&gt;** descendant**)** **{**  
+ **ArrayList&lt;**BinaryTreeNode**&lt;**E**&gt;&gt;** pathFrom **=** descendant.*pathFrom***(*****this*****)**;  
+ **Stack&lt;**BinaryTreeNode**&lt;**E**&gt;&gt;** stack **=** ***new*** *Stack***&lt;&gt;()**;  
+ ***for*** **(**BinaryTreeNode**&lt;**E**&gt;** node **:** pathFrom**)** **{**  
+ stack.*push***(**node**)**;  
+ **}**  
+ **ArrayList&lt;**BinaryTreeNode**&lt;**E**&gt;&gt;** pathTo **=** ***new*** *ArrayList***&lt;&gt;()**;  
+ ***while*** **(!**stack.*isEmpty***())** **{**  
+ pathTo.*add***(**stack.*pop***())**;  
+ **}**  
+ ***return*** pathTo;  
+ **}**  
+ /\*\*  
+\* Returns the path to this node from the specified ancestor.  
+\* If no path exists, returns an empty list.  
+\*/  
+ @Override  
+ ***public*** **ArrayList&lt;**BinaryTreeNode**&lt;**E**&gt;&gt;** pathFrom**(**BinaryTreeNode**&lt;**E**&gt;** ancestor**)** **{**  
+ BinaryTreeNode**&lt;**E**&gt;** currentNode **=** ***this***;  
+ **ArrayList&lt;**BinaryTreeNode**&lt;**E**&gt;&gt;** pathFrom **=** ***new*** *ArrayList***&lt;&gt;()**;  
+ ***while*** **(**currentNode **!=** ***null*** **&amp;&amp;** currentNode **!=** ancestor**)** **{**  
+ pathFrom.*add***(**currentNode**)**;  
+ currentNode **=** currentNode.*getParent***()**;  
+ **}**  
+ ***if*** **(**currentNode **==** ***null*****)** **{**  
+ ***return*** ***new*** *ArrayList***&lt;&gt;()**;  
+ **}**  
+ pathFrom.*add***(**currentNode**)**;  
+ ***return*** pathFrom;  
+ **}**  
+ /\*\*  
+\* Visits the nodes in this tree in preorder.  
+\*/  
+ @Override  
+ ***public*** ***void*** traversePreorder**(**Visitor visitor**)** **{**  
+ visitor.*visit***(*****this*****)**;  
+ ***if*** **(***hasLeftChild***()** **)** *getLeft***()**.*traversePreorder***(**visitor**)**;  
+ ***if*** **(***hasRightChild***()** **)** *getRight***()**.*traversePreorder***(**visitor**)**;  
+ ***try*** **{**  
+ **PrintWriter** writer **=** ***new*** *PrintWriter***(**""tree.data""**)**;  
+ **}** ***catch*** **(Exception** e**)** **{**  
+ **System**.out.*println***(**""Error""**)**;  
+ **}**  
+ **}**  
+ /\*\*  
+\* Visits the nodes in this tree in postorder.  
+\*/  
+ @Override  
+ ***public*** ***void*** traversePostorder**(**Visitor visitor**)** **{**  
+ ***if*** **(***hasLeftChild***()** **)** *getLeft***()**.*traversePostorder***(**visitor**)**;  
+ ***if*** **(***hasRightChild***()** **)** *getRight***()**.*traversePostorder***(**visitor**)**;  
+ visitor.*visit***(*****this*****)**;  
+ **}**  
+ /\*\*  
+\* Visits the nodes in this tree in order.  
+\*/  
+ @Override  
+ ***public*** ***void*** traverseInorder**(**Visitor visitor**)** **{**  
+ ***if*** **(***hasLeftChild***()** **)** *getLeft***()**.*traverseInorder***(**visitor**)**;  
+ visitor.*visit***(*****this*****)**;  
+ ***if*** **(***hasRightChild***()** **)** *getRight***()**.*traverseInorder***(**visitor**)**;  
+ **}**  
+**}**
+
+&amp;#x200B;
+
+I am relatively experienced with Java and know the end goal of this project but I am having some difficulty in figuring out how to get going. Any help would be greatly appreciated thank you!",2,0,2019-04-25 19:43:00
+181,bh2prv,https://www.reddit.com/r/AskProgramming/comments/bh2prv/can_a_little_windows_service_save_data_from_a/,Can a little windows service save data from a static website?,[deleted],0,1,2019-04-24 21:23:57
+182,bhb7nk,https://www.reddit.com/r/AskProgramming/comments/bhb7nk/if_visual_studios_object_type_list_in_a_heap/,"If Visual Studio's object type list in a heap snapshot is empty, does that mean there's no memory leaks?",[deleted],0,2,2019-04-25 13:14:30
+183,bhcnj6,https://www.reddit.com/r/AskProgramming/comments/bhcnj6/i_want_to_learn_more_programming_without_videos/,I want to learn more programming without videos.,[deleted],2,1,2019-04-25 15:18:29
+184,bamzyo,https://www.reddit.com/r/AskProgramming/comments/bamzyo/making_the_switch_from_cloud_9_to_amazon_aws/,Making the switch from Cloud 9 to Amazon AWS Cloud 9 and need help with Git Hub,"I already had my website linked with Git Hub and I have since transferred my files from Cloud 9 to AWS (since Cloud 9 will be shut down by the end of the year). I had to reinstall some gems and wanted to make sure my Git Hub was linked correctly.
+
+&amp;#x200B;
+
+First off, how do I have a separate Git Hub repository or whatever for different websites? I went to GitHub and it seems like my uploads from both websites I've been ""git push origin"" ing are under the same name. How can I go about transferring what I have into a new project/repository name to make sure they stay separate?
+
+&amp;#x200B;
+
+Also, how can I verify that Git Hub is linked successfully...and that my website is uploaded successfully? What is the best way to test this? 
+
+&amp;#x200B;
+
+Thanks for all your help!",0,1,2019-04-07 20:08:54
+185,baoixx,https://www.reddit.com/r/AskProgramming/comments/baoixx/help_me_please_c_program/,Help me Please (C program)," Question:
+
+ WRITE A PROGRAM that counts the number of negative values, the number of positive
+
+values and the number of zeros in a float array.
+
+in C
+
+&amp;#x200B;
+
+I have no idea how to do it, please help me:(",5,0,2019-04-07 22:52:19
+186,baowws,https://www.reddit.com/r/AskProgramming/comments/baowws/can_the_dining_philosophers_problem_be/,Can the Dining Philosophers problem be implemented dynamically?,"Can you implement it in such a way that philosophers can leave or come at the table at any time, as long as they’re not in the action of eating or talking?",1,0,2019-04-07 23:35:37
+187,bap2xz,https://www.reddit.com/r/AskProgramming/comments/bap2xz/java_code_runs_much_faster_on_worse_computer/,Java code runs much faster on worse computer,"I was testing a Java radix sort out on my laptop, then moved my work over to my desktop and it appears to be about 30% faster on my laptop, which has a worse processor. Laptop = i7-4710HQ and Desktop = Ryzen 1600. This is confusing to me because I was under the impression that processor power was the main driving factor behind a program's performance outside of actual optimization in the code. What hardware is Java dependent on? Thanks for any info. ",10,23,2019-04-07 23:54:52
+188,baqxtg,https://www.reddit.com/r/AskProgramming/comments/baqxtg/rerun_docker_container_on_ssh_through_ideeclipse/,Rerun docker container on SSH through IDE(Eclipse),"I was wondering, if it's possible to rerun a docker container that has a Spring Boot application through Eclipse (or even IntelliJ) which container is on a SSH server.
+
+What I am doing now is :
+
+* Produce the jar for the Spring Boot application
+* Uploading the jar through SFTP client on SSH server
+* Connecting to SSH client to run ""docker-compose build;"" and ""docker-compose up -d""
+
+Is there a maven plugin that would automate this procedure?",1,1,2019-04-08 03:43:48
+189,barbp1,https://www.reddit.com/r/AskProgramming/comments/barbp1/what_is_the_best_zeroloss_compression_algorithm/,What is the best zero-loss compression algorithm for images?,I know PNG is a format with no loss but is there a better way to store images with no loss of information? I'm talking pictures so not really anything vector-based,10,8,2019-04-08 04:36:16
+190,baskpf,https://www.reddit.com/r/AskProgramming/comments/baskpf/how_would_i_change_the_time_format_of_a_website/,How would I change the time format of a website via a userscript,Kind of unfamiliar with this kind of thing. ,0,0,2019-04-08 07:23:08
+191,basnpq,https://www.reddit.com/r/AskProgramming/comments/basnpq/are_these_features_possible/,Are these features possible?," Hi, I was wondering if it was technically possible to create a website with customisable components? If one component is not desired to be closed out and another one takes its place or the rest of the components rescale to fit in a nicer way? If this is possible, are there any websites that portray these features?  
+
+&amp;#x200B;
+
+Hi, I have two questions regarding their feasibility.   
+
+&amp;#x200B;
+
+1. Is it possible to create a website with customisable components? If one component is not desired to be closed out and another one takes its place or the rest of the components rescale to fit in a nicer way?  
+
+&amp;#x200B;
+
+2. Creating a component that will allow you to login to another website (example: facebook or twitter), and it portrays the component window as a smaller page for the website they login to. 
+
+ 
+
+Are these features possible to make?
+
+&amp;#x200B;
+
+If so, are there any websites that portray these features.   Appreciate any help! ",3,0,2019-04-08 07:32:31
+192,bav3zp,https://www.reddit.com/r/AskProgramming/comments/bav3zp/how_do_you_reviewmaintain_documents_on_your/,How do you review/maintain documents on your project?,"Hi,
+
+&amp;#x200B;
+
+I am working on a continuously growing big project (currently \~200 ppl) and we are still writing and reviewing documents in word docs and pdfs which makes it really hard to keep them up to date and it is also hard to synchronize who is allowed to work on the document, because later on it makes it hard to merge the versions together. 
+
+&amp;#x200B;
+
+Do you use special tools on your project for this purpose? 
+
+I am hoping maybe some of you can suggest me something to make our life easier and I can suggest to my management to consider it. Security and licensing fee is a very important aspect here.
+
+&amp;#x200B;
+
+Thanks in advance.",4,0,2019-04-08 11:24:02
+193,bav53a,https://www.reddit.com/r/AskProgramming/comments/bav53a/python_range_step_for_most_unique_numbers/,python range step for most unique numbers,"I'm unit testing a function which takes an input in the range 0 to 86400000 and returns a value &gt; 0.
+
+I dont want to test every number in that range as it takes too long, so Id like to form a list of representative numbers to sufficiently test this function. I was thinking about using the range function to form the list. Something like range(0, 86400000, X). How can I choose X (the step) such that my list covers a wide range of different types of numbers? For instance I wouldnt want to pick X=an even number, because then I'd never test an odd number. I randomly choose X=1233, but cant justify my choice. I'd like to know what some good options would be and why. Thanks for your help!",3,1,2019-04-08 11:26:38
+194,bavacf,https://www.reddit.com/r/AskProgramming/comments/bavacf/test_environment_for_p2p_protocol_development/,Test Environment for P2P Protocol Development?,"I would like to test a P2P protocol in a realistic consumer network environment, e.g. some clients located in different geographic areas, on different types of consumer internet connections and hardware. Is there any service that offers this kind of test environment? 
+
+e.g. Allow me to spin up 10,000 nodes on varying hardware configurations, varying internet connections, where the distribution would mimic the current state of the internet.",4,1,2019-04-08 11:39:17
+195,bax2ll,https://www.reddit.com/r/AskProgramming/comments/bax2ll/what_os_do_you_use_for_develop/,What OS do you use for develop?,"What OS do you use for develop? vote [here](https://docs.google.com/forms/d/e/1FAIpQLSfyttYwrw3q8AT2MrmSGiWPZyjRayF7Umv8AWyAeqllVRPxLg/viewform?usp=pp_url&amp;entry.1909200328=Windows)
+
+If the OS that you're using isn't in the list, it's because it's not widely used compared with the OSs in the list.",4,0,2019-04-08 14:09:47
+196,baxarz,https://www.reddit.com/r/AskProgramming/comments/baxarz/making_a_program_run_in_the_background/,Making a Program Run in The Background,For my computer science A level I need to make a program run in the background until a hotkey is pressed. (Kind of like lightshot). Which programming language is the easiest to do this in? I'd prefer to do it in Java but I don't know if it's possible in that language.,3,1,2019-04-08 14:29:15
+197,baxzwe,https://www.reddit.com/r/AskProgramming/comments/baxzwe/what_is_the_ethical_thing_to_do_if_ive_found_a/,What is the ethical thing to do if I've found a vulnerability in a website?,"Recently, I've been looking at different moving companies as I'm going to be renting one to help me move in a month.  However, upon filling out one of the forms to get a quote, I got suspicious and checked the source for the website.  Inside the source was a link to a CSV file titled ""CustFile"".  A little horrified, I downloaded it and saw my information -- my phone number, current address, email, new address -- inside this CSV with a few others.
+
+The application was developed by a third party (not the moving company itself).  What should I do with this information?  Should I report it to the company that developed it?  There are comments in the code from 2010, so I'm not sure if it's still maintained.  Should I report it to the moving company?  Just trying to figure out what the right thing to do in this situation would be.
+
+E: Don't insult me by PMing me asking what the site is.  Looking at you u/BinarySo10.",24,25,2019-04-08 15:28:32
+198,baoxee,https://www.reddit.com/r/AskProgramming/comments/baoxee/help_using_in_pnorm_rstudio/,"Help using &lt;= in pnorm, RStudio",[deleted],0,2,2019-04-07 23:37:15
+199,bass6j,https://www.reddit.com/r/AskProgramming/comments/bass6j/help_i_really_dont_know_whats_wrong_with_my_code/,"Help, I really dont know what's wrong with my code",[deleted],4,0,2019-04-08 07:45:47

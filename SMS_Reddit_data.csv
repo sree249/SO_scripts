@@ -1,0 +1,1164 @@
+,thread_id,Indv_id,type,text
+0,abu0bs,abu0bs,question,"The Sourceforge page is broken on this network, and there's no way to download it (the installer), so any suggestions would be appreciated thank you."
+1,abu0bs,ed2ybln,comment,The [official MinGW website ](http://www.mingw.org/) lists OSDN as the [official download site](https://osdn.net/projects/mingw/releases/).
+2,abu0bs,ed2vtwy,comment,Why would you use MinGW if there is an official Linux subsystem for Windows these days?  https://docs.microsoft.com/en-us/windows/wsl/install-win10
+3,abu0bs,ed46n7f,comment,"If WSL doesn't work out, try Cygwin; it includes a mingw compiler so the programs you create don't *have* to be run under cygwin. You can choose from a lot of mirrors so it'll probably work.
+
+That said, running a full-blown VM may be faster - Windows syscall layer sucks."
+4,abu0bs,ed2yr2l,comment,"There are lots of reasons. [Git for Windows](https://git-scm.com/) command prompt uses MinGW. (There is also a Git bash, but that's a little bit different.)
+
+There is also [Cygwin](https://www.cygwin.com/).
+
+While I'm sure the Linux subsystem has its benefits, please don't act like it should replace everything else. Each has its benefits and its own use case."
+5,abu0bs,ed2w67z,comment,I thought this was a myth to be honest. So it works on the windows file system? Is it slow? Speed is crucial on this computer unfortunately.
+6,abu0bs,ed4b22z,comment,I might just make a Linux partition after all due to the sheer amount of nonsense it takes to just get a compiler running on Windows. The MinGW installer I found doesn't even work.
+7,abu0bs,ed2wxvy,comment,"I regularly use Windows Subsystem for Linux - it's great for development. But it could be a touch slower than actually running Linux. I'm curious why speed is crucial on a development environment and what you mean by ""speed"". Without understanding exactly what you are trying to do and what your requirements are, I don't know if WSL is the right fit."
+8,abu0bs,ed4eg5h,comment,"To be fair, all installers are going to have to access the network anyway. Probably hitting the site you couldn't access in the first place.
+
+At least the cygwin installer is explicit about it all."
+9,abu0bs,ed2xcg1,comment,"I put my good laptop to rest recently and I inherited a really shitty consumer one. I just want to make some basic C++ programs with SDL. I could install Linux but I've just installed Windows 10, and I'm not really clambering to mess with this horrific reflection on the state of the technology industry anytime soon."
+10,abu0bs,ed58xxa,comment,God you're right. The sites blocked here are so fucking sporadic.
+11,abu0bs,ed2yn6h,comment,"I can't find any comparisons between WSL and MinGW, only between Linux installed, Linux in a VirtualBox VM, and Linux in Docker for Windows. Linux installed is almost always the fastest - if you have the time and want to take the effort, dual booting is an option. The other three options don't have a clearcut winner in all of the tests.
+
+If you're doing basic C++ programs, I still don't understand why speed is critical. Does it really matter if a compile is half a second slower in WSL if it means overall better support for tools and development? And the tool support is better - MinGW isn't designed to give you an environment for POSIX-compliant application development. If you really want to use Linux development tools, you should take a good look at WSL."
+12,abu0bs,ed2yz9r,comment,"What I mean by speed is whether or not the difference between a Linux subsystem and simply the Windows command line is negligible. Because right now my computer starts cramping up when there's about 10 tabs open and Chrome is the only thing running. Considering I will have a text editor open as well as the SDL application, it's not exactly crucial but I don't need anything making it worse."
+13,abu0bs,ed305rb,comment,"WSL by itself won't be a problem. A lot of the slowness in WSL has to do with file IO. You'll probably be keeping your files on your Windows drive which is mounted inside of WSL. There's a little bit of latency for reading and writing because of that. Other than that, I haven't noticed WSL being an issue. Definitely worth checking out in your case."
+14,c73z1u,c73z1u,question,"In papers, I often don't know where numbers are coming from. The description is often not formal enough. Even if I'm reading the TeX source. 
+
+This is not true if I'm reading source code. For source code, I can unpeel any definition I want. 
+
+Is there a good way to merge these ideas? To be able to write papers so that for each number shown in a LaTeX document (I guess it'd have to be the latex source) one could see the exact method in which that number was generated, kind of like reading source code?
+
+Obviously, there'd be some automatic code generation going on, which differs from what most people do, which is just copy paste stuff around."
+15,c73z1u,esd10l5,comment,"I'm not following what you are asking ... TeX, and LaTeX documents are typeset. The majority of numbers you would see are manually typed.
+
+what numbers are you on about specifically, in what document, and what source?
+that way, we may be able to help you a bit more."
+16,c73z1u,esd231o,comment,"Are you asking for something like [*SageTeX*](https://ctan.org/pkg/sagetex?lang=en), where you can put a computation in the document and have the result appear where you typed the computation, for instance?
+
+(By the way, being bounced to a different subreddit sucks.)"
+17,c73z1u,esd8xb6,comment,"what sort of papers are you referring to specifically? generally, you should be able to get the information needed to replicate the experiment described by looking at the methods section and/or supplementary information"
+18,c73z1u,esejetm,comment,"Numbers, as in the numbering of equations, chapters, _etc_.?"
+19,c73z1u,etmp8ds,comment,I think that's what knitr does - if you want to mix R programming and latex it's the way to go - https://yihui.name/knitr
+20,c73z1u,esd7meu,comment,"No, I'm asking if there's a way one might generate something that would allow others to know exactly the way a particular number was generated. 
+
+For example, a paper may say something like: 
+
+> Overall, we found that our model achieved a score of 35.4 as measured by the B baseline...
+
+What I want is a way to have other people know the *exact* computation that lead to 35.4. 
+
+One way I can envision this is having a ""tangled"" TeX document, with TeX code interspersed with code with another programming language, then run some translator on it to generate the actual TeX document that would be published. 
+
+For example, a way I could envision this
+
+    % #+BEGIN_SRC python 
+    % ...
+    % indiv_scores = bscore(data, target)
+    % score = np.mean(indiv_scores)
+    % #+END_SRC
+    
+    Overall, we found that our model achieved a score of \srcvar{score} as
+    measured by the B baseline.
+
+Then you would do 
+
+    $ mktex paper.ttx paper.tex
+    $ pdflatex paper.tex
+
+The `mktex` command would generate the actual TeX file from the tangled source. Thus, a reader could know exactly how a computation came to be by reading the tangled source and understanding the semantics of `mktex`. 
+
+Here, `\srcvar` would not be an ordinary TeX macro, but rather a directive to `mktex` to perform a replacement. `mktex` would do something like 
+
+1. untangle source blocks
+2. execute
+3. replace values based on the results of src execution
+
+The question is whether there exists a tool to do something like this. Again, to have the reader be able to know *exactly* where a number in some TeX document came from."
+21,c73z1u,esd9qu6,comment,"Oh. Lol yes, this is the sort of thing I was asking for. 
+
+Do you know of anything similar for other programming languages?
+
+Ideally, one wouldn't have to include *all* the code in the TeX file; there would be some sort of importing capability (from files containing most of the heavy duty code). Thus, the paper and the code for it could be presented as one git repo.
+
+BTW, what do you mean by ""bounced""?"
+22,c73z1u,esd9u79,comment,"True. This is for a good paper. 
+
+But even so, sometimes its kind of unclear *exactly* how things were carried out. Sometimes, when you try to replicate, you realize that you aren't sure if they mean this or that in a few places, and you're a bit lazy to try it out. What I want is a way so that there absolutely *zero* ambiguity as to where a particular value came from."
+23,c73z1u,esd8m00,comment,"considering how much work, and sometimes nontrivial code, with closed source data ... it is not really feasible to put the whole implementation.
+
+You can using the `listings` package (or for prettier code `minted` package) to put a snippet of code in.
+
+However, frankly it is on the author to explain exactly how they got the results they did; describing the method in detail, if it not a common method (which they can name, with minor steps)"
+24,c73z1u,eseabg1,comment,"> Do you know of anything similar for other programming languages?
+
+Racket has Scribble.
+
+> Ideally, one wouldn't have to include all the code in the TeX file; there would be some sort of importing capability (from files containing most of the heavy duty code). Thus, the paper and the code for it could be presented as one git repo.
+
+You seem not to know TeX.  Most people who use it are using the LaTeX variant. A person could start with something like this (from memory, not tested).
+
+    \documentclass{article}
+    \usepackage{mathtools,amsthm,amssymb}
+    \usepackage{sagetex}
+
+    \begin{document}
+    There are $\sage{60*60*24*365.25}$ seconds in an average year.
+    But no year is average.
+    \end{document}
+
+To learn LaTeX spend an afternoon reading [*lshort2e*](https://ctan.org/tex-archive/info/lshort/english/?lang=en). 
+
+> BTW, what do you mean by ""bounced""?
+
+I saw the question in /r/LaTeX and when I clicked on it I was in /r/AskProgramming."
+25,c73z1u,eserrez,comment,"Tell the reader what you do and why. If you made a choice or decision or assumption, spell it out. Number your equations, describe your process, and make code available either online or in an appendix. For *short* things like a regression model or so, an inline code snippet or a math environment equation will do. All else doesn't belong in the full text.
+
+All of that is solved by the author of the paper and none of that is LaTeX' fault if it's missing. 
+
+Most original research papers intentionally present only the findings and illustrative formulas in the full text, and rather focus on the explanations. It might have taken the authors years to come up with the neat results, numbes, equations and propositions that you see in the text and you certainly don't want a year's worth of term manipulations in the full text, that'd be illegible. And even for a professor it can take a month to fully work through a paper to reproduce the maths - of course you can and maybe should make the derivation available online or in the appendix, but I'll be damned if I want to read through that in the main body."
+26,c73z1u,esd9i7t,comment,"Why is it not feasible?
+
+Data files can be specified by a link (in `make`, you could specify that they need to be downloaded into the working directory). Not all data is closed source.
+
+All code will have to be written anyway. No difference whether you enter it in TeX or somewhere else. Pretty sure it's barely any more work, for a lot less of a chance of error (what happens if you miss a digit when copy pasting, etc.)
+
+Also, not all code has to be in the .ttx file above. Source there could import from other files.
+
+Also, some projects do put all their code in a git repo anyway. This is basically including the whole implementation."
+27,c73z1u,esebgok,comment,The bounce you are seeing was the OP cross posting it. To get exposure from both communities.
+28,c73z1u,esepbb0,comment,"I do know TeX. 
+
+Why can't you import from another file? Not latex usepackage or anything, but put import statements in their code."
+29,c73z1u,esfczer,comment,"Why would it appear in the main body. 
+
+I'm saying it would be in the TeX source. When the TeX is compiled, that ridiculous amount of code won't be there.  There's plenty of stuff in the TeX source that isn't present in the PDF."
+30,c73z1u,esdabnh,comment,"Well I'm not going to put my 1000s of lines equivalent set of analyses in a TeX like document. Which are usually completely separate from my analysis documents. Especially if I'm working in a large code base that others are also developing. Which is very common in collaborations. 
+
+Some of that code could be closed source. Some open. Some free. If it's open, see if the author has it in a repository somewhere.
+
+The data may or may not be closed, but it could also be so huge it is infeasible to even distribute... Which makes having a document that can't be compiled kinda useless. 
+
+And you don't have to copy and paste... in minted, you can point to a file and line numbers etc, and it will typeset just that.
+
+But really you don't usually want the verbatum code. You want the minimum working example to show the method ignoring validation, error checking, edge cases, internal data structures, etc.
+
+Hell, depending on the language and the layout, seeing how that little bit was calculated would require you to know the full set of all types and classes, and methods.
+
+Not feasible.
+
+It's better by far for the author to explain where the numbers come from, write the expressions in maths, and if it really is needed a simplified implementation in a language of choice, or even pseudo code."
+31,c73z1u,esebkph,comment,"Thank you.  I would like to avoid answering such questions.  Is there way, that no doubt I should know, to spot those posts?"
+32,c73z1u,eseq1ny,comment,"Yes, certainly.  You can *\input* whatever you like.  There are even ways to bring in only certain lines from files.
+
+Warning for OP: however, a person needs to know LaTeX.  If you have this file
+
+    #!/usr/bin/python3
+    print(""Hello World!"")
+
+and you naively bring it in 
+
+    \documentclass{article}
+    \begin{document}
+    \input helloworld.py
+    \end{document}
+
+then LaTeX is not going to like it.  It will object to the sharp sign, for a starter.  You want to do something more sophisticated than that.   Personally, for listings I use the [*listings*](https://ctan.org/pkg/listings?lang=en) package (although I have to admit my impatience with it is growing).  For executable stuff, myself I use either *SageTeX* as I mentioned above or [*pythontex*](https://ctan.org/pkg/pythontex).
+
+*Edit.*  Sorry, I said ""\include"" when it should say ""\input"".  While I was editing I added the part about LaTeX not liking some things."
+33,c73z1u,esecq28,comment,"Well there is a difference between a repost and a crosspost.
+
+A repost is bad to really do, as you can have two parallel discussions and thus wastes twice the time; those are the ones you avoid.
+
+You only know if you are subscribed to all the subreddits it has been reposted to; or you check their history.
+
+crossposts *are* the things you go to; they are just normal posts.
+You can tell, for example in /r/LaTeX the post looks like a link post, by the same user, and the ""website hint"" thing that is next to the title will say `self.AskProgramming` rather than the usual for a text post `self.LaTeX`
+
+they may not be crossposted by the same user, however, if some kind redditor sees that another community would have input into it.
+
+You *can* click on the comments of that cross post and comment on the crosspost link ... *this* should be avoided, as it again creates a split discussion.
+
+Clicking on the link, as you would normally, will bring you to the correct text post; with the singular discussion.
+
+So there is an easy way to spot crossposts; it looks like a link post with `(self.OtherSubreddit)` after the title.
+You should treat it like it was a text post in `self.ThisSubreddit`, and respond if you know anything.
+
+There is no easy way to see if it's a repost without checking the users history; and if you do, I would agree it would be ok to avoid the whole thing, but if you choose not to, then to pick the one with the most comments, and if few to none, pick the subreddit version that you believe is the most relevant."
+34,c73z1u,esfce1z,comment,"Oh no, I was talking about a python import statement in the python code. Obviously the python code will be wrapped in the TeX, similar to the Sage stuff above. All I was trying to say was that not all python code had to be in the TeX file, so it won't get too cluttered. 
+
+Then, the source of the paper can be delivered with the source that generated the numbers in the same repository. The TeX file will have only as much python code as necessary to specify what values it wants dumped in, and most of the computations will be in other files. 
+
+This is the gist of what I'm after. You're given a repository, and you can run make to make literally everything."
+35,c73z1u,esecshr,comment,"> So there is an easy way to spot crossposts; it looks like a link post with (self.OtherSubreddit) after the title.
+
+Thank you.  I appreciate it."
+36,c73z1u,esfmhn5,comment,"Ah, I see.  In case I was not clear (I seem to be not clear today, perhaps I am on London time), if you run *pythontex* then you are just running python, as in the repl.  See [the gallery](http://mirror.ctan.org/macros/latex/contrib/pythontex/pythontex_gallery.pdf).
+
+(FWIW, my personal experience is that if you don't have it run automatically in some way then it is wrong.  So I agree with what I understand you to be doing.  The downside, though, is bitrot.  I suppose a person could address it with *pip* or something like it but I never have done that.)"
+37,b0u78b,b0u78b,question,"OK, so I have installed wifijammer for kali on my raspberry pi but I need this to run immediate on startup. How will I accomplish this?"
+38,b0u78b,eihevy1,comment,"Use the command to run it from the command line and throw that into 
+
+/etc/rc.local
+
+I have to ask..what is this for? "
+39,b0u78b,eihf8m2,comment,"Federal law prohibits the marketing, sale, or use of a transmitter (e.g., a jammer) designed to block, jam, or interfere with wireless communications. ... Jammers cannot be marketed or operated in the United States except in the very limited context of authorized, official use by the federal government.
+
+This includes devices that interfere with cellular and Personal Communication Services (PCS), police radar, Global Positioning Systems (GPS), and wireless networking services (Wi-Fi). ""Jamming devices create serious safety risks.
+
+So if you're in the US...unless you work for the DoD or have the permission of a federal entity like that, you have some explaining to the FCC to do...."
+40,b0u78b,eihfz20,comment,"Thank you! 
+
+Oh and btw , I’m using this script as kinda a concept idea, not to use it on any public or private WiFi networks as that is very much illegal I knew the risks going into this and take full responsibility. "
+41,b0u78b,eihfokn,comment,"Ever heard of doing this with consent ? I’m literally on my own local connection soooo yeah. I understand the risks of these ideas and what I am doing. It’s one-hundred percent legal for me to purchase one of these right here : https://www.perfectjammer.com/handheld-8bands-mobilephone-lojack-blocker.html    
+
+Lmaooo I’m not taking this down the street to Starbucks and blocking any connections there, this script is legal for me to use or it wouldn’t be there, those devices that jam WiFi and cellular connections I can purchase. The second I jam anyone else’s connection without consent is one-hundred percent illegal for me to do and is a federal crime. "
+42,b0u78b,eihge65,comment,"You're not a lawyer and there's a high probability this is an illegal project whether or not you get ""consent"". (From whom?)"
+43,b0u78b,eihgi3k,comment,"I got the consent from myself lmao. I own this house and free to do what I want in my own house. Many people have done this on kali, don’t abuse it and you’re good. "
+44,b0u78b,eihgklp,comment,That's not how any of this works dot jpeg
+45,b0u78b,eihgn3o,comment,"Hol up. This my connection my guy, and literally I just explained how it worked. "
+46,b0u78b,eihgp63,comment,"WiFi isn't directional..if anyone else is on/near those channels, you'll block them too"
+47,b0u78b,eihgu9j,comment,"I live in Cecil County, MD. Very rural. The closest house to me is around 4 to 5 miles away, when this script is ran it literally only detects my connection so I know who I’m jamming. "
+48,b0u78b,eihh2zz,comment,"Oh you mean JUST outside of the national radio quiet zone?
+
+I'm reporting you and your lifted tan Cherokee to the fcc"
+49,b0u78b,eihh4nu,comment,[deleted]
+50,b0u78b,eihm6n5,comment,"The exclusions for interference are way way more complicated than that. Just know it'll be illegal and if somebody complains play dumb, turn it off, and dont use it again."
+51,b0u78b,eihh444,comment,Aight bet report me
+52,b0u78b,eihh6h0,comment,Wait hol up isn’t that doxing? That illegal tho
+53,b0u78b,eihh5h3,comment,Ok that’s fine do it
+54,b0u78b,eiio8af,comment,I have no idea why this is so hard to understand lmao. 
+55,b0u78b,eihh887,comment,U posted the data and admitted to breaking the law so...I'm sure the mods will be fine with this
+56,b0u78b,eihhbjz,comment,What are the mods going to do? Find my house and take me to jail?? I’m not scared of being banned of off a damn subreddit lmao. 
+57,bftfr2,bftfr2,question,"If I have a 2d array, by using subscript it automatically dereference the pointers right?"
+58,bftfr2,elg89l2,comment,"Yes, `myArrayPointer[index];` is equivalent to `*(myArrayPointer+index);`
+
+Similarly, for the 2D case: `myArrayPointer[indexOne][indexTwo];` is equivalent to `*(*(myArrayPointer+indexOne)+indexTwo);`.
+
+You can see how it extends for N-dimensional arrays."
+59,bftfr2,elgat3z,comment,"For 2d arrays, no. Arrays and pointers are different things.
+
+These are arrays:
+
+    int array[10];
+    int matrix[20][30];
+    int tensor[40][50][60];
+
+These are pointers:
+
+    int *pointer;
+    int **pointer_to_pointer;
+    int ***pointer_to_pp;
+
+The thing is that pointer arithmetic is **equivalent** to array indexing. So if you make `pointer` points to the start of an array, then you can start talking about dynamic arrays. And if you have `pointer_to_pointer` point to an array of pointers, then you can start talking about things like dynamic matrices, or an array of stacks, an array of lists, or something else.
+
+To be very specific, a 4x4 matrix of integers is a 2d array that takes `sizeof (int) * 16` bytes of memory:
+
+    int matrix[4][4];
+
+While the following is a single pointer that takes `sizeof (int**)` bytes of memory:
+
+    int **pp;
+
+The difference is particularly meaningful when you are dealing with functions. A function that takes an `int**` will **not** accept an actual matrix. Each structure must be accessed in a different way. Specifically, to acess the element at row `r` and column `c` in a real matrix, you do `matrix[r * width + c]`. And to acess the same position of a pointer-to-pointer which you conveniently treats as a matrix, **then** you do all the pointer derreferencing that ends up giving you the element `*((*p + r) + c)`.
+
+Never forget: arrays and pointers are different thing. You can make a pointer point to an array, and then treat the pointer as an array. But they are different things.
+
+**edit:** removed some details"
+60,bftfr2,elgeieb,comment,"Aren't you the guy who masturbates in the office regularly out of boredom and asked about it here?
+
+Edit:
+I found it!
+
+Definitely the right guy from 4mo ago
+
+I mean he hasn't been fired yet but u/MuskIsAlien...
+
+https://www.reddit.com/r/AskReddit/comments/a1jlwh/whats_the_stupidest_thing_youve_seen_someone_to/eaqlt1v?utm_medium=android_app&utm_source=share
+
+
+Link to original thread:
+
+https://www.reddit.com/r/AskProgramming/comments/a0m1i2/how_to_stop_masturbating_when_programming/?utm_medium=android_app&utm_source=share
+
+Lately uve been posting about eating your cum so...props for destroying evidence I suppose."
+61,bftfr2,elgay99,comment,[deleted]
+62,bftfr2,elgdja6,comment,.....
+63,bftfr2,elgek3j,comment,Ur name
+64,bftfr2,elgi06n,comment,"As far as I can see, this is how it works with an explicit 2D array (i.e. `T myArray[size1][size2];`) as well. I don't see the point you're trying to make.
+
+As far as I know, an array and a pointer are semantically the same in C++, the major difference being the array type behaves differently with the sizeof operator. You lose that with a raw pointer."
+65,bftfr2,elgemz8,comment,"You are the guy! You deleted the post but I've got a screenshot on my hdd somewhere ...hang on I'll dig it up.
+
+Sure I've got a dirty username but....I'm a professional. I catch cum OFF the clock like a sane human being.
+
+Stop dingling your dangle in the office"
+66,bftfr2,elgijq5,comment,[deleted]
+67,bftfr2,elgex24,comment,U got the wrong guy
+68,bftfr2,elglaqf,comment,"Ah now I see the point you are making. Since arrays are contiguous, they only need to dereference one pointer, regardless of how many dimensions there are. And that this is not true if you have an array of several arrays allocated dynamically, since `new` can take the memory from anywhere, causing each dimension to be contiguous, but the N-dimensional array as a whole is not.
+
+Just an FYI, I read your other response, but you really did not make it clear that this was the takeaway from it."
+69,bftfr2,elgg1b3,comment,"Nope! Definitely the right guy from 4mo ago
+
+I mean he hasn't been fired yet but u/MuskIsAlien...
+
+https://www.reddit.com/r/AskReddit/comments/a1jlwh/whats_the_stupidest_thing_youve_seen_someone_to/eaqlt1v?utm_medium=android_app&utm_source=share
+
+
+Link to original thread:
+
+https://www.reddit.com/r/AskProgramming/comments/a0m1i2/how_to_stop_masturbating_when_programming/?utm_medium=android_app&utm_source=share
+
+Lately uve been posting about eating your cum so...props for destroying evidence I suppose."
+70,bftfr2,elghipn,comment,"Nothing else to say about it after links are provided?
+
+Weird."
+71,cfnsar,cfnsar,question,"Hello,
+
+Recently bought a Windows 10 PC because it was required for my ML-related grad program. I've mostly used Mac for the last 14 years or so, and learned how to program on Macs.
+
+Straight to the question, is it good/common practice to install Linux or Linux virtual machines for programming on PCs? Sorry if this is an amateur question, I'm much less of a software engineer and mostly program for ML/big data purposes.
+
+Reasoning being that I was shocked at how few libraries/programs were accessible or even properly maintained for Windows programming. I've had to use some extreme workarounds just to get basic functionality for many applications, and even then I've had problems with Windows-specific bugs or crashes. I'm also using a pretty popular pre-built laptop.
+
+I'm pretty certain I'm not making any major mistakes; I've done really extensive research and the general sentiment of commenters/bloggers just makes it seem like everything is just way more convenient on Unix.
+
+Would appreciate some advice."
+72,cfnsar,eub8brs,comment,"Yeah Windows programming is a jungle when you compare it to just being able to apt-get a dev package and have the headers and libs you need under the right paths.
+
+Personally, I use Windows for my desktop because I like a lot of games and the UI of Windows has been getting pretty good recently.
+
+And then I use VirtualBox and Vagrant to manage Linux virtual machines of all kinds, then just SSH in and work from terminal (edit: not entirely from terminal, usually share a project dir with Windows for local editing). Though that software is pretty much going out of fashion now, the cool kids are using Docker Desktop (which is incompatible with VirtualBox and requires restarting if you want to do both).
+
+If I were setting up fresh today and didn't have a bunch of legacy stuff to deal with I'd install Docker Desktop and VSCode has some neat new tools for working directly from the VM on your destkop."
+73,cfnsar,eub9nb5,comment,Use whichever system you want and setup a Linux dev environment on a VM (Server).
+74,cfnsar,euc8sfq,comment,"Learning how to use linux will make you an overall better computer user and it can't hurt to give it a shot, you might just fall in love."
+75,cfnsar,euclyux,comment,"It largely comes down to personal preference unless you're doing something Windows specific. I prefer not to use local VMs (because of the memory footprint) or Cygwin so I used Linux all through undergrad (because I had a cheap laptop) and love it. Also, check out [WSL 2](https://www.howtogeek.com/424886/windows-10s-linux-kernel-is-now-available/), which just came out a month ago if you plan to stick with Windows. The top languages and frameworks on GitHub for ML are platform independent so you should be good either way.
+
+Edit: SSH is also natively supported on Windows, you just have to enable it. Some people haven't discovered that yet and still think you need Putty. Also, it's not at all uncommon to have a Linux VM for development. Linux runs a lot more smoothly as a VM than Windows."
+76,cfnsar,eudr4jf,comment,"Honestly it depends on you, I will say I hear a lot of people recommend some sort of Linux OS, but in real life I see most people use either Windows or Mac. A lot of the time it comes down to company acceptability (company may prefer Windows for example so everyone is using the same OS).
+
+Personally though I'm someone who jumps around a lot (Budgie at home, Windows on my portable computer, Mac at work) and they all have their own specific OS bug, specific work arounds etc etc. End of the day though programming is done by people who are quite good at IT, so someones likely built a way for things to work fairly smoothly in all OS. So unless you're trying to do something that works better under a particular OS due to how its made, I personally don't see as huge of a difference."
+77,cfnsar,eudyoie,comment,I'm not an experienced programmer or anything (still in college) but I personally prefer Ubuntu for java programming just based on how much faster my compile times are.
+78,cfnsar,euf7g2b,comment,"Linux blows Mac and Windows out of the water when it comes to programming and not much else.
+
+Whereas Windows and Mac shine for people who want a reliable computer to be productive, play games and/or watch videos or whatever, Linux (GNU) is like the undercover sigma that powers all of it.
+
+Most web servers use Linux and for good reason. Linux is built around a command line, mainly utilizing BASH and a package manager. This makes it really easy to install everything you need, have it be secure and work out of the box with little effort, and gives complete control over the file system. 
+
+My best advice to you is to dual boot Linux on your computer and use it for programming and your main OS for everything else, unless you're absolutely sure Linux can do everything you need. And while using a web server, no doubt about it, use Linux."
+79,cfnsar,eubfn1f,comment,That is just BS unless you absolutely want to stick with C libs. And how really wants that anyhow? Nearly all modern languages come with their own package managers which work exactly the same on all platforms.
+80,cfnsar,eubhpk0,comment,[deleted]
+81,cfnsar,euf8g97,comment,[deleted]
+82,cfnsar,eubg8b1,comment,"Ok. Been using Linux since 1998 and had some software in Apple's MkLinux. Meanwhile been using Windows on and off the whole time. It only even very recently that Windows isn't a disaster area. And still there's no real consensus about where to put libraries every language and package manager does it different. File permissions and git is a disaster area in Windows.
+
+And yes, the thing I described works best for C/C++. But it's just one example of the tidiness of file org in Linux comparatively. Another would be ""."" directories under your $HOME, or /usr/lib.
+
+These wonderful package managers you're espousing have some pretty bad flaws not the least of which is very little review of what's in them.
+
+Edit: and a **major** advantage of using VMs is that I don't dirty up my desktop with a hundred languages, package managers, apache, databases, etc."
+83,cfnsar,eucy7xb,comment,"I run Proxmox on an old Laptop of mine as a ""Server"". Works really well: You setup a Linux VM and then mount it as a drive over the network into Windows (SMB). Open that folder in your IDE of choice and you can directly modify project files inside the VM. Then you can SSH into the VM to control the rest (I use the Windoes Subsystem for Linux for SSH etc)."
+84,cfnsar,eublhut,comment,"Not a true VM, but ""Windows Subsystem for Linux"" works surprisingly well."
+85,cfnsar,eufaote,comment,"Yeah I don't like Windows 10 either. Its layout is cluttered. Windows in general handles software installs with compiled .exe files, which becomes a pain when using apps as dependencies, tweaking software and installing multiple things at once. That's why I don't use it for programming, it turns into a nightmare when writing software.
+
+For your use case, I recommend you dual boot MacOS and Linux. Use MacOS for all your basic productivity and entertainment, and use Linux for programming. To do this, you'll have to learn about disk partitioning, something that's a YouTube search away. As for a good Linux distro, you can use whatever but I use Ubuntu because it's stable and most Linux software is available for it."
+86,bdm3z4,bdm3z4,question,"Hello all,
+
+I have been learning web development over the past few years and have progressed significantly. Right now I am learning React. However, in my studies I run across a recurring problem: I see something in some code, and it is unexplained. The problem I'm running into right now is very specific, but can be generalized pretty easily. For example, this syntax from the styled components documentation:
+
+    const Button = styled.button`
+      /* Adapt the colors based on primary prop */
+      background: ${props =&gt; props.primary ? ""palevioletred"" : ""white""};
+      color: ${props =&gt; props.primary ? ""white"" : ""palevioletred""};
+
+      font-size: 1em;
+      margin: 1em;
+      padding: 0.25em 1em;
+      border: 2px solid palevioletred;
+      border-radius: 3px;
+    `;
+
+My Javascript is not great, I am learning it but it will be a while before I know it all. Here I don't understand what the ` is doing. Presumably that's some kind of base Javascript functionality, but I don't understand what it does?
+
+Is there somewhere where I can input code and have it highlight what the syntax is? For example, in Python if I input something that contained ""Foo.attribute"" it would link me to using the attributes of an object.
+
+It seems like it would be pretty straight forward to build seeing as how interpreters already know what all the syntax means.
+
+Does this exist? If not, maybe I'll build it!"
+87,bdm3z4,ekz6j5h,comment,"as to what the `s indicate: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+
+i'm not aware of any type of learning utility like that. it'd be pretty neat but generally not that useful once you gain a bit of experience. most languages implement these concepts in some way so you get pretty good at figuring out what's going on even if you've never seen the specific syntax before."
+88,bdm3z4,ekziyx8,comment,"That's an ECMA string interpolation technique.
+
+Consider this in JavaScript:
+
+    var name = ""Jane"";
+
+    var surname = ""Doe"";
+
+    var concat = ""Hi, my name is "" + name + "" "" + surname;
+
+Now consider the version with interpolation:
+
+    const name: string = ""Jane"";
+
+    const surname: string = ""Doe"";
+
+    const interpolated: string = `Hi, my name is ${name} ${surname}`;
+
+They're called backticks as previously mentioned, and the technique is also called template strings. Here's more info for a deeper dive.
+
+https://basarat.gitbooks.io/typescript/docs/template-strings.html
+
+Can you see what's going on there?"
+89,bdm3z4,ekz7hwa,comment,"The thing is the amount of syntax in any given language is rather limited. A tool which explains syntax only has a very narrow target audience and even that audience might be annoyed by all the explainations of syntax they already know.
+
+`Foo.property` on the other hand is semantics. There is an infinite amount of semantics that can be expressed in any language, hence tools stay useful even for experienced users."
+90,bdm3z4,ekz9r4b,comment,"\` means ""template literal"", as mentioned by /u/anamorphism, which generally makes it easier to write strings with newlines and throw variable values wherever without using a lot of string concatenations. A less-used feature is like what you see here, where you can define a function that will use the literal in some way, changing the rules of what is put in it. I don't know what `styled.button` does, it should be defined elsewhere in the code. `String.raw\` blah \`` is the simplest example of a ""template tag"".
+
+&#x200B;
+
+ [https://flaviocopes.com/javascript-template-literals/](https://flaviocopes.com/javascript-template-literals/)"
+91,bdm3z4,ekz6psd,comment,"I have no idea what they are in JS, but you could probably find out by googling something like “JavaScript backticks”
+
+The character is called a backtick"
+92,bdm3z4,ekzgmk5,comment,"https://astexplorer.net/
+
+Use this to figure out the name of what to search for on MDN then read up. It's not optimal but it works."
+93,bdm3z4,ekz6zzw,comment,"Ya, I can figure out what's going on, but for right now I want to *know* what's going on, and read the rules for whatever bit of syntax.
+
+I think I might try to build this, even if it is only useful for people starting out."
+94,bdm3z4,ekzmvgy,comment,that's not typescript-exclusive. It's been in normal javascript since ES6
+95,bdm3z4,ekzpn69,comment,This is NOT typescript. It's part of the ECMA standard since 2015.
+96,bdm3z4,el01dek,comment,"googled for ""js syntax analyzer"" and returned this.
+
+this is the closest to what you need
+
+for C# and VB there is roslyn and its source code analyzers
+
+also, props for giving an actual answer."
+97,bdm3z4,ekzwyav,comment,"To sum this one up ```foo`hello ${world}` ``` is equivalent to ```foo(""hello "" + world)``` or ```foo(`hello ${world}`)```"
+98,bdm3z4,ekzn64n,comment,"You learn something every day.
+
+Sentiment still stands."
+99,bdm3z4,el00z14,comment,"PHP has it, C# has it, recent VB has it
+
+in earlier VB you had to do it like
+
+    String.Format(""{0} {1}"", 1+2, someVar)
+
+in recent VB, the compiler translates
+
+    $""{1+2} {someVar}""
+
+in the same code as would be emitted by the previous String.Format statement
+
+it's a *little* similar to stdio sprintf, really"
+100,bdm3z4,ekzqtco,comment,"Thanks, edited"
+101,aymhvj,aymhvj,question,"I like C++ and I'm planning to learn it (because i like the language), but do you guys think that i also should learn C# for having more job offers ? "
+102,aymhvj,ei1vjy5,comment,"If you're thinking about learning a language, just pick one and learn it. Worry about marketability and other things like that once you have something down."
+103,aymhvj,ei2f3b3,comment,"Solve problems in Languages, don't worry about 'learning' them.
+
+After you learn 3+ languages, most don't require learning. They require projects.
+
+To clarify-
+
+>C# is used for enterprise/visual reasons. If you want to build your own windows application, this is a good idea.
+
+>Doing loops in C# isnt different than doing loops in Python. Or at least, any weird circumstance where they are different will come apparent when doing a project.
+
+Do projects. "
+104,aymhvj,ei1yo4g,comment,"~~Yo hat epiterally~~ (wth did my autocorrect do here?) You are literally the first person I've met who claims to like C++. 
+
+Also C# is not really closely related to either C or C++ (think more along the lines of ""Java but better"")."
+105,aymhvj,ei2d0ro,comment,"> You are literally the first person I've met who claims to like C++
+
+There are dozens of us! Dozens!"
+106,aymhvj,ei22sbe,comment,"Better is subjective, also java is universal but c# is much more locked into the windows ecosystem, with some hope of that changing now that .net has been open sourced to some extent."
+107,aymhvj,ei2ftdn,comment,"As I junior programmer, I prefer C++ so far!
+
+"
+108,aymhvj,ei238ob,comment,"Better is not subjective in this case. There are objective reasons why C# is the preferable language (simply due to having much more capabilities than Java).
+
+Also .net is much more open than java these days, and runs great on linux. Heck, the official docker images, even for SQL server, are Linux based. You just live in a world of 5 years ago."
+109,aymhvj,ei23d36,comment,Of course it is subjective. Both languages have their advantages. It is ok to be a fanboi of any language but you should be aware of it and not fool yourself.
+110,aymhvj,ei2xgtx,comment,"Java has a wide variety of IDE support across all major operating systems.
+
+Java can be used to build mobile apps.
+
+Java has significantly more developers using it and a much larger established code base to learn from.
+
+Also there are official docker images for MSSQL using both linux and windows. This is because using windows docker images in any real world scenario is an absolute nightmare. One that I am currently struggling with in fact as I am forced to stand up an IIS server, which of course cannot be done in a Linux container."
+111,aymhvj,ei29eze,comment,Could you point me to a few advantages of Java that C# does not have? 
+112,aymhvj,ei2zrzp,comment,"C# also hast multiple IDEs and not just from MS.
+
+C# can be used to build cross platform apps and not just Android.
+
+C#'s codebase is plenty big that it doesn't make a difference
+
+And I already said that the official docker images are Linux based."
+113,aymhvj,eiiqxie,comment,If you could get me a link to that linux based image that'll run Windows IIS I would be extremely grateful!
+114,aymhvj,eiirba2,comment,Why would you run IIS If you are not absolutely forced to? Self hosted is the way to go with core.
+115,aymhvj,eiisbun,comment,"I am forced to run IIS to integrate an external product into our system, I need a docker image that can host a .net api for local dev. I suppose need is a strong word, but even the constant headaches of lcow is far better than working against it on a server that I need to manage, also when other devs jump on board standing up more servers for this isn't realistic."
+116,cnzt8t,cnzt8t,question,"Since there are so many people here who have insecurities and/or struggle with different tasks.
+If you’re a student or a junior dev you really shouldn’t worry about failing or being “not good enough”. No one expects you to be an expert.
+You are supposed to learn by doing and thats easier without putting to much pressure on yourself. 
+
+(Sorry for my bad englisch)"
+117,cnzt8t,ewf0jkp,comment,This is the first post like this I’ve ever read from a programmer and it’s very refreshing as a student. Thank you.
+118,cnzt8t,ewexie3,comment,"This post is very much appreciated. Sincerely, a complete newb."
+119,cnzt8t,ewf7sds,comment,"But what if my title is Senior developer and I still don't know what I'm doing most of the time? I mean, I can get the job done, but I always feel like I don't know what I'm doing."
+120,cnzt8t,ewfaw6s,comment,Imposter syndrome is rampant amongst developers. [Are you underqualified to apply to a software development position?](https://medium.com/@Charles_Stover/are-you-underqualified-to-apply-to-a-software-development-position-45c01079861a) Quick answer: No!
+121,cnzt8t,ewgesm1,comment,"Senior Developer here. 
+
+The biggest issue I've experienced with other developers through my time moving up is the extreme lack of empathy and community focus. 
+
+Most developers are into building their own little code empire and want minimal input from others, their way is THE RIGHT way, and go figure it out for yourself 90% of the time. Their job is to go to work do their shit and go home, who needs co workers? 
+
+This attitude is pervasive I know a Directory/VP of technology at Delivery.com  and his exact words were ""interpersonal skills are worthless"" this shitty culture is why devs get such a bad rap. 
+
+While I spend a considerable amount of time training the junior devs, i see it as an investment into making less work for myself to do. 
+The one thing I can tell you is **spend time teaching yourself early in your carreer** 40 hours for work and 20 hours a week for your own professional development. You dont need to do it for a long time but 6 months of that and you'll be up to speed as the sr devs."
+122,cnzt8t,ewfjljv,comment,This is actually very relieving!
+123,cnzt8t,ewfzk0y,comment,"Appreciated, Relieving just as the other comments say. TY! :)
+
+But ->
+
+Sometimes, when searching on job searching sites such as indeed, linkedin etc. some job titles do not seem to match the ""required"" skills while other job posts look reasonable(?). e.g. junior java developer but under the description says 2-3 years of experience ""required"". 
+
+I would understand if it was under preferred or something but ""required"". I don't know if the employers make mistakes when writing the job post or is lazy(?) or is trying to lure 'naive and fresh meat', but if you have 2-3 years of experience then I don't feel like you are really a junior/entry developer. XD
+
+Maybe ""experience"" and ""reasonable"" is subjective or means a bit different to the employers? Or they really want a competent employee? 'm still new so I wouldn't know any better but what the job searching sites say and want. XD
+
+Regardless of how good a junior developer may be, I would think that analytical and problem solving skills and being able to learn something new and use that new knowledge/skill would be important. Of course i'm not including soft-skills and the given and such for simplicity sake. E.g. You are proficient in python but maybe you'll have to learn about some more in-depth of the back-end or servers or AI or some new framework or library to expand your knowledge and thus being able to come up with more solutions?
+
+Or I could be completely wrong and in reality have been brainwashed! XD"
+124,cnzt8t,ewfzrkf,comment,"I'm in a different position sadly.. I'm underpaid in comparison to the average jr dev but take on the responsibility of a dev who would have been working for 3-4yrs. I come up with system design and architecture for  implementations/integrations from anything such as Web services, Web Apps, Data Management, UX/UI with  very minimal peer review and it's not always so easy. So far I don't seem to have failed but the stress has been overwhelming due to the fact I can see how others get nagged on and harshly blamed when they miss deadlines by the PM's..
+
+I will be reaching my first year working here so I am looking for new places of hire."
+125,cnzt8t,ewgykwr,comment,"Also, the experienced devs don't know everything. They google things all the time, they just have a bit of experience where they know what works better and what doesn't. They're not gods, be confident that the solution you think will work is going to work, welcome advice on how to make it better."
+126,cnzt8t,ewh2nz0,comment,"your english is not bad at all by the way , maybe your englisch is i dunno, but yea anyway thanks for your kind motivating words."
+127,cnzt8t,ewncj2g,comment,"When it comes to this, I was lucky starting my (Java) career in the 90's.  Although there was a lot to learn, it was possible to understand a lot more of the development stack back then.   When I started web development, I learned Java 1.1, HTML, the Servlet API, JSP/JSTL, JDBC, Apache httpd, and Linux.   However, some enterprise solutions were much more complex (e.g. Weblogic).   I completely understood how the entire stack worked.
+
+I can 't image the shock of having to learn a stack  equal to all that *plus* consisting of Java 11 (*much* bigger than 1.1), Spring Core+Data+Boot+Security, CSS, JavaScript, React, Docker, Kubernetes, and dozens of other libraries, tools and services.   How many people have complete understanding of a modern Java app stack?"
+128,cnzt8t,ewfie3g,comment,"With the rampant change in technology and software development it's hard to feel that you are doing the most high quality work. If you can get the job done, you know what you're doing. Your problem solving and applying the solutions. That's all you need to do. Senior just means you've been doing it longer than some people. It by no means means that you have all the answers."
+129,cnzt8t,ewgradf,comment,"You are right, its all about adaptability and fast progressing in this business"
+130,cnzt8t,ewhok52,comment,Thank you for this. It's really reassuring.
+131,bwdl7b,bwdl7b,question,"    
+	program simple;
+	uses crt;
+	begin
+	  while true do
+	  begin
+		write('.');
+		if KeyPressed and (readkey = ^C) then
+		   Halt;
+	  end;
+	end."
+132,bwdl7b,epx7fju,comment,"Let's have some Basic!
+
+Coming in at 23 bytes...
+
+    10 PRINT "".""
+    20 GOTO 10"
+133,bwdl7b,epx0c7a,comment,"If you or anyone else is particularly interested in code golf, check out /r/TinyCode , /r/CodeGolf , and /r/CoderTrials (disclaimer- I am a mod of CoderTrials). The first two are fairly inactive, and the 3rd is almost dead. If you are really passionate about creating & solving problems and have the free time, we could try to resurrect CoderTrials (I do need moderators).
+
+~~Anyways, I'll be comment a Python golf here in a bit.~~ 
+
+Done.
+
+##### Measuring Golfed Size
+Also, in case anyone wants to submit a golfed solution here but doesn't know how to count the byte size- traditionally all characters (including newlines and spaces) are counted, and multi-byte characters are of course measured by individual byte size (this mitigates the benefit of eso-langs designed to cram 10k pre-baked functions into a single multi-byte character each). You can use the **w**ord **c**ount command `wc` with the `-m` switch to measure a files size in bytes. For example
+
+    wc -m < my_solution
+
+Or if you have a short one-liner that you've been playing with in your repl:
+
+    echo -n 'my_code_here' | wc -m"
+134,bwdl7b,epx2013,comment,"###Python: 22 Bytes
+
+    while 1:print(end=""."")
+
+###Bash: 16 Bytes
+
+    yes .|tr -d '\n'
+
+###Brainfuck: 16 Bytes (wrapping cells)
+
+    -[+>+[+<]>+]>[.]
+
+Non-wrapped version (24 bytes):
+
+    +++++[>+++++++++<-]>+[.]"
+135,bwdl7b,epwtbz0,comment,"# Pascal: 33 Bytes
+`begin while 1=1 do write('.')end.`"
+136,bwdl7b,epx8oz2,comment,"alternative pascal: 41 bytes
+
+`label 1; begin 1: write('.'); goto 1 end.`"
+137,bwdl7b,epxa51f,comment,"I just realised that this is actually suboptimal. Line numbers in Basic do not actually need to be multiples of 10, it's just a convention!
+
+We can save 3 bytes and hit 20 by doing...
+
+    1 PRINT "".""
+    2 GOTO 1"
+138,bwdl7b,epx81hz,comment,"Thanks for your contribution. I'm actually more fascinated in how pascal does it ctrl+c key read `if KeyPressed and (readkey = ^C) then` and wondered how other languages do it?
+
+I modified my pascal comment to fit more with your golfing style!"
+139,bwdl7b,epxd1zr,comment,"I thought about asking that myself. 
+
+Also, are all the spaces necessary? I'm not too familiar with BASIC."
+140,bwdl7b,epx9g3i,comment,"How are you running the program such that your shell doesn't capture the \^C and send a SIGINT instead? I tried using `trap '' 2` which stopped it from sending the SIGINT it seems, but it still captures the \^C character as far as I can tell."
+141,bwdl7b,epxdqqy,comment,"Absolutely, it won't compile without the spaces. :)"
+142,bwdl7b,epxaem8,comment,"Your right while that code compile it might be useless for my intent, and not actually work as intended. Because I now ctrl+c within Lazarus and GDB picked it up every-time as a `SIGINT`, but I can continue.
+
+I'm wondering doesn't a double `ctrl+c` leak one `^C` from the shell, or does the shell kill the process? I will investigate tomorrow with more `writeln()` debug to see if I ever actually capture any real `^C` in my code."
+143,bwdl7b,epxfplm,comment,"I can't seem to find a BASIC online interpreter (at least one that won't timeout rather than show me output as it runs), but I see on PCCG that some dialects allow you to drop the closing `""`. Other than that, I do think this is as golfed as it gets."
+144,bwdl7b,epxcyap,comment,"My understanding is that the terminal receives KeySyms from your window manager, and decides how to encode these so that they can be sent over a pipe (STDIN) to your foreground process. For ctr + key, it encodes it as `^` + `capitalized letter or normal symbol` (this is why programs like vim can't distinguish between ctrl-a and ctrl-A for example). For the `alt` modifier, I believe it prepends with a `^[`, but preserves case.
+
+However, `^C`, `^Z`, and some other special keys are captured by the terminal, and do specific actions. `^C` sends a `SIGINT` signal to the foreground process, `^Z` puts the foreground process in the background. I suspect that it is possible to tell your terminal to not capture these keys, and instead just encode them and send them to the process, but I'm not finding an easy way to do this for just the `^C` key.
+
+I do know however that you can set your terminal driver from cooked/canonical to raw/non-canonical mode, which can disable all of special character processing and line manipulation. This is what editors like vim operate in, and might be why it can receive all special keys (besides some alt-modified keys) without the terminal intercepting them."
+145,bwdl7b,epxfvem,comment,You'd be much better off searching for a BBC Micro emulator (in browser) or something similar as BASIC is so hardware specific. :)
+146,c1erzy,c1erzy,question,"I know this is a weird one, possibly out of place but:
+
+&amp;#x200B;
+
+ [https://www.reddit.com/r/slavelabour/comments/c1awb8/offer\_i\_can\_make\_apps\_games\_or\_website\_to/](https://www.reddit.com/r/slavelabour/comments/c1awb8/offer_i_can_make_apps_games_or_website_to/) 
+
+&amp;#x200B;
+
+This can't be legit, right? I'm not crazy, am I? I am not a programmer, but it seems to me that two of his games would take too much work, even multiple people. The prices can't be right, right?  
+
+
+I'd appreciate any responses."
+147,c1erzy,erdfncc,comment,Those websites do look like they cost $15
+148,c1erzy,erdubne,comment,Of course it's not. He's just making the 15 dollar claim to get people to respond. That said; he might be really cheap because he's in a low CoL area. That's why sites like Elance etc. are not useful for people in western countries; it's just one big race to the bottom.
+149,c1erzy,ercqicv,comment,If it's legit it's not 15$ lmao
+150,c1erzy,ercup1a,comment,Depends on what *starting from* means but probably not like a custom website.
+151,c1erzy,erdhqep,comment,I think 'Starting From' is a key phrase here. OP probably can give you a basic website for 15 dollars.
+152,c1erzy,erdy62v,comment,"The hytale website looks gorgeous to me and looks like he wasn't the only person doing it. But what do I know.
+
+The first one, yeah."
+153,c1erzy,ercseqg,comment,"That's what I'm saying. It cannot be, right?"
+154,c1erzy,ere6ez9,comment,"The rest of websites are filled-in templates with some of the colors changed. That one he clearly didn’t make, it’s so different that portraying it as his own work is both dishonest and deceitful.
+
+Portraying any of this as his own work is deceitful."
+155,c1erzy,erct08i,comment,Correct
+156,c1erzy,erf6xwu,comment,"Yes, I changed my mind about contacting him. Seems very suspect."
+157,c1erzy,erctkpa,comment,Okay thanks.
+158,cy1f5u,cy1f5u,question,"I'm trying to learn how to code but I'm having trouble having to figure out what program to start with?? HTML? CSS? JS? 
+
+ Any advice on which programs to learn first to land me a great job?!?!"
+159,cy1f5u,eyp4dj0,comment,"I just want to start off by saying that 'programming' won't get you a great job. Learning to solve real life problems and coming up with solutions WITH PROGRAMMING will land you a terrific job. You shouldn't learn programming to code. 
+
+If you want to start getting into programming, I suggest you start off by either watching Youtube tutorials, joining udemy courses or reading textbooks. I know people have mixed opinions on what programming language you should learn first, but I recommend Python to the general public. It is very easy to learn and understand the semantics and is one of the top languages used by industries currently."
+160,cy1f5u,eyp4spb,comment,[deleted]
+161,cy1f5u,eyp580h,comment,"Do you mean ""programming languages"" instead of ""programs""?
+
+If so, HTML is not a programming language, it's a markup language. CSS isn't a programming language either. 
+
+JavaScript is, and it's used everywhere on the Web, so it may be a source of good income. Python is also used almost everywhere, not only on the Web, from deep learning to front end development. It's one of the most popular languages in the world, used by lots of companies. Java is run by lots of businesses, and Java programmers are paid well.
+
+I would go with Python because it's easy to learn, gives you lots of opportunities and a high development speed (so that you'd spend the majority of time actually doing stuff, not trying to understand Python's technical intricacies)."
+162,cy1f5u,eypryl2,comment,"First of all, HTML and CSS are not programming languages. HTML stands for Hyper Text Markup Language, and CSS stands for Cascading Style Sheets. These two combine to make most of what you see on a webpage. HTML tells your browser (Firefox, Chrome, Safari, etc.)  what types of things should be made, and CSS tells your browser how they should look. JS, which is short for JavaScript, is in fact a programming language. In terms of web development, it is most commonly used to tell your browser how to things that HTML and CSS made should work. In other words, things like upvoting this post is a JavaScript function that communicates your click to a reddit server to say ""this post received another upvote!"" It then adds a number to the counter, and stores that number on the server to be accessed by the next person who loads this webpage so they can see the correct number of upvotes the post has.
+
+Like others have said programming is not a means to an end. Anybody can be a programmer, but not everyone who's a programmer will be able to get a job. I read that you are welder;  if I pick up a torch and weld two pieces of metal together, then I could say I am a welder... But no one is gonna hire me because I have no idea how to actually make that skill worth anything. I wouldn't know any of the specifics like which metals to use for a certain job, or how to correctly make a weld. The same thing goes for programming. You can write all the code you want, but if you don't how to write the correct code, then what is it worth?
+
+That's not to say you can't do it. In fact I want to lead you in the opposite direction. I believe anyone can do what ever they put their mind to as long as they have the determination to get there.
+
+The first choice you have to make is ""What kind of problems do I want to solve?"" You've already made part of this choice by choosing to get into programming. Programming is all about solving problems involving computers in a methodical way, however there a lot of problems out there, and not all problems can be solved with the same language. Do you want to solve problems involving websites such as how the data is transferred, or how the user interacts with the website? Maybe you'd like to solve problems involving video games like how the character interacts with its environment? Perhaps you'd like to solve problems involving a programming language itself, and how it interacts with the computer? Think about this, do some research, and figure out what would be most satisfying for you. But understand it is a long journey before you can get to the point where you are actually capable of solving those problems.
+
+Once you know what type of problem you want to solve, you can choose the best language to get you started on that path. Another thing to keep in in mind is most problems will require you to be capable of leveraging multiple different languages at once. Programmers don't learn just one language and call it a day. New technologies are evolving everyday and new programming languages to come with them. Knowing only one language would be like only being able to weld one type of metal. It might get your foot in the door, but you won't get far without know other skills. Another analogy would be that programming languages are like the tools in your toolbox. You might have a screwdriver, a hammer, and a saw. If you need a piece of wood to become two pieces of wood, you could scrape away at it with the screw driver for years, or you could hammer one side off a ledge and split it. The best choice however would be to grab your saw, and cut it where it needs to be cut. The saw is a great tool for this, but it won't get you very far when you need to connect those two pieces of wood, that's why you have a screwdriver! (And hopefully a drill and screws.)
+
+Once you decide on the language you want to start with, you can search the internet for tutorials or even read the official documentation of that language. When you are learning your first language it is important that you don't dwell too much on the words and symbols that you are typing. What you should focus on is why you are typing those words, and what they instruct the computer to do. This is the common theme between all programming languages. Different languages will implement the same capabilities in different ways. (Different languages will also have their own unique capabilities for solving unique problems!) The key is knowing how to combine those capabilities into something that is useful. For example I could say: 
+
+    IF I know a thing is TRUE, THEN I can 
+        DO something 
+    OTHERWISE I will 
+        DO a different thing.
+
+Almost every language has this capability to some extent, but the way it is implemented will vary from language to language. What is important is understanding the logic behind this capability and in what situation you would need to use it. 
+
+All that being said, I know it's probably a lot to chew at once, so I can point you in a specific direction if you so desire. If you want to do things the super hard way you should start with C. It will be super hard, but ultimately you will learn a lot. Alternatively if you want to do things the regular hard way, you can start with C's son: C++. It will still be hard, but not as hard as C. I think the most common language people learn first (at least in school) is Java. It is a bit easier for people to understand what significance the words they're typing have. Many people recommend Python as a first language, which is not a bad choice either. Ultimately it comes back to what problems you want to solve. All four of those languages can more or less solve the same problems but in different ways. Each one however will have its advantages and disadvantages in comparison to the others, and each one will have its unique capabilities for solving unique problems.
+
+The most important piece of advice I can give you: don't give up when things get confusing. There is a saying: ""pain is weakness leaving the body"" I could say the same thing about confusion but maybe in a bit harsher way: ""confusion is stupidity leaving the brain"". As a programmer you are going to be confused every single day, but that just means you are getting smarter every single day! :)
+
+Good luck!"
+163,cy1f5u,eyp4ksh,comment,"Some materials I recommend are 
+
+ [https://realpython.com/start-here/](https://realpython.com/start-here/) 
+
+Automate boring stuff with Python : [https://automatetheboringstuff.com/](https://automatetheboringstuff.com/) 
+
+ Data Structures and Algorithms in Python"
+164,cy1f5u,eyp4pcw,comment,"Thanks I appreciate that, so I should ignore HTML and CSS?"
+165,cy1f5u,eyp5a2u,comment,Thanks a lot! I am shifting from welding to this field so this is all new to me but it does not scare me. Like everything I'm assuming lots of practice to make perfect.
+166,cy1f5u,eypsl84,comment,"Wow well said!! Bruce Lee said that I believe (weakness leaving the body), thanks a bunch for all this info! 
+I shall figure out what kind of problems I want to solve! but regardless of that I think I'm going to start looking into Java then C and little by little...
+I was checking out codeacademy and udemi along with other sites and they have a free version but I have a feeling that version will not get you the full course :-( 
+If you have some free websites that I can learn off of, that'd be great!
+Thanks again..."
+167,cy1f5u,eyp5gcl,comment,"HTML and CSS are languages for building a website. If you want to be a web developer / Front end developer, it is crucial you have a good understanding of them. 
+
+The reason why many people tell you to start off with languages like Java or Python is that once you understand how coding works in those languages, you can easily pick up other languages (like HTML or CSS you mentioned). You haven't touched HTML/CSS yet, so you don't know if you're going to like it or not.
+
+If you are really interested in web development, start off right way with HTML/CSS."
+168,cy1f5u,eyp5jpr,comment,"Programming languages are just tools we use to solve problems. Writing the syntax is the easy part - the hard part is developing the solution. 
+
+Since they are tools they have different proposes. HTML will render web pages; CSS will style them.
+
+Find a problem you want to solve then learn how to use the best tools.
+
+If you want to write web pages learn JavaScript and HTML. If you want to develop mobile games, learn Kotlin or Java and/or Swift."
+169,cy1f5u,eyp67wd,comment,[deleted]
+170,cy1f5u,eyp7o8h,comment,Thanks for the knowledge!
+171,cy1f5u,eyp7l7i,comment,Thank you!!
+172,cy1f5u,eyp7jld,comment,"Thanks for the info! That actually helped my brain understand it a bit more, I shall start learning ASAP!"
+173,crpnbl,crpnbl,question," i do need to make a comment when a new post get's posted and that comment should be on the new post .. i have never used Instagram so how can i simply do that ?
+
+just like when the posts number get's increased post the comment on the latest post . [image](https://i.stack.imgur.com/IdUFD.png)"
+174,crpnbl,ex98iej,comment,"Few steps:
+- own a server
+- have a cron set up on this server
+- every xxx seconds, cron starts JS script
+- JS script uses IG API to check for a new post, and if there’s one, comment.
+
+Tip:
+An API is rarely your browser’s JS console.
+
+Based on your posts though you don’t actually have the required knowledge (however you have google), and you seem to be doing that for bad reasons. Spamming a celebrity posts in hope to get an answer is really a bad idea
+- makes you look like a stalker 
+- ig will probs ban you if anyone report your posts
+
+Anyway, have fun with programming."
+175,crpnbl,ex81xwd,comment,[deleted]
+176,crpnbl,ex99gh2,comment,">API to check for a new post, and if there’s one, comment.
+
+That's the missing part .
+
+
+>Spamming a celebrity posts in hope to get an answer is really a bad idea
+
+Spamming  no .. it just a one single comment  but the first one. 
+
+>be doing that for bad reasons
+
+Not really if you  looked for the reason it won't seem that bad ... anyway as we all know the bad reasons are the most powerful ( motivations ) ones"
+177,crpnbl,ex85v5t,comment,"lol can you explain it again with more details ?   
+"" sort of CRON job ""   
+so that's a Separated thing from the api ?  how can i do it using js maybe ?   
+"" post the comment (via the API) ""  
+wouldn't posting it using js would be more simpler as we have already did the most of the steps with the api  ?"
+178,crpnbl,ex99m3d,comment,"Based on your posts you seem to be missing a server, knowledge on cron and basic JS / API knowledge.
+You’ll have to do some googling."
+179,crpnbl,ex88ksl,comment,[deleted]
+180,crpnbl,ex9a20l,comment,"Yup .. i already have the server ... i didn't really like the instagram api it seems a bit complex  .
+It seems i will leave it up to later and maybe never thinking of it again as the reasoning would be gone ...
+
+Thanks for the info :)  keep it up ."
+181,crpnbl,exc71sj,comment,"Here how i think it would easily  work .. i don't know why you complex stuff 
+Note we do need to click on the latest post first 
+And have the cors allow extension 
+First a set interval in the browser console then ajax to request  the page that contains  the posts number and then a regex to extract it and an if condition to compare the results  then if the number isn't  changed make it retry again after 45 sec ... and when the number gets changed we do a .click action on the next button to get the mext post then fill the text bar with the comment then .click action on the post button  and .... we are done :) 
+
+What do you think about my knowledge and idea  ?"
+182,crpnbl,ex89nqk,comment,"I wrote these couple of js lines  but i don't know how to make it work on cron and the api i don't know how to interact with it using js ..   
+ "" know what your programming background is ""   
+it's  kinda weak .  
+ `test = document.body.innerHTML`
+
+`pattern = /edge_owner_to_timeline_media"":{""count"":([^""]+),/`  
+`results = test.match(pattern)[1];`
+
+`if (results > 371)`
+
+`{ alert(""test"") };`"
+183,crpnbl,exccjgl,comment,"It would work but requires you to have a browser always started.
+
+Let’s say your solution is redneck engineering whereas I was offering you software engineering.
+
+Anyways, if that’s what will drive you towards programming, just do it. You won’t regret it."
+184,crpnbl,ex89rbx,comment,[https://i.ibb.co/6rtMk9z/image.png](https://i.ibb.co/6rtMk9z/image.png)
+185,crpnbl,ex8hxfz,comment,[deleted]
+186,crpnbl,exd0q7a,comment,">if that’s what will drive you towards programming
+
+Yup .. making the things seem simple is what makes people love/like it ... ajax was the reason i started learning js in fact  the real reason was a bit bad/evil ... i read in a wifi hackimg post here that's there a thing called dns-rebinding  and i liked so match that i decided to perform it my self but on a new level ( local level with some rouge ap stuff ) .
+
+Any thanks .. and remember making the things seem simple what pushes the most of the people to like it ."
+187,crpnbl,ex8jd16,comment,"""if you are willing to learn, i will put together a quick list of topics. ""  
+mostly later . put it anyway  ..
+
+is there isn't any easier way of doing it ?"
+188,crpnbl,ex8pzsr,comment,[deleted]
+189,crpnbl,ex91pgm,comment,"""actually i just looked through your post history to see what this is all about, and i'm out of here.""
+
+Whoaaaa you shouldn't do that :( ..  but at least tell me what kind of person do you think i am after seeing my history  ( the bad part i think ) ... 
+
+I thought  you was saying i just looked through the topic on google .... that's what i wanted to read ... but expected is always unexpected  .. 
+
+Sorry if i made you somehow uncomfortable  :( ..  i really apologize"
+190,bpo61l,bpo61l,question,"I'm currently a junior working in a company that provides an services through an open source LMS. And the stack is pretty much convoluted and there is so much going on. There are times where they're asking me to produce certain features that are way beyond my capabilities.
+
+How do I actually approach my work because I'm starting to feel that my growth is being stunted. There are days where I jump from file to file trying to find what produces data that I need. Then I just go into a loop. I'm starting to feel bad that I seem don't to get anywhere. I'm also worried that I can't use the things I learned if I moved to another company. As I only learned a bit of things on the stack. Please guide me."
+191,bpo61l,envpvms,comment,"I had a similar problem at an internship where I was thrown the bulk of an MVC kanban project that was already partially done. I put it aside at first because there were so many elements I'd never seen before, but I eventually went back and pieced it together. Take the time to find out what each class and file do. Document it or comment it if needed but it helps if you piece it together and figure out what path your data and interactions are taking to get to the final product.
+
+Once you have that down, work on new features and walk through that data path adding what you need at each step of the process."
+192,bpo61l,envxdzj,comment,"First you should understand how the software is build; does it have a general structure, like MCV or something similar? If yes, use this knowledge to get to database connection, or to your frontend.
+
+Then, check small commits/PR made other people. There should be a PR like: ""Adding last name to user"" for instance. There, you'll find many commits, each targeting a part of the project: backend, frontend, docs .... to add the ""last name"" to the project.
+
+Lastly: Find a commit similar to your feature in principle, and mimic it.
+
+And good luck! It takes time to get other people's code."
+193,bpo61l,enwbs4b,comment,"Well ideally your supervisor would explain the relevant architecture when he gives you the assignment. If that's not happening, I would try asking him about it. And if he refuses to help (which is kind of literally his job), then I guess you're stuck doing things the hard way, which everyone else seemed to cover pretty well."
+194,bpo61l,enwj3se,comment,"I felt the same way when I first started working. It felt overwhelming, I didn't think I was doing enough, etc. But my brother (who was a more experienced programmer) said it's normal to not be very productive for quite a while. It's expected to take time, everything is new.
+
+A lot of programmers can get imposter's syndrome. (And I'm sure plenty of other professions do too). Basically it means:
+
+> The imposter syndrome is a psychological term referring to a pattern of behavior where people doubt their accomplishments and have a persistent, often internalized fear of being exposed as a fraud
+
+It feels like everyone is so much better at everything. Just remember, they've been in your shoes. They've had more time to improve their skills. And trust me, there's lots of things they don't know -- that you might already be better at. Computers are such a wide field, and it changes fast. Not knowing things is almost expected. 
+
+As long as it's not negatively affecting you, it's better than the opposite of thinking you're smarter than everyone. That type of attitude doesn't learn from their mistakes.
+
+- **Don't be afraid to admit you don't know something**. 
+- **Don't be afraid to ask co-workers for help**. Sometimes you'll end up mentioning a problem and they have a tip that makes it easier. 
+
+# Start a daily log.
+
+It can be as simple as
+
+    2019-05-17
+    Started learning basic SQL queries.
+
+    2019-05-16
+    Traced through functions until I finally figured out it was a <problem> in <situation> with <library>
+
+I think you'll find you learned more than you thought. It's easy to forget. Besides a log I also  save notes. I'm not great at BASH or powershell. So when I get a good snippet -- I save it in a markdown file so I can search to find my solution in the future."
+195,bpo61l,envro6i,comment,The problem is it's just too huge. I don't even know where everything starts. I guess I'm just too inexperienced to get the know on how to approach projects like this.
+196,bpo61l,enw2ao5,comment,">First you should understand how the software is build; does it have a general structure, like MCV or something similar? If yes, use this knowledge to get to database connection, or to your frontend.
+
+I sort of can map out the structure at the surface level. But as I get deeper I get really lost because it seems like (my explanation might be wrong) it's multiple systems intertwined. There are honestly many technologies being used. MySQL, MongoDB, django, python, mako, underscore some of which I don't know.
+
+>Then, check small commits/PR made other people. There should be a PR like: ""Adding last name to user"" for instance. There, you'll find many commits, each targeting a part of the project: backend, frontend, docs .... to add the ""last name"" to the project.
+
+Yeah I guess I really need to dig deeper. There are loads of documentation available and maybe I just feel overwhelmed.
+
+I just really missed having small victories when coding. Most days I get nothing but more confusion.
+
+I plan on making personal projects using the same technology. But between deadlines and self learning. It's taxing.
+
+I'll look up the git. Thank you for the tips."
+197,bpo61l,enwhf5m,comment,Actually I'm in the same boat as my senior but he's more experienced that's why he's able to get by. He's caught up with doing other features that's why I'm sort of on my own for a while.
+198,bpo61l,eny1rkp,comment,">A lot of programmers can get imposter's syndrome. (And I'm sure plenty of other professions do too). Basically it means:
+>
+>> The imposter syndrome is a psychological term referring to a pattern of behavior where people doubt their accomplishments and have a persistent, often internalized fear of being exposed as a fraud
+
+>It feels like everyone is so much better at everything. Just remember, they've been in your shoes. They've had more time to improve their skills. And trust me, there's lots of things they don't know -- that you might already be better at. Computers are such a wide field, and it changes fast. Not knowing things is almost expected. 
+
+I'm honestly glad that this is common and is actually a recognized behavior. It's what I usually feel when I have bad streaks at work and I question my career choices. This takes of a bit of pressure. Thank you.
+
+>- **Don't be afraid to admit you don't know something**. 
+>- **Don't be afraid to ask co-workers for help**. Sometimes you'll end up mentioning a problem and they have a tip that makes it easier. 
+
+Alright I'll try to be more vocal to my superior. We're the only people working on the project so he's my only source of help. 
+
+># Start a daily log.
+>
+>It can be as simple as
+>
+>    2019-05-17
+>    Started learning basic SQL queries.
+>
+>    2019-05-16
+>    Traced through functions until I finally figured out it was a <problem> in <situation> with <library>
+>
+>I think you'll find you learned more than you thought. It's easy to forget. Besides a log I also  save notes. I'm not great at BASH or powershell. So when I get a good snippet -- I save it in a markdown file so I can search to find my solution in the future.
+
+Okay I'll definitely do this. It could maybe give me those feelings of small victories. Thank very much."
+199,bpo61l,enxm669,comment,"How long have you been there? Even as a fairly experienced engineer, I always assume my first couple months at any new company won't be super productive and I'll be spending significant time researching how the different important parts of the app piece together. I also go in understanding that I won't understand everything the first time; come back to the same file multiple times and you'll realize more of it makes sense than the previous time you opened it."
+200,bpo61l,enwobta,comment,"(Sorry about a wall of text. I've been there, so I want to give a few tips)
+
+If you're on windows, my favorite git client is https://desktop.github.com/ -- As a bonus it comes with `git-bash` which gives you linux command line programs on windows. 
+
+If you're new to git, there's interactive tutorials. Search for ""interactive git tuts"". Learning some of git on the command line helps to understand what git does. 
+
+**beware of official git documentation**. Docs at https://git-scm.com/docs/ go **way** too deep for what you need. This is a case where blog tutorials are actually better. 
+
+https://www.atlassian.com/git/tutorials has a good mix of medium detail, it walks you through steps, but you can also use it as a reference.
+
+Important to understand:
+
+- how to create a new branch / what that means.
+- how switching branches actually swaps out local  files.
+- merging branches / pull requests. 
+
+The GUI above makes things like creating/merging branches easier. It also lets you choose which files to commit, or uncheck those you don't want to. Or switch between the diffs on different files. Or to revert changes on a file to the last commit. Or even revert all files. These takes longer to do using the commandline. 
+
+I'm not surprised, that's a lot of techs to be combined even if you know them. 
+
+> But between deadlines and self learning. It's taxing.
+
+Yep. Taking breaks are important. If you worked all day programming, you might want to do something ""simple"" to recharge yourself. 
+
+I don't think you've mentioned this, but I feel it's important. Don't worry about ""perfect"" code. Someone may have a clever 1-liner trick to solve a problem, and uses less variables. You have to decide if saving 2 lines of code is worth making it harder to understand when you come back to it 4 months later. IDE's have hotkeys to quickly jump to other files or functions. Code is read more often than written. 
+
+#  Tips for working on complicated systems.
+
+1. Do you know how to use a debugger? If not, learn it. It will save you so much time. Some languages like python give you a lot to  work with in a debugger.
+
+For example: You're making a reddit app using Python's module `PRAW`
+
+With a debugger you can create a breakpoint before a command fails.
+
+2. I've found creating ""integration tests"" help to understand the system. Web apps tend to have ""integration tests"" which are a bit more than a ""regular unit test"". One test might need to 
+
+    1. make a user login 
+    2. write to a SQL table
+    3. end
+
+First check for tests that already exist in the system. One test might show how you connect to a Database. Another shows how to write one item to a DB table. 
+
+Otherwise start with basics. Write a test to (ex: create a DB connection). Then you can focus on smaller pieces. Trying to understand 5 libraries at once is hard. 
+
+# tutorial on testing
+
+Here's a tutorial on Django and testing. (It's a series where they build an app, so check out the previous parts.)
+
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Testing
+
+Here's a good online textbook about testing, Python, and Django: 
+
+https://www.obeythetestinggoat.com/pages/book.html#toc
+
+> I just really missed having small victories when coding. Most days I get nothing but more confusion.
+
+That's a good observation. On my off-time I've been trying to get into the habit of smaller, constrained projects. You get a sense of completion. That way I have a bunch of mini-projects that are essentially ""done"". Otherwise, I can work on one project, and end up feature-creeping myself -- so it's never actually ""done""."
+201,bpo61l,enxwb3x,comment, I've been working there a little over a year. But I moved to this project 5-6 months ago. I actually do that. I even list down the sequence of files but I get lost along the way sometimes because I don't understand what calls what.
+202,bpo61l,enxzlps,comment,"We are actually using git-bash but not to access the git but to access the files actually. It's the only way we can access and make changes to the code. Unless there's a way that we don't know like being able to add a UI. We're windows users at work.
+
+>I don't think you've mentioned this, but I feel it's important. Don't worry about ""perfect"" code. Someone may have a clever 1-liner trick to solve a problem, and uses less variables. You have to decide if saving 2 lines of code is worth making it harder to understand when you come back to it 4 months later.
+
+Even though the code will feel like a workaround? How about best practice, is it ok not to follow it all the time? I'm not versed in best practices but sometime the things I do felt wrong because of it.
+
+
+
+>#  Tips for working on complicated systems.
+>
+>1. Do you know how to use a debugger? If not, learn it. It will save you so much time. Some languages like python give you a lot to  work with in a debugger.
+>
+>For example: You're making a reddit app using Python's module `PRAW`
+>
+>With a debugger you can create a breakpoint before a command fails.
+
+Uh. Like I said above we are only able to access the files through ssh through git bash and I'm not sure if we can use debuggers . I'm sorry if I can't explain the stack well. But what I do though is add logging and tail the log files.
+
+From what I understand the project is deployed and working and we just make changes from the inside.
+
+
+
+>First check for tests that already exist in the system. One test might show how you connect to a Database. Another shows how to write one item to a DB table. 
+>
+>Otherwise start with basics. Write a test to (ex: create a DB connection). Then you can focus on smaller pieces. Trying to understand 5 libraries at once is hard. 
+
+What I tried to do is created my own DB connection because I couldn't find the object that makes changes to the db. Not best practice I think.
+
+>
+># tutorial on testing
+>
+>Here's a tutorial on Django and testing. (It's a series where they build an app, so check out the previous parts.)
+>
+>https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Testing
+>
+>Here's a good online textbook about testing, Python, and Django: 
+>
+>https://www.obeythetestinggoat.com/pages/book.html#toc
+>
+I'll do these. Because the only testing I'm familiar with is Unit Testing. These could teach me more.
+
+>That's a good observation. On my off-time I've been trying to get into the habit of smaller, constrained projects. You get a sense of completion. That way I have a bunch of mini-projects that are essentially ""done"". Otherwise, I can work on one project, and end up feature-creeping myself -- so it's never actually ""done"".
+
+Yeah not having that sensation for a long time really builds up my insecurities. I really appreciate your help."
+203,bpo61l,eo1ik21,comment,"Ah ok, I didn't realize you were using `ssh`.
+
+> Even though the code will feel like a workaround? How about best practice, is it ok not to follow it all the time? I'm not versed in best practices but sometime the things I do felt wrong because of it.
+
+You do want to follow best-practices. I meant more like don't pre-optimize code in a way that makes it harder to understand, unless you've profiled and know you need to. If that makes sense. 
+
+You can automate some of those by using code formatters, and linters. You can get them in a lot of languages these days. 
+
+For Python formatters, my current favorite is black. The default settings are good. The other ones you might need to configure them a bit.  Formatters will automate things like:
+- splitting a string up into 2 if it's too long
+- making sure you have the same whitespace between functions
+- etc
+
+
+https://code.visualstudio.com/docs/python/editing#_formatting
+
+
+Linters will warn you about problems not related to formatting. Stuff like:
+- variable used before declared
+- variable and functions declared, but never actually used
+- wrong style of variable names, etc
+
+https://code.visualstudio.com/docs/python/linting"
+204,bsj9r7,bsj9r7,question,"Hello,
+
+I'm working with a legacy job processing system, in which each task has a concept of smaller steps. This is a multi process system, where steps of a particular task might or might not be executed on the same worker ( all communication is done through Redis ). Imagine the following task , CreateUser, with the following steps:
+
+&amp;#x200B;
+
+\- verify\_registration\_data
+
+\- import\_existing\_data
+
+\- normalize\_imported\_data
+
+\- send\_onboarding\_email
+
+&amp;#x200B;
+
+Those tasks will be executed sequentially, starting with the verify\_registration\_data one, however, in some of the existing tasks, based on some condition, you could jump a few steps. The pattern employed throughout the system is that usually 
+
+the current step of the job will queue execution of the next step, with some arguments, so you could think of it like the output of a specific step in the job plan, becomes the input of the next step.
+
+&amp;#x200B;
+
+Imagine that for example step2 might download some data ( let's say a JSON file ) , and add some ""metadata"" fields, and it would need to pass it to the next step in the task. Because job steps might not be executed on the same worker, we usually upload the files to S3, and then the next step in the list will receive a URL which it would need to download. This pattern repeats in many jobs, and it adds up to quite a lot of time spent upload/downloading files.
+
+&amp;#x200B;
+
+I was toying with the idea of perhaps adding some kind of intermediate service and have all uploads/downloads pass through it, and have it running on each of the worker machine, and whenever I upload/download something through this 3rd service, broadcast a message so that all ""cache services"" would grab a copy, which they would keep in RAM, in order to be able to serve it faster. This, however will open up the door to possible race conditions and possibly difficult  cache invalidations. I thought also about saving those files in redis, but it would fill up redis really quick.
+
+&amp;#x200B;
+
+Have you guys been in a similar situation? If yes, how did you handle it?
+
+Thanks!"
+205,bsj9r7,eonudyi,comment,"Can’t the workers themselves supply the file? If they can you cut your IO time in half as there is no upload. For eg: worker finishes job, instead of uploading, the worker simply opens an end point for the next process to get the data."
+206,bsj9r7,eonun7h,comment,"Could you detail this a bit? The workers are not web apps, and even if they would be, since they're not executing on the same machine, wouldn't this introduce latency again, as a worker from machine A might need to do a request to a worker from machine B?"
+207,bsj9r7,eonwunk,comment,"As how you were thinking about a caching service, when a machine finishes a step, it doesn’t need to upload the file to any server at all. It can simply keep the copy with itself and say mark the file with an id. And send this id along with the machine’s address/port to the que. the next worker can see this address/port and file id and request the same from the first machine. This way you are only downloading the file and never uploading the files to another server. This works if you have control over the machines. And all you’ll need is a file/data server on your worker machines. So that other machines can request the files that they need (through the details they get in the queue)
+
+Other than that, caching or loading the file into ram of a third party server wouldn’t give you much advantage. Because your bottleneck is not how fast can the file be loaded into memory. Your bottle neck is the to and fro trips to the caching server that the file needs to go from machine A to caching server to machine B.
+
+Also:
+If machine A knows beforehand that machine B will execute the next step, then you might as well let machine B have a mechanism to receive the file locally/in-memory and use the file when it is ready. This way you are only uploading the file always and never downloading it. Again cuts your time in half."
+208,bsj9r7,eonxbhl,comment,"Interesting. I don't know ahead of time which machine will execute the next request. When one step is finished, a message gets pushed back into redis, and whichever worker manages to pop it first, will be the one executing. About the caching mechanism, I was thinking more of having each worker maching run a small(ish) in memory cache which would be notified whenever new files are uploaded, so that it would know to grab recently uploaded files. Not really sure whether this would be a good solution, as we ocasionally have bursts of tasks that we need to process, and I think RAM might get filled up really fast by these other services."
+209,bsj9r7,eonyjnf,comment,"Any opinions on using EFS ( [https://aws.amazon.com/efs/](https://aws.amazon.com/efs/) ) , or mounting the bucket via FUSE?"
+210,bsj9r7,eonz0l1,comment,"Yea each machine having a copy of all files gets you the speed you need. But then again if all of the files from all the machines will fit in the memory or not of each machine, you’d need to check your business requirements. If this doesn’t work, your safest bet would be to keep local copies of the files at each machine that other machines can pull when needed. If that doesn’t also work (because you have huge data from each machine that builds up fast) then s3 is the way to go.
+
+
+
+Btw, if you want to make your solution work and struggling to fit all files into memory, How about you extend your idea and do round robin caching? You have 10 machines, and each machine stores and executes only files that are file_number % machine_number == 0. That way each machine stores only 1/10th of the total cache store. I’m simplifying it, but you get the idea, if you have three machines that do specific step, then they store and process 1/3rd data each. Could work if you need a clever way to fit the data :)"
+211,bsj9r7,eonz83a,comment,Are your systems already in aws network? Or will you be bound by your internet speed?
+212,bsj9r7,eoo09mp,comment,"This sounds really clever, but wouldn't this pose some problems if the number of worker machines is scaled up/down?"
+213,bsj9r7,eonzhu2,comment,"Yes, everything is in AWS."
+214,bsj9r7,eoo153v,comment,"If you want to scale down, mark unprocessed files from the respective machines and add them to the distributer queue before nuking out the machines. If you want to scale up, increment your machine count and new machines will start working easily."
+215,clwmhp,clwmhp,question,"Hey all,
+
+Currently in the financial world and looking to get out. It has become a toxic work environment and I feel like I'm not gaining any new skills. To advance, I'd have to go into sales roles, which do not interest me. I was thinking of signing up at a Technical College near my house in their Software Development program to learn some new skills. The only experience I have was coding websites back in the early 2000's in HTML. My main concern is I have 2 colleagues who felt the same way about our job who quit, went to coding bootcamp, and a year later returned (with a whole bunch of debt) to the same job because they couldn't find anything in the Dev world. What I like about this tech college is they offer 2 externships with local companies along with job placement after graduation (82% success rate). These are two advantages I see over the bootcamps my colleagues did. In addition to that, it costs about 1/4 the price. It does take about 12 months, however, where their bootcamps lasted 6 months. I don't mind the extra time commitment, I feel like that will just give me more time to really learn the material. 
+
+&amp;#x200B;
+
+Anyways, my main question/concern is the course list. I'm not sure if the classes will give me relevant knowledge to be able to find a job after I'm done so I'm hoping someone can give an opinion on them. I honestly don't know what kind of jobs to be looking for once is all said and done, but I'm just looking to expand my resume a bit to create some opportunities. The course list is as follows:  **Introduction to Software Development,**  **HTML/CSS Basics,**  **Programming Basics,**  **SQL Fundamentals,**  **Linux Essentials,**  **Version Control Fundamentals,**  **Unit Testing,**  **JavaScript,**  **Java Programming I,**  **Java Programming II,**  **C++ Programming I,**  **C++ Programming II,**  **C# Programming I,**  **C# Programming II,**  **Database Development Fundamentals,**  **Web API Basics,**  **ASP.NET Applications,**  **PHP and MySQL,**  **Mobile Development: Android,**  **Mobile Development: iOS,**  **Software Development Externship,**  **Special Project I,**  **Special Project II,**  **Special Project III,**  **Math for Information Technology,**  **Microsoft Network Fundamentals** 
+
+&amp;#x200B;
+
+I guess I should also mention I'm about to turn 34 but still feel like I'm 21. Not sure if that makes a difference but I guess it's a concern when I know there will be tons of CS graduates out there competing for the same jobs who'll have an advantage over me. My bachelor's is in finance and I've basically just done financial services roles since I graduated. Based on that background, is there any type of work out there where I can leverage this experience and combine them with the skills I'll pick up in school? 
+
+Feel like this post is all over the place but can clear up anything with some editing.
+
+Thanks for hearing me out and for any advice you can give."
+216,clwmhp,evyd3eh,comment,"I don't have any experience in job switching or college vs bootcamp. 
+
+However the first thing that comes to mind when reading that course list is: Wow, that is a lot. I hope you are ment to pick and choose courses otherwise you will be left with a whole lot of nothing after 12 months.
+
+For example it makes no sense to learn Microsoft Network Fundamentals, iOS development and Java in the same 12 months if your goal is to get a job by the end of it. If you can pick and choose the right combinations i'm sure you can get something out of it.
+
+You have great domain knowledge in finance that will certainly be helpful if you manage to find a job within that field. You could be a web developer for a banking company for example. You might want to look into job opportunities in your area before you choose what to do.
+
+edit: spelling is hard"
+217,clwmhp,evypg8n,comment,"> My main concern is I have 2 colleagues who felt the same way about our job who quit, went to coding bootcamp, and a year later returned (with a whole bunch of debt) to the same job because they couldn't find anything in the Dev world.  
+
+If it were that easy, everyone would have a dev job. The competition for jobs is very fierce and employers tend to be picky about who they hire (and rightfully so)."
+218,clwmhp,evygqeq,comment,This is a good question for r/cscareerquestions
+219,clwmhp,evyqsng,comment,"Keep working your job. See if there are any programming skills you could apply to it, like automating things with selenium, writing excel scripts, making a mockup front end application that requests info from a database(JS -React(styled modules)/Express/GraphQL).  Implement some logic in there as well. Make something cool. 
+
+Start looking around for jobs that you want. Look at the requirements.
+
+Start learning those required skills in your free time, or even on the job.
+
+All of those skills listed in that course, you could learn for free online. You wouldn’t master any of those skills in the class anyways, it simply takes time and practice, class or self learned. 
+
+Apply to some jobs way before you’re ready. Some will even let you train yourself in and give you a roadmap similar to what a class or boot camp could offer. 
+
+No debt, free skills gained, skills that you learn are DIRECTLY applicable to your new domain. 
+
+
+Just a suggestion. 
+
+Good luck."
+220,clwmhp,evyoajl,comment,"That is a massive course load, I’m having a hard time imagining all that in one year.
+
+If you were already a self taught proficient programmer,  maybe that course load is feasible.  If you can figure out programming intuitively,  going through that course would probably just help you in the interview process, because you increase the odds you know a little about the employer’s preferred technology"
+221,clwmhp,evywjoo,comment,"The first thing I would say is have you looked for other jobs in your field? As soon as it starts getting shit get looking for jobs. Loyalty unfortunately doesn't get you much these days. I would also advise learning while still working. It'll take longer but the risk is so much smaller. It is not easy, if it was everyone would do it. If you want to put yourself ahead get a GitHub account and start posting projects. CVs give a good indication of experience but tell you nothing about actual coding skill. I would much rather see some actual projects rather than a big list of qualifications."
+222,clwmhp,evyx3iy,comment,"I'm torn on the school & course list.
+
+First let me start with this.  I have an uncle who wanted to change careers into IT.  He took a bunch of classes, spent a bunch of money, also got several technology certifications and never got an IT job.  He tried, but no one wanted to hire him for IT.  I'm guessing I'd they wanted to hire someone new to the field they probably also wanted them young (fresh out of college in their 20s).  
+
+No matter what you do, there is going to be some element of that you'll have to deal with.
+
+Now, back to learning.  Programming is hard.  It's really, really hard.  After only 1 year you're going to be terrible at it.  It takes at least 3+ years of 40 hour programming weeks to reach the level of just sucking at it.  To get okay is 5 to 7 years.  Takes probably 10 to actually be good at it.  Those are approximate MINIMUMS for everyone, no exceptions.  Did I mention that programming is hard?
+
+So, are you SURE you want this?  If you are just looking for a good alternative career go health care instead.  They have excellent training schools that you will be absolutely qualified to get a job after completing.  Health Care is much easier to get into or switch into.
+
+If you are hell bent on programming youre going to need school, dedication and time.  The reason they have so many courses at that school is to give you exposure.  You are going to be terrible at all of it, but see above everyone is terrible fresh out of school.  The idea of all those classes is you can apply to 90% of jobs and honestly say yes you have worked in that language. Which is not a terrible idea.
+
+But I wouldn't expect to just walk out of that school with a job.  Plan to spend additional passing some certification exams also.  And expect that it might take you 6 months just to land an entry level job.
+
+Oh, and remember, you are starting over.  You are going to get paid minimum with little vacation and poor benefits as a programmer because you are starting at the bottom."
+223,clwmhp,evyxdpa,comment,"As another user suggested maybe r/cscareerquestions would be better for your situation. I’m about to start my first year of software dev in college soon and just by comparing the two programs, please maybe rethink your options. All those courses in a span of 12 months? That seems like a lot to cram in such little time. Try looking into some more colleges and their programs, you might need to spend another year studying if you really want to get much out of it. I’d suggest a good boot camp, but most boot camps I’ve seen weren’t really for software dev, more for web dev or data science. Wish I could help more, but that’s my two cents."
+224,clwmhp,evz1sgy,comment,"Software development is hard job, which requires years and years of learning and very good motivation. 
+
+Try first some cheap but good online course and self-learning. If you have motivation to really go deep and create some simple own application, then plan how to continue."
+225,clwmhp,evyhbwh,comment,"+1 for this, I'd say check out what jobs are in demand in your area and look for boot camp with more focus. No need for so many languages at all. Java and C# I'd consider essentially the same anyway, in terms of Learning. And a year is nowhere near enough for all those languages. Do java or C# and networking, database, etc."
+226,clwmhp,evyj96y,comment,"Thanks for this. Sadly I'm not able to pick and choose from these, it's the required coursework for graduating. I will look into web developer jobs in my area and see what the requirements are."
+227,clwmhp,evyjaij,comment,Much appreciated. Did not know that sorta subreddit existed.
+228,clwmhp,evzh9wc,comment,"This is the cold hard truth. I was hoping to quit my job and go full-on coding, but that would be very unwise at this point. I need to suck it up and do both work and this on the side until I can transition completely after finding a job. 
+
+We actually have been expanding our cyber security and software dev group at my firm recently. I should probably go network a bit with them, find out what they are looking for, and focus on those skills there instead. It would probably be easier to find a job within the organization as opposed to outside. 
+
+Thanks"
+229,clwmhp,evzh26d,comment,"I am definitely not proficient in this stuff. I would basically be starting from scratch, aside from basic HTML. Might be in over my head from what it sounds like."
+230,clwmhp,evzhfks,comment,"Yes, I have looked at other jobs. Thing is, I'm pretty much stuck in this ""Customer Service"" role in finance. If I want to move up, I'd have to go into Sales or Management, neither of which really interest me tbh. You're right though. I've been so angry at my job, I've been to just want to walk out and go to school full time. But I know that wouldn't be wise. Where is a good place to get started if I wanted to do this on the side after work?"
+231,clwmhp,evyl7w8,comment,"Then no, do not take this course. 
+
+Why on earth would anyone try to cram 6-8 **different** languages into a 12 month course? You would only scratch the surface of so many things without being able to do anything in any of them... For perspective the Software Engineering bachelor first year courses (12 months) at my university looks like:
+
+- Introduction to programming
+- Computer Architecture and Operating Systems
+- Mathematics 1
+- Databases with Intermediate Programming
+- Software Engineering 1 with Database Project
+
+with the only language used being Java."
+232,clwmhp,ewbmt1f,comment,"To add to what the others have said, in the span of 4 years, I have learned the very basics of:
+
+Python, C#, Java, C++, and the absolute minimum assembly. Nothing else.
+
+Another 3 years later, I can only claim to be competent in Java and nothing else.
+
+6 languages in 12 months means you won't learn anything. Others keep suggesting ""it will be tough"", no, it's impossible. You will remain with nothing out of it, waste of time IMHO."
+233,clwmhp,evzm1s8,comment,"For cyber security you could look into the OSCP certification. You could apply this security knowledge to pentesting the company webapp and their local network. I would recommend this program, it helped me understand secure coding practices as well. 
+
+But if you don’t care about security or you are willing to do both security and development (some do), you should see if your company has any blockchain development projects they are thinking of doing. I feel like that is a big focus for a lot of financial firms. You could then learn substrate or ethereum smart contract development, and learn how to render that data to the GUI w react. Would probably get you a nice raise as well haha"
+234,clwmhp,evzgzl7,comment,"Yeah, good points. I have no idea why they try to cram all of those in. To be honest, I really only considered this because of the 2 internships they offer + job placement of 82%. Now it seems like I might be second guessing it."
+235,clwmhp,evzjbtk,comment,"Their contacts and internships are without a doubt valuable, but at what cost. At least talk to an advisor / professor about the course if you want to enrol.
+
+Otherwise as others have mentioned you could always pursue this on your free time, for free! Here are a few resources to get started:
+
+- [Automate the Boring Stuff](https://automatetheboringstuff.com/) with Python (the author also has an [Udemy course](https://www.udemy.com/automate/)). Aimed at beginners and quickly gets you into doing practical exercises. 
+
+- University of Helsinki has [Java MOOC](https://mooc.fi/en/) courses. These will be at very least be equal (if not better) to the Java courses you mentioned. Very good structure.
+
+Both of these will get you to a point where you can build things on your own and easily expand on that knowledge."

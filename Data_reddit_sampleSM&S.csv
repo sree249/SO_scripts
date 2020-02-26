@@ -1,0 +1,81 @@
+Id,Url,Title,Selftext,num_comments,score,creation_date
+crkotf,https://www.reddit.com/r/AskProgramming/comments/crkotf/is_programming_getting_oversaturated/,Is programming getting oversaturated?,"5 years ago when I was picking what to study I was looking at sector growth predictions and overall employment opportunities deciding to chose IT. The Overview seems to have massively changed since that time, before building your own computer was a techy thing and you could put it on your cv and that would count for something, people seemed to look at computers as some kind of magic. I just discovered a video from around that time how a guy got employed by doing css + html, but looking at job descriptions today the default proficiency is just something insane ( not impossible- just way different) The tech stacks, code interviews, the overall level seems to just be different. Is it just me or was it always like that?",105,47,8/17/2019 6:47
+c39uin,https://www.reddit.com/r/AskProgramming/comments/c39uin/aita_for_having_a_different_coding_style_from_our/,"AITA for having a different coding ""style"" from our senior?","Our team: two junior (me and my mate), one senior engineer. 
+
+Project is a backend in java for a web application in a IT company of 20 people. We are based in a medium size city, so not a big tech place.
+
+My mate loves clean code rules, he avoids creating long methods and instead breaks down the code in smaller methods with suggestive names. I became a fan because its easier to understand.
+
+I like to use lambdas instead of passing an anonymous class as a parameter to a method.
+
+Our senior hates our approach because, in his opinion, breaks code consistency. 
+
+We are designing new endpoints and usually the senior's handler only has a single method of 200+ lines. He also doesn't use lambdas. 
+
+We feel that we aren't breaking code consistency and that he is being to uptight and protective of his code but since we have little work experience, we aren't sure if we are reading the situation correctly. 
+
+Are we assholes for not wanting to comply with his rules?
+
+Edit: to the people down voting - please also leave a comment, I'm eager to read your reasoning and learn from it.",80,20,6/21/2019 8:16
+agcbuy,https://www.reddit.com/r/AskProgramming/comments/agcbuy/odd_pronunciations_youve_inherited_or_heard/,Odd pronunciations you've inherited or heard?,"I had a collaborator early on in my programming life who pronounced ""fopen"" as ""faux-pen"" and fwrite as ""fright."" Similarly scanf was pronounced as one syllable instead of ""scan-eff."" In general he did all the permutations as pronounced syllables. I inherited all these pronunciations and to this day I'll still say things like ""sss-scanf"" with a hiss or ""fuh-dope-en"" for fdopen, like I'm some sort of really lame Ryu who dropped out of street fighting to do develop financial services software.
+
+I'm curious what the other odd pronunciations are out there. Pandas vs pan-duss, etc.?",63,26,1/15/2019 14:38
+agcbuy,https://www.reddit.com/r/AskProgramming/comments/agcbuy/odd_pronunciations_youve_inherited_or_heard/,Odd pronunciations you've inherited or heard?,"I had a collaborator early on in my programming life who pronounced ""fopen"" as ""faux-pen"" and fwrite as ""fright."" Similarly scanf was pronounced as one syllable instead of ""scan-eff."" In general he did all the permutations as pronounced syllables. I inherited all these pronunciations and to this day I'll still say things like ""sss-scanf"" with a hiss or ""fuh-dope-en"" for fdopen, like I'm some sort of really lame Ryu who dropped out of street fighting to do develop financial services software.
+
+I'm curious what the other odd pronunciations are out there. Pandas vs pan-duss, etc.?",63,26,1/15/2019 14:38
+b14ooe,https://www.reddit.com/r/AskProgramming/comments/b14ooe/why_does_online_identification_always_require_a/,Why does online identification always require a unique username?,"Serious question, and I'd like a well thought out answer please.
+
+Assuming identity is determined by a unique tuple, why enforce an additional requirement for uniqueness on the first item of that tuple?
+
+Another way to look at it, why treat it internally as a tupple at all? Concat the two strings into a single large string, hash it cryptographically and enforce uniqueness on that alone",55,0,3/14/2019 15:35
+cqw1os,https://www.reddit.com/r/AskProgramming/comments/cqw1os/so_how_do_you_build_a_desktop_application/,So How Do you Build a Desktop Application?,"I see so many tutorials and guides for making websites that it's easy to see the process, but I'm at a loss for how to make desktop applications. What languages can be used? Are there frameworks for desktop apps? Are there guides online? Do you just use the same stuff for web app design now? I have no idea ....",51,27,8/15/2019 17:08
+bw7vwo,https://www.reddit.com/r/AskProgramming/comments/bw7vwo/burnt_out_lost_my_desire_and_afraid_that_i_am/,"Burnt out, lost my desire and afraid that I am sabotaging myself out of the industry","Listen, I can clearly see that this sub is for general programming questions, but I've got a different kind of question.
+
+I am burnt out. I feel like my skills are deteriorating and I have no desire to program at all. It used to be my number 1 goal and I would spend 8-10 hours programming, designing and architecting. I had a couple jobs go to shit and the allure of the industry is gone. I am tired of being lied to by recruiters and clients, tired of being pushed too hard and tired of sitting in front of a screen for 8 hours of my day. Nothing interests me anymore, I couldn't give a shit about the framework or library of the day. The only thing that remotely interests me anymore is systems programming and old C bullshit and hacks. I don't have a degree so I don't have the background to do that anyways. I've been in the industry for 7 years and it seems like the breaking point is now. I am sick of this industry and all of the shit it brings and the corporate nonsense and the never ending fetishizing of big N. I tried to go on my own but the clients I unfortunately found myself wrapped up in turned out to be another huge crock of bullshit. I've had interviews with the ol' Big N and failed miserably, couldn't even understand what the guy was saying (guy had the heaviest accent I've ever heard). When I still cared the pressure was so much I started abusing drugs. Thankfully I stopped.
+
+So to my question, is it over for me? Is there anything still here or should I do something else to make money? I absolutely detest web and app development. If you have felt like me, is there a light at the end of the tunnel? I'm pretty sure at this point I just want to take my ball and go home...just seems like such a waste of my life to learn all this for nothing. Are there any recommendations to get the spark back? I feel like I need to find an old IBM PC just to fuck around with and see if I can get into loving controlling the machine again...anyways apologies for the question and wall of text before hand.",45,37,6/3/2019 3:21
+c3gtcw,https://www.reddit.com/r/AskProgramming/comments/c3gtcw/can_you_code_a_full_project_without_internet/,Can you code a full project without internet?,"So here is the thing:
+
+I got a job as a web app developer at a new international company. They said that the job was to be secret, and that I can only work from their office, and aren't allowed to get the code. Not what I am used to being a freelancer but whatever, no big deal. 
+
+The interviewing process was nasty. They accepted around 30 guys for interviews. They only needed one however. So they continued to trim us down till 2 were left, me and another guy. After some tests, they chose me.
+
+Then they told me that I won't be allowed to use the internet while working on the project. This wasn't discussed before. Sure, I am very good at what I do, but I don't think I can do this. I use the internet a lot. I never really cared about memorizing stuff, since if you know how to look, everything is one google away. I told them at least whitelist some specific websites (stackoverflow, documentation for the frameworks I will be using), and they refused. So I told them I won't be able to do the job, so they went over to the second guy (the one that reached the ""finals"" with me) and he also refused. They told they will get back to me, but not to get my hopes up.
+
+What is more bizarre is that I will be working with third party APIs. That mean I can't even test the damn thing, even if I managed to program it properly.
+
+So is the problem with me? Can you guys do a full project without looking at the internet?",44,47,6/21/2019 17:34
+bxh9pr,https://www.reddit.com/r/AskProgramming/comments/bxh9pr/how_do_computers_spend_their_time/,How do computers spend their time?,"[Knuth wrote](https://www.johndcook.com/blog/2011/07/04/sorting/) ""Computer manufacturers of the 1960’s estimated that more than **25 percent of the running time of their computers was spent on sorting**, when all their customers were taken into account. In fact, there were many installations in which the task of sorting was responsible for more than half of the computing time.""  
+
+
+What do computers nowadays spend their time doing? in relation to algorithms you might study. As in 3-sat solvers are really good now. And work on them is important. But I doubt the total time spent solving 3-sat is a big % of all computation. Game rendering by GPUs would seem to be a big chunk of all computations.  
+
+
+Does anyone know what computers spend their time doing?",43,26,6/6/2019 10:20
+btcs4e,https://www.reddit.com/r/AskProgramming/comments/btcs4e/why_do_rest_apis_use_http_instead_of_plain_tcp/,Why do REST APIs use HTTP instead of plain TCP?,"Greetings,
+
+Just for clarification, I'm new to the modern programming trends and I've been always writing in C using old-school methods. I have recently learned Go, and I'm getting more comfortable with the language, and soon I'll get myself comfortable with web dev.
+
+So, my questions is: why do REST APIs use HTTP instead of plain TCP when it's just JSON objects being tossed back a forth?",42,8,5/26/2019 16:27
+b1tcr5,https://www.reddit.com/r/AskProgramming/comments/b1tcr5/c_programmers_how_do_you_do_gui/,"C++ programmers, how do you do GUI?",There seems to be no proper resources to learn Gtkmm other than the official documentation. Is it that uncommon to do GUI with C++?,38,16,3/16/2019 11:02
+bshtb6,https://www.reddit.com/r/AskProgramming/comments/bshtb6/does_anyone_else_not_like_coding_on_a_mechanical/,Does anyone else not like coding on a mechanical keyboard?,it gives me anxiety when there are people nearby,37,4,5/24/2019 10:48
+c95gki,https://www.reddit.com/r/AskProgramming/comments/c95gki/resume_tips_from_an_exgoogle_tech_lead/,Resume tips from an ex-google tech lead,"I've reviewed probably 100+ resumes in my career at Google. I no longer work there, but I wanted to share some of my top tips for those of you lucky enough to find this post.
+
+There's no catch, enjoy and learn:
+https://drive.google.com/open?id=10b9NZDhPbUOW_C7108IKe9ev6Ed2UG7F
+
+For more interview training with ex-Google &amp; ex-Facebook engineers, visit http://techinterviewpro.com/
+
+Cheers,
+TechLead
+
+
+edit: Thanks for gold!  As a professional troll, this really means a lot to me.  I am grateful that I am greatful.",37,110,7/4/2019 13:46
+bgmylb,https://www.reddit.com/r/AskProgramming/comments/bgmylb/developers_of_reddit_how_rewarding_is_your_job/,Developers of Reddit. How rewarding is your job? How much of your work is bug fixing vs developing new things?,"Two main questions in the title. I have been a web developer for about 1.5 years. 95% of this is bug fixes. These honestly burn me out after a while, i think it's made worse because we're understaffed and our frontend developer is being forced to work on backend stuff (good for him if he wants to learn but I know for a fact he hates it.) hence lots of bugs all with an less than ideal company culture. 5% are projects I'll get put on to add some new feature which is always fun and I always do well in. I just wanna know what all your experiences are like really. Am I just bitching and this is the norm?",36,32,4/23/2019 18:56
+bgb1yr,https://www.reddit.com/r/AskProgramming/comments/bgb1yr/machine_learning_and_neural_networks/,Machine learning and neural networks,"Hey everyone, 
+
+This is more of a broad question, I'm just not sure how to approach something like this yet.
+
+How, or what would be a good approach to creating an app where all the users contribute data to a machine learning model (neural network?) and those results are used to improve efficiency for other users on the app. For example, say there is an app where people take pictures of food and those pictures are used to train a model to help identify different foods. How could you take all of those models from all the users, combine them and use that big model to make identifying the foods more accurate for all users? 
+
+I've made models before with apples coreML, both text / photo based. But I'm unsure of how too (join?) them, like in the above example. If you could possibly lay it out generically, the steps one could take to go about it and I'll research further, I'm just lost on starting.",7,11,4/22/2019 22:46

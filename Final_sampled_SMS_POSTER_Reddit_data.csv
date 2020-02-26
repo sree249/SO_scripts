@@ -1,0 +1,131 @@
+,Unnamed: 0,Unnamed: 0.1,Id,Url,Title,Selftext,num_comments,score,creation_date
+270,144,144,abu0bs,https://www.reddit.com/r/AskProgramming/comments/abu0bs/is_there_an_alternate_place_to_download_an/,Is there an alternate place to download an up-to-date MinGW other than Sourceforge?,"The Sourceforge page is broken on this network, and there's no way to download it (the installer), so any suggestions would be appreciated thank you.",13,4,2019-01-02 09:47:22
+931,150,150,c73z1u,https://www.reddit.com/r/AskProgramming/comments/c73z1u/literate_tex_for_papers/,Literate TeX for papers,"In papers, I often don't know where numbers are coming from. The description is often not formal enough. Even if I'm reading the TeX source. 
+
+This is not true if I'm reading source code. For source code, I can unpeel any definition I want. 
+
+Is there a good way to merge these ideas? To be able to write papers so that for each number shown in a LaTeX document (I guess it'd have to be the latex source) one could see the exact method in which that number was generated, kind of like reading source code?
+
+Obviously, there'd be some automatic code generation going on, which differs from what most people do, which is just copy paste stuff around.",22,1,2019-06-29 16:10:48
+397,101,101,b0u78b,https://www.reddit.com/r/AskProgramming/comments/b0u78b/raspberry_pi_wifijammer_to_run_on_startup/,Raspberry Pi WifiJammer to run on startup,"OK, so I have installed wifijammer for kali on my raspberry pi but I need this to run immediate on startup. How will I accomplish this?",18,0,2019-03-13 21:19:34
+483,14,14,bftfr2,https://www.reddit.com/r/AskProgramming/comments/bftfr2/c_does_array_dereference_pointers/,C++: Does array dereference pointers?,"If I have a 2d array, by using subscript it automatically dereference the pointers right?",14,12,2019-04-21 16:48:01
+995,24,24,cfnsar,https://www.reddit.com/r/AskProgramming/comments/cfnsar/windowslinux_for_programming/,Windows/Linux for Programming?,"Hello,
+
+Recently bought a Windows 10 PC because it was required for my ML-related grad program. I've mostly used Mac for the last 14 years or so, and learned how to program on Macs.
+
+Straight to the question, is it good/common practice to install Linux or Linux virtual machines for programming on PCs? Sorry if this is an amateur question, I'm much less of a software engineer and mostly program for ML/big data purposes.
+
+Reasoning being that I was shocked at how few libraries/programs were accessible or even properly maintained for Windows programming. I've had to use some extreme workarounds just to get basic functionality for many applications, and even then I've had problems with Windows-specific bugs or crashes. I'm also using a pretty popular pre-built laptop.
+
+I'm pretty certain I'm not making any major mistakes; I've done really extensive research and the general sentiment of commenters/bloggers just makes it seem like everything is just way more convenient on Unix.
+
+Would appreciate some advice.",16,3,2019-07-20 12:36:16
+548,87,87,bdm3z4,https://www.reddit.com/r/AskProgramming/comments/bdm3z4/do_syntax_detectors_for_languages_exist/,"Do ""syntax detectors"" for languages exist?","Hello all,
+
+I have been learning web development over the past few years and have progressed significantly. Right now I am learning React. However, in my studies I run across a recurring problem: I see something in some code, and it is unexplained. The problem I'm running into right now is very specific, but can be generalized pretty easily. For example, this syntax from the styled components documentation:
+
+    const Button = styled.button`
+      /* Adapt the colors based on primary prop */
+      background: ${props =&gt; props.primary ? ""palevioletred"" : ""white""};
+      color: ${props =&gt; props.primary ? ""white"" : ""palevioletred""};
+
+      font-size: 1em;
+      margin: 1em;
+      padding: 0.25em 1em;
+      border: 2px solid palevioletred;
+      border-radius: 3px;
+    `;
+
+My Javascript is not great, I am learning it but it will be a while before I know it all. Here I don't understand what the ` is doing. Presumably that's some kind of base Javascript functionality, but I don't understand what it does?
+
+Is there somewhere where I can input code and have it highlight what the syntax is? For example, in Python if I input something that contained ""Foo.attribute"" it would link me to using the attributes of an object.
+
+It seems like it would be pretty straight forward to build seeing as how interpreters already know what all the syntax means.
+
+Does this exist? If not, maybe I'll build it!",14,15,2019-04-15 18:20:38
+352,44,44,aymhvj,https://www.reddit.com/r/AskProgramming/comments/aymhvj/should_i_learn_c_if_i_like_c_for_market_reasons/,Should i learn C# if i like C++ for market reasons ?,"I like C++ and I'm planning to learn it (because i like the language), but do you guys think that i also should learn C# for having more job offers ? ",14,4,2019-03-08 00:14:20
+1269,161,161,cnzt8t,https://www.reddit.com/r/AskProgramming/comments/cnzt8t/just_a_reminder/,Just a Reminder,"Since there are so many people here who have insecurities and/or struggle with different tasks.
+If you’re a student or a junior dev you really shouldn’t worry about failing or being “not good enough”. No one expects you to be an expert.
+You are supposed to learn by doing and thats easier without putting to much pressure on yourself. 
+
+(Sorry for my bad englisch)",14,75,2019-08-09 05:10:33
+899,112,112,bwdl7b,https://www.reddit.com/r/AskProgramming/comments/bwdl7b/equivalent_program_in_your_favorite_programming/,"Equivalent program in your favorite programming language, code golfers welcome.","    
+	program simple;
+	uses crt;
+	begin
+	  while true do
+	  begin
+		write('.');
+		if KeyPressed and (readkey = ^C) then
+		   Halt;
+	  end;
+	end.",14,2,2019-06-03 13:47:16
+840,37,37,c1erzy,https://www.reddit.com/r/AskProgramming/comments/c1erzy/is_this_legit/,Is this legit?,"I know this is a weird one, possibly out of place but:
+
+&amp;#x200B;
+
+ [https://www.reddit.com/r/slavelabour/comments/c1awb8/offer\_i\_can\_make\_apps\_games\_or\_website\_to/](https://www.reddit.com/r/slavelabour/comments/c1awb8/offer_i_can_make_apps_games_or_website_to/) 
+
+&amp;#x200B;
+
+This can't be legit, right? I'm not crazy, am I? I am not a programmer, but it seems to me that two of his games would take too much work, even multiple people. The prices can't be right, right?  
+
+
+I'd appreciate any responses.",11,0,2019-06-16 16:50:28
+1191,74,74,cy1f5u,https://www.reddit.com/r/AskProgramming/comments/cy1f5u/beginner_coder/,Beginner Coder,"I'm trying to learn how to code but I'm having trouble having to figure out what program to start with?? HTML? CSS? JS? 
+
+ Any advice on which programs to learn first to land me a great job?!?!",14,3,2019-08-31 17:47:25
+1171,49,49,crpnbl,https://www.reddit.com/r/AskProgramming/comments/crpnbl/how_can_i_use_instagram_api_to_post_a_comment/,how can i use Instagram API to post a comment whenever a new post happens?," i do need to make a comment when a new post get's posted and that comment should be on the new post .. i have never used Instagram so how can i simply do that ?
+
+just like when the posts number get's increased post the comment on the latest post . [image](https://i.stack.imgur.com/IdUFD.png)",12,0,2019-08-17 14:05:36
+644,6,6,bpo61l,https://www.reddit.com/r/AskProgramming/comments/bpo61l/how_do_you_get_good_at_open_source_project/,How do you get good at open source project?,"I'm currently a junior working in a company that provides an services through an open source LMS. And the stack is pretty much convoluted and there is so much going on. There are times where they're asking me to produce certain features that are way beyond my capabilities.
+
+How do I actually approach my work because I'm starting to feel that my growth is being stunted. There are days where I jump from file to file trying to find what produces data that I need. Then I just go into a loop. I'm starting to feel bad that I seem don't to get anywhere. I'm also worried that I can't use the things I learned if I moved to another company. As I only learned a bit of things on the stack. Please guide me.",13,27,2019-05-17 03:23:28
+732,105,105,bsj9r7,https://www.reddit.com/r/AskProgramming/comments/bsj9r7/ideas_for_optimizing_time_spent_doing_io_on/,Ideas for optimizing time spent doing IO on background tasks?,"Hello,
+
+I'm working with a legacy job processing system, in which each task has a concept of smaller steps. This is a multi process system, where steps of a particular task might or might not be executed on the same worker ( all communication is done through Redis ). Imagine the following task , CreateUser, with the following steps:
+
+&amp;#x200B;
+
+\- verify\_registration\_data
+
+\- import\_existing\_data
+
+\- normalize\_imported\_data
+
+\- send\_onboarding\_email
+
+&amp;#x200B;
+
+Those tasks will be executed sequentially, starting with the verify\_registration\_data one, however, in some of the existing tasks, based on some condition, you could jump a few steps. The pattern employed throughout the system is that usually 
+
+the current step of the job will queue execution of the next step, with some arguments, so you could think of it like the output of a specific step in the job plan, becomes the input of the next step.
+
+&amp;#x200B;
+
+Imagine that for example step2 might download some data ( let's say a JSON file ) , and add some ""metadata"" fields, and it would need to pass it to the next step in the task. Because job steps might not be executed on the same worker, we usually upload the files to S3, and then the next step in the list will receive a URL which it would need to download. This pattern repeats in many jobs, and it adds up to quite a lot of time spent upload/downloading files.
+
+&amp;#x200B;
+
+I was toying with the idea of perhaps adding some kind of intermediate service and have all uploads/downloads pass through it, and have it running on each of the worker machine, and whenever I upload/download something through this 3rd service, broadcast a message so that all ""cache services"" would grab a copy, which they would keep in RAM, in order to be able to serve it faster. This, however will open up the door to possible race conditions and possibly difficult  cache invalidations. I thought also about saving those files in redis, but it would fill up redis really quick.
+
+&amp;#x200B;
+
+Have you guys been in a similar situation? If yes, how did you handle it?
+
+Thanks!",10,1,2019-05-24 12:52:17
+1133,6,6,clwmhp,https://www.reddit.com/r/AskProgramming/comments/clwmhp/another_hate_my_job_want_to_switch_careers_post/,"Another ""hate my job want to switch careers"" post","Hey all,
+
+Currently in the financial world and looking to get out. It has become a toxic work environment and I feel like I'm not gaining any new skills. To advance, I'd have to go into sales roles, which do not interest me. I was thinking of signing up at a Technical College near my house in their Software Development program to learn some new skills. The only experience I have was coding websites back in the early 2000's in HTML. My main concern is I have 2 colleagues who felt the same way about our job who quit, went to coding bootcamp, and a year later returned (with a whole bunch of debt) to the same job because they couldn't find anything in the Dev world. What I like about this tech college is they offer 2 externships with local companies along with job placement after graduation (82% success rate). These are two advantages I see over the bootcamps my colleagues did. In addition to that, it costs about 1/4 the price. It does take about 12 months, however, where their bootcamps lasted 6 months. I don't mind the extra time commitment, I feel like that will just give me more time to really learn the material. 
+
+&amp;#x200B;
+
+Anyways, my main question/concern is the course list. I'm not sure if the classes will give me relevant knowledge to be able to find a job after I'm done so I'm hoping someone can give an opinion on them. I honestly don't know what kind of jobs to be looking for once is all said and done, but I'm just looking to expand my resume a bit to create some opportunities. The course list is as follows:  **Introduction to Software Development,**  **HTML/CSS Basics,**  **Programming Basics,**  **SQL Fundamentals,**  **Linux Essentials,**  **Version Control Fundamentals,**  **Unit Testing,**  **JavaScript,**  **Java Programming I,**  **Java Programming II,**  **C++ Programming I,**  **C++ Programming II,**  **C# Programming I,**  **C# Programming II,**  **Database Development Fundamentals,**  **Web API Basics,**  **ASP.NET Applications,**  **PHP and MySQL,**  **Mobile Development: Android,**  **Mobile Development: iOS,**  **Software Development Externship,**  **Special Project I,**  **Special Project II,**  **Special Project III,**  **Math for Information Technology,**  **Microsoft Network Fundamentals** 
+
+&amp;#x200B;
+
+I guess I should also mention I'm about to turn 34 but still feel like I'm 21. Not sure if that makes a difference but I guess it's a concern when I know there will be tons of CS graduates out there competing for the same jobs who'll have an advantage over me. My bachelor's is in finance and I've basically just done financial services roles since I graduated. Based on that background, is there any type of work out there where I can leverage this experience and combine them with the skills I'll pick up in school? 
+
+Feel like this post is all over the place but can clear up anything with some editing.
+
+Thanks for hearing me out and for any advice you can give.",20,14,2019-08-04 10:02:01
